@@ -19,7 +19,7 @@ describe "Realiza o login e acessa a página de configuração do sistema", :sys
 
             puts 'Encontrando o elemento "Tipo de coleta" e selecionando um valor'
             select('Realtime sem coleta', from: 'MainContentMainMaster_MainContent_ddlCollectType')
-            sleep 2
+            sleep 1
         end
     end
 end
