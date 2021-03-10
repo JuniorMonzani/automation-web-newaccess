@@ -12,10 +12,10 @@ RSpec.configure do |config|
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
-
   config.include Capybara::DSL
 end
 
 Capybara.configure do |config|
   config.default_driver = :selenium_chrome
 end
+
