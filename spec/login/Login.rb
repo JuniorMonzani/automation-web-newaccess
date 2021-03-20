@@ -9,10 +9,11 @@ class Login
   def receiveCorrectPass
     puts 'Digite a senha do usuário "admin": '
     correctPass = $stdin.gets.strip
+   
     return correctPass.to_s
   end
 
-  def makelogin(fieldlogin, fieldpassword)
+  def makeLogin(fieldlogin, fieldpassword)
     fill_in      'txtUsrLogin',      with: fieldlogin
     fill_in      'txtUserPassLogin', with: fieldpassword
     click_button 'Submit1'

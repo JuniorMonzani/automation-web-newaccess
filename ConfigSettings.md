@@ -5,6 +5,18 @@ Alterando o arquivo 'settings.json' o código é indentado automaticamente ao sa
 Caminho do arquivo: C:\Users\User\AppData\Roaming\Code\User
 
 ##########################################################
+
+#antigo:
+
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "kite.showWelcomeNotificationOnStartup": false
+}
+
+##########################################################
+
+#novo:
+
 {
     "files.autoGuessEncoding": true,
     "editor.formatOnSave": true,
