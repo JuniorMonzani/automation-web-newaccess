@@ -22,24 +22,20 @@ describe 'Realiza o login e acessa a página de configuração do sistema', :sys
 
     it 'Marcando o checkbox de Sincronismo de pessoas e credenciais.', :checkBox do
 
-      puts  'Marcando o checkbox de Sincronismo de pessoas e credenciais.'
+      puts    'Marcando o checkbox de Sincronismo de pessoas e credenciais.'
       check('MainContentMainMaster_MainContent_cbxSyncData')
     end
 
     it 'Selecionando radio Buttons na aba Acesso', :radioButton do
       click_link 'Acesso'
-      sleep 1
       puts 'Selecionando o radioButton "Ao associar credencial provisória à pessoa..."'
       find('input[value=rdAssociatingProvisionalPreventOriginal]').click
-      sleep 1
 
       puts 'Selecionando o radioButton "Bloqueia a pessoa se a mesma possuir uma credencial..."'
       find('input[value=rdBlockPersonIfUseOriginal]').click
-      sleep 1
 
       puts 'Selecionando o radioButton "Ao passar credencial original..."'
       find('input[value=rdPassingOriginalDisassociateProvisional]').click
-      sleep 1
     end
 end
 

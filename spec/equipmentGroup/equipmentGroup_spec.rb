@@ -1,17 +1,19 @@
+require "./login/login.rb"
+require "./equipmentGroup/equipmentGroup.rb"
+
 describe 'Realiza o login e acessa a página de cadastro de Grupo de equipamento', :equipmentGroup do
   context 'Realizando login no sistema e fazendo testes diversos na tela de Configuração do sistema' do
+
+    accessPage = EquipmentGroup.new
+    login = Login.new
+
     before(:each) do
-      visit 'http://laboratorio.mdacesso.com.br/Groups/EquipmentGroupsLst.aspx'
-      sleep 1
-      fill_in      'txtUsrLogin',      with: 'admin'
-      fill_in      'txtUserPassLogin', with: 'madis2020@'
-      click_button 'Submit1'
-      sleep 2
-      click_button 'Cadastrar'
-      sleep 1
+      accessPage.visitEquipmentGroup
+      login.makeLogin('admin', "#{$password}")
     end
 
     it 'Associando e desassociando equipamentos ao grupo', :associatedEquipment do
+      click_button 'Cadastrar'
       puts 'Encontrando um equipamento no grupo de "disponíveis" e selecionando-o'
       select('2 - FaceAccessII', from: 'MainContentMainMaster_MainContent_lstEquipment_lstLeft')
       sleep 1
