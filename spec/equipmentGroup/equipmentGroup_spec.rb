@@ -20,7 +20,6 @@ describe 'Realiza o login e acessa a página de cadastro de Grupo de equipamento
 
       puts 'Clicando no botão que associa um equipamento disponível ao grupo'
       find('#MainContentMainMaster_MainContent_lstEquipment_btnTransferToRight').click
-      sleep 1
 
       puts 'Encontrando um equipamento no grupo de "associados ao grupo" e selecionando-o'
       select('2 - FaceAccessII', from: 'MainContentMainMaster_MainContent_lstEquipment_lstRight')
@@ -28,10 +27,6 @@ describe 'Realiza o login e acessa a página de cadastro de Grupo de equipamento
 
       puts 'Clicando no botão que desassocia um equipamento associado ao grupo'
       find('#MainContentMainMaster_MainContent_lstEquipment_btnTransferToLeft').click
-      sleep 1
-    end
-
-    after(:each) do
       sleep 1
     end
   end
