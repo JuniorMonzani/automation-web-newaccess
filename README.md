@@ -1,9 +1,7 @@
-##########################################
-#####AUTOMAÇÃO NEWACCESSII / MDACESSO#####
-##########################################
 
+#Automação DMPAccessII / MDAcesso 
 
-################################################################################
+-------------------------------------------------------------------------------
 Data: 24/03/2021
 
 Projeto de automação de testes web para o sistema DMPAccessII / MDAcesso com Capybara e Ruby.
@@ -47,4 +45,4 @@ Abaixo segue uma lista de casos que serão implementados para cada tela do siste
 - Validar informações salvas (validando o cadastro do registro salvo)
 - Validar informações persistidas no BD quando salvas
 
-################################################################################
+-------------------------------------------------------------------------------
