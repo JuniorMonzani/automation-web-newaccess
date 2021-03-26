@@ -2,23 +2,11 @@
 #Automação DMPAccessII / MDAcesso 
 
 -------------------------------------------------------------------------------
-Data: 24/03/2021
+Data: 26/03/2021
 
-Projeto de automação de testes web para o sistema DMPAccessII / MDAcesso com Capybara e Ruby.
-Inicialmente os testes serão realizados utilizando uma empresa de teste na nuvem, onde para conseguir
-executar o projeto será necessário informar o login e senha corretos.
-Priorizaremos algumas telas, são elas:
-
-1. Login
-
-2. Ambiente de Sistema
-	- Configuração de Sistema
-
-3. Pessoas
-	- Cadastro de Pessoa
-
-4. Visitante
-	- Cadastro de visitante
+Projeto de automação de testes web para o sistema DMPAccessII / MDAcesso com linguagem Ruby e frameworks RSpec e Capybara.
+Inicialmente os testes serão realizados utilizando uma empresa de teste na nuvem, onde para conseguir executar o projeto
+será necessário informar o login e senha corretos.
 
 Abaixo segue uma lista de casos que serão implementados para cada tela do sistema:
 
@@ -44,5 +32,7 @@ Abaixo segue uma lista de casos que serão implementados para cada tela do siste
 - Salvar
 - Validar informações salvas (validando o cadastro do registro salvo)
 - Validar informações persistidas no BD quando salvas
+- Alterar
+- Excluir
 
 -------------------------------------------------------------------------------
