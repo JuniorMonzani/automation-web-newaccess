@@ -3,6 +3,6 @@ class EquipmentGroup
     include Capybara::DSL
 
     def visitEquipmentGroup
-        visit 'http://laboratorio.mdacesso.com.br/Groups/EquipmentGroupsLst.aspx'
+        visit 'http://laboratorio.mdacesso.com.br/Groups/EquipmentGroupEdt.aspx?OperationType=create&chkLastTen=False&currentPaginationIndex=1'
     end
 end

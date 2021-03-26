@@ -66,7 +66,19 @@ Feature: EquipmentGroup
     When eu comparo com os valores esperados
     Then deve conter todos os valores esperados
 
-    @fieldDestinationAreaDisabled
-    Scenario: fieldDestinationAreaDisabled
+    @fieldDestinationAreaDisabledHasDestinationArea
+    Scenario: fieldDestinationAreaDisabledHasDestinationArea
     Given que eu desmarque o campo "Grupo tem área de destino"
     Then o campo "Área destino" deve ficar desabilitado
+
+    @registerEquipmentGroupSuccess
+    Scenario: registerEquipmentGroupSuccess
+    Given que eu preencha todos os campos obrigatórios de forma correta
+    And marque o campo "Controla aceso de veículos"
+    And marque o campo "Respeita horário de verão"
+    And selecione o "Fuso Horário" como "03:00"
+    And selecione o "Controla sorteio" como "Área origem"
+    And adicione uma data válida no campo "Data inicial"
+    And adicione uma data válida no campo "Data final"
+    When eu clico no botão "Salvar"
+    Then o grupo de equipamento deve ser salvo com sucesso
