@@ -1,27 +1,31 @@
+
 @login
 Feature: Login
     Como um usuário do sistema DMPAccessII / MDAcesso
     Realizar o login no sistema
     Para ter acesso às funcionalidades de usuário logado
 
-Background:
-    Given que o usuário "Admin" tem permissão
+    Background:
+        Given que o usuário "Admin" tem permissão
 
-Scenario: invalidUser
-    Given que estou na página de login do sistema
-    And que preenchi as informações inválidas
-    When ao clicar no botão "Entrar"
-    Then uma mensagem de erro é apresentada
+    @invalidUser
+    Scenario: invalidUser
+        Given que estou na página de login do sistema
+        And que preenchi as informações inválidas
+        When ao clicar no botão "Entrar"
+        Then uma mensagem de erro é apresentada
 
-Scenario: invalidPass
-    Given que estou na página de login do sistema
-    And informei um usuário válido
-    And informei a senha incorreta
-    When ao clicar no botão "Entrar"
-    Then uma mensagem de erro é apresentada
-
-Scenario: correctLogin
-    Given que estou na página de login do sistema
-    And que preenchi as informações válidas
-    When ao clicar no botão "Entrar"
-    Then o título da página deve ser "MD Acesso - Sistema de Controle de Acesso"
+    @invalidPass
+    Scenario: invalidPass
+        Given que estou na página de login do sistema
+        And informei um usuário válido
+        And informei a senha incorreta
+        When ao clicar no botão "Entrar"
+        Then uma mensagem de erro é apresentada
+        
+    @correctLogin
+    Scenario: correctLogin
+        Given que estou na página de login do sistema
+        And que preenchi as informações válidas
+        When ao clicar no botão "Entrar"
+        Then o título da página deve ser "MD Acesso - Sistema de Controle de Acesso"
