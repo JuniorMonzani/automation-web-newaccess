@@ -1,18 +1,16 @@
 require "./login/Login.rb"
 require "./person/person.rb"
 
-describe  'Realiza o login e acessa a página de cadastro de Pessoa', :person do
-  title = 'Acessa a página e realiza testes diversos na tela de cadastro de Pessoa'
-
+describe 'Realiza o login e acessa a página de cadastro de Pessoa', :person do
   accessPage = Person.new
   login = Login.new
 
   before(:each) do
-    accessPage.visitRegisterPerson
-    login.makeLogin('admin', "#{$password}")
+    accessPage.visit_Register_Person
+    login.make_Login('admin', "#{$password}")
   end
 
-  it     'Realizando upload de foto no cadastro de Pessoa', :pictureUpload do
+  it 'Realizando upload de foto no cadastro de Pessoa', :pictureUpload do
     puts 'Realizando upload de foto no cadastro de Pessoa'
     click_button 'Cadastrar'      
     # Obtem o diretório raiz de execução do projeto, assim da pra montar o caminho relativo das imagens

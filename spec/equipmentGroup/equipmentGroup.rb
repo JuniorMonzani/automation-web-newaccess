@@ -10,9 +10,9 @@ class EquipmentGroup
 
     #preenche os campos do cadastro de grupo de equipamento
     def fills_In_Equipment_Group(number, description, originArea, destinationArea, vehicleAccess, hasDestinationArea, daylightSaving)
-        fill_in 'MainContentMainMaster_MainContent_txtNumber', with: number
-        fill_in 'MainContentMainMaster_MainContent_txtDescription', with: description
-        fill_in 'MainContentMainMaster_MainContent_txtOriginArea', with: originArea
+        fill_in 'MainContentMainMaster_MainContent_txtNumber',          with: number
+        fill_in 'MainContentMainMaster_MainContent_txtDescription',     with: description
+        fill_in 'MainContentMainMaster_MainContent_txtOriginArea',      with: originArea
         fill_in 'MainContentMainMaster_MainContent_txtDestinationArea', with: destinationArea
 
         #verifica o valor informado para o checkbox, se for verdadeiro marca o campo, se for falso desmareca
@@ -46,8 +46,4 @@ class EquipmentGroup
         select("#{equipment}", from: 'MainContentMainMaster_MainContent_lstEquipment_lstRight')
         find('#MainContentMainMaster_MainContent_lstEquipment_btnTransferToLeft').click
     end
-
-    
-
-
 end

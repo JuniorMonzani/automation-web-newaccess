@@ -6,8 +6,8 @@ describe 'Realiza o login e acessa a página de configuração do sistema', :sys
   login = Login.new
 
   before(:each) do
-    accessPage.visitSystemConfiguration
-    login.makeLogin('admin', "#{$password}")
+    accessPage.visit_System_Configuration
+    login.make_Login('admin', "#{$password}")
   end
 
     it 'Encontrando o elemento "Tipo de coleta" e selecionando um valor.', :selectCombo do
