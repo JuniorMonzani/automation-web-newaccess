@@ -54,10 +54,24 @@ describe 'Realiza o login e acessa a página de cadastro de Grupo de equipamento
     expect(find('#divIdBodyBusinessError')).to have_content '- O grupo de equipamentos tem que ser associado a um equipamento ou porta, pelo menos'   
   end
 
-  it 'Valida os valores contidos no dropbox Fuso horário', :verifyValuesTimeZone do
-    puts 'Valida os valores contidos no dropbox Fuso horário'
+  it 'Valida os valores contidos no dropbox "Fuso horário"', :verifyValuesTimeZone do
+    puts 'Valida os valores contidos no dropbox "Fuso horário"'
     values = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlTimeZone', $TIME_ZONE)
     expect(values).to be_truthy
   end
+
+  it 'Valida os valores contidos no dropbox "Controla sorteio"', :verifyValuesControlSortition do
+    puts 'Valida os valores contidos no dropbox "Controla sorteio"'
+    values = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlControlSortition', $CONTROL_SORTITION_HAS_DESTINATION_AREA)
+    expect(values).to be_truthy
+  end
+
+  it 'Valida os valores contidos no dropbox "Controla sorteio" após desmarcar a flag "Grupo tem área de destino"', :verifyValuesControlSortitionNoHasDestinationArea do
+    equipmentGroup.fills_In_Equipment_Group('','','','', false, false, false)
+    puts 'Valida os valores contidos no dropbox "Controla sorteio" após desmarcar a flag "Grupo tem área de destino"'
+    values = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlControlSortition', $CONTROL_SORTITION_NO_HAS_DESTINATION_AREA)
+    expect(values).to be_truthy
+  end
+
 end
 

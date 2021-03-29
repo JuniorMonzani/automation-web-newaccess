@@ -59,8 +59,8 @@ Feature: EquipmentGroup
     When eu comparo com os valores esperados
     Then deve conter todos os valores esperados
 
-    @verifyValuesControlSortitionHasDestinationArea
-    Scenario: verifyValuesControlSortitionHasDestinationArea
+    @verifyValuesControlSortitionNoHasDestinationArea
+    Scenario: verifyValuesControlSortitionNoHasDestinationArea
     Given que eu desmarque o campo "Grupo tem área de destino"
     And que eu obternha todos os valores do dropbox "Controla Sorteio"
     When eu comparo com os valores esperados
