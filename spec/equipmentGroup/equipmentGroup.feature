@@ -21,7 +21,7 @@ Feature: EquipmentGroup
 
     @fieldDescriptionRequired
     Scenario: fieldDescriptionRequired
-    Given que eu não preencho o campo "Descrição"
+    Given que eu não preencha o campo "Descrição"
     And preencho corretamente todas os outros campos necessários para efetuar o cadastro
     When eu clico no botão "Salvar"
     Then deve existgir uma validação no campo "Descrição" pois o mesmo é obrigatório e não foi informado
