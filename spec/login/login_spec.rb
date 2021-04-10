@@ -1,6 +1,6 @@
-require "./login/Login.rb"
+require "login/Login"
 
-describe 'Valida o login do sistema', :login do
+describe 'Realiza testes de login no sistema.', :login do
   #pede a senha correta do usuário 'admin' para ser utilizada posteriormente  
   login = Login.new
   $password = login.receive_Correct_Pass
@@ -9,27 +9,22 @@ describe 'Valida o login do sistema', :login do
     login.visit_Login_NewAccess
   end
 
-  it 'Valida o login com um usuário inválido', :invalidUser do
-    puts 'Valida o login com um usuário inválido'
-    login.make_Login('teste123','senha')
-    expect(find('#businessError')).to have_content '- Senha ou login não conferem. Por favor, tente novamente.'   
-  end
+  context 'Valida login no sistema com:' do
+    it 'Usuário inválido', :invalidUser do
+      login.make_Login('teste123','senha')
+      expect(find('#businessError')).to have_content '- Senha ou login não conferem. Por favor, tente novamente.'   
+    end
 
-  it 'Valida o login com senha incorreta', :invalidPass do
-    puts 'Valida o login com senha incorreta'
-    login.make_Login('admin','senha123')
-    expect(find('#businessError')).to have_content '- Senha ou login não conferem. Por favor, tente novamente.'   
-  end
+    it 'Senha incorreta', :invalidPass do
+      login.make_Login('admin','senha123')
+      expect(find('#businessError')).to have_content '- Senha ou login não conferem. Por favor, tente novamente.'   
+    end
 
-  it 'Realiza login no sistema', :correctLogin do
-    #valida se o título da página é o esperado
-    puts 'Valida se o título da página é o esperado'
-    expect(page.title).to eql 'Sistema de Controle de Acesso'
-
-    puts 'Realiza login no sistema'
-    login.make_Login('admin', "#{$password}") 
-
-    puts 'Valida se houve login correto no sistema'
-    expect(page.title).to eql 'MD Acesso - Sistema de Controle de Acesso'   
+    it 'Sucesso', :correctLogin do
+      #valida se o título da página é o esperado
+      expect(page.title).to eql 'Sistema de Controle de Acesso'
+      login.make_Login('admin', "#{$password}") 
+      expect(page.title).to eql 'MD Acesso - Sistema de Controle de Acesso'   
+    end
   end
 end

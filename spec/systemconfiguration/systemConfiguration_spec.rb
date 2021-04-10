@@ -1,7 +1,7 @@
-require "./login/Login.rb"
-require "./systemconfiguration/systemConfiguration.rb"
+require "login/Login"
+require "systemConfiguration/systemConfiguration"
 
-describe 'Realiza o login e acessa a página de configuração do sistema', :systemConfiguration do
+describe 'Realiza testes na página de Configuração do Sistema.', :systemConfiguration do
   accessPage = SystemConfiguration.new
   login = Login.new
 
@@ -10,19 +10,16 @@ describe 'Realiza o login e acessa a página de configuração do sistema', :sys
     login.make_Login('admin', "#{$password}")
   end
 
-    it 'Encontrando o elemento "Tipo de coleta" e selecionando um valor.', :selectCombo do
-      puts 'Encontrando o elemento "Tipo de coleta" e selecionando um valor.'
+    it 'Selecionando um valor no campo "Tipo de coleta"', :selectCombo do
       select('Realtime sem coleta', from: 'MainContentMainMaster_MainContent_ddlCollectType')
     end
 
-    it 'Desmarcando o checkbox de Sincronismo de pessoas e credenciais.', :uncheckBox do
+    it 'Uncheck Sincronismo de pessoas e credenciais', :uncheckBox do
       puts    'Desmarcando o checkbox de Sincronismo de pessoas e credenciais.'
       uncheck('MainContentMainMaster_MainContent_cbxSyncData')
     end
 
-    it 'Marcando o checkbox de Sincronismo de pessoas e credenciais.', :checkBox do
-
-      puts    'Marcando o checkbox de Sincronismo de pessoas e credenciais.'
+    it 'Check Sincronismo de pessoas e credenciais', :checkBox do
       check('MainContentMainMaster_MainContent_cbxSyncData')
     end
 

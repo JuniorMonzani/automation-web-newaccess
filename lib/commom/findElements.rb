@@ -4,10 +4,10 @@ class FindElements
 
     #realiza validação dos valores de dropbox
     def verify_Values_DropBox(css_selector, arrayValues)
-        #guarda no array 'dropTimeZone' os valores encontrados na busca pelo dropbox informado 'css_selector = id'
-        dropTimeZone = find(css_selector).all('option').collect(&:text)
+        #guarda no array 'dropboxList' os valores encontrados na busca pelo dropbox informado 'css_selector = id'
+        dropboxList = find(css_selector).all('option').collect(&:text)
         #compara os valroes obtidos e retorna true ou false
-        eql = arrayValues & dropTimeZone == arrayValues
+        eql = arrayValues & dropboxList == arrayValues
         
         return eql
     end

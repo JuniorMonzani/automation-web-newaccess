@@ -1,5 +1,5 @@
-require "./login/Login.rb"
-require "./person/person.rb"
+require "login/Login"
+require "person/person"
 
 describe 'Realiza o login e acessa a página de cadastro de Pessoa', :person do
   accessPage = Person.new
