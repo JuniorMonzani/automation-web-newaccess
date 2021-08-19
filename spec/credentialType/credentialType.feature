@@ -17,7 +17,7 @@ Feature: CredentialType
         Given eu encontro o campo "Descição"
         And não preencho o campo "Descrição"
         When eu clico no botão "Salvar"
-        Then deve existir uma validação no campo "Descrição" pois o mesmo é obrigatório.
+        Then deve existir uma validação no campo "Descrição" pois o mesmo é obrigatório
 
     @fieldDescriptionMaxSize
     Scenario: fieldDescriptionMaxSize
