@@ -15,7 +15,7 @@ describe 'Realiza testes na página de Tipo de Credencial.', :credentialType do
 
   context 'Valida obrigatoriedade nos campos:' do
     it 'Descrição', :fieldDescriptionRequiredCredentialType do
-      credentialType.fills_In_Credential_Type('')
+      findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', '')
       click_button 'Salvar'
       expect(page).to have_selector("input[oldtitle='Informe a Descrição']")
     end
@@ -27,6 +27,7 @@ describe 'Realiza testes na página de Tipo de Credencial.', :credentialType do
       expect(values).to be_truthy
     end
   end
+  
   after(:each) do
     sleep 1
   end

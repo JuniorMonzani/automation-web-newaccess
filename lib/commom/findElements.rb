@@ -16,4 +16,9 @@ class FindElements
     def select_option(css_selector, value)
         find(css_selector).find(:option, value).select_option
     end
+
+    #busca por textbox e insere o valor informado
+    def input_textbox(css_selector, value)
+        fill_in css_selector, with: value
+    end
 end

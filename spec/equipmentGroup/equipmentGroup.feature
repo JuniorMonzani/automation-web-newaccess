@@ -6,13 +6,13 @@ Feature: EquipmentGroup
     Background: RegisterEquipmentGroup
         Given que estou na tela de cadastro de Grupo de Equipamento
 
-    @verifyLabels
+    @verifyLabelsEquipmentGroup
     Scenario: verifyLabels
         Given que eu verifico todos os resources (nomes dos campos) apresentados na página
         When eu comparo com os resources esperados
         Then não deve existir alteração nos resources apresentados
 
-    @fieldNumberRequired
+    @fieldNumberRequiredEquipmentGroup
     Scenario: fieldNumberRequired
         Given informo alfanumérico no campo "Número"
         And preencho corretamente todas os outros campos necessários para efetuar o cadastro
@@ -20,47 +20,47 @@ Feature: EquipmentGroup
         Then deve existgir uma validação no campo "Número" pois o mesmo é obrigatório e só aceita numérico
 
     @fieldDescriptionRequired
-    Scenario: fieldDescriptionRequired
+    Scenario: fieldDescriptionRequiredEquipmentGroup
         Given que eu não preencha o campo "Descrição"
         And preencho corretamente todas os outros campos necessários para efetuar o cadastro
         When eu clico no botão "Salvar"
         Then deve existgir uma validação no campo "Descrição" pois o mesmo é obrigatório e não foi informado
 
     @fieldOriginAreaRequired
-    Scenario: fieldOriginAreaRequired
+    Scenario: fieldOriginAreaRequiredEquipmentGroup
         Given informo alfanumérico no campo "Área origem"
         And preencho corretamente todas os outros campos necessários para efetuar o cadastro
         When eu clico no botão "Salvar"
         Then deve existgir uma validação no campo "Área origem" pois o mesmo é obrigatório e só aceita numérico
 
     @fieldDestinationAreaRequired
-    Scenario: fieldDestinationAreaRequired
+    Scenario: fieldDestinationAreaRequiredEquipmentGroup
         Given informo alfanumérico no campo "Área destino"
         And preencho corretamente todas os outros campos necessários para efetuar o cadastro
         When eu clico no botão "Salvar"
         Then deve existgir uma validação no campo "Área destino" pois o mesmo é obrigatório e só aceita numérico
 
     @fieldEquipmentRequired
-    Scenario: fieldEquipmentRequired
+    Scenario: fieldEquipmentRequiredEquipmentGroup
         Given eu não associe um equipamento ao grupo
         And preencho corretamente todas os outros campos necessários para efetuar o cadastro
         When eu clico no botão "Salvar"
         Then deve exibir uma mensagem de erro com informação ao usuário
 
-    @verifyValuesTimeZone
+    @verifyValuesTimeZoneEquipmentGroup
     Scenario: verifyValuesTimeZone
         Given que eu obternha todos os valores do dropbox "Fuso horário"
         When eu comparo com os valores esperados
         Then deve conter todos os valores esperados
 
-    @verifyValuesControlSortitionNoHasDestinationArea
+    @verifyValuesControlSortitionNoHasDestinationAreaEquipmentGroup
     Scenario: verifyValuesControlSortitionNoHasDestinationArea
         Given que eu desmarque o campo "Grupo tem área de destino"
         And que eu obternha todos os valores do dropbox "Controla Sorteio"
         When eu comparo com os valores esperados
         Then deve conter todos os valores esperados
 
-    @fieldDestinationAreaDisabledHasDestinationArea
+    @fieldDestinationAreaDisabledHasDestinationAreaEquipmentGroup
     Scenario: fieldDestinationAreaDisabledHasDestinationArea
         Given que eu desmarque o campo "Grupo tem área de destino"
         Then o campo "Área destino" deve ficar desabilitado
