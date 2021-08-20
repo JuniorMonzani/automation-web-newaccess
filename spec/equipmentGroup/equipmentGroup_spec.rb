@@ -7,7 +7,6 @@ describe 'Realiza testes na página de Grupo de equipamento.', :equipmentGroup d
   login = Login.new
   equipmentGroup = EquipmentGroup.new
   findElements = FindElements.new
-  $password = login.receive_Correct_Pass
 
   before(:each) do
     equipmentGroup.visit_Register_Equipment_Group
