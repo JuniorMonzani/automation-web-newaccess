@@ -68,7 +68,7 @@ Feature: EquipmentGroup
     @registerEquipmentGroupSuccess
     Scenario: registerEquipmentGroupSuccess
         Given que eu preencha todos os campos obrigatórios de forma correta
-        And marque o campo "Controla aceso de veículos"
+        And marque o campo "Controla acesso de veículos"
         And marque o campo "Respeita horário de verão"
         And selecione o "Fuso Horário" como "03:00"
         And selecione o "Controla sorteio" como "Área origem"

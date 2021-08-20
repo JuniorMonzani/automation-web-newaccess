@@ -11,4 +11,9 @@ class FindElements
         
         return eql
     end
+
+    #busca por dropbox e seta o valor informado
+    def select_option(css_selector, value)
+        find(css_selector).find(:option, value).select_option
+    end
 end
