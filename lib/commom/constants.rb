@@ -13,4 +13,7 @@ class Constants
 
     #constante com os valores contidos no campo 'Controla sorteio' quando a área destino não está habilitada
     $CONTROL_SORTITION_NO_HAS_DESTINATION_AREA = ['Nenhum', 'Área origem']
+
+    #constante com os valores contidos no campo 'Autenticação' no cadastro de tipo de credencial
+    $CREDENTIAL_TYPE_AUTHENTICATION = ['Pessoa', 'Visitante', 'Credencial']
 end
