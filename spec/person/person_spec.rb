@@ -1,7 +1,7 @@
 require "login/Login"
 require "person/person"
 
-describe 'Realiza o login e acessa a página de cadastro de Pessoa', :person do
+describe 'Realiza testes na página de cadastro de Pessoa.', :person do
   accessPage = Person.new
   login = Login.new
 
@@ -11,8 +11,7 @@ describe 'Realiza o login e acessa a página de cadastro de Pessoa', :person do
   end
 
   it 'Realizando upload de foto no cadastro de Pessoa', :pictureUpload do
-    puts 'Realizando upload de foto no cadastro de Pessoa'
-    click_button 'Cadastrar'      
+    click_button 'Cadastrar'
     # Obtem o diretório raiz de execução do projeto, assim da pra montar o caminho relativo das imagens
     @picture = Dir.pwd + '/spec/fixtures/MDAcesso.jpg'
     # No caso do Acesso, só consegui encontrar o elemento para fazer o upload de imagem com o Path, coxxnforme abaixo

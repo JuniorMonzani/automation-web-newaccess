@@ -8,6 +8,10 @@ class EquipmentGroup
     visit 'http://laboratorio.mdacesso.com.br/Groups/EquipmentGroupEdt.aspx?OperationType=create&chkLastTen=False&currentPaginationIndex=1'
   end
 
+  def visit_List_Equipment_Group
+    visit 'http://laboratorio.mdacesso.com.br/Groups/EquipmentGroupsLst.aspx'
+  end
+
   # preenche os campos do cadastro de grupo de equipamento
   def fills_In_Equipment_Group(number, description, originArea, destinationArea, vehicleAccess, hasDestinationArea, daylightSaving)
     fill_in 'MainContentMainMaster_MainContent_txtNumber', with: number

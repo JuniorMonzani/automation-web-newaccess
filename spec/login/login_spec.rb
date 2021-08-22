@@ -1,6 +1,6 @@
 require "login/Login"
 
-describe 'Realiza testes de login no sistema.', :login do
+describe 'Realiza testes na página de de login do sistema.', :login do
   #pede a senha correta do usuário 'admin' para ser utilizada posteriormente  
   login = Login.new
   $password = login.receive_Correct_Pass

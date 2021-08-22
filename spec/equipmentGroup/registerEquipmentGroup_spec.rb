@@ -3,7 +3,7 @@ require 'equipmentGroup/equipmentGroup'
 require 'commom/findElements'
 require 'commom/constants'
 
-describe 'Realiza testes na página de Grupo de equipamento.', :equipmentGroup do
+describe 'Realiza testes na página de cadastro de Grupo de equipamento.', :registerEquipmentGroup do
   login = Login.new
   equipmentGroup = EquipmentGroup.new
   findElements = FindElements.new
