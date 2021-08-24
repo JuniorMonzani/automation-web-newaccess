@@ -123,16 +123,14 @@ describe 'Realiza testes na página de cadastro de Grupo de equipamento.', :regi
     end
 
     it 'Controla sorteio', :fieldDestinationAreaDisabledHasDestinationAreaEquipmentGroup do
-      values = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlControlSortition',
-                                                  $CONTROL_SORTITION_HAS_DESTINATION_AREA)
+      values = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlControlSortition', CONTROL_SORTITION_HAS_DESTINATION_AREA)
       expect(values).to be_truthy
     end
 
     it '"Controla sorteio" após desmarcar a flag "Grupo tem área de destino"',
        :verifyValuesControlSortitionNoHasDestinationAreaEquipmentGroup do
       equipmentGroup.fills_In_Equipment_Group('', '', '', '', false, false, false)
-      values = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlControlSortition',
-                                                  $CONTROL_SORTITION_NO_HAS_DESTINATION_AREA)
+      values = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlControlSortition', $CONTROL_SORTITION_NO_HAS_DESTINATION_AREA)
       expect(values).to be_truthy
     end
   end
@@ -145,8 +143,9 @@ describe 'Realiza testes na página de cadastro de Grupo de equipamento.', :regi
       findElements.select_option('#MainContentMainMaster_MainContent_ddlControlSortition', 'Área origem')
       findElements.input_textbox('MainContentMainMaster_MainContent_txtDaylightStartDate', '01/01/2025')
       findElements.input_textbox('MainContentMainMaster_MainContent_txtDaylightEndDate', '01/01/2030')
-
-      #click_button 'Salvar'
+      click_button 'Salvar'
+      sleep 1
+      expect(page).to have_content('Cadastro de Grupo de Equipamento')
     end
   end
 end
