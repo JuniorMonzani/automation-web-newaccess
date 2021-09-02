@@ -13,7 +13,32 @@ describe 'Realiza testes na página de Tipo de Credencial.', :credentialType do
     login.make_Login('admin', "#{$password}")
   end
 
+  context 'Valida os resources da tela:' do
+    it 'Valida resource "Descrição"', :verifyLabelsCredentialType do
+      expect(page).to have_content('Descrição')
+    end
+
+    it 'Valida resource "Autenticação"', :verifyLabelsCredentialType do
+      expect(page).to have_content('Autenticação')
+    end
+  end
+
   context 'Valida obrigatoriedade nos campos:' do
+  #   it 'Descrição', :fieldDescriptionRequiredCredentialType do
+  #     credentialType.fills_In_Credential_Type('')
+  #     click_button 'Salvar'
+  #     expect(page).to have_selector("input[oldtitle='Informe a Descrição']")
+  #   end
+  #   after(:each) do
+  #     sleep 1
+  # end
+
+    it 'Descrição', :fieldDescriptionMaxSizeCredentialType do
+      findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'hello'.ljust(55, '123*'))
+      click_button 'Salvar'
+      #expect(page).to have_selector("input[oldtitle='Informe o Número']")
+    end
+
     it 'Descrição', :fieldDescriptionRequiredCredentialType do
       findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', '')
       click_button 'Salvar'
