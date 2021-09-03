@@ -1,4 +1,4 @@
-@credentialType
+@registerCredentialType
 Feature: CredentialType
     Com um usuário que tenha permissão.
     Que eu consiga Cadastrar, Aterar e Excluir um Tipo de Credencial.

@@ -3,7 +3,7 @@ require "credentialType/CredentialType"
 require "commom/findElements"
 require "commom/constants"
 
-describe 'Realiza testes na página de Tipo de Credencial.', :credentialType do
+describe 'Realiza testes de cadastro na página de Tipo de Credencial.', :credentialType do
   login = Login.new
   credentialType = CredentialType.new
   findElements = FindElements.new
@@ -36,7 +36,6 @@ describe 'Realiza testes na página de Tipo de Credencial.', :credentialType do
     it 'Descrição', :fieldDescriptionMaxSizeCredentialType do
       findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'hello'.ljust(55, '123*'))
       click_button 'Salvar'
-      #expect(page).to have_selector("input[oldtitle='Informe o Número']")
     end
 
     it 'Descrição', :fieldDescriptionRequiredCredentialType do

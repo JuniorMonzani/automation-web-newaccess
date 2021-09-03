@@ -39,13 +39,13 @@ class EquipmentGroup
     end
   end
 
-  # associa ao grupo o equipamento infromado
+  # associa ao grupo o equipamento informado
   def associates_Equipment(equipment)
     select(equipment.to_s, from: 'MainContentMainMaster_MainContent_lstEquipment_lstLeft')
     find('#MainContentMainMaster_MainContent_lstEquipment_btnTransferToRight').click
   end
 
-  # desaassocia do grupo o equipamento informado
+  # desassocia do grupo o equipamento informado
   def desassociated_Equipment(equipment)
     select(equipment.to_s, from: 'MainContentMainMaster_MainContent_lstEquipment_lstRight')
     find('#MainContentMainMaster_MainContent_lstEquipment_btnTransferToLeft').click
