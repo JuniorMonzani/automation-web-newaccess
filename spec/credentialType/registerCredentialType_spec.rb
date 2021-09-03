@@ -24,21 +24,12 @@ describe 'Realiza testes de cadastro na página de Tipo de Credencial.', :creden
   end
 
   context 'Valida obrigatoriedade nos campos:' do
-  #   it 'Descrição', :fieldDescriptionRequiredCredentialType do
-  #     credentialType.fills_In_Credential_Type('')
-  #     click_button 'Salvar'
-  #     expect(page).to have_selector("input[oldtitle='Informe a Descrição']")
-  #   end
-  #   after(:each) do
-  #     sleep 1
-  # end
-
-    it 'Descrição', :fieldDescriptionMaxSizeCredentialType do
-      findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'hello'.ljust(55, '123*'))
+    it 'Validação de quantidade máxima de caracteres no campo "Descrição"', :fieldDescriptionMaxSizeCredentialType do
+      findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Hello'.ljust(55, '123*'))
       click_button 'Salvar'
     end
 
-    it 'Descrição', :fieldDescriptionRequiredCredentialType do
+    it 'Validação de obrigatoriedade no campo "Descrição"', :fieldDescriptionRequiredCredentialType do
       findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', '')
       click_button 'Salvar'
       expect(page).to have_selector("input[oldtitle='Informe a Descrição']")
@@ -52,6 +43,16 @@ describe 'Realiza testes de cadastro na página de Tipo de Credencial.', :creden
     end
   end
   
+  context 'Salva um tipo de credencial com sucesso' do
+    it 'Preenche todos os campos necessários e salva o Tipo de Credencial com sucesso', :registerCredentialTypeSuccess do
+      findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Teste de automação')
+      findElements.select_option('#MainContentMainMaster_MainContent_ddlCredentialTypeAuthentication', 'Pessoa')
+      click_button 'Salvar'
+      sleep 1
+      expect(page).to have_content('Cadastro de Tipo de Credencial')
+    end
+  end
+
   after(:each) do
     sleep 1
   end
