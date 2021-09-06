@@ -3,7 +3,7 @@ require 'equipmentGroup/equipmentGroup'
 require 'commom/findElements'
 require 'commom/constants'
 
-describe 'Realiza testes de busca e exclusão na página que lista os Grupos de equipamentos.', :listEquipmentGroup do
+describe 'Realiza testes de busca e exclusão na página que lista os Grupos de equipamentos.', :deteteEquipmentGroup do
   login = Login.new
   equipmentGroup = EquipmentGroup.new
   findElements = FindElements.new
@@ -34,7 +34,7 @@ describe 'Realiza testes de busca e exclusão na página que lista os Grupos de 
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtGroupSearch', 123)
         click_button 'Buscar'
-        expect(page).to have_content('Teste de automação')
+        expect(page).to have_content('Grupo alterado - Teste automaç')
     end
     
     it 'Descrição do Grupo de Equipamento - Inexistente.', :searchByDescriptionNotExsist do
@@ -48,9 +48,9 @@ describe 'Realiza testes de busca e exclusão na página que lista os Grupos de 
     it 'Descrição do Grupo de Equipamento - Existente.', :searchByDescriptionExsist do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.select_option('#MainContentMainMaster_TableFiltersHolder_ddlGroupSearch', 'Descrição')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtGroupSearch', 'Teste de automação')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtGroupSearch', 'Grupo alterado - Teste automaç')
         click_button 'Buscar'
-        expect(page).to have_content('Teste de automação')
+        expect(page).to have_content('Grupo alterado - Teste automaç')
     end
   end
 
@@ -59,7 +59,9 @@ describe 'Realiza testes de busca e exclusão na página que lista os Grupos de 
       uncheck('MainContentMainMaster_chkLastTenModified')
       findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtGroupSearch', 1)
       click_button 'Buscar'
+      sleep 0.3
       page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gv_Group_IMG_BUTTON_DELETE_0"]').click
+      sleep 0.3
       click_button 'Sim'
       expect(find('#divIdBodyBusinessError')).to have_content '- O grupo de equipamentos está em uso no sistema e não pode ser excluído'
   end
@@ -68,15 +70,19 @@ describe 'Realiza testes de busca e exclusão na página que lista os Grupos de 
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtGroupSearch', 123)
         click_button 'Buscar'
+        sleep 0.3
         page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gv_Group_IMG_BUTTON_DELETE_0"]').click
+        sleep 0.3
         expect(page).to have_content('Confirma a exclusão?')
     end
 
-    it 'Valida exclusão do Grupo de Equipamento.', :deteleEquipmentGroup do
+    it 'Valida exclusão do Grupo de Equipamento.', :deteleSuccessEquipmentGroup do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtGroupSearch', 123)
         click_button 'Buscar'
+        sleep 0.3
         page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gv_Group_IMG_BUTTON_DELETE_0"]').click
+        sleep 0.3
         click_button 'Sim'
         expect(page).to have_content('Nenhum resultado foi encontrado')
     end

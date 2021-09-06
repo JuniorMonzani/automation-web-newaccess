@@ -1,3 +1,4 @@
+#18
 @editEquipmentGroup
 Feature: EditEquipmentGrourp
     Com um usuário que tenha permissão
@@ -41,11 +42,13 @@ Feature: EditEquipmentGrourp
         And na tela de alteração eu verifico o campo 'Grupo tem área de destino'
         Then o campo Grupo tem área de destino deverá estar 'Desabilitado'
 
-    @editDescriptionEquipmentGroup
-    Scenario: editDescriptionEquipmentGroup
+    @editSuccessEquipmentGroup
+    Scenario: editSuccessEquipmentGroup
         Given que eu faça a busca e encontre o grupo de equipamentos cadastrado pela automação
         When eu clico no ícone de alteração do grupo de equipamento
-        And na tela de alteração eu alterao a 'Descrição' do grupo de equipamentos
+        And na tela de alteração eu altero a 'Descrição' do grupo de equipamentos
+        And desassocio o equipamento '6 - Concentradora'
+        And associo o equipamento '0 - Câmera'
         And clico em Salvar
         And que eu faça a busca utilizando a nova Descrição do grupo de equipamentos
         Then o sistema deve retornar o grupo de equipamentos alterado

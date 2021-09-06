@@ -62,10 +62,6 @@ describe 'Realiza testes na página de cadastro de Grupo de equipamento.', :regi
         expect(page).to have_content('Data final (dd/mm/aaaa)')
       end
 
-      it 'Valida resource "Data final (dd/mm/aaaa)"', :verifyLabelsEquipmentGroup do
-        expect(page).to have_content('Data final (dd/mm/aaaa)')
-      end
-
       it 'Valida resource da aba "Equipamentos"', :verifyLabelsEquipmentGroup do
         expect(page).to have_content('Equipamentos')
       end
@@ -83,35 +79,44 @@ describe 'Realiza testes na página de cadastro de Grupo de equipamento.', :regi
     it 'Número', :fieldNumberRequiredEquipmentGroup do
       equipmentGroup.fills_In_Equipment_Group('teste', 'Teste de automação', '1', '2', false, true, false)
       equipmentGroup.associates_Equipment('6 - Concentradora 1')
+      sleep 0.3
       click_button 'Salvar'
+      sleep 0.3
       expect(page).to have_selector("input[oldtitle='Informe o Número']")
     end
 
     it 'Descrição', :fieldDescriptionRequiredEquipmentGroup do
       equipmentGroup.fills_In_Equipment_Group(9999, '', '1', '2', false, true, false)
       equipmentGroup.associates_Equipment('6 - Concentradora 1')
+      sleep 0.3
       click_button 'Salvar'
+      sleep 0.3
       expect(page).to have_selector("input[oldtitle='Informe a Descrição']")
     end
 
     it 'Área de origem', :fieldOriginAreaRequiredEquipmentGroup do
       equipmentGroup.fills_In_Equipment_Group(9999, 'Teste de Autormação', '', '2', false, true, false)
       equipmentGroup.associates_Equipment('6 - Concentradora 1')
+      sleep 0.3
       click_button 'Salvar'
+      sleep 0.3
       expect(page).to have_selector("input[oldtitle='Informe a Área origem']")
     end
 
     it 'Área de destino', :fieldDestinationAreaRequiredEquipmentGroup do
       equipmentGroup.fills_In_Equipment_Group(9999, 'Teste de Autormação', '1', '', false, true, false)
       equipmentGroup.associates_Equipment('6 - Concentradora 1')
+      sleep 0.3
       click_button 'Salvar'
+      sleep 0.3
       expect(page).to have_selector("input[oldtitle='Informe a Área destino']")
     end
 
     it 'Equipamento associado', :fieldEquipmentRequiredEquipmentGroup do
       equipmentGroup.fills_In_Equipment_Group(9999, 'Teste de Autormação', '1', '2', false, true, false)
+      sleep 0.3
       click_button 'Salvar'
-      sleep 1
+      sleep 0.3
       expect(find('#divIdBodyBusinessError')).to have_content '- O grupo de equipamentos tem que ser associado a um equipamento ou porta, pelo menos'
     end
   end
@@ -123,7 +128,7 @@ describe 'Realiza testes na página de cadastro de Grupo de equipamento.', :regi
     end
 
     it 'Controla sorteio', :fieldDestinationAreaDisabledHasDestinationAreaEquipmentGroup do
-      values = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlControlSortition', CONTROL_SORTITION_HAS_DESTINATION_AREA)
+      values = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlControlSortition', $CONTROL_SORTITION_HAS_DESTINATION_AREA)
       expect(values).to be_truthy
     end
 
@@ -143,8 +148,9 @@ describe 'Realiza testes na página de cadastro de Grupo de equipamento.', :regi
       findElements.select_option('#MainContentMainMaster_MainContent_ddlControlSortition', 'Área origem')
       findElements.input_textbox('MainContentMainMaster_MainContent_txtDaylightStartDate', '01/01/2025')
       findElements.input_textbox('MainContentMainMaster_MainContent_txtDaylightEndDate', '01/01/2030')
+      sleep 0.3
       click_button 'Salvar'
-      sleep 1
+      sleep 0.3
       expect(page).to have_content('Cadastro de Grupo de Equipamento')
     end
   end

@@ -1,9 +1,9 @@
-@listEquipmentGroup
-Feature: ListEquipmentGrourp
+@deleteEquipmentGroup
+Feature: deleteEquipmentGroup
     Com um usuário que tenha permissão
     Que eu consiga Cadastrar, Aterar e Excluir Grupo de Equipamento
 
-    Background: ListEquipmentGrourp
+    Background: deleteEquipmentGroup
         Given que estou na tela quie lista os Grupos de Equipamentos cadastrados
 
     @verifyValuesFilterSearchEquipmentGroup
@@ -63,8 +63,8 @@ Feature: ListEquipmentGrourp
         Then validar a mensagem apresentada ao usuário
         And clicar no botão "Não"
 
-    @deteleEquipmentGroup
-    Scenario: deteleEquipmentGroup
+    @deteleSuccessEquipmentGroup
+    Scenario: deteleSuccessEquipmentGroup
         Given que eu esteja na página que lista os Grupos de Equipamentos cadstrados
         And desmarco a flag '10 últimas atualizações'
         And o valor no dropbox de filtro de pesquisa seja 'Número'

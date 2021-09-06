@@ -50,7 +50,4 @@ class EquipmentGroup
     select(equipment.to_s, from: 'MainContentMainMaster_MainContent_lstEquipment_lstRight')
     find('#MainContentMainMaster_MainContent_lstEquipment_btnTransferToLeft').click
   end
-
-  # busca o dropbox
-
 end
