@@ -3,7 +3,7 @@ require "credentialType/CredentialType"
 require "commom/findElements"
 require "commom/constants"
 
-describe 'Realiza testes de cadastro na página de Tipo de Credencial.', :credentialType do
+describe 'Realiza testes de cadastro na página de Tipo de Credencial.', :registerCredentialType do
   login = Login.new
   credentialType = CredentialType.new
   findElements = FindElements.new
@@ -47,6 +47,30 @@ describe 'Realiza testes de cadastro na página de Tipo de Credencial.', :creden
     it 'Preenche todos os campos necessários e salva o Tipo de Credencial com sucesso', :registerCredentialTypeSuccess do
       findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Teste de automação')
       findElements.select_option('#MainContentMainMaster_MainContent_ddlCredentialTypeAuthentication', 'Pessoa')
+      click_button 'Salvar'
+      sleep 1
+      expect(page).to have_content('Cadastro de Tipo de Credencial')
+    end
+  
+    it 'Preenche todos os campos necessários e salvar o Tipo de Credencial como "pessoa" com sucesso', :saveCredentialTypeWithPersonAuthentication do
+      findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Tipo Pessoa')
+      findElements.select_option('#MainContentMainMaster_MainContent_ddlCredentialTypeAuthentication', 'Pessoa')
+      click_button 'Salvar'
+      sleep 1
+      expect(page).to have_content('Cadastro de Tipo de Credencial')
+    end
+
+    it 'Preenche todos os campos necessários e salvar o Tipo de Credencial como "visitante" com sucesso', :saveCredentialTypeWithVisitorAuthentication do
+      findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Tipo Visitante')
+      findElements.select_option('#MainContentMainMaster_MainContent_ddlCredentialTypeAuthentication', 'Visitante')
+      click_button 'Salvar'
+      sleep 1
+      expect(page).to have_content('Cadastro de Tipo de Credencial')
+    end
+
+    it 'Preenche todos os campos necessários e salvar o Tipo de Credencial como "credencial" com sucesso', :saveCredentialTypeWithCredentialAuthentication do
+      findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Tipo Credencial')
+      findElements.select_option('#MainContentMainMaster_MainContent_ddlCredentialTypeAuthentication', 'Credencial')
       click_button 'Salvar'
       sleep 1
       expect(page).to have_content('Cadastro de Tipo de Credencial')
