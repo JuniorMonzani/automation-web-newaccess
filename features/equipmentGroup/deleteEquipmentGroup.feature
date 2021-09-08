@@ -1,4 +1,6 @@
+#19
 @deleteEquipmentGroup
+
 Feature: deleteEquipmentGroup
     Com um usuário que tenha permissão
     Que eu consiga Cadastrar, Aterar e Excluir Grupo de Equipamento
