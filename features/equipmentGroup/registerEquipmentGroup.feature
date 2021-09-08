@@ -1,23 +1,19 @@
 @registerEquipmentGroup
-Feature: registerEquipmentGroup
-    Com um usuário que tenha permissão
-    Que eu consiga Cadastrar, Aterar e Excluir Grupo de Equipamento
-
-    Background: RegisterEquipmentGroup
+Feature: Register Equipment Group
+    Como um usuário do sistema que tenha permissão para Cadastrar Grupos de Equipamentos
+    
+    Background:
         Given que estou na tela de cadastro de Grupo de Equipamento
 
     @verifyLabelsEquipmentGroup
     Scenario: verifyLabels
-        Given que eu verifico todos os resources (nomes dos campos) apresentados na página
-        When eu comparo com os resources esperados
-        Then não deve existir alteração nos resources apresentados
+        Given que eu verifico e comparo todos os resources dos campos apresentados na tela.
 
     @fieldNumberRequiredEquipmentGroup
     Scenario: fieldNumberRequired
-        Given informo alfanumérico no campo "Número"
-        And preencho corretamente todas os outros campos necessários para efetuar o cadastro
-        When eu clico no botão "Salvar"
-        Then deve existgir uma validação no campo "Número" pois o mesmo é obrigatório e só aceita numérico
+        Given informo alfanumérico no campo Número e preencho corretamente todas os outros campos necessários para efetuar o cadastro
+        When eu clico no botão Salvar
+        Then deve existgir uma validação no campo Número pois o mesmo é obrigatório e só aceita numérico
 
     @fieldDescriptionRequired
     Scenario: fieldDescriptionRequiredEquipmentGroup
