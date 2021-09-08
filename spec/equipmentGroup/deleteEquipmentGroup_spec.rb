@@ -72,7 +72,7 @@ describe 'Realiza testes de busca e exclusão na página que lista os Grupos de 
         click_button 'Buscar'
         sleep 0.3
         page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gv_Group_IMG_BUTTON_DELETE_0"]').click
-        sleep 0.3
+        sleep 0.5
         expect(page).to have_content('Confirma a exclusão?')
     end
 
