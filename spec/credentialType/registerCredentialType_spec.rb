@@ -24,11 +24,6 @@ describe 'Realiza testes de cadastro na página de Tipo de Credencial.', :regist
   end
 
   context 'Valida obrigatoriedade nos campos:' do
-    it 'Validação de quantidade máxima de caracteres no campo "Descrição"', :fieldDescriptionMaxSizeCredentialType do
-      findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Hello'.ljust(55, '123*'))
-      click_button 'Salvar'
-    end
-
     it 'Validação de obrigatoriedade no campo "Descrição"', :fieldDescriptionRequiredCredentialType do
       findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', '')
       click_button 'Salvar'
@@ -74,10 +69,11 @@ describe 'Realiza testes de cadastro na página de Tipo de Credencial.', :regist
       click_button 'Salvar'
       sleep 1
       expect(page).to have_content('Cadastro de Tipo de Credencial')
-    end
+    end    
   end
-
-  after(:each) do
-    sleep 1
+  
+  it 'Validação de quantidade máxima de caracteres no campo "Descrição"', :fieldDescriptionMaxSizeCredentialType do
+    findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Hello'.ljust(55, '123*'))
+    click_button 'Salvar'
   end
 end
