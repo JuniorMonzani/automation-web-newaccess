@@ -38,4 +38,5 @@
 #     config.additional_info = { 'NewAccess AutomaticTests' => 'Test', 'WebClient' => 'Integration', 'Report generated' => time }
 #     end
 #     ReportBuilder.build_report
+# teste
 # end
