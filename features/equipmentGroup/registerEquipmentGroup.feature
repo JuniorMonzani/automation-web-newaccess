@@ -1,74 +1,73 @@
+#encoding: UTF-8
+
 @registerEquipmentGroup
 Feature: Register Equipment Group
-    Como um usuário do sistema que tenha permissão para Cadastrar Grupos de Equipamentos
+    Como um usuário do sistema que tenha permissão para Cadastrar Grupos de Equipamentos.
     
     Background:
-        Given que estou na tela de cadastro de Grupo de Equipamento
+        Given Que o usuário esteja na página de cadastro de Grupo de Equipamento.
 
     @verifyLabelsEquipmentGroup
-    Scenario: verifyLabels
-        Given que eu verifico e comparo todos os resources dos campos apresentados na tela.
+    Scenario: verifyLabelsEquipmentGroup
+        Given Que eu verifico e comparo todos os resources dos campos apresentados na tela.
 
     @fieldNumberRequiredEquipmentGroup
-    Scenario: fieldNumberRequired
-        Given informo alfanumérico no campo Número e preencho corretamente todas os outros campos necessários para efetuar o cadastro
-        When eu clico no botão Salvar
-        Then deve existgir uma validação no campo Número pois o mesmo é obrigatório e só aceita numérico
+    Scenario: fieldNumberRequiredEquipmentGroup
+        Given Informar caractere alfanumérico no campo "Número" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.
+        When Clicar no botão Salvar para validar o campo "Número".
+        Then Deve existgir uma validação no campo "Número" pois o mesmo é obrigatório e só aceita caractere numérico.
 
-    @fieldDescriptionRequired
+    @fieldDescriptionRequiredEquipmentGroup
     Scenario: fieldDescriptionRequiredEquipmentGroup
-        Given que eu não preencha o campo "Descrição"
-        And preencho corretamente todas os outros campos necessários para efetuar o cadastro
-        When eu clico no botão "Salvar"
-        Then deve existgir uma validação no campo "Descrição" pois o mesmo é obrigatório e não foi informado
+        Given Não preencher o campo "Descrição" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.
+        When Clicar no botão Salvar para validar o campo "Descrição".
+        Then Deve existgir uma validação no campo "Descrição" pois o mesmo é obrigatório e não foi informado.
 
-    @fieldOriginAreaRequired
+    @fieldOriginAreaRequiredEquipmentGroup
     Scenario: fieldOriginAreaRequiredEquipmentGroup
-        Given informo alfanumérico no campo "Área origem"
-        And preencho corretamente todas os outros campos necessários para efetuar o cadastro
-        When eu clico no botão "Salvar"
-        Then deve existgir uma validação no campo "Área origem" pois o mesmo é obrigatório e só aceita numérico
+        Given Informar caractere alfanumérico no campo "Área origem" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.
+        When Clicar no botão Salvar para validar o campo "Área origem".
+        Then Deve existgir uma validação no campo "Área origem" pois o mesmo é obrigatório e não foi informado.
 
-    @fieldDestinationAreaRequired
+    @fieldDestinationAreaRequiredEquipmentGroup
     Scenario: fieldDestinationAreaRequiredEquipmentGroup
-        Given informo alfanumérico no campo "Área destino"
-        And preencho corretamente todas os outros campos necessários para efetuar o cadastro
-        When eu clico no botão "Salvar"
-        Then deve existgir uma validação no campo "Área destino" pois o mesmo é obrigatório e só aceita numérico
+        Given Informar caractere alfanumérico no campo "Área destino" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.
+        When Clicar no botão Salvar para validar o campo "Área destino".
+        Then Deve existgir uma validação no campo "Área destino" pois o mesmo é obrigatório e não foi informado.
 
-    @fieldEquipmentRequired
+    @fieldEquipmentRequiredEquipmentGroup
     Scenario: fieldEquipmentRequiredEquipmentGroup
-        Given eu não associe um equipamento ao grupo
-        And preencho corretamente todas os outros campos necessários para efetuar o cadastro
-        When eu clico no botão "Salvar"
-        Then deve exibir uma mensagem de erro com informação ao usuário
+        Given Não associar equipamento ao grupo mas preencher corretamente todos os outros campos necessários para efetuar o cadastro.
+        When Clicar no botão Salvar para validar ao menos um equipamento associado.
+        Then Deve exibir uma mensagem de erro com informação ao usuário.
 
     @verifyValuesTimeZoneEquipmentGroup
-    Scenario: verifyValuesTimeZone
-        Given que eu obternha todos os valores do dropbox "Fuso horário"
-        When eu comparo com os valores esperados
-        Then deve conter todos os valores esperados
+    Scenario: verifyValuesTimeZoneEquipmentGroup
+        Given Obter todos os valores do dropbox "Fuso horário" e comparar com os valores esperados.
+        Then Deve conter todos os valores esperados no campo "Fuso horário".
+
+    @verifyValuesControlSortitionHasDestinationAreaEquipmentGroup
+    Scenario: verifyValuesControlSortitionHasDestinationAreaEquipmentGroup
+        Given Obter todos os valores do dropbox "Controla Sorteio" e comparar com os valores esperados.
+        Then Deve conter todos os valores esperados no campo "Controla Sorteio".
 
     @verifyValuesControlSortitionNoHasDestinationAreaEquipmentGroup
-    Scenario: verifyValuesControlSortitionNoHasDestinationArea
-        Given que eu desmarque o campo "Grupo tem área de destino"
-        And que eu obternha todos os valores do dropbox "Controla Sorteio"
-        When eu comparo com os valores esperados
-        Then deve conter todos os valores esperados
+    Scenario: verifyValuesControlSortitionNoHasDestinationAreaEquipmentGroup
+        Given Desmarcar o campo "Grupo tem área de destino" para alterar os valores no dropbox.
+        And Obter todos os valores do dropbox "Controla Sorteio" após desmarcar o checkbox e compara com os valores esperados.
+        Then Deve conter todos os valores esperados no campo "Controla Sorteio" após desmarcar o checkbox.
 
     @fieldDestinationAreaDisabledHasDestinationAreaEquipmentGroup
-    Scenario: fieldDestinationAreaDisabledHasDestinationArea
-        Given que eu desmarque o campo "Grupo tem área de destino"
-        Then o campo "Área destino" deve ficar desabilitado
+    Scenario: fieldDestinationAreaDisabledHasDestinationAreaEquipmentGroup
+        Given Desmarcar o campo "Grupo tem área de destino".
+        Then O campo "Área destino" deve ficar desabilitado.
 
     @registerEquipmentGroupSuccess
     Scenario: registerEquipmentGroupSuccess
-        Given que eu preencha todos os campos obrigatórios de forma correta
-        And marque o campo "Controla acesso de veículos"
-        And marque o campo "Respeita horário de verão"
-        And selecione o "Fuso Horário" como "03:00"
-        And selecione o "Controla sorteio" como "Área origem"
-        And adicione uma data válida no campo "Data inicial"
-        And adicione uma data válida no campo "Data final"
-        When eu clico no botão "Salvar"
-        Then o grupo de equipamento deve ser salvo com sucesso
+        Given Que eu preencha todos os campos obrigatórios de forma correta.
+        And Selecionar o "Fuso Horário" como "03:00".
+        And Selecionar o "Controla sorteio" como "Área origem".
+        And Adicionar uma data válida no campo "Data inicial".
+        And Adicionar uma data válida no campo "Data final".
+        When Clicar no botão "Salvar" para incluir o grupo.
+        Then O grupo de equipamento deve ser salvo com sucesso.

@@ -3,7 +3,7 @@ require 'equipmentGroup/equipmentGroup'
 require 'commom/findElements'
 require 'commom/constants'
 
-describe 'Realiza testes de busca e exclusão na página que lista os Grupos de equipamentos.', :deteteEquipmentGroup do
+describe 'Realiza testes de busca e exclusão na página que lista os Grupos de equipamentos.', :deleteEquipmentGroup do
   login = Login.new
   equipmentGroup = EquipmentGroup.new
   findElements = FindElements.new
