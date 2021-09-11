@@ -3,8 +3,13 @@ class CredentialType
     include Capybara::DSL
 
     attr_accessor :credentialTypeDescription
-
+    
     def visit_Register_Credential_Type
         visit 'http://laboratorio.mdacesso.com.br/Credentials/CredentialTypeEdt.aspx?OperationType=create&chkLastTen=True&currentPaginationIndex='
     end
+
+    def visit_List_Credential_Type
+        visit 'http://laboratorio.mdacesso.com.br/Credentials/CredentialTypesLst.aspx'
+    end
+
 end

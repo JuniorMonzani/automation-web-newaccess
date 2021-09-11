@@ -6,47 +6,40 @@ Feature: editCredentialType
     Background: editCredentialType
         Given que estou na tela que lista os Tipos de Credencial cadastradas
 
-    # @verifyEditEquipmentGropup
-    # Scenario: verifyEditEquipmentGropup
-    #     Given que eu faça a busca e encontre o grupo de equipamentos cadastrado pela automação
-    #     When eu clico no ícone de alteração do grupo de equipamento
-    #     Then deve direcionar para a página de alteração de grupo de equipamento
+    @verifyEditCredentialType
+    Scenario: verifyEditCredentialType
+        Given que eu faça a busca e encontre o grupo de credenciais cadastradas pela automação
+        When eu clico no ícone de alteração do tipo de credencial
+        Then deve direcionar para a página de alteração de tipo de credencial
 
-    # @verifyFieldNumberDisabled
-    # Scenario: verifyFieldNumberDisabled
-    #     Given que eu faça a busca e encontre o grupo de equipamentos cadastrado pela automação
-    #     When eu clico no ícone de alteração do grupo de equipamento
-    #     And na tela de alteração eu verifico o campo 'Número'
-    #     Then o campo Número deverá estar 'Desabilitado'
+    @verifyDescriptionMaxSizeCredentialType
+    Scenario: verifyDescriptionMaxSize
+        Given que estou na lista de Tipos de Credencial cadastradas
+        And tenho um Tipo de Credencial cadastrado com o máximo permitido de caracteres no campo "Descrição" (50 caracteres)
+        When eu verifico a quantidade de caracteres da descrição
+        Then o tamanho da Descrição do Tipo de Credencial deve corresponder ao valor máximo esperado (50 caracteres)
 
-    # @verifyFieldOriginAreaDisabled
-    # Scenario: verifyFieldOriginAreaDisabled
-    #     Given que eu faça a busca e encontre o grupo de equipamentos cadastrado pela automação
-    #     When eu clico no ícone de alteração do grupo de equipamento
-    #     And na tela de alteração eu verifico o campo 'Área origem'
-    #     Then o campo Área origem deverá estar 'Desabilitado'
+    @verifyAuthenticationPersonCredentialType
+    Scenario: verifyAuthenticationPerson
+        Given que tenha cadastrado um Tipo de Credencial com autenticação em "Pessoa"
+        When eu verifico o tipo de autenticação
+        Then deve ser do tipo "Pessoa"
 
-    # @verifyFieldDestinationAreaDisabled
-    # Scenario: verifyFieldDestinationAreaDisabled
-    #     Given que eu faça a busca e encontre o grupo de equipamentos cadastrado pela automação
-    #     When eu clico no ícone de alteração do grupo de equipamento
-    #     And na tela de alteração eu verifico o campo 'Área destino'
-    #     Then o campo Área Destino deverá estar 'Desabilitado'
+    @verifyAuthenticationVisitorCredentialType
+    Scenario: verifyAuthenticationVisitor
+        Given que tenha cadastrado um Tipo de Credencial com autenticação em "Visitante"
+        When eu verifico o tipo de autenticação
+        Then deve ser do tipo "Visitante"
 
-    # @verifyFieldGroupHasDestinationAreaDisabled
-    # Scenario: verifyFieldGroupHasDestinationAreaDisabled
-    #     Given que eu faça a busca e encontre o grupo de equipamentos cadastrado pela automação
-    #     When eu clico no ícone de alteração do grupo de equipamento
-    #     And na tela de alteração eu verifico o campo 'Grupo tem área de destino'
-    #     Then o campo Grupo tem área de destino deverá estar 'Desabilitado'
+    @verifyAuthenticationCredentialCredentialType
+    Scenario: verifyAuthenticationCredential
+        Given que tenha cadastrado um Tipo de Credencial com autenticação em "Credencial"
+        When eu verifico o tipo de autenticação
+        Then deve ser do tipo "Credencial"
 
-    # @editSuccessEquipmentGroup
-    # Scenario: editSuccessEquipmentGroup
-    #     Given que eu faça a busca e encontre o grupo de equipamentos cadastrado pela automação
-    #     When eu clico no ícone de alteração do grupo de equipamento
-    #     And na tela de alteração eu altero a 'Descrição' do grupo de equipamentos
-    #     And desassocio o equipamento '6 - Concentradora'
-    #     And associo o equipamento '0 - Câmera'
-    #     And clico em Salvar
-    #     And que eu faça a busca utilizando a nova Descrição do grupo de equipamentos
-    #     Then o sistema deve retornar o grupo de equipamentos alterado
+    @saveAlreadyExistsCredentialType
+    Scenario: saveCredentialTypeAlreadyExists
+        Given que eu esteja na tela de cadastro de um novo Tipo de Credencial
+        And insiro uma descrição que já existe cadatrada para outro Tipo de Credencial
+        When eu clico no botão "Salvar"
+        Then uma validação deve ser apresentada onde a mensagem deve correspender a mensagem esperada
