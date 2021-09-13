@@ -11,10 +11,9 @@ Feature: Register Credential Type
 
     @fieldDescriptionRequiredCredentialType
     Scenario: fieldDescriptionRequiredCredentialType
-        Given eu encontro o campo "Descrição"
-        And não preencho o campo "Descrição"
-        When eu clico no botão "Salvar"
-        Then deve existir uma validação no campo "Descrição" pois o mesmo é obrigatório
+        Given Não preencher o campo "Descrição" e preencher corretamente todos os outros campos necessários para efetuar o cadastro.
+        When Clicar no botão Salvar para validação do campo "Descrição".
+        Then Deve existir uma validação no campo "Descrição" pois o mesmo é obrigatório e não foi informado.
 
     @fieldDescriptionMaxSizeCredentialType
     Scenario: fieldDescriptionMaxSizeCredentialType

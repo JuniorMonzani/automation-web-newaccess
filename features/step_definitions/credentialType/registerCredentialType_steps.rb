@@ -20,13 +20,19 @@ require 'commom/constants'
         expect(page).to have_content('Autenticação')
       end
 
-    # context 'Valida obrigatoriedade nos campos:' do
-    #   it 'Validação de obrigatoriedade no campo "Descrição"', :fieldDescriptionRequiredCredentialType do
-    #     findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', '')
-    #     click_button 'Salvar'
-    #     expect(page).to have_selector("input[oldtitle='Informe a Descrição']")
-    #   end
-    # end
+    @fieldDescriptionRequiredCredentialType
+      Given('Não preencher o campo "Descrição" e preencher corretamente todos os outros campos necessários para efetuar o cadastro.') do
+        findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', '')
+      end
+
+      When('Clicar no botão Salvar para validação do campo "Descrição".') do
+        click_button 'Salvar'
+      end
+
+      Then('Deve existir uma validação no campo "Descrição" pois o mesmo é obrigatório e não foi informado.') do
+        sleep 0.5
+        expect(page).to have_selector("input[oldtitle='Informe a Descrição']")
+      end
     
     # context 'Valida os valores contidos no dropbox:' do
     #   it 'Autenticação', :verifyValuesAuthenticationCredentialType do
