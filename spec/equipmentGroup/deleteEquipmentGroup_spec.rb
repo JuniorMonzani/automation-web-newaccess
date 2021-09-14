@@ -80,9 +80,9 @@ describe 'Realiza testes de busca e exclusão na página que lista os Grupos de 
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtGroupSearch', 123)
         click_button 'Buscar'
-        sleep 0.3
+        sleep 0.5
         page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gv_Group_IMG_BUTTON_DELETE_0"]').click
-        sleep 0.3
+        sleep 0.5
         click_button 'Sim'
         expect(page).to have_content('Nenhum resultado foi encontrado')
     end

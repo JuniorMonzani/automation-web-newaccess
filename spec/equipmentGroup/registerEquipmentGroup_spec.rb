@@ -99,7 +99,7 @@ describe 'Realiza testes na página de cadastro de Grupo de equipamento.', :regi
       equipmentGroup.associates_Equipment('6 - Concentradora 1')
       sleep 0.3
       click_button 'Salvar'
-      sleep 0.3
+      sleep 0.5
       expect(page).to have_selector("input[oldtitle='Informe a Área origem']")
     end
 
@@ -114,9 +114,9 @@ describe 'Realiza testes na página de cadastro de Grupo de equipamento.', :regi
 
     it 'Equipamento associado', :fieldEquipmentRequiredEquipmentGroup do
       equipmentGroup.fills_In_Equipment_Group(9999, 'Teste de Autormação', '1', '2', false, true, false)
-      sleep 0.3
+
       click_button 'Salvar'
-      sleep 0.3
+
       expect(find('#divIdBodyBusinessError')).to have_content '- O grupo de equipamentos tem que ser associado a um equipamento ou porta, pelo menos'
     end
   end
@@ -148,9 +148,9 @@ describe 'Realiza testes na página de cadastro de Grupo de equipamento.', :regi
       findElements.select_option('#MainContentMainMaster_MainContent_ddlControlSortition', 'Área origem')
       findElements.input_textbox('MainContentMainMaster_MainContent_txtDaylightStartDate', '01/01/2025')
       findElements.input_textbox('MainContentMainMaster_MainContent_txtDaylightEndDate', '01/01/2030')
-      sleep 0.3
+
       click_button 'Salvar'
-      sleep 0.3
+
       expect(page).to have_content('Cadastro de Grupo de Equipamento')
     end
   end

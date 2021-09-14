@@ -10,11 +10,13 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
+  
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
   config.include Capybara::DSL
 end
 
 Capybara.configure do |config|
+  config.default_max_wait_time = 2
   config.default_driver = :selenium_chrome
 end

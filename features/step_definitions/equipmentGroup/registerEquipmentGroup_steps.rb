@@ -44,7 +44,6 @@ require 'commom/constants'
       end
       
       Then('Deve existgir uma validação no campo "Número" pois o mesmo é obrigatório e só aceita caractere numérico.') do
-        sleep 0.3
         expect(page).to have_selector("input[oldtitle='Informe o Número']")
       end
 
@@ -59,7 +58,6 @@ require 'commom/constants'
       end
       
       Then('Deve existgir uma validação no campo "Descrição" pois o mesmo é obrigatório e não foi informado.') do
-        sleep 0.3
         expect(page).to have_selector("input[oldtitle='Informe a Descrição']")
       end
 
@@ -74,7 +72,6 @@ require 'commom/constants'
       end
       
       Then('Deve existgir uma validação no campo "Área origem" pois o mesmo é obrigatório e não foi informado.') do
-        sleep 0.5
         expect(page).to have_selector("input[oldtitle='Informe a Área origem']")
       end
 
@@ -89,7 +86,6 @@ require 'commom/constants'
       end
       
       Then('Deve existgir uma validação no campo "Área destino" pois o mesmo é obrigatório e não foi informado.') do
-        sleep 0.3
         expect(page).to have_selector("input[oldtitle='Informe a Área destino']")
       end
 
@@ -103,7 +99,6 @@ require 'commom/constants'
       end
       
       Then('Deve exibir uma mensagem de erro com informação ao usuário.') do
-        sleep 0.3
         expect(find('#divIdBodyBusinessError')).to have_content '- O grupo de equipamentos tem que ser associado a um equipamento ou porta, pelo menos'
       end
 
@@ -113,7 +108,6 @@ require 'commom/constants'
       end
 
       Then('Deve conter todos os valores esperados no campo "Fuso horário".') do
-        sleep 0.3
         expect($valuesTimeZone).to be_truthy
       end
 
@@ -123,7 +117,7 @@ require 'commom/constants'
       end
 
       Then('Deve conter todos os valores esperados no campo "Controla Sorteio".') do
-        sleep 0.3
+
         expect($valueSortitionHasDestinationArea).to be_truthy
       end
 
@@ -136,7 +130,6 @@ require 'commom/constants'
         $valueSortitionNoHasDestinationArea = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlControlSortition', $CONTROL_SORTITION_NO_HAS_DESTINATION_AREA)
       end
       Then('Deve conter todos os valores esperados no campo "Controla Sorteio" após desmarcar o checkbox.') do
-        sleep 0.3
         expect($valueSortitionNoHasDestinationArea).to be_truthy
       end
 
@@ -146,7 +139,6 @@ require 'commom/constants'
       end
 
       Then('O campo "Área destino" deve ficar desabilitado.') do
-        sleep 0.3
         expect(find('#MainContentMainMaster_MainContent_txtDestinationArea').disabled?).to be(true)
       end
 
@@ -177,6 +169,5 @@ require 'commom/constants'
       end
 
       Then('O grupo de equipamento deve ser salvo com sucesso.') do
-        sleep 0.3
         expect(page).to have_content('Cadastro de Grupo de Equipamento')
       end

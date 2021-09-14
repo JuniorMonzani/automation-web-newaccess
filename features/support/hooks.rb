@@ -1,3 +1,5 @@
+require 'report_builder'
+
  def add_screenshot(scenario)
     nome_cenario = scenario.name.gsub(/[^A-Za-z0-9]/, '')
     nome_cenario = nome_cenario.gsub(' ','_').downcase!
@@ -19,17 +21,14 @@
 end
 
 at_exit do
-    $driver.driver_quit
-
-    ReportBuilder.input_path = "cucumber.json"
-
+    ReportBuilder.input_path = 'report_cucumber.json'
+    
     ReportBuilder.configure do |config|
-        config.report_path = "reports/run"
-        config.report_types = [:json, :html]
-
-        options = {
-        report_title: "Automacao QA"
-        }
-        ReportBuilder.build_report options
+      config.report_path = 'my_test_report'
+      config.report_types = [:json, :html]
     end
+    
+    options = {
+       report_title: 'NewAccess Automatic Tests'
+    }
 end
