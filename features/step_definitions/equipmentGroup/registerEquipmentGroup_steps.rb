@@ -6,15 +6,14 @@ require 'commom/constants'
   equipmentGroup = EquipmentGroup.new
   findElements = FindElements.new
   login = Login.new
-  #$password = login.receive_Correct_Pass
 
-  @background
+  #background
     Given('Que o usuário esteja na página de cadastro de Grupo de Equipamento.') do
         equipmentGroup.visit_Register_Equipment_Group
         login.make_Login('admin', $password)
     end
             
-    @verifyLabelsEquipmentGroup
+    #verifyLabelsEquipmentGroup
       Given('Que eu verifico e comparo todos os resources dos campos apresentados na tela.') do
         expect(page).to have_content('Número')
         expect(page).to have_content('Descrição')
@@ -33,7 +32,7 @@ require 'commom/constants'
         expect(page).to have_content('Selecione os equipamentos')
       end
 
-    @fieldNumberRequiredEquipmentGroup
+    #fieldNumberRequiredEquipmentGroup
       Given('Informar caractere alfanumérico no campo "Número" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
         equipmentGroup.fills_In_Equipment_Group('teste', 'Teste de automação', '1', '2', false, true, false)
         equipmentGroup.associates_Equipment('6 - Concentradora 1')
@@ -48,7 +47,7 @@ require 'commom/constants'
         expect(page).to have_selector("input[oldtitle='Informe o Número']")
       end
 
-    @fieldDescriptionRequiredEquipmentGroup
+    #fieldDescriptionRequiredEquipmentGroup
       Given('Não preencher o campo "Descrição" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
         equipmentGroup.fills_In_Equipment_Group(9999, '', '1', '2', false, true, false)
         equipmentGroup.associates_Equipment('6 - Concentradora 1')
@@ -63,7 +62,7 @@ require 'commom/constants'
         expect(page).to have_selector("input[oldtitle='Informe a Descrição']")
       end
 
-    @fieldOriginAreaRequiredEquipmentGroup
+    #fieldOriginAreaRequiredEquipmentGroup
       Given('Informar caractere alfanumérico no campo "Área origem" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
         equipmentGroup.fills_In_Equipment_Group(9999, 'Teste de Autormação', '', '2', false, true, false)
         equipmentGroup.associates_Equipment('6 - Concentradora 1')
@@ -78,7 +77,7 @@ require 'commom/constants'
         expect(page).to have_selector("input[oldtitle='Informe a Área origem']")
       end
 
-    @fieldDestinationAreaRequiredEquipmentGroup
+    #fieldDestinationAreaRequiredEquipmentGroup
       Given('Informar caractere alfanumérico no campo "Área destino" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
         equipmentGroup.fills_In_Equipment_Group(9999, 'Teste de Autormação', '1', '', false, true, false)
         equipmentGroup.associates_Equipment('6 - Concentradora 1')
@@ -93,7 +92,7 @@ require 'commom/constants'
         expect(page).to have_selector("input[oldtitle='Informe a Área destino']")
       end
 
-    @fieldEquipmentRequiredEquipmentGroup
+    #fieldEquipmentRequiredEquipmentGroup
       Given('Não associar equipamento ao grupo mas preencher corretamente todos os outros campos necessários para efetuar o cadastro.') do
         equipmentGroup.fills_In_Equipment_Group(9999, 'Teste de Autormação', '1', '2', false, true, false)
       end
@@ -107,7 +106,7 @@ require 'commom/constants'
         expect(find('#divIdBodyBusinessError')).to have_content '- O grupo de equipamentos tem que ser associado a um equipamento ou porta, pelo menos'
       end
 
-    @verifyValuesTimeZoneEquipmentGroup
+    #verifyValuesTimeZoneEquipmentGroup
       Given('Obter todos os valores do dropbox "Fuso horário" e comparar com os valores esperados.') do
         $valuesTimeZone = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlTimeZone', $TIME_ZONE)
       end
@@ -116,7 +115,7 @@ require 'commom/constants'
         expect($valuesTimeZone).to be_truthy
       end
 
-      @verifyValuesControlSortitionHasDestinationAreaEquipmentGroup
+    #verifyValuesControlSortitionHasDestinationAreaEquipmentGroup
       Given('Obter todos os valores do dropbox "Controla Sorteio" e comparar com os valores esperados.') do
         $valueSortitionHasDestinationArea = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlControlSortition', $CONTROL_SORTITION_HAS_DESTINATION_AREA)
       end
@@ -126,7 +125,7 @@ require 'commom/constants'
         expect($valueSortitionHasDestinationArea).to be_truthy
       end
 
-    @verifyValuesControlSortitionNoHasDestinationAreaEquipmentGroup
+    #verifyValuesControlSortitionNoHasDestinationAreaEquipmentGroup
       Given('Desmarcar o campo "Grupo tem área de destino" para alterar os valores no dropbox.') do
         uncheck('chkHasDestinationArea')
       end
@@ -138,7 +137,7 @@ require 'commom/constants'
         expect($valueSortitionNoHasDestinationArea).to be_truthy
       end
 
-    @fieldDestinationAreaDisabledHasDestinationAreaEquipmentGroup
+    #fieldDestinationAreaDisabledHasDestinationAreaEquipmentGroup
       Given('Desmarcar o campo "Grupo tem área de destino".') do
         uncheck('chkHasDestinationArea')
       end
@@ -147,7 +146,7 @@ require 'commom/constants'
         expect(find('#MainContentMainMaster_MainContent_txtDestinationArea').disabled?).to be(true)
       end
 
-    @registerEquipmentGroupSuccess
+    #registerEquipmentGroupSuccess
       Given('Que eu preencha todos os campos obrigatórios de forma correta.') do
         equipmentGroup.fills_In_Equipment_Group('123', 'Teste de automação', '1', '2', true, true, true)
         equipmentGroup.associates_Equipment('6 - Concentradora 1')

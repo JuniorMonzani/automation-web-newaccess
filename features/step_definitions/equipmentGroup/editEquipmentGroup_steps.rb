@@ -8,13 +8,13 @@ require 'commom/constants'
   findElements = FindElements.new
   login = Login.new
 
-  @background
+  #background
     Given('Que estou na tela que lista os Grupos de Equipamentos cadastrados para realizar alterações.') do
         equipmentGroup.visit_List_Equipment_Group
         login.make_Login('admin', $password)
     end
 
-    @verifyEditEquipmentGropup
+    #verifyEditEquipmentGropup
       Given('Que eu faça a busca e encontre o grupo de equipamentos cadastrado pela automação_01.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtGroupSearch', 123)
@@ -31,7 +31,7 @@ require 'commom/constants'
         expect(page).to have_content('Alterar Grupo de Equipamento')
       end
 
-    @verifyFieldNumberDisabled
+    #verifyFieldNumberDisabled
       Given('Que eu faça a busca e encontre o grupo de equipamentos cadastrado pela automação_02.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtGroupSearch', 123)
@@ -48,7 +48,7 @@ require 'commom/constants'
         expect(find('#MainContentMainMaster_MainContent_txtNumber').disabled?).to be(true)
       end
 
-    @verifyFieldOriginAreaDisabled
+    #verifyFieldOriginAreaDisabled
       Given('Que eu faça a busca e encontre o grupo de equipamentos cadastrado pela automação_03.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtGroupSearch', 123)
@@ -65,7 +65,7 @@ require 'commom/constants'
         expect(find('#MainContentMainMaster_MainContent_txtOriginArea').disabled?).to be(true)
       end
 
-    @verifyFieldDestinationAreaDisabled
+    #verifyFieldDestinationAreaDisabled
       Given('Que eu faça a busca e encontre o grupo de equipamentos cadastrado pela automação_04.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtGroupSearch', 123)
@@ -82,7 +82,7 @@ require 'commom/constants'
         expect(find('#MainContentMainMaster_MainContent_txtDestinationArea').disabled?).to be(true)
       end
 
-    @verifyFieldGroupHasDestinationAreaDisabled
+    #verifyFieldGroupHasDestinationAreaDisabled
         Given('Que eu faça a busca e encontre o grupo de equipamentos cadastrado pela automação_05.') do
           uncheck('MainContentMainMaster_chkLastTenModified')
           findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtGroupSearch', 123)
@@ -99,7 +99,7 @@ require 'commom/constants'
           expect(find('#chkHasDestinationArea').disabled?).to be(true)  
         end
 
-    @editSuccessEquipmentGroup
+    #editSuccessEquipmentGroup
       Given('Que eu faça a busca e encontre o grupo de equipamentos cadastrado pela automação_06.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtGroupSearch', 123)

@@ -8,13 +8,13 @@ require 'commom/constants'
   findElements = FindElements.new
   login = Login.new
 
-  @background
+  #background
     Given('Que estou na tela que lista os Grupos de Equipamentos cadastrados para realizar buscas e exxlusões.') do
         equipmentGroup.visit_List_Equipment_Group
         login.make_Login('admin', $password)
     end
 
-    @verifyValuesFilterSearchEquipmentGroup
+    #verifyValuesFilterSearchEquipmentGroup
       Given('Desmarco a flag 10 últimas atualizações_01.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         sleep 0.3
@@ -28,7 +28,7 @@ require 'commom/constants'
         expect($values).to be_truthy
       end
 
-    @searchByNumberNotExsist
+    #searchByNumberNotExsist
       Given('Desmarco a flag 10 últimas atualizações_02.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         sleep 0.3
@@ -48,7 +48,7 @@ require 'commom/constants'
       end
 
 
-    @searchByNumberExsist
+    #searchByNumberExsist
       Given('Desmarco a flag 10 últimas atualizações_03.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         sleep 0.3
@@ -67,7 +67,7 @@ require 'commom/constants'
         expect(page).to have_content('Grupo alterado - Teste automaç')
       end
 
-    @searchByDescriptionNotExsist
+    #searchByDescriptionNotExsist
       Given('Desmarco a flag 10 últimas atualizações_04.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         sleep 0.3
@@ -89,7 +89,7 @@ require 'commom/constants'
         expect(page).to have_content('Nenhum resultado foi encontrado')
       end
 
-    @searchByDescriptionExsist
+    #searchByDescriptionExsist
       Given('Desmarco a flag 10 últimas atualizações_05.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         sleep 0.3
@@ -113,7 +113,7 @@ require 'commom/constants'
 
 
 
-    @verifyMessageDeteleEquipmentGropupIsInUse
+    #verifyMessageDeteleEquipmentGropupIsInUse
       Given('Desmarco a flag 10 últimas atualizações_06.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         sleep 0.3
@@ -138,7 +138,7 @@ require 'commom/constants'
         expect(find('#divIdBodyBusinessError')).to have_content '- O grupo de equipamentos está em uso no sistema e não pode ser excluído'
       end
 
-    @verifyMessageDeteleEquipmentGropup
+    #verifyMessageDeteleEquipmentGropup
       Given('Desmarco a flag 10 últimas atualizações_07.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         sleep 0.3
@@ -164,7 +164,7 @@ require 'commom/constants'
 
 
 
-    @deteleSuccessEquipmentGroup
+    #deteleSuccessEquipmentGroup
       Given('Desmarco a flag 10 últimas atualizações_08.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         sleep 0.3
