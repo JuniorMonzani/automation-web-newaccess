@@ -41,6 +41,7 @@ require 'commom/constants'
     
       When('Clicar no botão Salvar para validar o campo "Número".') do
         click_button 'Salvar'
+        sleep 0.3
       end
       
       Then('Deve existgir uma validação no campo "Número" pois o mesmo é obrigatório e só aceita caractere numérico.') do
@@ -55,6 +56,7 @@ require 'commom/constants'
     
       When('Clicar no botão Salvar para validar o campo "Descrição".') do
         click_button 'Salvar'
+        sleep 0.3
       end
       
       Then('Deve existgir uma validação no campo "Descrição" pois o mesmo é obrigatório e não foi informado.') do
@@ -69,6 +71,7 @@ require 'commom/constants'
     
       When('Clicar no botão Salvar para validar o campo "Área origem".') do
         click_button 'Salvar'
+        sleep 0.3
       end
       
       Then('Deve existgir uma validação no campo "Área origem" pois o mesmo é obrigatório e não foi informado.') do
@@ -83,6 +86,7 @@ require 'commom/constants'
     
       When('Clicar no botão Salvar para validar o campo "Área destino".') do
         click_button 'Salvar'
+        sleep 0.3
       end
       
       Then('Deve existgir uma validação no campo "Área destino" pois o mesmo é obrigatório e não foi informado.') do
@@ -96,6 +100,7 @@ require 'commom/constants'
     
       When('Clicar no botão Salvar para validar ao menos um equipamento associado.') do
         click_button 'Salvar'
+        sleep 0.3
       end
       
       Then('Deve exibir uma mensagem de erro com informação ao usuário.') do
@@ -166,6 +171,7 @@ require 'commom/constants'
 
       When('Clicar no botão "Salvar" para incluir o grupo.') do
         click_button 'Salvar'
+        sleep 0.3
       end
 
       Then('O grupo de equipamento deve ser salvo com sucesso.') do

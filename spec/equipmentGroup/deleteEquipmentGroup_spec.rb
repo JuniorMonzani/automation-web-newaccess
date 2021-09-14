@@ -10,7 +10,7 @@ describe 'Realiza testes de busca e exclusão na página que lista os Grupos de 
   
   before(:each) do
     equipmentGroup.visit_List_Equipment_Group
-    login.make_Login('admin', $password.to_s)
+    login.make_Login('admin', $password)
   end
 
   context 'Valida os valores contidos nos dropbox:' do

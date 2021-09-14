@@ -9,7 +9,7 @@ require 'commom/constants'
   login = Login.new
 
   @background
-    Given('Que estou na tela quie lista os Grupos de Equipamentos cadastrados.') do
+    Given('Que estou na tela que lista os Grupos de Equipamentos cadastrados para realizar alterações.') do
         equipmentGroup.visit_List_Equipment_Group
         login.make_Login('admin', $password)
     end

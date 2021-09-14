@@ -5,7 +5,7 @@ Feature: EditEquipmentGrourp
     Que eu consiga Cadastrar, Aterar e Excluir Grupo de Equipamento.
 
     Background:
-        Given Que estou na tela quie lista os Grupos de Equipamentos cadastrados.
+        Given Que estou na tela que lista os Grupos de Equipamentos cadastrados para realizar alterações.
 
 
     @verifyEditEquipmentGropup
