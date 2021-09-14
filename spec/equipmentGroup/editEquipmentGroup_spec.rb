@@ -1,4 +1,3 @@
-#19
 require 'login/login'
 require 'equipmentGroup/equipmentGroup'
 require 'commom/findElements'

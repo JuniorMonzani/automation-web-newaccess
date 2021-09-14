@@ -6,12 +6,12 @@ require 'commom/constants'
   equipmentGroup = EquipmentGroup.new
   findElements = FindElements.new
   login = Login.new
-  $password = login.receive_Correct_Pass
+  #$password = login.receive_Correct_Pass
 
   @background
     Given('Que o usuário esteja na página de cadastro de Grupo de Equipamento.') do
         equipmentGroup.visit_Register_Equipment_Group
-        login.make_Login('admin', $password.to_s)
+        login.make_Login('admin', $password)
     end
             
     @verifyLabelsEquipmentGroup

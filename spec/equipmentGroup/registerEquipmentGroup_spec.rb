@@ -10,7 +10,7 @@ describe 'Realiza testes na página de cadastro de Grupo de equipamento.', :regi
 
   before(:each) do
     equipmentGroup.visit_Register_Equipment_Group
-    login.make_Login('admin', $password.to_s)
+    login.make_Login('admin', $password)
   end
 
   context 'Valida os resources da tela:' do
