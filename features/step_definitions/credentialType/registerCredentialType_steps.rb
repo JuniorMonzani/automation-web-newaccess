@@ -15,13 +15,13 @@ require 'commom/constants'
     end
 
     @verifyLabelsCredentialType
-      Given('Que eu verifico e comparo todos os resources dos campos apresentados na página.') do
+      Given('Que eu verifico e comparo todos os resources dos campos apresentados na página de cadastro de tipo de credencial.') do
         expect(page).to have_content('Descrição')
         expect(page).to have_content('Autenticação')
       end
 
     @fieldDescriptionRequiredCredentialType
-      Given('Não preencher o campo "Descrição" e preencher corretamente todos os outros campos necessários para efetuar o cadastro.') do
+      Given('Não preencher o campo "Descrição" e preencher corretamente todos os outros campos necessários para efetuar o cadastro de tipo de credencial.') do
         findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', '')
       end
 
@@ -34,12 +34,14 @@ require 'commom/constants'
         expect(page).to have_selector("input[oldtitle='Informe a Descrição']")
       end
     
-    # context 'Valida os valores contidos no dropbox:' do
-    #   it 'Autenticação', :verifyValuesAuthenticationCredentialType do
-    #     values = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlCredentialTypeAuthentication', $CREDENTIAL_TYPE_AUTHENTICATION)
-    #     expect(values).to be_truthy
-    #   end
-    # end
+    @verifyValuesAuthenticationCredentialType
+      Given('Obter todos os valores do dropbox "Autenticação" na tela de cadastro de tipo de credencial e comparar com os valores esperados.') do
+        $valueCredentialType = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlCredentialTypeAuthentication', $CREDENTIAL_TYPE_AUTHENTICATION)
+      end
+
+      Then('Deve conter todos os valores esperados no campo "Autenticação".') do
+        expect($valueCredentialType).to be_truthy
+      end
       
     # context 'Salva um tipo de credencial com sucesso' do
     #   it 'Preenche todos os campos necessários e salvar o Tipo de Credencial como "pessoa" com sucesso', :saveCredentialTypeWithPersonAuthentication do

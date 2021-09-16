@@ -7,47 +7,46 @@ Feature: Register Credential Type
 
     @verifyLabelsCredentialType
     Scenario: verifyLabelsCredentialType
-        Given Que eu verifico e comparo todos os resources dos campos apresentados na página.
+        Given Que eu verifico e comparo todos os resources dos campos apresentados na página de cadastro de tipo de credencial.
 
     @fieldDescriptionRequiredCredentialType
     Scenario: fieldDescriptionRequiredCredentialType
-        Given Não preencher o campo "Descrição" e preencher corretamente todos os outros campos necessários para efetuar o cadastro.
+        Given Não preencher o campo "Descrição" e preencher corretamente todos os outros campos necessários para efetuar o cadastro de tipo de credencial.
         When Clicar no botão Salvar para validação do campo "Descrição".
         Then Deve existir uma validação no campo "Descrição" pois o mesmo é obrigatório e não foi informado.
 
-    @fieldDescriptionMaxSizeCredentialType
-    Scenario: fieldDescriptionMaxSizeCredentialType
-        Given eu encontro o campo "Descição"
-        And eu informo 55 caracteres alfanuméricos
-        When eu clico no botão "Salvar"
-        Then o Tipo de Credencial deve ser salvo com 50 caracteres na Descrição
+    # @fieldDescriptionMaxSizeCredentialType
+    # Scenario: fieldDescriptionMaxSizeCredentialType
+    #     Given eu encontro o campo "Descição"
+    #     And eu informo 55 caracteres alfanuméricos
+    #     When eu clico no botão "Salvar"
+    #     Then o Tipo de Credencial deve ser salvo com 50 caracteres na Descrição
 
     @verifyValuesAuthenticationCredentialType
     Scenario: verifyValuesAuthenticationCredentialType
-        Given que eu obternha todos os valores do dropbox "Autenticação"
-        When eu comparo com os valores esperados
-        Then deve conter todos os valores esperados
+        Given Obter todos os valores do dropbox "Autenticação" na tela de cadastro de tipo de credencial e comparar com os valores esperados.
+        When Deve conter todos os valores esperados no campo "Autenticação". 
+        
+    # @saveWithPersonAuthenticationCredentialType
+    # Scenario: saveWithPersonAuthenticationCredentialType
+    #     Given que eu esteja na tela de cadastro de um novo Tipo de Credencial
+    #     And insiro uma descrição
+    #     And seleciono o valor "Pessoa" no campo "Autenticação"
+    #     When eu clico no botão "Salvar"
+    #     Then deve salvar o Tipo de Credencial com autenticação em "Pessoa"
 
-    @saveWithPersonAuthenticationCredentialType
-    Scenario: saveWithPersonAuthenticationCredentialType
-        Given que eu esteja na tela de cadastro de um novo Tipo de Credencial
-        And insiro uma descrição
-        And seleciono o valor "Pessoa" no campo "Autenticação"
-        When eu clico no botão "Salvar"
-        Then deve salvar o Tipo de Credencial com autenticação em "Pessoa"
+    # @saveWithVisitorAuthenticationCredentialType
+    # Scenario: saveWithVisitorAuthenticationCredentialType
+    #     Given que eu esteja na tela de cadastro de um novo Tipo de Credencial
+    #     And insiro uma descrição
+    #     And seleciono o valor "Visitante" no campo "Autenticação"
+    #     When eu clico no botão "Salvar"
+    #     Then deve salvar o Tipo de Credencial com autenticação em "Visitante"
 
-    @saveWithVisitorAuthenticationCredentialType
-    Scenario: saveWithVisitorAuthenticationCredentialType
-        Given que eu esteja na tela de cadastro de um novo Tipo de Credencial
-        And insiro uma descrição
-        And seleciono o valor "Visitante" no campo "Autenticação"
-        When eu clico no botão "Salvar"
-        Then deve salvar o Tipo de Credencial com autenticação em "Visitante"
-
-    @saveWithCredentialAuthenticationCredentialType
-    Scenario: saveWithCredentialAuthenticationCredentialType
-        Given que eu esteja na tela de cadastro de um novo Tipo de Credencial
-        And insiro uma descrição
-        And seleciono o valor "Credencial" no campo "Autenticação"
-        When eu clico no botão "Salvar"
-        Then deve salvar o Tipo de Credencial com autenticação em "Credencial"
+    # @saveWithCredentialAuthenticationCredentialType
+    # Scenario: saveWithCredentialAuthenticationCredentialType
+    #     Given que eu esteja na tela de cadastro de um novo Tipo de Credencial
+    #     And insiro uma descrição
+    #     And seleciono o valor "Credencial" no campo "Autenticação"
+    #     When eu clico no botão "Salvar"
+    #     Then deve salvar o Tipo de Credencial com autenticação em "Credencial"
