@@ -6,7 +6,7 @@ require 'commom/constants'
   credentialType = CredentialType.new
   findElements = FindElements.new
   login = Login.new
-  $password = login.receive_Correct_Pass
+  # $password = login.receive_Correct_Pass
 
   @background
     Given('Que o usuário esteja na página de cadastro de Tipo de Credencial.') do
@@ -43,34 +43,65 @@ require 'commom/constants'
         expect($valueCredentialType).to be_truthy
       end
       
-    # context 'Salva um tipo de credencial com sucesso' do
-    #   it 'Preenche todos os campos necessários e salvar o Tipo de Credencial como "pessoa" com sucesso', :saveCredentialTypeWithPersonAuthentication do
-    #     findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Automação Pessoa')
-    #     findElements.select_option('#MainContentMainMaster_MainContent_ddlCredentialTypeAuthentication', 'Pessoa')
-    #     click_button 'Salvar'
-    #     sleep 1
-    #     expect(page).to have_content('Cadastro de Tipo de Credencial')
-    #   end
+    @saveWithPersonAuthenticationCredentialType
+      Given('Que eu preencha o campo obrigatório "Descrição" para cadastro de um novo Tipo de Credencial como "Pessoa".') do
+        findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Automação Pessoa')
+      end
+
+      Given('Selecionar o "Pessoa" como "Autenticação".') do
+        findElements.select_option('#MainContentMainMaster_MainContent_ddlCredentialTypeAuthentication', 'Pessoa')
+      end
+
+      When('Clicar no botão "Salvar" para incluir o tipo de credencial "Pessoa".') do
+        click_button 'Salvar'
+        sleep 1
+      end
+      
+      Then('O Tipo de Credencial com autenticação "Pessoa" deve ser salvo com sucesso.') do
+        expect(page).to have_content('Cadastro de Tipo de Credencial')
+      end
     
-    #   it 'Preenche todos os campos necessários e salvar o Tipo de Credencial como "visitante" com sucesso', :saveCredentialTypeWithVisitorAuthentication do
-    #     findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Automação Visitante')
-    #     findElements.select_option('#MainContentMainMaster_MainContent_ddlCredentialTypeAuthentication', 'Visitante')
-    #     click_button 'Salvar'
-    #     sleep 1
-    #     expect(page).to have_content('Cadastro de Tipo de Credencial')
-    #   end
+    @saveWithVisitorAuthenticationCredentialType  
+      Given('Que eu preencha o campo obrigatório "Descrição" para cadastro de um novo Tipo de Credencial como "Visitante".') do
+        findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Automação Visitante')
+      end
+
+      Given('Selecionar o "Visitante" como "Autenticação".') do
+        findElements.select_option('#MainContentMainMaster_MainContent_ddlCredentialTypeAuthentication', 'Visitante')
+      end
+
+      When('Clicar no botão "Salvar" para incluir o tipo de credencial "Visitante".') do
+        click_button 'Salvar'
+        sleep 1
+      end
+
+      Then('O Tipo de Credencial com autenticação "Visitante" deve ser salvo com sucesso.') do
+        expect(page).to have_content('Cadastro de Tipo de Credencial')
+      end
     
-    #   it 'Preenche todos os campos necessários e salvar o Tipo de Credencial como "credencial" com sucesso', :saveCredentialTypeWithCredentialAuthentication do
-    #     findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Automação Credencial')
-    #     findElements.select_option('#MainContentMainMaster_MainContent_ddlCredentialTypeAuthentication', 'Credencial')
-    #     click_button 'Salvar'
-    #     sleep 1
-    #     expect(page).to have_content('Cadastro de Tipo de Credencial')
-    #   end    
-    # end
-    
-    # it 'Validação de quantidade máxima de caracteres no campo "Descrição"', :fieldDescriptionMaxSizeCredentialType do
-    #   findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Automação'.ljust(55, 'X'))
-    #   click_button 'Salvar'
-    # end
-  #  end
+    @saveWithCredentialAuthenticationCredentialType
+      Given('Que eu preencha o campo obrigatório "Descrição" para cadastro de um novo Tipo de Credencial como "Credencial".') do
+        findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Automação Credencial')
+      end
+      
+      Given('Selecionar o "Credencial" como "Autenticação".') do
+        findElements.select_option('#MainContentMainMaster_MainContent_ddlCredentialTypeAuthentication', 'Credencial')
+      end
+
+      When('Clicar no botão "Salvar" para incluir o tipo de credencial "Credencial".') do
+        click_button 'Salvar'
+        sleep 1
+      end
+
+      Then('O Tipo de Credencial com autenticação "Credencial" deve ser salvo com sucesso.') do
+        expect(page).to have_content('Cadastro de Tipo de Credencial')
+      end
+
+    @fieldDescriptionMaxSizeCredentialType  
+      Given('Que eu tente preencher o campo obrigatório "Descrição" na tela de cadastro de tipo de credencial informando 55 caracteres alfanuméricos.') do
+      findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Automação'.ljust(55, 'X'))
+      end
+      
+      Then('Clicando em "Salvar" o campo "Descrição" deve ser preenchido com 50 caracteres que é a quantidade máxima permitida no cadastro de o Tipo de Credencial.') do
+      click_button 'Salvar'
+      end
