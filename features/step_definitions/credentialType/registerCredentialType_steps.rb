@@ -6,7 +6,7 @@ require 'commom/constants'
   credentialType = CredentialType.new
   findElements = FindElements.new
   login = Login.new
-  # $password = login.receive_Correct_Pass
+  $password = login.receive_Correct_Pass
 
   @background
     Given('Que o usuário esteja na página de cadastro de Tipo de Credencial.') do
@@ -99,9 +99,9 @@ require 'commom/constants'
 
     @fieldDescriptionMaxSizeCredentialType  
       Given('Que eu tente preencher o campo obrigatório "Descrição" na tela de cadastro de tipo de credencial informando 55 caracteres alfanuméricos.') do
-      findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Automação'.ljust(55, 'X'))
+        findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Automação'.ljust(55, 'X'))
       end
       
       Then('Clicando em "Salvar" o campo "Descrição" deve ser preenchido com 50 caracteres que é a quantidade máxima permitida no cadastro de o Tipo de Credencial.') do
-      click_button 'Salvar'
+        click_button 'Salvar'
       end

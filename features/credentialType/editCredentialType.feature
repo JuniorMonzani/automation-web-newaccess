@@ -4,7 +4,7 @@ Feature: EditCredentialType
     Que eu consiga Cadastrar, Aterar e Excluir Tipo de Credencial
 
     Background: 
-        Given que estou na tela que lista os Tipos de Credencial cadastradas para realizar alterações.
+        Given Que estou na tela que lista os Tipos de Credencial cadastradas para realizar alterações.
 
     @verifyEditCredentialType
     Scenario: verifyEditCredentialType
@@ -12,34 +12,31 @@ Feature: EditCredentialType
         When Eu clico no ícone de alteração do tipo de credencial Automação Pessoa.
         Then Deve direcionar para a página de alteração de tipo de credencial Automação Pessoa.
 
-    # @verifyDescriptionMaxSizeCredentialType
-    # Scenario: verifyDescriptionMaxSize
-    #     Given que estou na lista de Tipos de Credencial cadastradas
-    #     And tenho um Tipo de Credencial cadastrado com o máximo permitido de caracteres no campo "Descrição" (50 caracteres)
-    #     When eu verifico a quantidade de caracteres da descrição
-    #     Then o tamanho da Descrição do Tipo de Credencial deve corresponder ao valor máximo esperado (50 caracteres)
+    @verifyDescriptionMaxSizeCredentialType
+    Scenario: verifyDescriptionMaxSizeCredentialType
+        Given Que eu faça a busca e encontre o tipo de credencial cadastrada com a quantidade máxima de caracteres permitidos no campo "Descrição" sendo 50 caracteres.
+        Then Deve ser apresentado 50 caracteres no campo Descrição do Tipo de Credencial que corresponde ao valor máximo esperado.
 
-    # @verifyAuthenticationPersonCredentialType
-    # Scenario: verifyAuthenticationPerson
-    #     Given que tenha cadastrado um Tipo de Credencial com autenticação em "Pessoa"
-    #     When eu verifico o tipo de autenticação
-    #     Then deve ser do tipo "Pessoa"
+    @verifyAuthenticationPersonCredentialType
+    Scenario: verifyAuthenticationPersonCredentialType
+        Given Que faça a busca e encontre um Tipo de Credencial com autenticação em "Pessoa".
+        When Eu clico no ícone de alteração do Tipo de Credencial cadastrada com autenticação em "Pessoa".
+        Then Deve direcionar para a página de alteração de tipo de credencial cadastrada com autenticação em "Pessoa".
 
-    # @verifyAuthenticationVisitorCredentialType
-    # Scenario: verifyAuthenticationVisitor
-    #     Given que tenha cadastrado um Tipo de Credencial com autenticação em "Visitante"
-    #     When eu verifico o tipo de autenticação
-    #     Then deve ser do tipo "Visitante"
+    @verifyAuthenticationVisitorCredentialType
+    Scenario: verifyAuthenticationVisitorCredentialType
+        Given Que faça a busca e encontre um Tipo de Credencial com autenticação em "Visitante".
+        When Eu clico no ícone de alteração do Tipo de Credencial cadastrada com autenticação em "Visitante".
+        Then Deve direcionar para a página de alteração de tipo de credencial cadastrada com autenticação em "Visitante".
 
-    # @verifyAuthenticationCredentialCredentialType
-    # Scenario: verifyAuthenticationCredential
-    #     Given que tenha cadastrado um Tipo de Credencial com autenticação em "Credencial"
-    #     When eu verifico o tipo de autenticação
-    #     Then deve ser do tipo "Credencial"
+    @verifyAuthenticationCredentialCredentialType
+    Scenario: verifyAuthenticationCredentialCredentialType
+        Given Que faça a busca e encontre um Tipo de Credencial com autenticação em "Credencial".
+        When Eu clico no ícone de alteração do Tipo de Credencial cadastrada com autenticação em "Credencial".
+        Then Deve direcionar para a página de alteração de tipo de credencial cadastrada com autenticação em "Credencial".
 
-    # @saveAlreadyExistsCredentialType
-    # Scenario: saveCredentialTypeAlreadyExists
-    #     Given que eu esteja na tela de cadastro de um novo Tipo de Credencial
-    #     And insiro uma descrição que já existe cadatrada para outro Tipo de Credencial
-    #     When eu clico no botão "Salvar"
-    #     Then uma validação deve ser apresentada onde a mensagem deve correspender a mensagem esperada
+    @saveAlreadyExistsCredentialType
+    Scenario: saveAlreadyExistsCredentialType
+        Given Que eu insira uma descrição que já existe, faça a busca e encontre um grupo de credenciais já existente que foi cadastrada pela Automação Pessoa.
+        When Clicar no botão "Salvar" para validação de Tipo de Credencial já existente.
+        Then Deve ser apresentada uma validação correspondente a mensagem esperada, indicando que o Tipo de Credencial já existe.
