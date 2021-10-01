@@ -3,7 +3,7 @@ class Login
   include Capybara::DSL
 
   def visit_Login_NewAccess
-    visit 'http://laboratorio.mdacesso.com.br/logon.aspx'
+    visit 'https://autoteste.dimep-ams.com.br/'
   end
 
   def receive_Correct_Pass

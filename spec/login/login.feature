@@ -28,4 +28,4 @@ Feature: Login
         Given que estou na página de login do sistema
         And que preenchi as informações válidas
         When ao clicar no botão "Entrar"
-        Then o título da página deve ser "MD Acesso - Sistema de Controle de Acesso"
+        Then o título da página deve ser "DMP Access II - Sistema de Controle de Acesso"
