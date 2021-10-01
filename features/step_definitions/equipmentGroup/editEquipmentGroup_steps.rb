@@ -118,12 +118,12 @@ require 'commom/constants'
       end
     
       When('Desassocio o equipamento 6 - Concentradora.') do
-        equipmentGroup.desassociated_Equipment('6 - Concentradora 1')
+        equipmentGroup.desassociated_Equipment('2 - PIII/Smart')
         sleep 0.3
       end
 
       When('Associo o equipamento 101 - Câmera.') do
-        equipmentGroup.associates_Equipment('101 - Camera')
+        equipmentGroup.associates_Equipment('99 - BioPointII - Teste Automacao')
         sleep 0.3
       end
 

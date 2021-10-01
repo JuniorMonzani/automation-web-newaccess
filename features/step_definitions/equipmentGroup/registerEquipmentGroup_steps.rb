@@ -35,7 +35,7 @@ require 'commom/constants'
     #fieldNumberRequiredEquipmentGroup
       Given('Informar caractere alfanumérico no campo "Número" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
         equipmentGroup.fills_In_Equipment_Group('teste', 'Teste de automação', '1', '2', false, true, false)
-        equipmentGroup.associates_Equipment('6 - Concentradora 1')
+        equipmentGroup.associates_Equipment('2 - PIII/Smart')
       end
     
       When('Clicar no botão Salvar para validar o campo "Número".') do
@@ -50,7 +50,7 @@ require 'commom/constants'
     #fieldDescriptionRequiredEquipmentGroup
       Given('Não preencher o campo "Descrição" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
         equipmentGroup.fills_In_Equipment_Group(9999, '', '1', '2', false, true, false)
-        equipmentGroup.associates_Equipment('6 - Concentradora 1')
+        equipmentGroup.associates_Equipment('2 - PIII/Smart')
       end
     
       When('Clicar no botão Salvar para validar o campo "Descrição".') do
@@ -65,7 +65,7 @@ require 'commom/constants'
     #fieldOriginAreaRequiredEquipmentGroup
       Given('Informar caractere alfanumérico no campo "Área origem" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
         equipmentGroup.fills_In_Equipment_Group(9999, 'Teste de Autormação', '', '2', false, true, false)
-        equipmentGroup.associates_Equipment('6 - Concentradora 1')
+        equipmentGroup.associates_Equipment('2 - PIII/Smart')
       end
     
       When('Clicar no botão Salvar para validar o campo "Área origem".') do
@@ -80,7 +80,7 @@ require 'commom/constants'
     #fieldDestinationAreaRequiredEquipmentGroup
       Given('Informar caractere alfanumérico no campo "Área destino" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
         equipmentGroup.fills_In_Equipment_Group(9999, 'Teste de Autormação', '1', '', false, true, false)
-        equipmentGroup.associates_Equipment('6 - Concentradora 1')
+        equipmentGroup.associates_Equipment('2 - PIII/Smart')
       end
     
       When('Clicar no botão Salvar para validar o campo "Área destino".') do
@@ -149,7 +149,7 @@ require 'commom/constants'
     #registerEquipmentGroupSuccess
       Given('Que eu preencha todos os campos obrigatórios de forma correta.') do
         equipmentGroup.fills_In_Equipment_Group('123', 'Teste de automação', '1', '2', true, true, true)
-        equipmentGroup.associates_Equipment('6 - Concentradora 1')
+        equipmentGroup.associates_Equipment('2 - PIII/Smart')
       end
 
       Given('Selecionar o "Fuso Horário" como "03:00".') do

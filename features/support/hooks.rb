@@ -1,12 +1,12 @@
-require 'report_builder'
+#require 'report_builder'
 
- def add_screenshot(scenario)
-    nome_cenario = scenario.name.gsub(/[^A-Za-z0-9]/, '')
-    nome_cenario = nome_cenario.gsub(' ','_').downcase!
-    screenshot = "report/log/screenshots/#{nome_cenario}.png"
-    page.save_screenshot(screenshot)
-    embed(screenshot, 'image/png', 'Print maroto :)')
- end
+# def add_screenshot(scenario)
+#   nome_cenario = scenario.name.gsub(/[^A-Za-z0-9]/, '')
+#    nome_cenario = nome_cenario.gsub(' ','_').downcase!
+#    screenshot = "report/log/screenshots/#{nome_cenario}.png"
+#   page.save_screenshot(screenshot)
+#   embed(screenshot, 'image/png', 'Print maroto :)')
+ #end
 
 #  def add_browser_logs
 #     time_now = Time.now

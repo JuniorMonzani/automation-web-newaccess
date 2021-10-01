@@ -5,11 +5,11 @@ class EquipmentGroup
   attr_accessor :number, :description, :originArea, :destinationArea
 
   def visit_Register_Equipment_Group
-    visit 'http://laboratorio.mdacesso.com.br/Groups/EquipmentGroupEdt.aspx?OperationType=create&chkLastTen=False&currentPaginationIndex=1'
+    visit 'https://autoteste.dimep-ams.com.br/Groups/EquipmentGroupEdt.aspx?OperationType=create&chkLastTen=False&currentPaginationIndex=1'
   end
 
   def visit_List_Equipment_Group
-    visit 'http://laboratorio.mdacesso.com.br/Groups/EquipmentGroupsLst.aspx'
+    visit 'https://autoteste.dimep-ams.com.br/Groups/EquipmentGroupsLst.aspx'
   end
 
   # preenche os campos do cadastro de grupo de equipamento
