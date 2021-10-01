@@ -1,3 +1,4 @@
+#26
 @registerAreas
 Feature: Register Areas
     Como um usuário do sistema que tenha permissão para Cadastrar Áreas.
@@ -8,6 +9,11 @@ Feature: Register Areas
     @verifyLabelsAreas
     Scenario: verifyLabelsAreas
         Given Que eu verifico e comparo todos os resources dos campos apresentados na página de cadastro de áreas.
+
+    @verifyFieldCapacityDisabled
+    Scenario:verifyFieldCapacityDisabled
+        Given Desmarcar o checkbox Capacity Control.
+        Then O campo Capacity deve ficar desabilitado.
 
     @fieldNumberRequiredAreas
     Scenario: fieldNumberRequiredAreas
@@ -27,45 +33,17 @@ Feature: Register Areas
         When Clicar no botão Salvar para validar o campo "Capacidade" da tela Áreas.
         Then Deve existir uma validação no campo "Capacidade" da tela Áreas pois o mesmo é obrigatório e não foi informado.
 
-    # @fieldDestinationAreaRequiredEquipmentGroup
-    # Scenario: fieldDestinationAreaRequiredEquipmentGroup
-    #     Given Informar caractere alfanumérico no campo "Área destino" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.
-    #     When Clicar no botão Salvar para validar o campo "Área destino".
-    #     Then Deve existgir uma validação no campo "Área destino" pois o mesmo é obrigatório e não foi informado.
+    @fieldCapacityThanZero
+    Scenario: fieldCapacityThanZero
+        Given Informar valor zero no campo "Capacidade" da tela Áreas.
+        When Clicar no botão Salvar para validar o campo "Capacidade" da tela Áreas.
+        Then Deve existir uma validação no campo "Capacidade" da tela Áreas pois no mesmo é obrigatório um valor acima de zero.
 
-    # @fieldEquipmentRequiredEquipmentGroup
-    # Scenario: fieldEquipmentRequiredEquipmentGroup
-    #     Given Não associar equipamento ao grupo mas preencher corretamente todos os outros campos necessários para efetuar o cadastro.
-    #     When Clicar no botão Salvar para validar ao menos um equipamento associado.
-    #     Then Deve exibir uma mensagem de erro com informação ao usuário.
-
-    # @verifyValuesTimeZoneEquipmentGroup
-    # Scenario: verifyValuesTimeZoneEquipmentGroup
-    #     Given Obter todos os valores do dropbox "Fuso horário" e comparar com os valores esperados.
-    #     Then Deve conter todos os valores esperados no campo "Fuso horário".
-
-    # @verifyValuesControlSortitionHasDestinationAreaEquipmentGroup
-    # Scenario: verifyValuesControlSortitionHasDestinationAreaEquipmentGroup
-    #     Given Obter todos os valores do dropbox "Controla Sorteio" e comparar com os valores esperados.
-    #     Then Deve conter todos os valores esperados no campo "Controla Sorteio".
-
-    # @verifyValuesControlSortitionNoHasDestinationAreaEquipmentGroup
-    # Scenario: verifyValuesControlSortitionNoHasDestinationAreaEquipmentGroup
-    #     Given Desmarcar o campo "Grupo tem área de destino" para alterar os valores no dropbox.
-    #     And Obter todos os valores do dropbox "Controla Sorteio" após desmarcar o checkbox e compara com os valores esperados.
-    #     Then Deve conter todos os valores esperados no campo "Controla Sorteio" após desmarcar o checkbox.
-
-    # @fieldDestinationAreaDisabledHasDestinationAreaEquipmentGroup
-    # Scenario: fieldDestinationAreaDisabledHasDestinationAreaEquipmentGroup
-    #     Given Desmarcar o campo "Grupo tem área de destino".
-    #     Then O campo "Área destino" deve ficar desabilitado.
-
-    # @registerEquipmentGroupSuccess
-    # Scenario: registerEquipmentGroupSuccess
-    #     Given Que eu preencha todos os campos obrigatórios de forma correta.
-    #     And Selecionar o "Fuso Horário" como "03:00".
-    #     And Selecionar o "Controla sorteio" como "Área origem".
-    #     And Adicionar uma data válida no campo "Data inicial".
-    #     And Adicionar uma data válida no campo "Data final".
-    #     When Clicar no botão "Salvar" para incluir o grupo.
-    #     Then O grupo de equipamento deve ser salvo com sucesso.
+    @registerAreasSuccess
+    Scenario: registerAreasSuccess
+        Given Preencher o cmapo Número com "9999".
+        And Preencher o campo Descrição com o máximo de caracteres possíveis no campo.
+        And Preencher o campo Capacidade com "99999".
+        And Marcar todos os checkbox (exceto Controle de Capacidade).
+        When Clicar no botão Salvar para salvar a área.
+        Then A Área deve ser salva com sucesso.
