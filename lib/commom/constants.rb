@@ -17,6 +17,9 @@ class Constants
     #constante com os valores contidos no dropbox de filtro de pesquisa - Grupo de Eqp
     $FILTER_SEARCH_EQUIPMENT_GROUP = ['Número', 'Descrição', 'Nº da área', 'Nº do equipamento']
 
-    #constante com os valores contidos no dropbox 'Autenticação' - Tipo de Credencial
-    $CREDENTIAL_TYPE_AUTHENTICATION = ['Pessoa', 'Visitante', 'Credencial']
+    #constante com os valores contidos no dropbox 'Autenticação' - Tipo de Credencial no cadastro
+    $REGISTER_CREDENTIAL_TYPE_AUTHENTICATION = ['Pessoa', 'Visitante', 'Credencial']
+
+    #constante com os valores contidos no dropbox 'Autenticação' - Tipo de Credencial na exclusão
+    $DELETE_CREDENTIAL_TYPE_AUTHENTICATION = ['Todos', 'Pessoa', 'Visitante', 'Credencial']
 end

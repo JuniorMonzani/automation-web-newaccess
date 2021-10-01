@@ -20,10 +20,10 @@ Feature: Register Credential Type
         Given Que eu tente preencher o campo obrigatório "Descrição" na tela de cadastro de tipo de credencial informando 55 caracteres alfanuméricos.
         Then Clicando em "Salvar" o campo "Descrição" deve ser preenchido com 50 caracteres que é a quantidade máxima permitida no cadastro de o Tipo de Credencial.
 
-    @verifyValuesAuthenticationCredentialType
-    Scenario: verifyValuesAuthenticationCredentialType
+    @verifyValuesAuthenticationRegisterCredentialType
+    Scenario: verifyValuesAuthenticationRegisterCredentialType
         Given Obter todos os valores do dropbox "Autenticação" na tela de cadastro de tipo de credencial e comparar com os valores esperados.
-        Then Deve conter todos os valores esperados no campo "Autenticação". 
+        Then Deve conter todos os valores esperados no campo "Autenticação" na tela de cadastro. 
         
     @saveWithPersonAuthenticationCredentialType
     Scenario: saveWithPersonAuthenticationCredentialType

@@ -34,12 +34,12 @@ require 'commom/constants'
         expect(page).to have_selector("input[oldtitle='Informe a Descrição']")
       end
     
-    @verifyValuesAuthenticationCredentialType
+    @verifyValuesAuthenticationRegisterCredentialType
       Given('Obter todos os valores do dropbox "Autenticação" na tela de cadastro de tipo de credencial e comparar com os valores esperados.') do
-        $valueCredentialType = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlCredentialTypeAuthentication', $CREDENTIAL_TYPE_AUTHENTICATION)
+        $valueCredentialType = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlCredentialTypeAuthentication', $REGISTER_CREDENTIAL_TYPE_AUTHENTICATION)
       end
 
-      Then('Deve conter todos os valores esperados no campo "Autenticação".') do
+      Then('Deve conter todos os valores esperados no campo "Autenticação" na tela de cadastro.') do
         expect($valueCredentialType).to be_truthy
       end
       
