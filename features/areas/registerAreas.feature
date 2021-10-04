@@ -39,6 +39,12 @@ Feature: Register Areas
         When Clicar no botão Salvar para validar o campo "Capacidade" da tela Áreas com valor 0.
         Then Deve existir uma validação no campo "Capacidade" da tela Áreas pois no mesmo é obrigatório um valor acima de zero.
 
+    @fieldNumberThanZero
+    Scenario: fieldNumberThanZero
+        Given Informar valor zero no campo "Número" da tela Áreas.
+        When Clicar no botão Salvar para validar o campo "Número" da tela Áreas com valor 0.
+        Then Deve existir uma validação no campo "Número" da tela Áreas pois no mesmo é obrigatório um valor acima de zero.
+
     @registerAreasSuccess
     Scenario: registerAreasSuccess
         Given Preencher o campo Número com "9999".

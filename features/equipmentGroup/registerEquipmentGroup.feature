@@ -1,5 +1,4 @@
 #encoding: UTF-8
-
 @registerEquipmentGroup
 Feature: Register Equipment Group
     Como um usuário do sistema que tenha permissão para Cadastrar Grupos de Equipamentos.

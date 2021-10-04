@@ -2,8 +2,6 @@ class EquipmentGroup
   # inclui a biblioteca Capybara para conseguir usar seus elementos dentros das classes e métodos
   include Capybara::DSL
 
-  attr_accessor :number, :description, :originArea, :destinationArea
-
   def visit_Register_Equipment_Group
     visit 'https://autoteste.dimep-ams.com.br/Groups/EquipmentGroupEdt.aspx?OperationType=create&chkLastTen=False&currentPaginationIndex=1'
   end
