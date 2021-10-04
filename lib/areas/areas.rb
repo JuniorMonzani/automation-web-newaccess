@@ -5,11 +5,11 @@ class Areas
     attr_accessor :number, :description, :capacity
     
     def visit_Register_Areas
-        visit 'https://laboratorio.mdacesso.com.br/Area/AreaEdt.aspx?OperationType=create&chkLastTen=True&currentPaginationIndex=&ddlSearchField=Number'
+        visit 'https://autoteste.dimep-ams.com.br/Area/AreaEdt.aspx?OperationType=create&chkLastTen=True&currentPaginationIndex=&ddlSearchField=Number'
     end
 
     def visit_List_Areas
-        visit 'https://laboratorio.mdacesso.com.br/Area/AreaLst.aspx'
+        visit 'https://autoteste.dimep-ams.com.br/Area/AreaLst.aspx'
     end
 
     # preenche os campos do cadastro de Áreas
@@ -18,5 +18,4 @@ class Areas
         fill_in 'MainContentMainMaster_MainContent_txtAreaDescription', with: description
         fill_in 'MainContentMainMaster_MainContent_txtAreaCapacity', with: capacity
     end
-
 end

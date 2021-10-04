@@ -20,6 +20,15 @@ require 'commom/constants'
         expect(page).to have_content('Capacidade')
       end
 
+    @verifyFieldCapacityDisabled
+      Given('Desmarcar o checkbox Capacity Control da tela Áreas.') do
+        uncheck('MainContentMainMaster_MainContent_cbxCapacityControl')
+      end
+
+      Then('O campo Capacity da tela Áreas deve ficar desabilitado.') do
+        expect(find('#MainContentMainMaster_MainContent_txtAreaCapacity').disabled?).to be(true)
+      end
+
     @fieldNumberRequiredAreas
       Given('Informar caractere alfanumérico no campo "Número" da tela Áreas e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
         areas.fills_In_Areas('teste', 'Teste de automação', '999')
@@ -53,7 +62,7 @@ require 'commom/constants'
         areas.fills_In_Areas('1', 'Teste de automação', 'teste')
       end
     
-      When('Clicar no botão Salvar para validar o campo "Capacidade" da tela Áreas.') do
+      When('Clicar no botão Salvar para validar o campo "Capacidade" da tela Áreas com caracter alfanumérico.') do
         click_button 'Salvar'
         sleep 0.3
       end
@@ -62,102 +71,50 @@ require 'commom/constants'
         expect(page).to have_selector("input[oldtitle='Informe a Capacidade']")
       end
 
-    # @fieldDestinationAreaRequiredEquipmentGroup
-    #   Given('Informar caractere alfanumérico no campo "Área destino" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
-    #     equipmentGroup.fills_In_Equipment_Group(9999, 'Teste de Autormação', '1', '', false, true, false)
-    #     equipmentGroup.associates_Equipment('6 - Concentradora 1')
-    #   end
+    @fieldCapacityThanZero
+      Given('Informar valor zero no campo "Capacidade" da tela Áreas.') do
+        areas.fills_In_Areas('0', 'Teste de automação', '99999')
+      end
     
-    #   When('Clicar no botão Salvar para validar o campo "Área destino".') do
-    #     click_button 'Salvar'
-    #     sleep 0.3
-    #   end
+      When('Clicar no botão Salvar para validar o campo "Capacidade" da tela Áreas com valor 0.') do
+        click_button 'Salvar'
+        sleep 0.3
+      end
       
-    #   Then('Deve existgir uma validação no campo "Área destino" pois o mesmo é obrigatório e não foi informado.') do
-    #     expect(page).to have_selector("input[oldtitle='Informe a Área destino']")
-    #   end
+      Then('Deve existir uma validação no campo "Capacidade" da tela Áreas pois no mesmo é obrigatório um valor acima de zero.') do
+        expect(page).to have_selector("input[oldtitle='O Número deve ser maior que zero']")
+      end
 
-    # @fieldEquipmentRequiredEquipmentGroup
-    #   Given('Não associar equipamento ao grupo mas preencher corretamente todos os outros campos necessários para efetuar o cadastro.') do
-    #     equipmentGroup.fills_In_Equipment_Group(9999, 'Teste de Autormação', '1', '2', false, true, false)
-    #   end
-    
-    #   When('Clicar no botão Salvar para validar ao menos um equipamento associado.') do
-    #     click_button 'Salvar'
-    #     sleep 0.3
-    #   end
-      
-    #   Then('Deve exibir uma mensagem de erro com informação ao usuário.') do
-    #     expect(find('#divIdBodyBusinessError')).to have_content '- O grupo de equipamentos tem que ser associado a um equipamento ou porta, pelo menos'
-    #   end
+    @registerAreasSuccess
+      Given('Preencher o campo Número com "9999".') do
+        findElements.input_textbox('MainContentMainMaster_MainContent_txtAreaNumber', '9999')
+      end
 
-    # @verifyValuesTimeZoneEquipmentGroup
-    #   Given('Obter todos os valores do dropbox "Fuso horário" e comparar com os valores esperados.') do
-    #     $valuesTimeZone = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlTimeZone', $TIME_ZONE)
-    #   end
+      And('Preencher o campo Descrição com o máximo de caracteres possíveis no campo.') do
+        findElements.input_textbox('MainContentMainMaster_MainContent_txtAreaDescription', 'Automação Áreas'.ljust(35, 'X'))
+      end
 
-    #   Then('Deve conter todos os valores esperados no campo "Fuso horário".') do
-    #     expect($valuesTimeZone).to be_truthy
-    #   end
+      And('Preencher o campo Capacidade com "99999".') do
+        findElements.input_textbox('MainContentMainMaster_MainContent_txtAreaCapacity', '99999')
+      end
 
-    # @verifyValuesControlSortitionHasDestinationAreaEquipmentGroup
-    #   Given('Obter todos os valores do dropbox "Controla Sorteio" e comparar com os valores esperados.') do
-    #     $valueSortitionHasDestinationArea = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlControlSortition', $CONTROL_SORTITION_HAS_DESTINATION_AREA)
-    #   end
+      And('Marcar todos os checkbox exceto Controle de Capacidade.') do
+        check('MainContentMainMaster_MainContent_cbxUpdateArea')
+        check('MainContentMainMaster_MainContent_cbxBlocked')
+        check('MainContentMainMaster_MainContent_cbxReentry')
+        check('MainContentMainMaster_MainContent_cbxBreakSeq')
+        check('MainContentMainMaster_MainContent_cbxControlQtdGroup')
+        check('MainContentMainMaster_MainContent_cbxRetainProvCred')
+        check('MainContentMainMaster_MainContent_cbxRequiresAuthorizer')
+        check('MainContentMainMaster_MainContent_cbxRetainCredAuthCred')
+        check('MainContentMainMaster_MainContent_cbxRetainCredAuthVisitor')
+      end
 
-    #   Then('Deve conter todos os valores esperados no campo "Controla Sorteio".') do
+      When('Clicar no botão Salvar para salvar a área.') do
+        click_button 'Salvar'
+        sleep 0.3
+      end
 
-    #     expect($valueSortitionHasDestinationArea).to be_truthy
-    #   end
-
-    # @verifyValuesControlSortitionNoHasDestinationAreaEquipmentGroup
-    #   Given('Desmarcar o campo "Grupo tem área de destino" para alterar os valores no dropbox.') do
-    #     uncheck('chkHasDestinationArea')
-    #   end
-
-    #   When('Obter todos os valores do dropbox "Controla Sorteio" após desmarcar o checkbox e compara com os valores esperados.') do
-    #     $valueSortitionNoHasDestinationArea = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlControlSortition', $CONTROL_SORTITION_NO_HAS_DESTINATION_AREA)
-    #   end
-    #   Then('Deve conter todos os valores esperados no campo "Controla Sorteio" após desmarcar o checkbox.') do
-    #     expect($valueSortitionNoHasDestinationArea).to be_truthy
-    #   end
-
-    # @fieldDestinationAreaDisabledHasDestinationAreaEquipmentGroup
-    #   Given('Desmarcar o campo "Grupo tem área de destino".') do
-    #     uncheck('chkHasDestinationArea')
-    #   end
-
-    #   Then('O campo "Área destino" deve ficar desabilitado.') do
-    #     expect(find('#MainContentMainMaster_MainContent_txtDestinationArea').disabled?).to be(true)
-    #   end
-
-    # @registerEquipmentGroupSuccess
-    #   Given('Que eu preencha todos os campos obrigatórios de forma correta.') do
-    #     equipmentGroup.fills_In_Equipment_Group('123', 'Teste de automação', '1', '2', true, true, true)
-    #     equipmentGroup.associates_Equipment('6 - Concentradora 1')
-    #   end
-
-    #   Given('Selecionar o "Fuso Horário" como "03:00".') do
-    #     findElements.select_option('#MainContentMainMaster_MainContent_ddlTimeZone', '03:00')
-    #   end
-
-    #   Given('Selecionar o "Controla sorteio" como "Área origem".') do
-    #     findElements.select_option('#MainContentMainMaster_MainContent_ddlControlSortition', 'Área origem')
-    #   end
-
-    #   Given('Adicionar uma data válida no campo "Data inicial".') do
-    #     findElements.input_textbox('MainContentMainMaster_MainContent_txtDaylightStartDate', '01/01/2025')
-    #   end
-
-    #   Given('Adicionar uma data válida no campo "Data final".') do
-    #     findElements.input_textbox('MainContentMainMaster_MainContent_txtDaylightEndDate', '01/01/2030')
-    #   end
-
-    #   When('Clicar no botão "Salvar" para incluir o grupo.') do
-    #     click_button 'Salvar'
-    #     sleep 0.3
-    #   end
-
-    #   Then('O grupo de equipamento deve ser salvo com sucesso.') do
-    #     expect(page).to have_content('Cadastro de Grupo de Equipamento')
-    #   end
+      Then('A Área deve ser salva com sucesso.') do
+        expect(page).to have_content('Área salva com sucesso')
+      end

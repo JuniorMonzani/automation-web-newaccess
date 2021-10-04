@@ -19,7 +19,7 @@ class EquipmentGroup
     fill_in 'MainContentMainMaster_MainContent_txtOriginArea', with: originArea
     fill_in 'MainContentMainMaster_MainContent_txtDestinationArea', with: destinationArea
 
-    # verifica o valor informado para o checkbox, se for verdadeiro marca o campo, se for falso desmareca
+    # verifica o valor informado para o checkbox, se for verdadeiro marca o campo, se for falso desmarca
     if vehicleAccess == true
       check('chkControlsVehicle')
     else
