@@ -113,7 +113,7 @@ require 'commom/constants'
 
 
 
-    #verifyMessageDeteleEquipmentGropupIsInUse
+    #verifyMessageDeteleEquipmentGropupInUse
       Given('Desmarco a flag 10 últimas atualizações_06.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         sleep 0.3
