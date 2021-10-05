@@ -6,6 +6,11 @@ Feature: edit Areas
     Background:
         Given Que o usuário esteja na página que lista as Áreas cadastradas.
 
+    @verifyResourcesListArea
+    Scenario: verifyResourcesListArea
+        Given Que o usuário esteja na página que lista as Áreas cadastradas.
+        Then A página deve conter os resources esperados.
+
     @verifyEditAreas
     Scenario: verifyEditAreas
         Given Que eu faça a busca e encontre a Área cadastrada pela automação_01.
