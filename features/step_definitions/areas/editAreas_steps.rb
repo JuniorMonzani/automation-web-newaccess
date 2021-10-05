@@ -1,0 +1,69 @@
+require 'login/login'
+require 'areas/Areas'
+require 'commom/findElements'
+require 'commom/constants'
+
+  areas = Areas.new
+  findElements = FindElements.new
+  login = Login.new
+
+  @background
+    Given('Que o usuário esteja na página que lista as Áreas cadastradas.') do
+      areas.visit_List_Areas
+      login.make_Login('admin', $password.to_s)
+    end
+
+    @verifyEditAreas
+      Given('Que eu faça a busca e encontre a Área cadastrada pela automação_01.') do
+        uncheck('MainContentMainMaster_chkLastTenModified')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', '9999')
+        click_button 'Buscar'
+        sleep 0.3
+      end
+        
+      When('Eu clico no ícone de alteração da Área_01.') do
+        page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gridView_IMG_BUTTON_EDIT_0"]').click
+        sleep 0.3
+      end
+
+      Then('Deve direcionar para a página de alteração de Área.') do
+        expect(page).to have_content('Alterar Área')
+      end
+
+    @verifyFieldNumberOfAreaDisabled
+      Given('Que eu faça a busca e encontre a Área cadastrada pela automação_02.') do
+        uncheck('MainContentMainMaster_chkLastTenModified')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', '9999')
+        click_button 'Buscar'
+        sleep 0.3
+      end
+        
+      When('Eu clico no ícone de alteração da Área_02.') do
+        page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gridView_IMG_BUTTON_EDIT_0"]').click
+        sleep 0.3
+      end
+
+      Then('Na tela de alteração de Área eu verifico o campo Número e o mesmo deve estar desabilitado.') do
+        expect(find('#MainContentMainMaster_MainContent_txtAreaNumber').disabled?).to be(true)
+      end
+
+    @verifyDescriptionArea
+      Given('Que eu faça a busca e encontre a Área cadastrada pela automação_03.') do
+        uncheck('MainContentMainMaster_chkLastTenModified')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', '9999')
+        click_button 'Buscar'
+        sleep 0.3
+      end
+        
+      When('Eu clico no ícone de alteração da Área_03.') do
+        page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gridView_IMG_BUTTON_EDIT_0"]').click
+        sleep 0.3
+      end
+
+      Then('A descrição deve ser exatamente a descrição cadastrada para a Área.') do
+        # expect(find('#MainContentMainMaster_MainContent_txtAreaNumber').disabled?).to be(true)
+        # findElements.input_textbox('MainContentMainMaster_MainContent_txtAreaDescription', 'Automação Áreas'.ljust(35, 'X'))
+        # expect(find('MainContentMainMaster_MainContent_txtAreaDescription').'Automação Áreas'.ljust(30, 'X')).to be(true)
+        within('table tbody tr', text: 'Automação ÁreasXXXXXXXXXXXXXXX')
+        @texto = find('td[align="center"]', text: 'Automação ÁreasXXXXXXXXXXXXXXX')
+      end

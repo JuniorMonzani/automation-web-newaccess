@@ -18,6 +18,16 @@ require 'commom/constants'
         expect(page).to have_content('Número')
         expect(page).to have_content('Descrição')
         expect(page).to have_content('Capacidade')
+        expect(page).to have_content('Controla capacidade')
+        expect(page).to have_content('Atualizar área na credencial')
+        expect(page).to have_content('Interditada')
+        expect(page).to have_content('Permite reentrada')
+        expect(page).to have_content('Permite quebra de sequência')
+        expect(page).to have_content('Controla quantidade por grupo de pessoas')
+        expect(page).to have_content('Baixa credencial provisória no cofre')
+        expect(page).to have_content('Requer autorizador')
+        expect(page).to have_content('Baixa credencial que autentica em credencial no cofre')
+        expect(page).to have_content('Baixa credencial que autentica em visitante no cofre')
       end
 
     @verifyFieldCapacityDisabled
