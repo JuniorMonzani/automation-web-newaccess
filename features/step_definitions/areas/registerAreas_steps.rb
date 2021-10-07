@@ -41,7 +41,7 @@ require 'commom/constants'
 
     @fieldNumberRequiredAreas
       Given('Informar caractere alfanumérico no campo "Número" da tela Áreas e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
-        areas.fills_In_Areas('teste', 'Teste de automação', '999')
+        areas.fills_In_Areas('teste', 'Teste de automação', $REGISTER_AREAS_CAPACITY)
       end
 
       When('Clicar no botão Salvar para validar o campo "Número" da tela Áreas.') do
@@ -55,7 +55,7 @@ require 'commom/constants'
 
     @fieldDescriptionRequiredAreas
       Given('Não preencher o campo "Descrição" da tela Áreas e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
-        areas.fills_In_Areas('1', '', '999')
+        areas.fills_In_Areas($REGISTER_AREAS_NUMBER, '', $REGISTER_AREAS_CAPACITY)
       end
     
       When('Clicar no botão Salvar para validar o campo "Descrição" da tela Áreas.') do
@@ -69,7 +69,7 @@ require 'commom/constants'
 
     @fieldCapacityRequiredAreas
       Given('Informar caractere alfanumérico no campo "Capacidade" da tela Áreas e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
-        areas.fills_In_Areas('1', 'Teste de automação', 'teste')
+        areas.fills_In_Areas($REGISTER_AREAS_NUMBER, 'Teste de automação', 'teste')
       end
     
       When('Clicar no botão Salvar para validar o campo "Capacidade" da tela Áreas com caracter alfanumérico.') do
@@ -83,7 +83,7 @@ require 'commom/constants'
 
     @fieldCapacityThanZero
       Given('Informar valor zero no campo "Capacidade" da tela Áreas.') do
-        areas.fills_In_Areas('0', 'Teste de automação', '99999')
+        areas.fills_In_Areas($REGISTER_AREAS_NUMBER, 'Teste de automação', '0')
       end
     
       When('Clicar no botão Salvar para validar o campo "Capacidade" da tela Áreas com valor 0.') do
@@ -92,20 +92,34 @@ require 'commom/constants'
       end
       
       Then('Deve existir uma validação no campo "Capacidade" da tela Áreas pois no mesmo é obrigatório um valor acima de zero.') do
+        expect(page).to have_selector("input[oldtitle='A Capacidade deve ser maior que zero']")
+      end
+
+    @fieldNumberThanZero
+      Given('Informar valor zero no campo "Número" da tela Áreas.') do
+        areas.fills_In_Areas('0', 'Teste de automação', $REGISTER_AREAS_CAPACITY)
+      end
+    
+      When('Clicar no botão Salvar para validar o campo "Número" da tela Áreas com valor 0.') do
+        click_button 'Salvar'
+        sleep 0.3
+      end
+      
+      Then('Deve existir uma validação no campo "Número" da tela Áreas pois no mesmo é obrigatório um valor acima de zero.') do
         expect(page).to have_selector("input[oldtitle='O Número deve ser maior que zero']")
       end
 
     @registerAreasSuccess
       Given('Preencher o campo Número com "9999".') do
-        findElements.input_textbox('MainContentMainMaster_MainContent_txtAreaNumber', '9999')
+        findElements.input_textbox('MainContentMainMaster_MainContent_txtAreaNumber', $REGISTER_AREAS_NUMBER)
       end
 
       And('Preencher o campo Descrição com o máximo de caracteres possíveis no campo.') do
-        findElements.input_textbox('MainContentMainMaster_MainContent_txtAreaDescription', 'Automação Áreas'.ljust(35, 'X'))
+        findElements.input_textbox('MainContentMainMaster_MainContent_txtAreaDescription', $REGISTER_AREAS_MAX_DESCRIPTION)
       end
 
       And('Preencher o campo Capacidade com "99999".') do
-        findElements.input_textbox('MainContentMainMaster_MainContent_txtAreaCapacity', '99999')
+        findElements.input_textbox('MainContentMainMaster_MainContent_txtAreaCapacity', $REGISTER_AREAS_CAPACITY)
       end
 
       And('Marcar todos os checkbox exceto Controle de Capacidade.') do

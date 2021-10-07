@@ -40,7 +40,7 @@ Feature: deleteCredentialType
         When Clicar no ícone "Excluir" para validação da exclusão de um Tipo de Credencial Credencial.
         Then Na mensagem apresentada clicar em "Sim" para excluir o Tipo de Credencial Credencial.
 
-     @confirmDeleteCredentialTupeMaxSize
+     @confirmDeleteCredentialTypeMaxSize
      Scenario: confirmDeleteCredentialTupeMaxSize
         Given Que eu faça a busca para validar a exclusão de um Tipo de Credencial com quantidade máxima de caracteres no campo descrição.
         When Clicar no ícone "Excluir" para validação da exclusão de um Tipo de Credencial com quantidade máxima de caracteres no campo descrição.

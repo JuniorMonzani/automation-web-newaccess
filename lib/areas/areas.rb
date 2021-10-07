@@ -3,13 +3,13 @@ class Areas
     include Capybara::DSL
  
     #variavel com o valor do campo 'Número' da tela de Áreas
-    $REGISTER_AREAS_NUMBER = ['Número']
-
+    $REGISTER_AREAS_NUMBER='9999'
+    
     #variavel com o valor do campo 'Descrição' da tela de Áreas
-    $REGISTER_AREAS_DESCRIPTION = ['Descrição']
-
+    $REGISTER_AREAS_MAX_DESCRIPTION='Automação Áreas'.ljust(35, 'X')
+    
     #variavel com o valor do campo 'Capacidade' da tela de Áreas
-    $REGISTER_AREAS_CAPACITY = ['Capacidade']
+    $REGISTER_AREAS_CAPACITY='99999'
 
     def visit_Register_Areas
         visit 'https://autoteste.dimep-ams.com.br/Area/AreaEdt.aspx?OperationType=create&chkLastTen=True&currentPaginationIndex=&ddlSearchField=Number'
