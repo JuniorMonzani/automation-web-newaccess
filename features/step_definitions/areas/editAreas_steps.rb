@@ -54,16 +54,25 @@ require 'commom/constants'
         click_button 'Buscar'
         sleep 0.3
       end
-        
-      When('Eu clico no ícone de alteração da Área_03.') do
-        page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gridView_IMG_BUTTON_EDIT_0"]').click
+
+      Then('A descrição deve ser exatamente a descrição cadastrada para a Área.') do
+        within('table tbody tr', text: 'Automação ÁreasXXXXXXXXXXXXXXX')
+        @texto = find('td[align="center"]', text: 'Automação ÁreasXXXXXXXXXXXXXXX')
+      end
+
+    @verifyCapacityArea
+      Given('Que eu faça a busca e encontre a Área cadastrada pela automação_04.') do
+        uncheck('MainContentMainMaster_chkLastTenModified')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', '9999')
+        click_button 'Buscar'
         sleep 0.3
       end
 
-      Then('A descrição deve ser exatamente a descrição cadastrada para a Área.') do
-        # expect(find('#MainContentMainMaster_MainContent_txtAreaNumber').disabled?).to be(true)
-        # findElements.input_textbox('MainContentMainMaster_MainContent_txtAreaDescription', 'Automação Áreas'.ljust(35, 'X'))
-        # expect(find('MainContentMainMaster_MainContent_txtAreaDescription').'Automação Áreas'.ljust(30, 'X')).to be(true)
-        within('table tbody tr', text: 'Automação ÁreasXXXXXXXXXXXXXXX')
-        @texto = find('td[align="center"]', text: 'Automação ÁreasXXXXXXXXXXXXXXX')
+      When('Eu clico no ícone de alteração da Área_04.') do
+        page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gridView_IMG_BUTTON_EDIT_0"]').click
+        sleep 1
+      end
+
+      Then('A capacidade deve ser exatamente a capacidade cadastrada para a Área.') do
+        expect(find('#MainContentMainMaster_MainContent_txtAreaCapacity').value).to eql('99999')
       end

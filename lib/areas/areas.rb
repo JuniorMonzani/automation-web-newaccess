@@ -1,9 +1,16 @@
 class Areas
     #inclui a biblioteca Capybara para conseguir usar seus elementos dentros das classes e métodos
     include Capybara::DSL
+ 
+    #variavel com o valor do campo 'Número' da tela de Áreas
+    $REGISTER_AREAS_NUMBER = ['Número']
 
-    attr_accessor :number, :description, :capacity
-    
+    #variavel com o valor do campo 'Descrição' da tela de Áreas
+    $REGISTER_AREAS_DESCRIPTION = ['Descrição']
+
+    #variavel com o valor do campo 'Capacidade' da tela de Áreas
+    $REGISTER_AREAS_CAPACITY = ['Capacidade']
+
     def visit_Register_Areas
         visit 'https://autoteste.dimep-ams.com.br/Area/AreaEdt.aspx?OperationType=create&chkLastTen=True&currentPaginationIndex=&ddlSearchField=Number'
     end

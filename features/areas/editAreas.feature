@@ -26,14 +26,13 @@ Feature: edit Areas
     @verifyDescriptionArea
     Scenario: verifyDescriptionArea
         Given Que eu faça a busca e encontre a Área cadastrada pela automação_03.
-        When Eu clico no ícone de alteração da Área_03.
         Then A descrição deve ser exatamente a descrição cadastrada para a Área.
 
-    # @verifyCapacityArea
-    # Scenario: verifyCapacityArea
-    #     Given Que eu faça a busca e encontre a Área cadastrada pela automação_04.
-    #     When Eu clico no ícone de alteração da Área_04.
-    #     Then A capacidade deve ser exatamente a capacidade cadastrada para a Área.
+    @verifyCapacityArea
+    Scenario: verifyCapacityArea
+        Given Que eu faça a busca e encontre a Área cadastrada pela automação_04.
+        When Eu clico no ícone de alteração da Área_04.
+        Then A capacidade deve ser exatamente a capacidade cadastrada para a Área.
 
     # @verifyNumberArea
     # Scenario: verifyNumberArea
