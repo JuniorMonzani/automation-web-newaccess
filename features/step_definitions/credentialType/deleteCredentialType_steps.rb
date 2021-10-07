@@ -111,7 +111,7 @@ require 'commom/constants'
     @confirmDeleteCredentialTupeMaxSize
       Given ('Que eu faça a busca para validar a exclusão de um Tipo de Credencial com quantidade máxima de caracteres no campo descrição.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtDescriptionSearch', 'Automação'.ljust(50, 'X'))
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtDescriptionSearch', $REGISTER_CREDENTIAL_TYPE_DESCRIPTION)
         click_button 'Buscar'
         sleep 0.3
       end

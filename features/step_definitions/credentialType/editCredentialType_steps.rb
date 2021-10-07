@@ -34,7 +34,7 @@ require 'commom/constants'
     @verifyDescriptionMaxSizeCredentialType
       Given ('Que eu faça a busca e encontre o tipo de credencial cadastrada com a quantidade máxima de caracteres permitidos no campo "Descrição" sendo 50 caracteres.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtDescriptionSearch', ('Automação'.ljust(55, 'X')))
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtDescriptionSearch', $REGISTER_CREDENTIAL_TYPE_DESCRIPTION)
         click_button 'Buscar'
         sleep 0.3
       end

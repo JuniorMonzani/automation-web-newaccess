@@ -1,0 +1,7 @@
+features/areas/registerAreas.feature:10:14:19:25:31:37:43
+features/credentialType/deleteCredentialType.feature:10:15:20:26:32:38:44:50
+features/credentialType/editCredentialType.feature:10:16:21:27:33:39
+features/credentialType/registerCredentialType.feature:9:13:19:24:29:36:43
+features/equipmentGroup/deleteEquipmentGroup.feature:12:18:25:32:40:48:56:64
+features/equipmentGroup/editEquipmentGroup.feature:12:18:24:30:36:42
+features/equipmentGroup/registerEquipmentGroup.feature:11:15:21:27:33:39:45:50:55:61:66
