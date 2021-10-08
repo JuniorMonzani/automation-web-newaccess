@@ -8,8 +8,7 @@ Feature: edit Areas
 
     @verifyResourcesListArea
     Scenario: verifyResourcesListArea
-        Given Que o usuário esteja na página que lista as Áreas cadastradas.
-        Then A página deve conter os resources esperados.
+        Given Que eu verifico e comparo todos os resources dos campos apresentados na página de edição de áreas.
 
     @verifyEditAreas
     Scenario: verifyEditAreas

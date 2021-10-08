@@ -13,10 +13,18 @@ require 'commom/constants'
       login.make_Login('admin', $password.to_s)
     end
 
+    @verifyResourcesListArea
+      Given('Que eu verifico e comparo todos os resources dos campos apresentados na página de edição de áreas.') do
+        #uncheck('MainContentMainMaster_chkLastTenModified')
+        expect(page).to have_content('Número')
+        #findElements.select_option('#MainContentMainMaster_TableFiltersHolder_ddlSearchField', 'Descrição')
+        expect(page).to have_content('Descrição')
+      end
+
     @verifyEditAreas
       Given('Que eu faça a busca e encontre a Área cadastrada pela automação_01.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', '9999')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -33,7 +41,7 @@ require 'commom/constants'
     @verifyFieldNumberOfAreaDisabled
       Given('Que eu faça a busca e encontre a Área cadastrada pela automação_02.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', '9999')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -50,7 +58,7 @@ require 'commom/constants'
     @verifyDescriptionArea
       Given('Que eu faça a busca e encontre a Área cadastrada pela automação_03.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', '9999')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -63,7 +71,7 @@ require 'commom/constants'
     @verifyCapacityArea
       Given('Que eu faça a busca e encontre a Área cadastrada pela automação_04.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', '9999')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -74,5 +82,5 @@ require 'commom/constants'
       end
 
       Then('A capacidade deve ser exatamente a capacidade cadastrada para a Área.') do
-        expect(find('#MainContentMainMaster_MainContent_txtAreaCapacity').value).to eql('99999')
+        expect(find('#MainContentMainMaster_MainContent_txtAreaCapacity').value).to eql($REGISTER_AREAS_CAPACITY)
       end
