@@ -77,14 +77,15 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  capybara (= 3.31.0)
+  capybara
   chromedriver-helper
-  cucumber (= 3.1.2)
-  ffi (= 1.12.2)
+  cucumber
+  ffi
   gherkin
+  nokogiri (>= 1.12.5)
   report_builder
-  rspec (= 3.9.0)
-  selenium-webdriver (= 3.142.7)
+  rspec
+  selenium-webdriver
 
 BUNDLED WITH
    2.1.4
