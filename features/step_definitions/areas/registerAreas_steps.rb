@@ -139,6 +139,6 @@ require 'commom/constants'
         sleep 0.3
       end
 
-      Then('A Área deve ser salva com sucesso.') do
+      Then('A Área deve ser salva com sucesso no cadastro.') do
         expect(page).to have_content('Área salva com sucesso')
       end

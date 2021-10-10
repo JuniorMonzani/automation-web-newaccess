@@ -52,4 +52,4 @@ Feature: Register Areas
         And Preencher o campo Capacidade com "99999".
         And Marcar todos os checkbox exceto Controle de Capacidade.
         When Clicar no botão Salvar para salvar a área.
-        Then A Área deve ser salva com sucesso.
+        Then A Área deve ser salva com sucesso no cadastro.
