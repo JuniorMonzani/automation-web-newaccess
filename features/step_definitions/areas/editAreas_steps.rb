@@ -63,9 +63,15 @@ require 'commom/constants'
         sleep 0.3
       end
 
+      When('Eu clico no ícone de alteração da Área_03 objetivando edição.') do
+        page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gridView_IMG_BUTTON_EDIT_0"]').click
+        sleep 0.3
+      end
+
       Then('A descrição deve ser exatamente a descrição cadastrada para a Área.') do
-        within('table tbody tr', text: 'Automação ÁreasXXXXXXXXXXXXXXX')
-        @texto = find('td[align="center"]', text: 'Automação ÁreasXXXXXXXXXXXXXXX')
+        # within('table tbody tr', text: 'Automação ÁreasXXXXXXXXXXXXXXX')
+        # @texto = find('td[align="center"]', text: 'Automação ÁreasXXXXXXXXXXXXXXX')
+        expect(find('#MainContentMainMaster_MainContent_txtAreaDescription').value).to eql('Automação ÁreasXXXXXXXXXXXXXXX')
       end
 
     @verifyCapacityArea
@@ -147,7 +153,7 @@ require 'commom/constants'
       end
 
       And('Desmarcar todos os checkbox da tela.') do
-        uncheck('MainContentMainMaster_MainContent_cbxUpdateArea')
+        uncheck('MainContentMainMaster_MainContent_cbxCapacityControl')
 
         uncheck('MainContentMainMaster_MainContent_cbxUpdateArea')
         uncheck('MainContentMainMaster_MainContent_cbxBlocked')
@@ -162,7 +168,7 @@ require 'commom/constants'
 
       And('Clicar no botão Salvar para salvar as alterações na Área.') do
         click_button 'Salvar'
-        sleep 0.3
+        sleep 1
       end
 
       Then('A Área deve ser salva com sucesso na edição.') do
@@ -186,17 +192,17 @@ require 'commom/constants'
         #Verificação descrição
         expect(find('#MainContentMainMaster_MainContent_txtAreaDescription').value).to eql('Automação Áreas Edição')
         #Verificação controla capacidade desmarcada
-        expect(find('#MainContentMainMaster_MainContent_cbxCapacityControl').unchecked?).to be(true)
-        #Verificação capacidade desmarcada
+        expect(find('#MainContentMainMaster_MainContent_cbxCapacityControl').checked?).to be(false)
+        #Verificação capacidade desabilitada
         expect(find('#MainContentMainMaster_MainContent_txtAreaCapacity').disabled?).to be(true)
         #Verificação demais checkbox
-        expect(find('#MainContentMainMaster_MainContent_cbxUpdateArea').unchecked?).to be(true)
-        expect(find('#MainContentMainMaster_MainContent_cbxBlocked').unchecked?).to be(true)
-        expect(find('#MainContentMainMaster_MainContent_cbxReentry').unchecked?).to be(true)
-        expect(find('#MainContentMainMaster_MainContent_cbxBreakSeq').unchecked?).to be(true)
-        expect(find('#MainContentMainMaster_MainContent_cbxControlQtdGroup').unchecked?).to be(true)
-        expect(find('#MainContentMainMaster_MainContent_cbxRetainProvCred').unchecked?).to be(true)
-        expect(find('#MainContentMainMaster_MainContent_cbxRequiresAuthorizer').unchecked?).to be(true)
-        expect(find('#MainContentMainMaster_MainContent_cbxRetainCredAuthCred').unchecked?).to be(true)
-        expect(find('#MainContentMainMaster_MainContent_cbxRetainCredAuthVisitor').unchecked?).to be(true)
+        expect(find('#MainContentMainMaster_MainContent_cbxUpdateArea').checked?).to be(false)
+        expect(find('#MainContentMainMaster_MainContent_cbxBlocked').checked?).to be(false)
+        expect(find('#MainContentMainMaster_MainContent_cbxReentry').checked?).to be(false)
+        expect(find('#MainContentMainMaster_MainContent_cbxBreakSeq').checked?).to be(false)
+        expect(find('#MainContentMainMaster_MainContent_cbxControlQtdGroup').checked?).to be(false)
+        expect(find('#MainContentMainMaster_MainContent_cbxRetainProvCred').checked?).to be(false)
+        expect(find('#MainContentMainMaster_MainContent_cbxRequiresAuthorizer').checked?).to be(false)
+        expect(find('#MainContentMainMaster_MainContent_cbxRetainCredAuthCred').checked?).to be(false)
+        expect(find('#MainContentMainMaster_MainContent_cbxRetainCredAuthVisitor').checked?).to be(false)
       end

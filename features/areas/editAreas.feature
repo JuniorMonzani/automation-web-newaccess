@@ -25,6 +25,7 @@ Feature: edit Areas
     @verifyDescriptionArea
     Scenario: verifyDescriptionArea
         Given Que eu faça a busca e encontre a Área cadastrada pela automação_03 objetivando alteração.
+        When Eu clico no ícone de alteração da Área_03 objetivando edição.
         Then A descrição deve ser exatamente a descrição cadastrada para a Área.
 
     @verifyCapacityArea
