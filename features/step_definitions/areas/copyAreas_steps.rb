@@ -97,8 +97,6 @@ require 'commom/constants'
       Then('Ao abrir a página de cadastro da nova área, todos os checkbox devem estar desmarcados assim como na área que foi copiada.') do
         #Verificação controla capacidade desmarcada
         expect(find('#MainContentMainMaster_MainContent_cbxCapacityControl').checked?).to be(false)
-        #Verificação capacidade desmarcada
-        #expect(find('#MainContentMainMaster_MainContent_txtAreaCapacity').disabled?).to be(true)
         #Verificação demais checkbox
         expect(find('#MainContentMainMaster_MainContent_cbxUpdateArea').checked?).to be(false)
         expect(find('#MainContentMainMaster_MainContent_cbxBlocked').checked?).to be(false)
@@ -120,11 +118,26 @@ require 'commom/constants'
       end
         
       And('Eu clico no ícone de Alteração da Área_06 objetivando edição.') do
-
+        page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gridView_IMG_BUTTON_EDIT_0"]').click
+        sleep 0.3
       end
 
-      And('Ao abrir a página de alteração da área, marcar todos os checkbox do cadastro e incluir valor "Capacidade".') do
+      And('Ao abrir a página de alteração da área, marcar todos os checkbox do cadastro.') do
+        check('MainContentMainMaster_MainContent_cbxCapacityControl')
+        
+        check('MainContentMainMaster_MainContent_cbxUpdateArea')
+        check('MainContentMainMaster_MainContent_cbxBlocked')
+        check('MainContentMainMaster_MainContent_cbxReentry')
+        check('MainContentMainMaster_MainContent_cbxBreakSeq')
+        check('MainContentMainMaster_MainContent_cbxControlQtdGroup')
+        check('MainContentMainMaster_MainContent_cbxRetainProvCred')
+        check('MainContentMainMaster_MainContent_cbxRequiresAuthorizer')
+        check('MainContentMainMaster_MainContent_cbxRetainCredAuthCred')
+        check('MainContentMainMaster_MainContent_cbxRetainCredAuthVisitor')
+      end
 
+      And('Preencher o campo Capacidade com "99999" objetivando cópia.') do
+        findElements.input_textbox('MainContentMainMaster_MainContent_txtAreaCapacity', $REGISTER_AREAS_CAPACITY)
       end
 
       And('Clicar em Salvar_06.') do
@@ -133,7 +146,10 @@ require 'commom/constants'
       end
 
       And('Que eu faça a busca e encontre a Área cadastrada pela automação_06.1.') do
-
+        uncheck('MainContentMainMaster_chkLastTenModified')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)
+        click_button 'Buscar'
+        sleep 0.3
       end
 
       When('Eu clico no ícone de Cópia da Área_06 objetiando cópia.') do
@@ -143,21 +159,20 @@ require 'commom/constants'
 
       Then('Ao abrir a página de cadastro da nova área, todos os checkbox devem estar marcados assim como na área que foi copiada.') do
         #Verificação controla capacidade desmarcada
-        expect(find('#MainContentMainMaster_MainContent_cbxCapacityControl').unchecked?).to be(true)
-        #Verificação capacidade desmarcada
-        expect(find('#MainContentMainMaster_MainContent_txtAreaCapacity').disabled?).to be(true)
+        expect(find('#MainContentMainMaster_MainContent_cbxCapacityControl').checked?).to be(true)
         #Verificação demais checkbox
-        expect(find('#MainContentMainMaster_MainContent_cbxUpdateArea').unchecked?).to be(true)
-        expect(find('#MainContentMainMaster_MainContent_cbxBlocked').unchecked?).to be(true)
-        expect(find('#MainContentMainMaster_MainContent_cbxReentry').unchecked?).to be(true)
-        expect(find('#MainContentMainMaster_MainContent_cbxBreakSeq').unchecked?).to be(true)
-        expect(find('#MainContentMainMaster_MainContent_cbxControlQtdGroup').unchecked?).to be(true)
-        expect(find('#MainContentMainMaster_MainContent_cbxRetainProvCred').unchecked?).to be(true)
-        expect(find('#MainContentMainMaster_MainContent_cbxRequiresAuthorizer').unchecked?).to be(true)
-        expect(find('#MainContentMainMaster_MainContent_cbxRetainCredAuthCred').unchecked?).to be(true)
-        expect(find('#MainContentMainMaster_MainContent_cbxRetainCredAuthVisitor').unchecked?).to be(true)
+        expect(find('#MainContentMainMaster_MainContent_cbxUpdateArea').checked?).to be(true)
+        expect(find('#MainContentMainMaster_MainContent_cbxBlocked').checked?).to be(true)
+        expect(find('#MainContentMainMaster_MainContent_cbxReentry').checked?).to be(true)
+        expect(find('#MainContentMainMaster_MainContent_cbxBreakSeq').checked?).to be(true)
+        expect(find('#MainContentMainMaster_MainContent_cbxControlQtdGroup').checked?).to be(true)
+        expect(find('#MainContentMainMaster_MainContent_cbxRetainProvCred').checked?).to be(true)
+        expect(find('#MainContentMainMaster_MainContent_cbxRequiresAuthorizer').checked?).to be(true)
+        expect(find('#MainContentMainMaster_MainContent_cbxRetainCredAuthCred').checked?).to be(true)
+        expect(find('#MainContentMainMaster_MainContent_cbxRetainCredAuthVisitor').checked?).to be(true)
       end
 
-      And('O campo "Capacidade" deve estar desabilitado.') do
-
+      And('O campo "Capacidade" deve estar habilitado e conter o valor cadastrado.') do
+        expect(find('#MainContentMainMaster_MainContent_txtAreaCapacity').disabled?).to be(false)
+        expect(find('#MainContentMainMaster_MainContent_txtAreaCapacity').value).to eql($REGISTER_AREAS_CAPACITY)
       end

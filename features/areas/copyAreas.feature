@@ -40,9 +40,10 @@ Feature: copy Areas
     Scenario: verifyDisableCheckboxCopyArea
         Given Que eu faça a busca e encontre a Área cadastrada pela automação_06 objetivando cópia.
         And Eu clico no ícone de Alteração da Área_06 objetivando edição.
-        And Ao abrir a página de alteração da área, marcar todos os checkbox do cadastro e incluir valor "Capacidade".
+        And Ao abrir a página de alteração da área, marcar todos os checkbox do cadastro.
+        And Preencher o campo Capacidade com "99999" objetivando cópia.
         And Clicar em Salvar_06.
         And Que eu faça a busca e encontre a Área cadastrada pela automação_06.1.
         When Eu clico no ícone de Cópia da Área_06 objetiando cópia.
-        Then Ao abrir a página de cadastro da nova área, todos os checkbox devem estar marcados e conter o valor "Capacidade" assim como na área que foi copiada.
-        And O campo "Capacidade" deve estar desabilitado.
+        Then Ao abrir a página de cadastro da nova área, todos os checkbox devem estar marcados assim como na área que foi copiada.
+        And O campo "Capacidade" deve estar habilitado e conter o valor cadastrado.
