@@ -69,9 +69,7 @@ require 'commom/constants'
       end
 
       Then('A descrição deve ser exatamente a descrição cadastrada para a Área.') do
-        # within('table tbody tr', text: 'Automação ÁreasXXXXXXXXXXXXXXX')
-        # @texto = find('td[align="center"]', text: 'Automação ÁreasXXXXXXXXXXXXXXX')
-        expect(find('#MainContentMainMaster_MainContent_txtAreaDescription').value).to eql('Automação ÁreasXXXXXXXXXXXXXXX')
+        expect(find('#MainContentMainMaster_MainContent_txtAreaDescription').value).to eql($REGISTER_AREAS_MAX_DESCRIPTION)
       end
 
     @verifyCapacityArea
@@ -149,7 +147,7 @@ require 'commom/constants'
       end
 
       And('Alterar a Descrição.') do
-        findElements.input_textbox('MainContentMainMaster_MainContent_txtAreaDescription', 'Automação Áreas Edição')
+        findElements.input_textbox('MainContentMainMaster_MainContent_txtAreaDescription', $REGISTER_AREAS_EDIT_DESCRIPTION)
       end
 
       And('Desmarcar todos os checkbox da tela.') do
@@ -190,7 +188,7 @@ require 'commom/constants'
 
       Then('A descrição deve ser a descrição Alterada e todos os checkbox devem estar desmarcados.') do
         #Verificação descrição
-        expect(find('#MainContentMainMaster_MainContent_txtAreaDescription').value).to eql('Automação Áreas Edição')
+        expect(find('#MainContentMainMaster_MainContent_txtAreaDescription').value).to eql($REGISTER_AREAS_EDIT_DESCRIPTION)
         #Verificação controla capacidade desmarcada
         expect(find('#MainContentMainMaster_MainContent_cbxCapacityControl').checked?).to be(false)
         #Verificação capacidade desabilitada

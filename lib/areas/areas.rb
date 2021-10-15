@@ -5,8 +5,17 @@ class Areas
     #variavel com o valor do campo 'Número' da tela de Áreas
     $REGISTER_AREAS_NUMBER='9999'
     
-    #variavel com o valor do campo 'Descrição' da tela de Áreas
-    $REGISTER_AREAS_MAX_DESCRIPTION='Automação Áreas'.ljust(35, 'X')
+    #variavel com o valor do campo 'Descrição' da tela de Áreas com quantidade máxima de caracteres
+    $REGISTER_AREAS_DEFAULT_DESCRIPTION='Automação Áreas'
+
+    #variavel com o valor do campo 'Descrição' da tela de Áreas com quantidade máxima de caracteres
+    $REGISTER_AREAS_MAX_DESCRIPTION='Automação Áreas'.ljust(30, 'X')
+
+    #variavel com o valor do campo 'Descrição' da tela de Áreas com quantidade excedente de caracteres
+    $REGISTER_AREAS_EXCEEDS_DESCRIPTION='Automação Áreas'.ljust(35, 'X')
+
+    #variavel com o valor do campo 'Descrição' da tela de Áreas com quantidade máxima de caracteres
+    $REGISTER_AREAS_EDIT_DESCRIPTION='Automação Áreas Edição'
     
     #variavel com o valor do campo 'Capacidade' da tela de Áreas
     $REGISTER_AREAS_CAPACITY='99999'
