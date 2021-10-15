@@ -175,7 +175,7 @@ require 'commom/constants'
         expect(page).to have_content('Área alterada com sucesso')
       end
 
-    @verifyAreaAfterAChange
+    @verifyAreaAfterChange
       Given('Que eu faça a busca pela nova descrição e encontre a Área alterada pela automação_08 objetivando alteração.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)

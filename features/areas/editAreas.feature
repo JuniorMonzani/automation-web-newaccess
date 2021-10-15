@@ -1,14 +1,10 @@
-#26
+#26_
 @editAreas
 Feature: edit Areas
     Como um usuário do sistema que tenha permissão para Alterar Áreas.
 
     Background:
         Given Que o usuário esteja na página que lista as Áreas objetivando alteração.
-
-    @verifyResourcesListArea
-    Scenario: verifyResourcesListArea
-        Given Que eu verifico e comparo todos os resources dos campos apresentados na página de edição de áreas.
 
     @verifyEditAreas
     Scenario: verifyEditAreas
@@ -55,8 +51,8 @@ Feature: edit Areas
         And Clicar no botão Salvar para salvar as alterações na Área.
         Then A Área deve ser salva com sucesso na edição.
 
-    @verifyAreaAfterAChange
-    Scenario: verifyAreaAfterAChange
+    @verifyAreaAfterChange
+    Scenario: verifyAreaAfterChange
         Given Que eu faça a busca pela nova descrição e encontre a Área alterada pela automação_08 objetivando alteração.
         When Eu clico no ícone de alteração da Área_08 objetivando alteração.
         Then A descrição deve ser a descrição Alterada e todos os checkbox devem estar desmarcados.
