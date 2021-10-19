@@ -10,9 +10,9 @@ Feature: deleteEquipmentGroup
 
     @verifyValuesFilterSearchEquipmentGroup
     Scenario: verifyValuesFilterSearchEquipmentGroup
-        Given Desmarco a flag 10 últimas atualizações_01.
-        When Encontro o dropbox de filtro da pesquisa e comparo com o valores esperados.
-        Then Deve conter todos os valores esperados.
+        Given Desmarco a flag 10 últimas atualizações do Grupo de Equipamento.
+        When Encontro o dropbox de filtro da pesquisa e comparo com o valores esperados para o campo da tela Grupo de Eqp.
+        Then Deve conter todos os valores esperados para o campo da tela de Grupo de Eqp.
 
     @searchByNumberNotExsist
     Scenario: searchByNumberNotExsist

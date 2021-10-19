@@ -1,7 +1,7 @@
 require 'login/login'
 require 'equipmentGroup/equipmentGroup'
-require 'commom/findElements'
-require 'commom/constants'
+require 'common/findElements'
+require 'common/constants'
 
   equipmentGroup = EquipmentGroup.new
   findElements = FindElements.new

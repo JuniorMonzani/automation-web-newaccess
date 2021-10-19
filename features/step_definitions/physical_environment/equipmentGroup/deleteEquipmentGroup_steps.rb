@@ -1,8 +1,8 @@
 #23
 require 'login/login'
 require 'equipmentGroup/equipmentGroup'
-require 'commom/findElements'
-require 'commom/constants'
+require 'common/findElements'
+require 'common/constants'
 
   equipmentGroup = EquipmentGroup.new
   findElements = FindElements.new
@@ -15,16 +15,16 @@ require 'commom/constants'
     end
 
     #verifyValuesFilterSearchEquipmentGroup
-      Given('Desmarco a flag 10 últimas atualizações_01.') do
+      Given('Desmarco a flag 10 últimas atualizações do Grupo de Equipamento.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         sleep 0.3
       end
 
-      When('Encontro o dropbox de filtro da pesquisa e comparo com o valores esperados.') do
+      When('Encontro o dropbox de filtro da pesquisa e comparo com o valores esperados para o campo da tela Grupo de Eqp.') do
         $values = findElements.verify_Values_DropBox('#MainContentMainMaster_TableFiltersHolder_ddlGroupSearch', $FILTER_SEARCH_EQUIPMENT_GROUP)
       end
     
-      Then('Deve conter todos os valores esperados.') do
+      Then('Deve conter todos os valores esperados para o campo da tela de Grupo de Eqp.') do
         expect($values).to be_truthy
       end
 

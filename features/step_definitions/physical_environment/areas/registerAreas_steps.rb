@@ -1,7 +1,7 @@
 require 'login/login'
 require 'areas/Areas'
-require 'commom/findElements'
-require 'commom/constants'
+require 'common/findElements'
+require 'common/constants'
 
   areas = Areas.new
   findElements = FindElements.new

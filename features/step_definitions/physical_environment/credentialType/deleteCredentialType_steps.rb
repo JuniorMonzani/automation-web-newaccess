@@ -1,7 +1,7 @@
 require 'login/login'
 require 'credentialType/CredentialType'
-require 'commom/findElements'
-require 'commom/constants'
+require 'common/findElements'
+require 'common/constants'
 
   credentialType = CredentialType.new
   findElements = FindElements.new
