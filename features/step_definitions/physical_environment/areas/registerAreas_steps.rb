@@ -41,7 +41,7 @@ require 'common/constants'
 
     @fieldNumberRequiredAreas
       Given('Informar caractere alfanumérico no campo "Número" da tela Áreas e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
-        areas.fills_In_Areas('teste', 'Teste de automação', $REGISTER_AREAS_CAPACITY)
+        areas.fills_In_Areas('teste', $REGISTER_AREAS_DEFAULT_DESCRIPTION, $REGISTER_AREAS_CAPACITY)
       end
 
       When('Clicar no botão Salvar para validar o campo "Número" da tela Áreas.') do
@@ -69,7 +69,7 @@ require 'common/constants'
 
     @fieldCapacityRequiredAreas
       Given('Informar caractere alfanumérico no campo "Capacidade" da tela Áreas e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
-        areas.fills_In_Areas($REGISTER_AREAS_NUMBER, 'Teste de automação', 'teste')
+        areas.fills_In_Areas($REGISTER_AREAS_NUMBER, $REGISTER_AREAS_DEFAULT_DESCRIPTION, 'teste')
       end
     
       When('Clicar no botão Salvar para validar o campo "Capacidade" da tela Áreas com caracter alfanumérico.') do
@@ -83,7 +83,7 @@ require 'common/constants'
 
     @fieldCapacityThanZero
       Given('Informar valor zero no campo "Capacidade" da tela Áreas.') do
-        areas.fills_In_Areas($REGISTER_AREAS_NUMBER, 'Teste de automação', '0')
+        areas.fills_In_Areas($REGISTER_AREAS_NUMBER, $REGISTER_AREAS_DEFAULT_DESCRIPTION, '0')
       end
     
       When('Clicar no botão Salvar para validar o campo "Capacidade" da tela Áreas com valor 0.') do
@@ -97,7 +97,7 @@ require 'common/constants'
 
     @fieldNumberThanZero
       Given('Informar valor zero no campo "Número" da tela Áreas.') do
-        areas.fills_In_Areas('0', 'Teste de automação', $REGISTER_AREAS_CAPACITY)
+        areas.fills_In_Areas('0', $REGISTER_AREAS_DEFAULT_DESCRIPTION, $REGISTER_AREAS_CAPACITY)
       end
     
       When('Clicar no botão Salvar para validar o campo "Número" da tela Áreas com valor 0.') do
@@ -115,7 +115,7 @@ require 'common/constants'
       end
 
       And('Preencher o campo Descrição com o máximo de caracteres possíveis no campo.') do
-        findElements.input_textbox('MainContentMainMaster_MainContent_txtAreaDescription', $REGISTER_AREAS_MAX_DESCRIPTION)
+        findElements.input_textbox('MainContentMainMaster_MainContent_txtAreaDescription', $REGISTER_AREAS_EXCEEDS_DESCRIPTION)
       end
 
       And('Preencher o campo Capacidade com "99999".') do
