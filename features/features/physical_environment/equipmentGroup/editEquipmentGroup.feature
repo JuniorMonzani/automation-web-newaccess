@@ -7,7 +7,6 @@ Feature: EditEquipmentGrourp
     Background:
         Given Que estou na tela que lista os Grupos de Equipamentos cadastrados para realizar alterações.
 
-
     @verifyEditEquipmentGropup
     Scenario: verifyEditEquipmentGropup
         Given Que eu faça a busca e encontre o grupo de equipamentos cadastrado pela automação_01.

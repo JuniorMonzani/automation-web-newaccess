@@ -215,9 +215,9 @@ Feature: Register Communication Manager
             Given Preencher os campos "Descrição" com o limite máximo de caracteres permitido.
             And Preencher o campo "Nome da máquina" com o limite máximo de caracteres permitido.
             And Preencher o campo "Porta".
-            And Acessar a aba "Portas Seriais"_01.
+            And Acessar a aba "Alertas"_01.
             And Marcar todas as opções (checkBox) da aba de Portas Seriais.
-            And inserir o email "teste@teste.com" no campo "E-mails para notificação".
+            And Inserir o email "teste@teste.com" no campo "E-mails para notificação".
             And Acessar a aba "Portas Seriais"_01.
             And Selecionar o valor "19200" no dropbox "Mesma Velocidade"_01.
             And Preencher o campo "Mesmo tempo de Poll" com valor "99"_01.
@@ -236,7 +236,7 @@ Feature: Register Communication Manager
             And Selecionar o tipo de gerenciador para "Server".
             And Acessar a aba "Alertas"_02.
             And Marcar todas as opções (checkBox) da aba de Portas Seriais_02.
-            And inserir o email "teste@teste.com" no campo "E-mails para notificação"_2.
+            And Inserir o email "teste@teste.com" no campo "E-mails para notificação"_2.
             When Clicar em "Salvar" para salvar um Gerenciador de Comunicação do tipo Server.
             Then Validar se o Gerenciador de Comunicação server foi salvo com sucesso.
 
