@@ -50,7 +50,7 @@ require 'common/constants'
       end
 
       When('Eu preencho o textbox com um número de grupo que existe_03 objetivando exclusão de Área.') do
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', '9999')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)
       end
 
       And('Clico em Buscar_03 objetivando exclusão de Área.') do
@@ -72,7 +72,7 @@ require 'common/constants'
       end
 
       When('Eu preencho o textbox com um número de área que existe mas não faça parte de nenhuma descrição de área cadastrada.') do
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', '9999')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)
       end
 
       And('Clico em Buscar_04 objetivando exclusão de Área.') do
@@ -94,7 +94,7 @@ require 'common/constants'
       end
 
       When('Eu preencho o textbox com uma descrição de uma Área que existe_05.') do
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', 'Automação Áreas Edição')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_EDIT_DESCRIPTION)
       end
 
       And('Clico em Buscar_05 objetivando exclusão de Área.') do
@@ -127,7 +127,6 @@ require 'common/constants'
       
       Then ('Validar a mensagem apresentada ao usuário_06 objetivando exclusão de Área.') do
         expect(page).to have_content('Confirma a exclusão?')
-        sleep 0.3
         click_button 'Sim'
         expect(find('#divIdBodyBusinessError')).to have_content '- Esta Área está em uso no sistema e não pode ser excluída'
         sleep 0.3
@@ -139,7 +138,7 @@ require 'common/constants'
       end
 
       And('Que eu faça a busca e encontre a Área cadastrada pela automação_07 objetivando exclusão de Área.') do
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', 'Automação Áreas Edição')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_EDIT_DESCRIPTION)
       end
 
       And('Clico em Buscar_07 objetivando exclusão de Área.') do
@@ -164,7 +163,7 @@ require 'common/constants'
 
       And('Preencha o textbox com um número da Área que foi inserida pela automação_08 objetivando exclusão de Área.') do
         findElements.select_option('#MainContentMainMaster_TableFiltersHolder_ddlSearchField', 'Descrição')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', 'Automação Áreas Edição')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_EDIT_DESCRIPTION)
       end
 
       And('Clico em Buscar_08 objetivando exclusão de Área.') do
