@@ -1,5 +1,5 @@
 require 'login/login'
-require 'areas/Areas'
+require 'physical_environment/areas/Areas'
 require 'common/findElements'
 require 'common/constants'
 
@@ -55,7 +55,7 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_txtAreaNumber').disabled?).to be(true)
       end
 
-    @verifyDescriptionArea
+    #verifyDescriptionArea
       Given('Que eu faça a busca e encontre a Área cadastrada pela automação_03 objetivando alteração.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)
@@ -72,7 +72,7 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_txtAreaDescription').value).to eql($REGISTER_AREAS_MAX_DESCRIPTION)
       end
 
-    @verifyCapacityArea
+    #verifyCapacityArea
       Given('Que eu faça a busca e encontre a Área cadastrada pela automação_04 objetivando alteração.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)

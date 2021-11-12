@@ -1,5 +1,5 @@
 require 'login/login'
-require 'equipmentGroup/equipmentGroup'
+require 'physical_environment/equipmentGroup/equipmentGroup'
 require 'common/findElements'
 require 'common/constants'
 
@@ -121,7 +121,6 @@ require 'common/constants'
       end
 
       Then('Deve conter todos os valores esperados no campo "Controla Sorteio".') do
-
         expect($valueSortitionHasDestinationArea).to be_truthy
       end
 

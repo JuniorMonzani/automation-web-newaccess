@@ -1,6 +1,6 @@
 #22
 require 'login/login'
-require 'equipmentGroup/equipmentGroup'
+require 'physical_environment/equipmentGroup/equipmentGroup'
 require 'common/findElements'
 require 'common/constants'
 

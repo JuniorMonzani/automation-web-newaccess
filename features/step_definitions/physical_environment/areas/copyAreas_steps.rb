@@ -1,5 +1,5 @@
 require 'login/login'
-require 'areas/Areas'
+require 'physical_environment/areas/Areas'
 require 'common/findElements'
 require 'common/constants'
 

@@ -1,5 +1,5 @@
 require 'login/login'
-require 'credentialType/CredentialType'
+require 'physical_environment/credentialType/CredentialType'
 require 'common/findElements'
 require 'common/constants'
 
