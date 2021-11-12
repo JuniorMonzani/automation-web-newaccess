@@ -18,8 +18,8 @@ Feature: Select Monitoring Area
         Given Que obtenha os valores apresentados no dropBox "Selecione a área".
         Then Os valores apresentados tem que ser extamente iguais aos valores esperados, área "Dentro" e "Fora".
 
-    @uncheckAutomaticallyUpdaet
-    Scenario: uncheckAutomaticallyUpdaet
+    @uncheckAutomaticallyUpdate
+    Scenario: uncheckAutomaticallyUpdate
         Given Que eu desmarque o checkbox "Atualizar automaticamente as informações da tela".
         When Clicar no botão "Monitorar".
         Then A página de monitoração apresentada não pode conter o contador para atualização da página, indicando que não será atualizada.

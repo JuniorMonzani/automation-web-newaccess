@@ -5,7 +5,6 @@
 require 'login/login'
 require 'monitoring/area/monitoringArea'
 require 'common/findElements'
-require 'common/constants'
 
 monitoringArea = MonitoringArea.new
 findElements = FindElements.new
@@ -34,7 +33,7 @@ login = Login.new
       expect($valueSelectAreaMonitoringAreas).to be_truthy
     end
 
-  #uncheckAutomaticallyUpdaet
+  #uncheckAutomaticallyUpdate
     Given('Que eu desmarque o checkbox "Atualizar automaticamente as informações da tela".') do
       uncheck('MainContentMainMaster_MainContent_chkAutomaticUpdate')
     end
@@ -45,6 +44,5 @@ login = Login.new
     end
 
     Then("A página de monitoração apresentada não pode conter o contador para atualização da página, indicando que não será atualizada.") do
-      verifyElement = monitoringArea.verify_Exsists_Element('MainContentMainMaster_MainContent_lblTimer')
-      expect(verifyElement).to be(false)
+      findElements.no_selector_on_page('MainContentMainMaster_MainContent_lblTimer')
     end

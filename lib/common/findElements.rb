@@ -21,4 +21,11 @@ class FindElements
     def input_textbox(css_selector, value)
         fill_in css_selector, with: value
     end
+
+
+    #busca por elemento que não contém na página
+    def no_selector_on_page(element)
+        expect(page.assert_no_selector(element)).to eq true 
+    end
+
 end

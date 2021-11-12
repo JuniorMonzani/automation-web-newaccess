@@ -15,22 +15,20 @@ Feature: Monitoring Area
 
         @confirmCurrentAreaMonitoringTime
         Scenario: confirmCurrentAreaMonitoringTime
-            Given Que eu obtenha a data/hora apresentados na tela de monitoração de área (cloud).
-            Then A data/hora devem estar próximas da data/hora atual da máquina onde o teste é executado (local).
+            Given Que eu obtenha a data e hora apresentadas na tela de monitoração de área "cloud".
+            Then A data e hora "data + hora e minuto" devem ser exatamente iguais à data atual "data + hora e minuto" atual da máquina onde o teste é executado "local".
 
         @verifySameDateHourMonitoringAreaUpdateScreen
         Scenario: verifySameDateHourMonitoringAreaUpdateScreen
-            Given Que ao acessar a tela de monitoração de área eu obtenha a data e hora que a 'monitoração foi iniciada' e a 'última atualização da tela'.
-            Then A data e hora que a 'monitoração foi iniciada' deve bater exatamente com a 'última atualização da tela' (dd/mm/aaaa hh:mm).
+            Given Que ao acessar a tela de monitoração de área eu obtenha a data e hora que a "monitoração foi iniciada" e a "última atualização da tela".
+            Then A data e hora que a "monitoração foi iniciada" deve ser exatamente igual a "última atualização da tela".
 
         @verifyBackButtonMonitoringArea
         Scenario: verifyBackButtonMonitoringArea
-            Given Que eu clique no botão 'Voltar' da página de monitoração de área.
+            Given Que eu clique no botão "Voltar" da página de monitoração de área.
             Then O usuário deve ser direcionado para a tela de seleção da área a ser monitorada.
 
         @verifyUpdateButtonMonitoringArea
         Scenario: verifyUpdateButtonMonitoringArea
-            Given Que eu clique no botão 'Atualizar' da página de monitoração de área.
+            Given Que eu clique no botão "Atualizar" da página de monitoração de área.
             Then O horário de última atualização da tela de monitoração de área deve ser alterado.
-
-
