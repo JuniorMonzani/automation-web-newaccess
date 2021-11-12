@@ -22,4 +22,7 @@ class Constants
 
     #constante com os valores contidos no dropbox 'Autenticação' - Tipo de Credencial na exclusão
     $DELETE_CREDENTIAL_TYPE_AUTHENTICATION = ['Todos', 'Pessoa', 'Visitante', 'Credencial']
+
+    #constante com os valores contidos no dropbox de pesquisa - Cadastro de Área na exclusão
+    $DELETE_AREAS_SEARCH = ['Número', 'Descrição']
 end

@@ -136,7 +136,7 @@ require 'common/constants'
 
       When('Clicar no botão Salvar para salvar a área.') do
         click_button 'Salvar'
-        sleep 0.3
+        sleep 3
       end
 
       Then('A Área deve ser salva com sucesso no cadastro.') do

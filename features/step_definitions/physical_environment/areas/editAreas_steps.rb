@@ -166,7 +166,7 @@ require 'common/constants'
 
       And('Clicar no botão Salvar para salvar as alterações na Área.') do
         click_button 'Salvar'
-        sleep 1
+        sleep 3
       end
 
       Then('A Área deve ser salva com sucesso na edição.') do
