@@ -21,7 +21,6 @@ Feature: Select Monitoring Area
     @uncheckAutomaticallyUpdate
     Scenario: uncheckAutomaticallyUpdate
         Given Que eu desmarque o checkbox "Atualizar automaticamente as informações da tela".
-        When Clicar no botão "Monitorar".
         Then A página de monitoração apresentada não pode conter o contador para atualização da página, indicando que não será atualizada.
         
         

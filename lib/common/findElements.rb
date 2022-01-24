@@ -25,7 +25,9 @@ class FindElements
 
     #busca por elemento que não contém na página
     def no_selector_on_page(element)
-        expect(page.assert_no_selector(element)).to eq true 
+        eql = (page.assert_no_selector(element))
+
+        return eql
     end
 
 end
