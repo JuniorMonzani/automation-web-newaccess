@@ -36,13 +36,13 @@ login = Login.new
   #uncheckAutomaticallyUpdate
     Given('Que eu desmarque o checkbox "Atualizar automaticamente as informações da tela".') do
       uncheck('MainContentMainMaster_MainContent_chkAutomaticUpdate')
-    end
-
-    When('Clicar no botão "Monitorar".') do
+      sleep 1
       click_button 'Monitorar'
       sleep 1
     end
 
     Then("A página de monitoração apresentada não pode conter o contador para atualização da página, indicando que não será atualizada.") do
-      findElements.no_selector_on_page('MainContentMainMaster_MainContent_lblTimer')
+      $noTimerOnPage = findElements.no_selector_on_page('MainContentMainMaster_MainContent_lblTimer')
+      sleep 1
+      expect($noTimerOnPage).to be_truthy
     end

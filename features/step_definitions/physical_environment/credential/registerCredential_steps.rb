@@ -49,7 +49,7 @@ require 'common/constants'
 
     @fieldCredentialIntervalEnableCredential
       Given('Marcar a opção de inclusão "Intervalo de credencial".') do
-        credential.fills_In_Credential_Unique_Or_Multiple(false, true, false, '', '1','2', false, false, false)
+        credential.fills_In_Credential_Unique_Or_Multiple(false, true, '', '1', '2','', false, false, false)
       end
 
       Then('O campo "Número" deve ficar desabilitado e os campos "Números de" e "Até" devem ficar habilitados.') do
@@ -58,9 +58,9 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_txtMultipleNumberInputTo').disabled?).to be(false)
       end
 
-     @fieldNumbersOfRequiredCredential
+    @fieldNumbersOfRequiredCredential
       Given('Não preencher o campo "Números de" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
-        credential.fills_In_Credential_Unique_Or_Multiple(false, true, false, '1', '','', false, false, false)
+        credential.fills_In_Credential_Unique_Or_Multiple(false, true, '1', '', '','', false, false, false)
       end
 
       When('Clicar no botão Salvar para validar o campo "Números de".') do
@@ -71,4 +71,33 @@ require 'common/constants'
       Then('Deve existir uma validação no campo "Números de" pois o mesmo é obrigatório visto que a opção "Intervalo de credencial" esta marcada.') do
         # expect(page).to have_selector("input[oldtitle='O campo Números de deve conter um valor numérico válido']")
         expect(page).to have_selector("input[oldtitle='O campo Números até deve conter um valor numérico válido']")
+      end
+
+    @verifyValuesTechnologyCredential
+      Given('Obter todos os valores do dropbox "Tecnologia" e comparar com os valores esperados.') do
+        $valueTechnologyType = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlTechnologyType', $REGISTER_TECHNOLOGYTYPE)
+      end
+
+      Then('Deve conter todos os valores esperados no campo "Tecnologia".') do
+        expect($valueTechnologyType).to be_truthy
+      end
+
+    @verifyReasonMandatory
+      Given('Informar o valor "1000" no campo "Número"_001') do
+        credential.fills_In_Credential_Unique_Or_Multiple(true, false, '1000', '','','', false, false, false)
+      end
+
+      And('Selecionar uma empresa_001') do
+        findElements.select_option('#MainContentMainMaster_MainContent_ddlCompany', 'Estrutura Teste 1')
+      end
+
+      When('Clicar no botão "Salvar" para acionar a validação_001') do
+        click_button 'Salvar'
+        sleep 1
+      end
+
+      Then('O campo "Motivo" deve apresentar a obrigatoriedade') do
+        #expect(page).to have_selector("input[oldtitle='Informe o motivo do bloqueio']")
+        expect(page).to have_css("input[oldtitle='Informe o motivo do bloqueio']")
+        sleep 1
       end

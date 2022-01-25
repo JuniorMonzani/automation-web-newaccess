@@ -25,4 +25,7 @@ class Constants
 
     #constante com os valores contidos no dropbox de pesquisa - Cadastro de Área na exclusão
     $DELETE_AREAS_SEARCH = ['Número', 'Descrição']
+
+    #constante com os valores contidos no dropbox 'Tecnologia' - Cadastro de credecial
+    $REGISTER_TECHNOLOGYTYPE = ['Código de Barras', 'Cartão Magnético', 'Proximidade', 'SmartCard', 'RFID']
 end
