@@ -140,19 +140,18 @@ Feature: Register Credential
         And Marcar a opção 'Credencial pública'.
         And Selecionar a tecnologia 'Proximidade'.
         And Selecionar o Tipo 'Visitante'.
-        And Selecionar a opção 'Supervisor de equipamento'.
         When Clicar no botão "Salvar" para incluir a Credencial_001
         Then A credencial deve ser salva com sucesso_001.
 
     @saveCredentialCombinationFields_2
     Scenario: saveCredentialCombinationFields_2
         Given Informe o valor '1001' no campo 'Número'.
-        And Seleciono a empresa 'Estrutura teste 1'.
-        And Seleciono a tecnologia 'Barras'
-        And Seleciono o Tipo 'Pessoa'
-        And Seleciono a opção 'Credencial provisória'
-        And Seleciono a opção 'Bloqueada'
-        And P`reencho o campo 'Motivo'
+        And Selecionar a empresa 'Estrutura teste 1'.
+        And Selecionar a tecnologia 'Barras'
+        And Selecionar o Tipo 'Pessoa'
+        And Selecionar a opção 'Credencial provisória'
+        And Selecionar a opção 'Bloqueada'
+        And Preencher o campo 'Motivo' com valor 'Teste'.
         When Clicar no botão "Salvar" para incluir a Credencial_005
         Then A credencial deve ser salva com sucesso_002.
     
@@ -162,11 +161,11 @@ Feature: Register Credential
         And Selecionar a empresa 'Estrutura teste 1'._001
         And Selecionar a tecnologia 'Barras'_001
         And SeleSelecionarcinar o Tipo 'Credencial'.
-        And Selecionar uma Data de início de validade.
-        And Selecionar uma data final de validade.
+        And Selecionar uma Data de início de validade com valor '01/12/2025'.
+        And Selecionar uma data final de validade com vlaor '31/12/2025'.
         And Selecinar um perfil de acesso.
         And Marcar o campo 'Permitir reentrada'.
         And Marcar o campo 'Dispensa senha'.
         And Informar um horário no campo 'Horário para recolhimento no cofre na data final'.
         When Clicar no botão "Salvar" para incluir a Credencial_006
-        Then A credencial deve ser salva com sucesso_003.
+        Then A credencial deve ser salva com sucesso_003. 
