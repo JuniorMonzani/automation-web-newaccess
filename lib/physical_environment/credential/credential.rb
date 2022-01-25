@@ -67,4 +67,4 @@ class Credential
         uncheck('cbxPublicCredential')
       end
     end
-  end
+end
