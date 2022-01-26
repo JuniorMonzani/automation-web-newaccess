@@ -72,16 +72,7 @@ require 'common/constants'
         # expect(page).to have_selector("input[oldtitle='O campo Números de deve conter um valor numérico válido']")
         expect(page).to have_selector("input[oldtitle='O campo Números até deve conter um valor numérico válido']")
       end
-
-    @verifyValuesTechnologyCredential
-      Given('Obter todos os valores do dropbox "Tecnologia" e comparar com os valores esperados.') do
-        $valueTechnologyType = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlTechnologyType', $REGISTER_TECHNOLOGYTYPE)
-      end
-
-      Then('Deve conter todos os valores esperados no campo "Tecnologia".') do
-        expect($valueTechnologyType).to be_truthy
-      end
-
+    
     @verifyReasonMandatory
       Given('Informar o valor "1000" no campo "Número"_001') do
         credential.fills_In_Credential_Unique_Or_Multiple(true, false, '1000', '','','', false, false, false)
@@ -100,4 +91,67 @@ require 'common/constants'
         #expect(page).to have_selector("input[oldtitle='Informe o motivo do bloqueio']")
         #expect(page).to have_css("input[oldtitle='Informe o motivo do bloqueio']")
         sleep 1
+      end
+
+    @verifyValuesTechnologyCredential
+      Given('Obter todos os valores do dropbox "Tecnologia" e comparar com os valores esperados.') do
+        $valueTechnologyType = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlTechnologyType', $REGISTER_TECHNOLOGYTYPE)
+      end
+
+      Then('Deve conter todos os valores esperados no campo "Tecnologia".') do
+        expect($valueTechnologyType).to be_truthy
+      end
+
+    @verifyValuesTypeCredential
+      Given('Obter todos os valores do dropbox "Tipo" e comparar com os valores esperados.') do
+        $valueType = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlType', $REGISTER_TYPE)
+      end
+
+      Then('Deve conter todos os valores esperados no campo "Tipo".') do
+        expect($valueType).to be_truthy
+      end
+
+    @verifyValuesCompanyCredential
+      Given('Obter todos os valores do dropbox "Empresa" e comparar com os valores esperados.') do
+        $valueCompany = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlCompany', $REGISTER_COMPANY)
+      end
+
+      Then('Deve conter todos os valores esperados no campo "Empresa".') do
+        expect($valueCompany).to be_truthy
+      end
+
+    @verifyValuesPublicCredentialCredential
+      Given('Marcar o checkbox "Credencial pública".') do
+        credential.fills_In_Credential_Unique_Or_Multiple(true, true, '1', '', '','', false, false, true)
+      end
+
+      Then('Deve desabilitar o dropbox "Empresa".') do
+        expect(find('#MainContentMainMaster_MainContent_ddlCompany').disabled?).to be(true)
+      end
+
+    @fieldReasonDisabledCredential
+      Given('Com a opção de situação "Liberada" marcada.') do
+        credential.fills_In_Credential_Unique_Or_Multiple(true, true, '1', '', '','', false, false, false)
+      end
+
+      Then('O campo "Motivo" deve ficar desabilitado.') do
+        expect(find('#MainContentMainMaster_MainContent_txtBlockingReason').disabled?).to be(true)
+      end
+
+    @fieldReasonEnabledCredential
+      Given('Marcar a opção de situação "Bloqueada".') do
+        credential.fills_In_Credential_Unique_Or_Multiple(true, false, '1', '', '','', false, false, false)
+      end
+
+      Then('O campo "Motivo" deve ficar habilitado.') do
+        expect(find('#MainContentMainMaster_MainContent_txtBlockingReason').disabled?).to be(false)
+      end
+
+    @verifyValuesProvisoryCredentialCredential
+      Given('Marcar o checkbox "Credencial provisória".') do
+        credential.fills_In_Credential_Unique_Or_Multiple(true, true, '1', '', '','', false, true, false)
+      end
+
+      Then('Deve desabilitar o checkbox "Supervisor de equipamento".') do
+        expect(find('#MainContentMainMaster_MainContent_chkEquipmentSupervisor').disabled?).to be(true)
       end
