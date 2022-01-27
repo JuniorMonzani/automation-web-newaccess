@@ -57,7 +57,7 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_txtMultipleNumberInputFrom').disabled?).to be(false)
         expect(find('#MainContentMainMaster_MainContent_txtMultipleNumberInputTo').disabled?).to be(false)
       end
-
+      
     @fieldNumbersOfRequiredCredential
       Given('Não preencher o campo "Números de" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
         credential.fills_In_Credential_Unique_Or_Multiple(false, true, '1', '', '','', false, false, false)
@@ -69,7 +69,10 @@ require 'common/constants'
       end
 
       Then('Deve existir uma validação no campo "Números de" pois o mesmo é obrigatório visto que a opção "Intervalo de credencial" esta marcada.') do
-        # expect(page).to have_selector("input[oldtitle='O campo Números de deve conter um valor numérico válido']")
+        expect(page).to have_selector("input[oldtitle='O campo Números de deve conter um valor numérico válido']")
+      end
+
+      And('Deve existir uma validação no campo "Até" pois o mesmo é obrigatório visto que a opção "Intervalo de credencial" esta marcada.') do
         expect(page).to have_selector("input[oldtitle='O campo Números até deve conter um valor numérico válido']")
       end
     

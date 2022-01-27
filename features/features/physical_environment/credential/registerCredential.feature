@@ -26,7 +26,8 @@ Feature: Register Credential
     Scenario: fieldNumbersOfRequiredCredential
         Given Não preencher o campo "Números de" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.
         When Clicar no botão Salvar para validar o campo "Números de".
-        Then Deve existir uma validação no campo "Números de" pois o mesmo é obrigatório visto que a opção "Intervalo de credencial" esta marcada.   
+        Then Deve existir uma validação no campo "Números de" pois o mesmo é obrigatório visto que a opção "Intervalo de credencial" esta marcada.
+        And Deve existir uma validação no campo "Até" pois o mesmo é obrigatório visto que a opção "Intervalo de credencial" esta marcada.
     
     @verifyReasonMandatory
     Scenario: verifyReasonMandatory
