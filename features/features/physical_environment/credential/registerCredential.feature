@@ -26,12 +26,8 @@ Feature: Register Credential
     Scenario: fieldNumbersOfRequiredCredential
         Given Não preencher o campo "Números de" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.
         When Clicar no botão Salvar para validar o campo "Números de".
-        Then Deve existir uma validação no campo "Números de" pois o mesmo é obrigatório visto que a opção "Intervalo de credencial" esta marcada.   
-
-    @verifyValuesTechnologyCredential
-    Scenario: verifyValuesTechnologyCredential
-        Given Obter todos os valores do dropbox "Tecnologia" e comparar com os valores esperados.
-        Then Deve conter todos os valores esperados no campo "Tecnologia".
+        Then Deve existir uma validação no campo "Números de" pois o mesmo é obrigatório visto que a opção "Intervalo de credencial" esta marcada.
+        And Deve existir uma validação no campo "Até" pois o mesmo é obrigatório visto que a opção "Intervalo de credencial" esta marcada.
     
     @verifyReasonMandatory
     Scenario: verifyReasonMandatory
@@ -43,40 +39,40 @@ Feature: Register Credential
 
 
     # verifica combobox
-    # @verifyValuesTechnologyCredential
-    # Scenario: verifyValuesTechnologyCredential
-    #     Given Obter todos os valores do dropbox "Tecnologia" e comparar com os valores esperados.
-    #     Then Deve conter todos os valores esperados no campo "Tecnologia".
+    @verifyValuesTechnologyCredential
+    Scenario: verifyValuesTechnologyCredential
+        Given Obter todos os valores do dropbox "Tecnologia" e comparar com os valores esperados.
+        Then Deve conter todos os valores esperados no campo "Tecnologia".
 
-    # @verifyValuesTypeCredential
-    # Scenario: verifyValuesTypeCredential
-    #     Given Obter todos os valores do dropbox "Tipo" e comparar com os valores esperados.
-    #     Then Deve conter todos os valores esperados no campo "Tipo".
+    @verifyValuesTypeCredential
+    Scenario: verifyValuesTypeCredential
+        Given Obter todos os valores do dropbox "Tipo" e comparar com os valores esperados.
+        Then Deve conter todos os valores esperados no campo "Tipo".
 
-    # @verifyValuesCompanyCredential
-    # Scenario: verifyValuesCompanyCredential
-    #     Given Obter todos os valores do dropbox "Empresa" e comparar com os valores esperados.
-    #     Then Deve conter todos os valores esperados no campo "Empresa".
+    @verifyValuesCompanyCredential
+    Scenario: verifyValuesCompanyCredential
+        Given Obter todos os valores do dropbox "Empresa" e comparar com os valores esperados.
+        Then Deve conter todos os valores esperados no campo "Empresa".
 
-    # @verifyValuesPublicCredentialCredential
-    # Scenario: verifyValuesPublicCredentialCredential
-    #     Given Desmarcar o checkbox "Credencial pública".
-    #     Then Deve desabilitar o dropbox "Empresa".
+    @verifyValuesPublicCredentialCredential
+    Scenario: verifyValuesPublicCredentialCredential
+        Given Marcar o checkbox "Credencial pública".
+        Then Deve desabilitar o dropbox "Empresa".
 
-    # @fieldReasonDisabledCredential
-    # Scenario: fieldReasonDisabledCredential
-    #     Given Com a opção de situação "Liberada" marcada.
-    #     Then O campo "Motivo" deve ficar desabilitado.
+    @fieldReasonDisabledCredential
+    Scenario: fieldReasonDisabledCredential
+        Given Com a opção de situação "Liberada" marcada.
+        Then O campo "Motivo" deve ficar desabilitado.
 
-    # @fieldReasonEnabledCredential
-    # Scenario: fieldReasonEnabledCredential
-    #     Given Marcar a opção de situação "Bloqueada".
-    #     Then O campo "Motivo" deve ficar habilitado.
+    @fieldReasonEnabledCredential
+    Scenario: fieldReasonEnabledCredential
+        Given Marcar a opção de situação "Bloqueada".
+        Then O campo "Motivo" deve ficar habilitado.
 
-    # @verifyValuesProvisoryCredentialCredential
-    # Scenario: verifyValuesProvisoryCredentialCredential
-    #     Given Marcar o checkbox "Credencial provisória".
-    #     Then Deve desabilitar o checkbox "Supervisor de equipamento".
+    @verifyValuesProvisoryCredentialCredential
+    Scenario: verifyValuesProvisoryCredentialCredential
+        Given Marcar o checkbox "Credencial provisória".
+        Then Deve desabilitar o checkbox "Supervisor de equipamento".
 
     # @registerCredentialSuccess
     # Scenario: registerCredentialSuccess
