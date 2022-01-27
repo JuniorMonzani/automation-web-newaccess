@@ -35,7 +35,6 @@ Feature: edit Credential
         Then Validar que nenhuma credencial foi retornada com a busca pelo texto 'Nenhum resultado foi encontrado'_004.
 
 
-
     #Validação dos valores salvos na credencial 1000
     @verifyTechnologyProximityCredential
     Scenario:verifyTechnologyProximityCredential
@@ -43,8 +42,8 @@ Feature: edit Credential
         When Clique no botão para realizar a alteração da credencial_001.
         Then Validar no cadastro da credencial o campo Tecnologia deve conter o valor 'Proximidade'.
 
-    @verifyTypeCredential
-    Scenario: verifyTypeCredential
+    @verifyTypeVisitorCredential
+    Scenario: verifyTypeVisitorCredential
         Given Que eu busque e encontre a credencial de número '1000' cadastrada pela automação_002.
         When Clique no botão para realizar a alteração da credencial_002.
         Then Validar no cadastro da credencial o campo Tipo deve conter o valor 'Visitante'.
@@ -66,6 +65,7 @@ Feature: edit Credential
         Given Que eu busque e encontre a credencial de número '1000' cadastrada pela automação_005.
         When Clique no botão para realizar a alteração da credencial_005.
         Then Validar se o campo 'Credencial provisória' está desabilitado.
+
 
     #Validação dos valores salvos na credencial 1001
     @verifyCompanyCredential
@@ -106,7 +106,27 @@ Feature: edit Credential
 
 
     #Validação dos valores salvos na credencial 1002
-    @verifyReasonBlockedCredential
-    Scenario: verifyReasonBlockedCredential
-        Given Que eu busque e encontre a credencial de número '1001' cadastrada pela automação_006.
-        When Clique no botão para realizar a alteração da credencial_011.
+    @verifyCompany2Credential
+    Scenario: verifyCompany2Credential
+        Given Que eu busque e encontre a credencial de número '1002' cadastrada pela automação_001.
+        When Clique no botão para realizar a alteração da credencial_012.
+        Then Validar no cadastro da credencial o campo Empresa deve conter o valor 'Estrutura teste 2'.
+
+    @verifyTechnologySmartCardCredential
+    Scenario: verifyTechnologySmartCardCredential
+        Given Que eu busque e encontre a credencial de número '1002' cadastrada pela automação_002.
+        When Clique no botão para realizar a alteração da credencial_013.
+        Then Validar no cadastro da credencial o campo Tecnologia deve conter o valor 'SmartCard'.
+
+    @verifyTypeCredentialCredential
+    Scenario: verifyTypeCredentialCredential
+        Given Que eu busque e encontre a credencial de número '1002' cadastrada pela automação_003.
+        When Clique no botão para realizar a alteração da credencial_014.
+        Then Validar no cadastro da credencial o campo Tipo deve conter o valor 'Credencial'.
+
+    @verifyValidityFieldCredential
+    Scenario: verifyValidityFieldCredential
+        Given Que eu busque e encontre a credencial de número '1002' cadastrada pela automação_004.
+        When Clique no botão para realizar a alteração da credencial_015.
+        Then 
+

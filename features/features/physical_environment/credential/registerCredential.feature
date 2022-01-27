@@ -195,14 +195,16 @@ Feature: Register Credential
     @saveCredentialCombinationFields_3
     Scenario: saveCredentialCombinationFields_2
         Given Informe o valor '1002' no campo 'Número'.
-        And Selecionar a empresa 'Estrutura teste 1'._001
-        And Selecionar a tecnologia 'Barras'_001
+        And Selecionar a empresa 'Estrutura teste 2'._001
+        And Selecionar a tecnologia 'SmartCard'_001
         And SeleSelecionarcinar o Tipo 'Credencial'.
         And Selecionar uma Data de início de validade com valor '01/12/2025'.
         And Selecionar uma data final de validade com vlaor '31/12/2025'.
-        And Selecinar um perfil de acesso.
+        And Selecinar o perfil de acesso 'Perfil de Credencial'.
+        And Selecionar o valor 'Sim, no perfil' no dropbox Master.
         And Marcar o campo 'Permitir reentrada'.
         And Marcar o campo 'Dispensa senha'.
         And Informar um horário no campo 'Horário para recolhimento no cofre na data final'.
         When Clicar no botão "Salvar" para incluir a Credencial_006
         Then A credencial deve ser salva com sucesso_003. 
+   
