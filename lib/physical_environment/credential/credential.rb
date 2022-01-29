@@ -2,22 +2,28 @@ class Credential
     # inclui a biblioteca Capybara para conseguir usar seus elementos dentros das classes e métodos
     include Capybara::DSL
 
-    # #variavel com o valor do campo 'Número' da tela de Áreas
-    # $REGISTER_AREAS_NUMBER='9999'
+    #variavel com o valor do campo 'Número' da tela de Credencial
+    $REGISTER_CREDENTIAL_NUMBER='1000'
+
+    #variavel com o valor do campo 'Números de' da tela de Credencial
+    $REGISTER_CREDENTIAL_NUMBER_FROM='1003'
+
+    #variavel com o valor do campo 'Até' da tela de Credencial
+    $REGISTER_CREDENTIAL_NUMBER_TO='1005'
     
-    # #variavel com o valor do campo 'Descrição' da tela de Áreas com quantidade máxima de caracteres
+    #variavel com o valor do campo 'Descrição' da tela de Áreas com quantidade máxima de caracteres
     # $REGISTER_AREAS_DEFAULT_DESCRIPTION='Automação Áreas'
 
     #variavel com o valor do campo 'Número' da tela de Credencial com quantidade máxima de caracteres
-    $REGISTER_CREDENTIAL_NUMBER='9'.ljust(20, '9')
+    $REGISTER_CREDENTIAL_MAX_NUMBER='9'.ljust(20, '9')
 
-    # #variavel com o valor do campo 'Descrição' da tela de Áreas com quantidade excedente de caracteres
+    #variavel com o valor do campo 'Descrição' da tela de Áreas com quantidade excedente de caracteres
     # $REGISTER_AREAS_EXCEEDS_DESCRIPTION='Automação Áreas'.ljust(35, 'X')
 
-    # #variavel com o valor do campo 'Descrição' da tela de Áreas com quantidade máxima de caracteres
+    #variavel com o valor do campo 'Descrição' da tela de Áreas com quantidade máxima de caracteres
     # $REGISTER_AREAS_EDIT_DESCRIPTION='Automação Áreas Edição'
     
-    # #variavel com o valor do campo 'Capacidade' da tela de Áreas
+    #variavel com o valor do campo 'Capacidade' da tela de Áreas
     # $REGISTER_AREAS_CAPACITY='99999'
   
     def visit_Register_Credential
