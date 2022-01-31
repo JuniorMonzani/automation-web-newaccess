@@ -5,4 +5,4 @@ require "report_builder"
 require "capybara/rspec"
 require "gherkin"
 
-$passwordAdmin = ''
+$passwordAdmin = 'teste'
