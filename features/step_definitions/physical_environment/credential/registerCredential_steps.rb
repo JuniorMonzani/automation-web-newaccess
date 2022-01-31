@@ -60,7 +60,7 @@ require 'common/constants'
       
     @fieldNumbersOfRequiredCredential
       Given('Não preencher o campo "Números de" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
-        credential.fills_In_Credential_Unique_Or_Multiple(false, true, '1', '', '','', false, false, false)
+        credential.fills_In_Credential_Unique_Or_Multiple(false, true, $REGISTER_CREDENTIAL_NUMBER, '', '','', false, false, false)
       end
 
       When('Clicar no botão Salvar para validar o campo "Números de".') do
@@ -78,7 +78,7 @@ require 'common/constants'
     
     @verifyReasonMandatory
       Given('Informar o valor "1000" no campo "Número"_001') do
-        credential.fills_In_Credential_Unique_Or_Multiple(true, false, '1000', '','','', false, false, false)
+        credential.fills_In_Credential_Unique_Or_Multiple(true, false, $REGISTER_CREDENTIAL_NUMBER, '','','', false, false, false)
       end
 
       And('Selecionar uma empresa_001') do
@@ -125,7 +125,7 @@ require 'common/constants'
 
     @verifyValuesPublicCredentialCredential
       Given('Marcar o checkbox "Credencial pública".') do
-        credential.fills_In_Credential_Unique_Or_Multiple(true, true, '1', '', '','', false, false, true)
+        credential.fills_In_Credential_Unique_Or_Multiple(true, true, $REGISTER_CREDENTIAL_NUMBER, '', '','', false, false, true)
       end
 
       Then('Deve desabilitar o dropbox "Empresa".') do
@@ -134,7 +134,7 @@ require 'common/constants'
 
     @fieldReasonDisabledCredential
       Given('Com a opção de situação "Liberada" marcada.') do
-        credential.fills_In_Credential_Unique_Or_Multiple(true, true, '1', '', '','', false, false, false)
+        credential.fills_In_Credential_Unique_Or_Multiple(true, true, $REGISTER_CREDENTIAL_NUMBER, '', '','', false, false, false)
       end
 
       Then('O campo "Motivo" deve ficar desabilitado.') do
@@ -143,7 +143,7 @@ require 'common/constants'
 
     @fieldReasonEnabledCredential
       Given('Marcar a opção de situação "Bloqueada".') do
-        credential.fills_In_Credential_Unique_Or_Multiple(true, false, '1', '', '','', false, false, false)
+        credential.fills_In_Credential_Unique_Or_Multiple(true, false, $REGISTER_CREDENTIAL_NUMBER, '', '','', false, false, false)
       end
 
       Then('O campo "Motivo" deve ficar habilitado.') do
@@ -152,9 +152,151 @@ require 'common/constants'
 
     @verifyValuesProvisoryCredentialCredential
       Given('Marcar o checkbox "Credencial provisória".') do
-        credential.fills_In_Credential_Unique_Or_Multiple(true, true, '1', '', '','', false, true, false)
+        credential.fills_In_Credential_Unique_Or_Multiple(true, true, $REGISTER_CREDENTIAL_NUMBER, '', '','', false, true, false)
       end
 
       Then('Deve desabilitar o checkbox "Supervisor de equipamento".') do
         expect(find('#MainContentMainMaster_MainContent_chkEquipmentSupervisor').disabled?).to be(true)
       end
+
+      @registerCredentialSuccess
+      Given('Que eu preencha todos os campos obrigatórios corretamente para cadastro de credencial.') do
+        credential.fills_In_Credential_Unique_Or_Multiple(true, true, $REGISTER_CREDENTIAL_NUMBER, '','','', true, false, false)
+      end
+
+      And('Selecionar a "Tecnologia" como "Código de Barras".') do
+        findElements.select_option('#MainContentMainMaster_MainContent_ddlTechnologyType', 'Código de Barras')
+      end
+
+      And('Selecionar o "Tipo" como "Pessoa".') do
+        findElements.select_option('#MainContentMainMaster_MainContent_ddlType', 'Pessoa')
+      end
+
+      And('Selecionar a "Empresa" como "Estrutura Teste 1".') do
+        findElements.select_option('#MainContentMainMaster_MainContent_ddlCompany', 'Estrutura Teste 1')
+      end
+
+      # And('Marcar o checkbox "Supervisor de equipamento".') do
+        # credential.fills_In_Credential_Unique_Or_Multiple(true, true, $REGISTER_CREDENTIAL_NUMBER, '','','', true, false, false)
+      # end
+
+      When('Clicar no botão "Salvar" para incluir a Credencial.') do
+        click_button 'Salvar'
+        sleep 0.3
+      end
+
+      Then('A credencial deve ser salva com sucesso.') do
+        expect(page).to have_content('Credencial salva com sucesso')
+      end
+
+    # condições para habilitar desabilitar campo
+    # @verifyDisabledDropBoxCompany
+    #   Given('Marcar o checkbox "Credencial pública".') do
+    #     credential.fills_In_Credential_Unique_Or_Multiple(true, true, $REGISTER_CREDENTIAL_NUMBER, '', '','', false, false, true)
+    #   end
+
+    #   Then('Deve desabilitar o dropbox "Empresa".') do
+    #     expect(find('#MainContentMainMaster_MainContent_ddlCompany').disabled?).to be(true)
+    #   end
+
+    @verifyEnableDropBoxCompany
+      Given('Desmarcar o checkbox "Credencial pública".') do
+        credential.fills_In_Credential_Unique_Or_Multiple(true, true, $REGISTER_CREDENTIAL_NUMBER, '', '','', false, false, false)
+      end
+
+      Then('Deve habilitar o dropbox "Empresa".') do
+        expect(find('#MainContentMainMaster_MainContent_ddlCompany').disabled?).to be(false)
+      end
+
+    # @verifyDisabledReason
+    #   Given('Com a opção de situação "Liberada" marcada.') do
+    #     credential.fills_In_Credential_Unique_Or_Multiple(true, true, $REGISTER_CREDENTIAL_NUMBER, '', '','', false, false, false)
+    #   end
+
+    #   Then('O campo "Motivo" deve ficar desabilitado.') do
+    #     expect(find('#MainContentMainMaster_MainContent_txtBlockingReason').disabled?).to be(true)
+    #   end
+
+    # @verifyEnableReason
+    #   Given('Marcar a opção de situação "Bloqueada".') do
+    #     credential.fills_In_Credential_Unique_Or_Multiple(true, false, $REGISTER_CREDENTIAL_NUMBER, '', '','', false, false, false)
+    #   end
+
+    #   Then('O campo "Motivo" deve ficar habilitado.') do
+    #     expect(find('#MainContentMainMaster_MainContent_txtBlockingReason').disabled?).to be(false)
+    #   end
+
+    # @verifyDisabledEquipmentSupervisor
+    #   Given('Marcar o checkbox "Credencial provisória".') do
+    #     credential.fills_In_Credential_Unique_Or_Multiple(true, true, $REGISTER_CREDENTIAL_NUMBER, '', '','', false, true, false)
+    #   end
+
+    #   Then('Deve desabilitar o checkbox "Supervisor de equipamento".') do
+    #     expect(find('#MainContentMainMaster_MainContent_chkEquipmentSupervisor').disabled?).to be(true)
+    #   end
+
+    @verifyEnabledEquipmentSupervisor
+      Given('Desmarcar o checkbox "Credencial provisória".') do
+        credential.fills_In_Credential_Unique_Or_Multiple(true, true, $REGISTER_CREDENTIAL_NUMBER, '', '','', false, false, false)
+      end
+
+      Then('Deve habilitar o checkbox "Supervisor de equipamento".') do
+        expect(find('#MainContentMainMaster_MainContent_chkEquipmentSupervisor').disabled?).to be(false)
+      end
+
+    # validação de mansagens
+    @verifyMessageCredentialCreation
+      Given('Que eu marque o campo "Intervalo de credenciais"') do
+        credential.fills_In_Credential_Unique_Or_Multiple(false, true, '', $REGISTER_CREDENTIAL_NUMBER_FROM, $REGISTER_CREDENTIAL_NUMBER_TO, '', false, false, false)
+      end
+
+      # And('Informe o valor "1001" no campo "Números de"') do
+      #   findElements.select_option('#MainContentMainMaster_MainContent_ddlCompany', 'Estrutura Teste 1')
+      # end
+
+      # And('"1100" no campo "Até"') do
+      #   findElements.select_option('#MainContentMainMaster_MainContent_ddlCompany', 'Estrutura Teste 1')
+      # end
+
+      When('Clicar no botão "Salvar" para acionar a validação') do
+        click_button 'Salvar'
+        sleep 1
+      end
+
+      Then('A mensagem de inclusão de um intervalo de credenciais será apresentada ao usuário e deve ser exatamente a mensagem esperada') do
+        expect(find('#MainContentMainMaster_MainContent_confirmPopupSave')).to have_content 'Você selecionou a opção Inclusão do Intervalo de Credenciais. O processo demorará alguns minutos. Tem certeza que deseja incluir as credenciais?'
+        sleep 1
+      end
+
+    @verifyMessageCompanyMandatory
+      Given('Informe o valor "1000" no campo "Número"_002') do
+        credential.fills_In_Credential_Unique_Or_Multiple(true, true, $REGISTER_CREDENTIAL_NUMBER, '', '', '', false, false, false)
+      end
+      
+      When('Clicar no botão "Salvar" para acionar a validação_002') do
+        click_button 'Salvar'
+        sleep 1
+      end
+
+      Then('A mensagem de alerta apresentada ao usuário deve ser exatamente a mensagem esperada_002') do
+        expect(find('#divIdBodyBusinessError')).to have_content '- A Empresa é obrigatória'
+        sleep 1
+      end
+
+    @verifyMessageCredentialAlreadyExsists
+      Given('Informe o valor "1" no campo "Número"_003 marcando também como credencial pública') do
+        credential.fills_In_Credential_Unique_Or_Multiple(true, true, '1', '', '', '', false, false, true)
+      end
+      
+      When('Clicar no botão "Salvar" para acionar a validação_003') do
+        click_button 'Salvar'
+        sleep 1
+      end
+
+      Then('A mensagem de alerta apresentada ao usuário deve ser exatamente a mensagem esperada_003') do
+        expect(find('#divIdBodyBusinessError')).to have_content '- A Credencial de número 1 já existe no sistema'
+        sleep 1
+      end
+
+      #Validação de credencial que autentica em credencial
+      

@@ -74,42 +74,42 @@ Feature: Register Credential
         Given Marcar o checkbox "Credencial provisória".
         Then Deve desabilitar o checkbox "Supervisor de equipamento".
 
-    # @registerCredentialSuccess
-    # Scenario: registerCredentialSuccess
-    #     Given Que eu preencha todos os campos obrigatórios de forma correta.
-    #     And Selecionar a "Tecnologia" como "Código de Barras".
-    #     And Selecionar o "Tipo" como "Pessoa".
-    #     And Selecionar a "Empresa" como "Estrutura Teste 1".
-    #     And Marcar o checkbox "Supervisor de equipamento".
-    #     When Clicar no botão "Salvar" para incluir a Credencial.
-    #     Then A credencial deve ser salva com sucesso.
+    @registerCredentialSuccess
+    Scenario: registerCredentialSuccess
+        Given Que eu preencha todos os campos obrigatórios corretamente para cadastro de credencial.
+        And Selecionar a "Tecnologia" como "Código de Barras".
+        And Selecionar o "Tipo" como "Pessoa".
+        And Selecionar a "Empresa" como "Estrutura Teste 1".
+        # And Marcar o checkbox "Supervisor de equipamento".
+        When Clicar no botão "Salvar" para incluir a Credencial.
+        Then A credencial deve ser salva com sucesso.
 
 
     # condições para habilitar desabilitar campo
-    @verifyDisabledDropBoxCompany
-    Scenario: verifyDisabledDropBoxCompany
-        Given Marcar o checkbox "Credencial pública".
-        Then Deve desabilitar o dropbox "Empresa".
+    # @verifyDisabledDropBoxCompany
+    # Scenario: verifyDisabledDropBoxCompany
+    #     Given Marcar o checkbox "Credencial pública".
+    #     Then Deve desabilitar o dropbox "Empresa".
 
     @verifyEnableDropBoxCompany
     Scenario: verifyEnableDropBoxCompany
         Given Desmarcar o checkbox "Credencial pública".
         Then Deve habilitar o dropbox "Empresa".
 
-    @verifyDisabledReason
-    Scenario: verifyDisabledReason
-        Given Com a opção de situação "Liberada" marcada.
-        Then O campo "Motivo" deve ficar desabilitado.
+    # @verifyDisabledReason
+    # Scenario: verifyDisabledReason
+    #     Given Com a opção de situação "Liberada" marcada.
+    #     Then O campo "Motivo" deve ficar desabilitado.
 
-    @verifyEnableReason
-    Scenario: verifyEnableReason
-        Given Marcar a opção de situação "Bloqueada".
-        Then O campo "Motivo" deve ficar habilitado.
+    # @verifyEnableReason
+    # Scenario: verifyEnableReason
+    #     Given Marcar a opção de situação "Bloqueada".
+    #     Then O campo "Motivo" deve ficar habilitado.
 
-    @verifyDisabledEquipmentSupervisor
-    Scenario: verifyDisabledEquipmentSupervisor
-        Given Marcar o checkbox "Credencial provisória".
-        Then Deve desabilitar o checkbox "Supervisor de equipamento".
+    # @verifyDisabledEquipmentSupervisor
+    # Scenario: verifyDisabledEquipmentSupervisor
+    #     Given Marcar o checkbox "Credencial provisória".
+    #     Then Deve desabilitar o checkbox "Supervisor de equipamento".
 
     @verifyEnabledEquipmentSupervisor
     Scenario: verifyEnabledEquipmentSupervisor
@@ -120,22 +120,22 @@ Feature: Register Credential
     # validação de mansagens
     @verifyMessageCredentialCreation
     Scenario: verifyMessageCredentialCreation
-        Given Que eu marque o campo 'Intervalo de crenciais'
-        And Informe o valor '1000' no campo 'Números de'
-        And Informe o valor '1100' no campo 'Até'
-        When Clicar no botão 'Salvar' para acionar a validação
+        Given Que eu marque o campo "Intervalo de credenciais"
+        # And Informe o valor "1001" no campo "Números de"
+        # And Informe o valor "1100" no campo "Até"
+        When Clicar no botão "Salvar" para acionar a validação
         Then A mensagem de inclusão de um intervalo de credenciais será apresentada ao usuário e deve ser exatamente a mensagem esperada
 
     @verifyMessageCompanyMandatory
     Scenario: verifyMessageCompanyMandatory
-        Given Informe o valor '1000' no campo 'Número'_002
-        When Clicar no botão 'Salvar' para acionar a validação_002
+        Given Informe o valor "1000" no campo "Número"_002
+        When Clicar no botão "Salvar" para acionar a validação_002
         Then A mensagem de alerta apresentada ao usuário deve ser exatamente a mensagem esperada_002
 
     @verifyMessageCredentialAlreadyExsists
     Scenario: verifyMessageCredentialAlreadyExsists
-        Given Informe o valor '1' no campo 'Número'_003
-        When Clicar no botão 'Salvar' para acionar a validação_003
+        Given Informe o valor "1" no campo "Número"_003 marcando também como credencial pública
+        When Clicar no botão "Salvar" para acionar a validação_003
         Then A mensagem de alerta apresentada ao usuário deve ser exatamente a mensagem esperada_003
 
        
