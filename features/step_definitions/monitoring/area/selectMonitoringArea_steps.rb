@@ -38,7 +38,7 @@ login = Login.new
       uncheck('MainContentMainMaster_MainContent_chkAutomaticUpdate')
       sleep 1
       click_button 'Monitorar'
-      sleep 1
+      sleep 0.5
     end
 
     Then("A página de monitoração apresentada não pode conter o contador para atualização da página, indicando que não será atualizada.") do
