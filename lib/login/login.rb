@@ -6,16 +6,16 @@ class Login
     visit 'https://autoteste.dimep-ams.com.br/'
   end
 
-  def receive_Correct_Pass
-    puts 'Digite a senha do usuário "admin": '
-    correctPass = $stdin.gets.strip
+  # def receive_Correct_Pass
+  #   puts 'Digite a senha do usuário "admin": '
+  #   correctPass = $stdin.gets.strip
    
-    return correctPass.to_s
-  end
+  #   return correctPass.to_s
+  # end
 
-  def make_Login(fieldlogin, fieldpassword)
-    fill_in      'txtUsrLogin',      with: fieldlogin
-    fill_in      'txtUserPassLogin', with: fieldpassword
+  def make_Login
+    fill_in      'txtUsrLogin',      with: 'admin'
+    fill_in      'txtUserPassLogin', with: $passwordAdmin
     click_button 'Submit1'
   end
-end
+end 

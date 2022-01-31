@@ -13,7 +13,7 @@ login = Login.new
 #background
   Given('Que o usuário esteja na página para selecionar a área a ser monitorada.') do
     monitoringArea.visit_Monitoring_Area
-      login.make_Login('admin', $password)
+    login.make_Login
   end
 
   #verifyResourcesSelectMonitoringArea

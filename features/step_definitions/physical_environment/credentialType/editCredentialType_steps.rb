@@ -11,7 +11,7 @@ require 'common/constants'
   @background
     Given('Que estou na tela que lista os Tipos de Credencial cadastradas para realizar alterações.') do
       credentialType.visit_List_Credential_Type
-      login.make_Login('admin', $password.to_s)
+      login.make_Login
     end
   
     @verifyEditCredentialType

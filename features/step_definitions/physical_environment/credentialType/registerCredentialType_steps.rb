@@ -6,12 +6,12 @@ require 'common/constants'
   credentialType = CredentialType.new
   findElements = FindElements.new
   login = Login.new
-  $password = login.receive_Correct_Pass
+  #$password = login.receive_Correct_Pass
 
   @background
     Given('Que o usuário esteja na página de cadastro de Tipo de Credencial.') do
       credentialType.visit_Register_Credential_Type
-      login.make_Login('admin', $password.to_s)
+      login.make_Login
     end
 
     @verifyLabelsCredentialType
