@@ -10,7 +10,7 @@ require 'common/constants'
   @background
     Given('Que o usuário esteja na página de cadastro de Áreas.') do
       areas.visit_Register_Areas
-      login.make_Login('admin', $password.to_s)
+      login.make_Login
     end
 
     @verifyLabelsAreas

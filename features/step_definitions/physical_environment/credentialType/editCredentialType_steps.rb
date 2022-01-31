@@ -6,7 +6,6 @@ require 'common/constants'
   credentialType = CredentialType.new
   findElements = FindElements.new
   login = Login.new
-  #$password = login.receive_Correct_Pass
 
   @background
     Given('Que estou na tela que lista os Tipos de Credencial cadastradas para realizar alterações.') do

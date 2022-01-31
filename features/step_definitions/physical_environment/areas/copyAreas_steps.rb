@@ -10,7 +10,7 @@ require 'common/constants'
   @background
     Given('Que o usuário esteja na página que lista as Áreas objetivando cópia.') do
       areas.visit_List_Areas
-      login.make_Login('admin', $password.to_s)
+      login.make_Login
     end
 
     @verifyCopyAreas
