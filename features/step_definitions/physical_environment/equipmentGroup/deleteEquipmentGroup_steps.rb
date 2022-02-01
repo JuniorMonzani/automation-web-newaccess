@@ -11,7 +11,7 @@ require 'common/constants'
   #background
     Given('Que estou na tela que lista os Grupos de Equipamentos cadastrados para realizar buscas e exxlusões.') do
         equipmentGroup.visit_List_Equipment_Group
-        login.make_Login('admin', $password)
+        login.make_Login
     end
 
     #verifyValuesFilterSearchEquipmentGroup

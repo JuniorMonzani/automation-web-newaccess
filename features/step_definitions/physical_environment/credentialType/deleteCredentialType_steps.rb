@@ -6,12 +6,11 @@ require 'common/constants'
   credentialType = CredentialType.new
   findElements = FindElements.new
   login = Login.new
-  #$password = login.receive_Correct_Pass
 
   @background
     Given('Que estou na tela que lista os Tipos de Credencial cadastradas para realizar exclusões.') do
       credentialType.visit_List_Credential_Type
-      login.make_Login('admin', $password.to_s)
+      login.make_Login
     end
 
     @verifyValuesAuthenticationDeleteCredentialType

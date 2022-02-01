@@ -10,7 +10,7 @@ require 'common/constants'
   #background
     Given('Que o usuário esteja na página de cadastro de Grupo de Equipamento.') do
         equipmentGroup.visit_Register_Equipment_Group
-        login.make_Login('admin', $password)
+        login.make_Login
     end
             
     #verifyLabelsEquipmentGroup
