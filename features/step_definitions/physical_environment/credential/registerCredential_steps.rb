@@ -299,4 +299,53 @@ require 'common/constants'
       end
 
       #Validação de credencial que autentica em credencial
-      
+      @verifyMandatoryFieldsCredencialType
+      Given('Informar o valor "1100" no campo "Número"_004') do
+        findElements.select_option('#MainContentMainMaster_MainContent_txtUniqueNumberInput', $REGISTER_CREDENTIAL_NUMBER_TO)
+      end
+
+      And('Selecionar uma empresa_004') do
+        findElements.select_option('#MainContentMainMaster_MainContent_ddlCompany', 'Estrutura Teste 1')
+      end
+
+      And('Selecionar o tipo "Credencial"_004') do
+        findElements.select_option('#MainContentMainMaster_MainContent_ddlType', 'Credencial')
+      end
+
+      And('Informar uma senha no campo "Senha"._004') do
+        findElements.select_option('#MainContentMainMaster_MainContent_txtPassword', $REGISTER_CREDENTIAL_PASSWORD)
+      end
+
+      And('Limpar o campo "Porcentagem de sorteio"._004') do
+        findElements.select_option('#MainContentMainMaster_MainContent_txtPercentageOfSortition', '')
+      end
+
+      When('Clicar no botão "Salvar" para acionar a validação_004') do
+        click_button 'Salvar'
+        sleep 1
+      end
+
+      Then('O campo "Validade", "Até","Pesfil de acesso", "Confirme a senha" e "Porcentagem de sorteio" devem ser marcados como obrigatórios.') do
+        expect(find('#MainContentMainMaster_MainContent_confirmPopupSave')).to have_content 'Você selecionou a opção Inclusão do Intervalo de Credenciais. O processo demorará alguns minutos. Tem certeza que deseja incluir as credenciais?'
+        sleep 1
+      end
+
+      And('Deve existir uma validação no campo "Validade" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.') do
+        expect(page).to have_selector("input[oldtitle='Informe a Data inicial']")
+      end
+
+      And('Deve existir uma validação no campo "Até" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.') do
+        expect(page).to have_selector("input[oldtitle='Informe a Data final']")
+      end
+
+      And('Deve existir uma validação no campo "Perfil de acesso" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.') do
+        expect(page).to have_selector("input[oldtitle='Você deve cadastrar o Perfil de Acesso']")
+      end
+
+      And('Deve existir uma validação no campo "Confirme a senha" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.') do
+        expect(page).to have_selector("input[oldtitle='Confirmação de senha não confere']")
+      end
+
+      And('Deve existir uma validação no campo "Porcentagem de sorteio" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.') do
+        expect(page).to have_selector("input[oldtitle='Preencha o campo Porcentagem de sorteio']")
+      end

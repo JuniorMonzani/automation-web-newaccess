@@ -142,65 +142,71 @@ Feature: Register Credential
     #Validação de credencial que autentica em credencial
     @verifyMandatoryFieldsCredencialType
     Scenario: verifyMandatoryFieldsCredencialType
-        Given Informar o valor '1100' no campo 'Número'_004
+        Given Informar o valor "1100" no campo "Número"_004
         And Selecionar uma empresa_004
-        And Selecionar o tipo 'Credencial'_004
-        And Informar uma senha no campo 'Senha'._004
-        And Limpar o campo 'Porcentagem de sorteio'._004
-        When Clicar no botão 'Salvar' para acionar a validação_004
-        Then O campo 'Validade', 'Até','Pesfil de acesso', 'Confirme a senha' e 'Porcentagem de sorteio' devem ser marcados como obrigatórios.]
+        And Selecionar o tipo "Credencial"_004
+        And Informar uma senha no campo "Senha"._004
+        And Limpar o campo "Porcentagem de sorteio"._004
+        When Clicar no botão "Salvar" para acionar a validação_004
+        Then O campo "Validade", "Até","Pesfil de acesso", "Confirme a senha" e "Porcentagem de sorteio" devem ser marcados como obrigatórios.
+        And Deve existir uma validação no campo "Validade" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.
+        And Deve existir uma validação no campo "Até" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.
+        And Deve existir uma validação no campo "Perfil de acesso" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.
+        And Deve existir uma validação no campo "Confirme a senha" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.
+        And Deve existir uma validação no campo "Porcentagem de sorteio" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.
+
 
     @verifyTextInParameterOldtitle
     Scenario: verifyTextInParameterOldtitle
-        Given Informar o valor '1100' no campo 'Número'_005
+        Given Informar o valor "1100" no campo "Número"_005
         And Selecionar uma empresa_005
-        And Selecionar o tipo 'Credencial'_005
-        And Informar uma senha no campo 'Senha'._005
-        And Limpar o campo 'Porcentagem de sorteio'._005
-        When Clicar no botão 'Salvar' para acionar a validação_005
+        And Selecionar o tipo "Credencial"_005
+        And Informar uma senha no campo "Senha"._005
+        And Limpar o campo "Porcentagem de sorteio"._005
+        When Clicar no botão "Salvar" para acionar a validação_005
         Then Os campos obrigatórios devem apresentar os textos de obrigatoriedade esperados.
 
     @verifyValuesMaster
     Scenario: verifyValuesMaster
-        Given Selecionar o tipo 'Credencial'
-        Then O dropbox 'Master' deve conter todos os valores esperados.
+        Given Selecionar o tipo "Credencial"
+        Then O dropbox "Master" deve conter todos os valores esperados.
 
 
     # Salvando credenciais
     @saveCredentialCombinationFields_1
     Scenario: saveCredentialCombinationFields_1
-        Given Informe o valor '1000' no campo 'Número'.
-        And Marcar a opção 'Credencial pública'.
-        And Selecionar a tecnologia 'Proximidade'.
-        And Selecionar o Tipo 'Visitante'.
+        Given Informe o valor "1000" no campo "Número".
+        And Marcar a opção "Credencial pública".
+        And Selecionar a tecnologia "Proximidade".
+        And Selecionar o Tipo "Visitante".
         When Clicar no botão "Salvar" para incluir a Credencial_001
         Then A credencial deve ser salva com sucesso_001.
 
     @saveCredentialCombinationFields_2
     Scenario: saveCredentialCombinationFields_2
-        Given Informe o valor '1001' no campo 'Número'.
-        And Selecionar a empresa 'Estrutura teste 1'.
-        And Selecionar a tecnologia 'Barras'
-        And Selecionar o Tipo 'Pessoa'
-        And Selecionar a opção 'Credencial provisória'
-        And Selecionar a opção 'Bloqueada'
-        And Preencher o campo 'Motivo' com valor 'Teste'.
+        Given Informe o valor "1001" no campo "Número".
+        And Selecionar a empresa "Estrutura teste 1".
+        And Selecionar a tecnologia "Barras"
+        And Selecionar o Tipo "Pessoa"
+        And Selecionar a opção "Credencial provisória"
+        And Selecionar a opção "Bloqueada"
+        And Preencher o campo "Motivo" com valor "Teste".
         When Clicar no botão "Salvar" para incluir a Credencial_005
         Then A credencial deve ser salva com sucesso_002.
     
     @saveCredentialCombinationFields_3
     Scenario: saveCredentialCombinationFields_2
-        Given Informe o valor '1002' no campo 'Número'.
-        And Selecionar a empresa 'Estrutura teste 2'._001
-        And Selecionar a tecnologia 'SmartCard'_001
-        And SeleSelecionarcinar o Tipo 'Credencial'.
-        And Selecionar uma Data de início de validade com valor '01/12/2025'.
-        And Selecionar uma data final de validade com vlaor '31/12/2025'.
-        And Selecinar o perfil de acesso 'Perfil de Credencial'.
-        And Selecionar o valor 'Sim, no perfil' no dropbox Master.
-        And Marcar o campo 'Permitir reentrada'.
-        And Marcar o campo 'Dispensa senha'.
-        And Informar um horário no campo 'Horário para recolhimento no cofre na data final'.
+        Given Informe o valor "1002" no campo "Número".
+        And Selecionar a empresa "Estrutura teste 2"._001
+        And Selecionar a tecnologia "SmartCard"_001
+        And SeleSelecionarcinar o Tipo "Credencial".
+        And Selecionar uma Data de início de validade com valor "01/12/2025".
+        And Selecionar uma data final de validade com vlaor "31/12/2025".
+        And Selecinar o perfil de acesso "Perfil de Credencial".
+        And Selecionar o valor "Sim, no perfil" no dropbox Master.
+        And Marcar o campo "Permitir reentrada".
+        And Marcar o campo "Dispensa senha".
+        And Informar um horário no campo "Horário para recolhimento no cofre na data final".
         When Clicar no botão "Salvar" para incluir a Credencial_006
         Then A credencial deve ser salva com sucesso_003. 
    

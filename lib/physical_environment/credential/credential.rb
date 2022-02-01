@@ -6,10 +6,13 @@ class Credential
     $REGISTER_CREDENTIAL_NUMBER='1000'
 
     #variavel com o valor do campo 'Números de' da tela de Credencial
-    $REGISTER_CREDENTIAL_NUMBER_FROM='1003'
+    $REGISTER_CREDENTIAL_NUMBER_FROM='1001'
 
     #variavel com o valor do campo 'Até' da tela de Credencial
-    $REGISTER_CREDENTIAL_NUMBER_TO='1005'
+    $REGISTER_CREDENTIAL_NUMBER_TO='1100'
+
+    #variavel com o valor da 'Senha' da tela de Credencial autenticando em credencial
+    $REGISTER_CREDENTIAL_PASSWORD='123456'
     
     #variavel com o valor do campo 'Descrição' da tela de Áreas com quantidade máxima de caracteres
     # $REGISTER_AREAS_DEFAULT_DESCRIPTION='Automação Áreas'
