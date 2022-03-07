@@ -34,4 +34,7 @@ class Constants
 
     #constante com os valores contidos no dropbox 'Empresa' - Cadastro de credecial
     $REGISTER_COMPANY = ['Selecione', 'Estrutura Teste 1', 'Estrutura Teste 2', 'Estrutura Teste 3', 'Estrutura Teste 4', 'Estrutura Teste 5', 'Estrutura Teste 6']
+
+     #constante com os valores contidos no dropbox 'Master' - Cadastro de credecial
+     $REGISTER_MASTER = ['Não', 'Sim', 'Sim, no perfil']
 end

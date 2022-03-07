@@ -349,3 +349,84 @@ require 'common/constants'
       And('Deve existir uma validação no campo "Porcentagem de sorteio" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.') do
         expect(page).to have_selector("input[oldtitle='Preencha o campo Porcentagem de sorteio']")
       end
+
+
+      # @verifyTextInParameterOldtitle
+
+      @verifyValuesMaster
+      Given('Selecionar o tipo "Credencial"_006') do
+        findElements.select_option('#MainContentMainMaster_MainContent_ddlType', 'Credencial')
+      end
+
+      When('Obter todos os valores do dropbox "Master" e comparar com os valores esperados.') do
+        $valueMaster = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlMaster', $REGISTER_TECHNOLOGYTYPE)
+      end
+
+      Then('O dropbox "Master" deve conter todos os valores esperados.') do
+        expect($valueMaster).to be_truthy
+      end
+
+      #Salvando credenciais
+      @saveCredentialCombinationFields_1
+      Given('Informe o valor "1000" no campo "Número".') do
+        findElements.select_option('#MainContentMainMaster_MainContent_txtUniqueNumberInput', $REGISTER_CREDENTIAL_NUMBER)
+      end
+
+      And('Marcar a opção "Credencial pública".') do
+        credential.fills_In_Credential_Unique_Or_Multiple(true, true, $REGISTER_CREDENTIAL_NUMBER, '', '','', false, false, true)
+      end
+
+      And('Selecionar a tecnologia "Proximidade".') do
+        findElements.select_option('#MainContentMainMaster_MainContent_ddlTechnologyType', 'Proximidade')
+      end
+
+      And('Selecionar o Tipo "Visitante".') do
+        findElements.select_option('#MainContentMainMaster_MainContent_ddlType', 'Visitante')
+      end
+
+      When('Clicar no botão "Salvar" para incluir a Credencial_001') do
+        click_button 'Salvar'
+        sleep 1
+      end
+
+      Then('A credencial deve ser salva com sucesso_001.') do
+        expect(page).to have_content('Credencial salva com sucesso')
+      end
+
+      @saveCredentialCombinationFields_2
+      Given('Informe o valor "1001" no campo "Número".') do
+        findElements.select_option('#MainContentMainMaster_MainContent_txtUniqueNumberInput', $REGISTER_CREDENTIAL_NUMBER_FROM)
+      end
+
+      And('Selecionar a empresa "Estrutura teste 1".') do
+        findElements.select_option('#MainContentMainMaster_MainContent_ddlCompany', 'Estrutura Teste 1')
+      end
+
+      And('Selecionar a tecnologia "Barras"') do
+        findElements.select_option('#MainContentMainMaster_MainContent_ddlTechnologyType', 'Código de Barras')
+      end
+
+      And('Selecionar o Tipo "Pessoa"') do
+        findElements.select_option('#MainContentMainMaster_MainContent_ddlType', 'Pessoa')
+      end
+
+      And('Selecionar a opção "Credencial provisória"') do
+        credential.fills_In_Credential_Unique_Or_Multiple(true, true, $REGISTER_CREDENTIAL_NUMBER_FROM, '', '','', false, true, false)
+      end
+
+      And('Selecionar a opção "Bloqueada"') do
+        credential.fills_In_Credential_Unique_Or_Multiple(true, false, $REGISTER_CREDENTIAL_NUMBER_FROM, '', '','', false, true, false)
+      end
+
+      And('Preencher o campo "Motivo" com valor "Teste".') do
+        findElements.select_option('#MainContentMainMaster_MainContent_txtBlockingReason', $REGISTER_CREDENTIAL_REASON)
+      end
+
+      When('Clicar no botão "Salvar" para incluir a Credencial_005') do
+        click_button 'Salvar'
+        sleep 1
+      end
+
+      Then('A credencial deve ser salva com sucesso_002.') do
+        expect(page).to have_content('Credencial salva com sucesso')
+      end

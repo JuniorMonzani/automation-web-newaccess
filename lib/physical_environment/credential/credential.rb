@@ -23,8 +23,8 @@ class Credential
     #variavel com o valor do campo 'Descrição' da tela de Áreas com quantidade excedente de caracteres
     # $REGISTER_AREAS_EXCEEDS_DESCRIPTION='Automação Áreas'.ljust(35, 'X')
 
-    #variavel com o valor do campo 'Descrição' da tela de Áreas com quantidade máxima de caracteres
-    # $REGISTER_AREAS_EDIT_DESCRIPTION='Automação Áreas Edição'
+    #variavel com o valor do campo 'Motivo' da tela de Credencial
+    $REGISTER_CREDENTIAL_REASON='Teste'
     
     #variavel com o valor do campo 'Capacidade' da tela de Áreas
     # $REGISTER_AREAS_CAPACITY='99999'

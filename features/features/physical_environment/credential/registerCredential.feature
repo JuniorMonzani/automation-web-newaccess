@@ -156,19 +156,25 @@ Feature: Register Credential
         And Deve existir uma validação no campo "Porcentagem de sorteio" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.
 
 
-    @verifyTextInParameterOldtitle
-    Scenario: verifyTextInParameterOldtitle
-        Given Informar o valor "1100" no campo "Número"_005
-        And Selecionar uma empresa_005
-        And Selecionar o tipo "Credencial"_005
-        And Informar uma senha no campo "Senha"._005
-        And Limpar o campo "Porcentagem de sorteio"._005
-        When Clicar no botão "Salvar" para acionar a validação_005
-        Then Os campos obrigatórios devem apresentar os textos de obrigatoriedade esperados.
+    # @verifyTextInParameterOldtitle
+    # Scenario: verifyTextInParameterOldtitle
+    #     Given Informar o valor "1100" no campo "Número"_005
+    #     And Selecionar uma empresa_005
+    #     And Selecionar o tipo "Credencial"_005
+    #     And Informar uma senha no campo "Senha"._005
+    #     And Limpar o campo "Porcentagem de sorteio"._005
+    #     When Clicar no botão "Salvar" para acionar a validação_005
+    #     Then Os campos obrigatórios devem apresentar os textos de obrigatoriedade esperados.
+    #     And Deve existir uma validação no campo "Validade" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.
+    #     And Deve existir uma validação no campo "Até" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.
+    #     And Deve existir uma validação no campo "Perfil de acesso" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.
+    #     And Deve existir uma validação no campo "Confirme a senha" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.
+    #     And Deve existir uma validação no campo "Porcentagem de sorteio" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.
 
     @verifyValuesMaster
     Scenario: verifyValuesMaster
-        Given Selecionar o tipo "Credencial"
+        Given Selecionar o tipo "Credencial"_006
+        When Obter todos os valores do dropbox "Master" e comparar com os valores esperados.
         Then O dropbox "Master" deve conter todos os valores esperados.
 
 
@@ -194,19 +200,19 @@ Feature: Register Credential
         When Clicar no botão "Salvar" para incluir a Credencial_005
         Then A credencial deve ser salva com sucesso_002.
     
-    @saveCredentialCombinationFields_3
-    Scenario: saveCredentialCombinationFields_2
-        Given Informe o valor "1002" no campo "Número".
-        And Selecionar a empresa "Estrutura teste 2"._001
-        And Selecionar a tecnologia "SmartCard"_001
-        And SeleSelecionarcinar o Tipo "Credencial".
-        And Selecionar uma Data de início de validade com valor "01/12/2025".
-        And Selecionar uma data final de validade com vlaor "31/12/2025".
-        And Selecinar o perfil de acesso "Perfil de Credencial".
-        And Selecionar o valor "Sim, no perfil" no dropbox Master.
-        And Marcar o campo "Permitir reentrada".
-        And Marcar o campo "Dispensa senha".
-        And Informar um horário no campo "Horário para recolhimento no cofre na data final".
-        When Clicar no botão "Salvar" para incluir a Credencial_006
-        Then A credencial deve ser salva com sucesso_003. 
+    # @saveCredentialCombinationFields_3
+    # Scenario: saveCredentialCombinationFields_2
+    #     Given Informe o valor "1002" no campo "Número".
+    #     And Selecionar a empresa "Estrutura teste 2"._001
+    #     And Selecionar a tecnologia "SmartCard"_001
+    #     And SeleSelecionarcinar o Tipo "Credencial".
+    #     And Selecionar uma Data de início de validade com valor "01/12/2025".
+    #     And Selecionar uma data final de validade com vlaor "31/12/2025".
+    #     And Selecinar o perfil de acesso "Perfil de Credencial".
+    #     And Selecionar o valor "Sim, no perfil" no dropbox Master.
+    #     And Marcar o campo "Permitir reentrada".
+    #     And Marcar o campo "Dispensa senha".
+    #     And Informar um horário no campo "Horário para recolhimento no cofre na data final".
+    #     When Clicar no botão "Salvar" para incluir a Credencial_006
+    #     Then A credencial deve ser salva com sucesso_003. 
    
