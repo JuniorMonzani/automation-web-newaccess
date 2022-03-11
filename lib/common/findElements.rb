@@ -22,7 +22,6 @@ class FindElements
         fill_in css_selector, with: value
     end
 
-
     #busca por elemento que não contém na página
     def no_selector_on_page(element)
         eql = (page.assert_no_selector(element))

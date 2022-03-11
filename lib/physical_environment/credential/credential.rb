@@ -2,11 +2,17 @@ class Credential
     # inclui a biblioteca Capybara para conseguir usar seus elementos dentros das classes e métodos
     include Capybara::DSL
 
-    #variavel com o valor do campo 'Número' da tela de Credencial
-    $REGISTER_CREDENTIAL_NUMBER='1000'
+    #variavel com o valor 1000 do campo 'Número' da tela de Credencial
+    $REGISTER_CREDENTIAL_1000='1000'
+
+    #variavel com o valor 1001 do campo 'Número' da tela de Credencial
+    $REGISTER_CREDENTIAL_1001='1001'
+
+    #variavel com o valor 1002 do campo 'Número' da tela de Credencial
+    $REGISTER_CREDENTIAL_1002='1002'
 
     #variavel com o valor do campo 'Números de' da tela de Credencial
-    $REGISTER_CREDENTIAL_NUMBER_FROM='1001'
+    $REGISTER_CREDENTIAL_NUMBER_FROM='1003'
 
     #variavel com o valor do campo 'Até' da tela de Credencial
     $REGISTER_CREDENTIAL_NUMBER_TO='1100'
@@ -74,6 +80,42 @@ class Credential
         check('cbxPublicCredential')
       else
         uncheck('cbxPublicCredential')
+      end
+
+      if Reentry == true
+        check('chkReentry')
+      else
+        uncheck('chkReentry')
+      end
+
+      if avoidPassword == true
+        check('chkAvoidPassword')
+      else
+        uncheck('chkAvoidPassword')
+      end
+    end
+
+    # preenche os campos do cadastro de credencial por tipo credencial
+    def fills_In_Credential_By_Credential_Type(accessProfile, reentryAllowed, avoidPassword)
+      fill_in 'MainContentMainMaster_MainContent_accessProfileControlCredentialEdt_txtAccessProfile', with: accessProfile
+
+      # verifica o valor informado para o checkbox, se for verdadeiro marca o campo, se for falso desmarca
+      # if accessProfile == true
+      #   check('chkReentry')
+      # else
+      #   uncheck('chkReentry')
+      # end
+      
+      if reentryAllowed == true
+        check('chkReentry')
+      else
+        uncheck('chkReentry')
+      end
+
+      if avoidPassword == true
+        check('chkAvoidPassword')
+      else
+        uncheck('chkAvoidPassword')
       end
     end
 end
