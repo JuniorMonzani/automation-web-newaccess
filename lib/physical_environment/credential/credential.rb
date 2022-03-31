@@ -32,8 +32,11 @@ class Credential
     #variavel com o valor do campo 'Motivo' da tela de Credencial
     $REGISTER_CREDENTIAL_REASON='Teste'
     
-    #variavel com o valor do campo 'Capacidade' da tela de Áreas
-    # $REGISTER_AREAS_CAPACITY='99999'
+    #variavel com o valor de data inicial de validade da tela de Credencial
+    $REGISTER_CREDENTIAL_DATE_FROM='01/01/2025'
+
+    #variavel com o valor de data final de validade da tela de Credencial
+    $REGISTER_CREDENTIAL_DATE_TO='31/12/2025'
   
     def visit_Register_Credential
       visit 'https://autoteste.dimep-ams.com.br/Credentials/CredentialEdt.aspx?OperationType=create&chkLastTen=True&currentPaginationIndex='
@@ -80,18 +83,6 @@ class Credential
         check('cbxPublicCredential')
       else
         uncheck('cbxPublicCredential')
-      end
-
-      if Reentry == true
-        check('chkReentry')
-      else
-        uncheck('chkReentry')
-      end
-
-      if avoidPassword == true
-        check('chkAvoidPassword')
-      else
-        uncheck('chkAvoidPassword')
       end
     end
 

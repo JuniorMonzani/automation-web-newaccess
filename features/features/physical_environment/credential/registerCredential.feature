@@ -13,7 +13,7 @@ Feature: Register Credential
 
     @fieldNumberRequiredCredential
     Scenario: fieldNumberRequiredCredential
-        Given Informar caractere alfanumérico no campo "Número" e preencher corretamente todas os outros campos necessários para efetuar o cadastro de Credencial.
+        Given Informar caractere alfanumérico no campo "Número" preenchendo corretamente todas os outros campos necessários para efetuar o cadastro de Credencial.
         When Clicar no botão Salvar para validar o campo "Número" no cadastro de credencial.
         Then Deve existir uma validação no campo "Número" pois o mesmo é obrigatório e só aceita caractere numérico visto que a opção "Credencial individual" esta marcada.
 
@@ -33,7 +33,7 @@ Feature: Register Credential
     Scenario: verifyReasonMandatory
         Given Informar o valor "1000" no campo "Número"_001
         And Selecionar uma empresa_001
-        # And Marcar a opção "Bloqueada"
+        And Marcar a opção "Bloqueada"
         When Clicar no botão "Salvar" para acionar a validação_001
         Then O campo "Motivo" deve apresentar a obrigatoriedade
 
@@ -80,7 +80,7 @@ Feature: Register Credential
         And Selecionar a "Tecnologia" como "Código de Barras".
         And Selecionar o "Tipo" como "Pessoa".
         And Selecionar a "Empresa" como "Estrutura Teste 1".
-        # And Marcar o checkbox "Supervisor de equipamento".
+        And Marcar o checkbox "Supervisor de equipamento".
         When Clicar no botão "Salvar" para incluir a Credencial.
         Then A credencial deve ser salva com sucesso.
 
@@ -121,8 +121,8 @@ Feature: Register Credential
     @verifyMessageCredentialCreation
     Scenario: verifyMessageCredentialCreation
         Given Que eu marque o campo "Intervalo de credenciais"
-        # And Informe o valor "1001" no campo "Números de"
-        # And Informe o valor "1100" no campo "Até"
+        And Informe o valor "1001" no campo "Números de"
+        And Informe o valor "1100" no campo "Até"
         When Clicar no botão "Salvar" para acionar a validação
         Then A mensagem de inclusão de um intervalo de credenciais será apresentada ao usuário e deve ser exatamente a mensagem esperada
 
@@ -148,8 +148,7 @@ Feature: Register Credential
         And Informar uma senha no campo "Senha"._004
         And Limpar o campo "Porcentagem de sorteio"._004
         When Clicar no botão "Salvar" para acionar a validação_004
-        Then O campo "Validade", "Até","Pesfil de acesso", "Confirme a senha" e "Porcentagem de sorteio" devem ser marcados como obrigatórios.
-        And Deve existir uma validação no campo "Validade" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.
+        Then Deve existir uma validação no campo "Validade" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.
         And Deve existir uma validação no campo "Até" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.
         And Deve existir uma validação no campo "Perfil de acesso" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.
         And Deve existir uma validação no campo "Confirme a senha" pois o mesmo é obrigatório visto que a opção "Credencial" esta marcada.
@@ -201,13 +200,13 @@ Feature: Register Credential
         Then A credencial deve ser salva com sucesso_002.
     
     @saveCredentialCombinationFields_3
-    Scenario: saveCredentialCombinationFields_2
+    Scenario: saveCredentialCombinationFields_3
         Given Informe o valor "1002" no campo "Número".
         And Selecionar a empresa "Estrutura teste 2"._001
         And Selecionar a tecnologia "SmartCard"_001
         And Selecionar o Tipo "Credencial".
-        And Selecionar uma Data de início de validade com valor "01/12/2025".
-        And Selecionar uma data final de validade com vlaor "31/12/2025".
+        And Selecionar um data inicial de validade com valor "01/12/2025".
+        And Selecionar um data final de validade com valor "31/12/2025".
         And Selecinar o perfil de acesso "Perfil de Credencial".
         And Selecionar o valor "Sim, no perfil" no dropbox Master.
         And Marcar o campo "Permitir reentrada".
