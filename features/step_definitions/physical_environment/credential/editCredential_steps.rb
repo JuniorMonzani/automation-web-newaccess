@@ -324,3 +324,26 @@ require 'common/constants'
       Then ('Validar no cadastro da credencial o campo Tipo deve conter o valor "Credencial".') do
         expect(page).to have_css('#MainContentMainMaster_MainContent_ddlType', text: 'Credencial')
       end
+
+    @verifyValidityFieldCredential
+      Given ('Que eu busque e encontre a credencial de número "1002" cadastrada pela automação_004.') do
+        uncheck('MainContentMainMaster_chkLastTenModified')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1002)
+        click_button 'Buscar'
+        sleep 0.3
+      end
+
+      When ('Clique no botão para realizar a alteração da credencial_015.') do
+        page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gridView_IMG_BUTTON_EDIT_0"]').click
+        sleep 0.3
+      end
+
+      Then ('Validar no cadastro da credencial o campo Validade e Até deverão conter os valores esperados.') do
+        $DateFrom = (find('#MainContentMainMaster_MainContent_txtDateFrom').value)
+        eql = $DateFrom == $REGISTER_CREDENTIAL_DATE_FROM
+        expect(eql).to be(true)
+
+        $DateTo = (find('#MainContentMainMaster_MainContent_txtDateTo').value)
+        eql = $DateTo == $REGISTER_CREDENTIAL_DATE_TO
+        expect(eql).to be(true)
+      end

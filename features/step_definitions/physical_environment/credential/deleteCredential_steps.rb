@@ -1,0 +1,96 @@
+require 'login/login'
+require 'physical_environment/credential/credential'
+require 'common/findElements'
+require 'common/constants'
+
+  credential = Credential.new
+  findElements = FindElements.new
+  login = Login.new
+
+  @background
+    Given('Que o usuário esteja na página que lista as Credenciais para realizar exclusões.') do
+      credential.visit_List_Credential
+      login.make_Login
+    end
+
+    @verifyMessageAfterDeleteCredentialInUse
+      Given ('Que eu busque e encontre a credencial de número "1" cadastrada.') do
+        uncheck('MainContentMainMaster_chkLastTenModified')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', '1')
+        click_button 'Buscar'
+        sleep 0.3
+      end
+
+      When ('Clicar no ícone "Excluir" para tentar exlcuir a credencial do sistema.') do
+        page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gridView_IMG_BUTTON_DELETE_0"]').click
+        sleep 0.3
+      end
+
+      And ('Na mensagem apresentada, clicam em "Sim"_001.') do
+        click_button 'Sim'
+        sleep 0.3
+      end
+
+      Then ('A mensagem apresentada deve corresponder com a mensagem esperada.') do
+        expect(find('#divIdBodyBusinessError')).to have_content '- Esta Credencial está em uso no sistema e não pode ser excluída'
+      end
+
+    @noDeleteCredential
+      Given ('Que eu busque e encontre a credencial de número "1000" cadastrada_001.') do
+        uncheck('MainContentMainMaster_chkLastTenModified')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1000)
+        click_button 'Buscar'
+        sleep 0.3
+      end
+
+      When ('Clicar no ícone "Excluir" para tentar exlcuir a credencial do sistema_001.') do
+        page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gridView_IMG_BUTTON_DELETE_0"]').click
+        sleep 0.3
+      end
+
+      And ('Na mensagem apresentada, clicam em "Não".') do
+        click_button 'Não'
+        sleep 0.3
+      end
+
+      And ('Que eu busque e encontre a credencial de número "1000" cadastrada_002.') do
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1000)
+        click_button 'Buscar'
+        sleep 0.3
+      end
+
+      Then ('A credencial "1000" ainda deve estar cadastrada no sistema.') do
+        expect(page).to have_content($REGISTER_CREDENTIAL_1000)
+        expect(page).to have_content('Pessoa')
+        expect(page).to have_content('Código de Barras')
+        expect(page).to have_content('Liberada')
+      end
+
+    @verifyDeleteCredencial
+      Given ('Que eu busque e encontre a credencial de número "1000" cadastrada_003.') do
+        uncheck('MainContentMainMaster_chkLastTenModified')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1000)
+        click_button 'Buscar'
+        sleep 0.3
+      end
+
+      When ('Clicar no ícone "Excluir" para tentar exlcuir a credencial do sistema_002.') do
+        page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gridView_IMG_BUTTON_DELETE_0"]').click
+        sleep 0.3
+      end
+
+      And ('Na mensagem apresentada, clicam em "Sim"_002.') do
+        click_button 'Sim'
+        sleep 0.3
+      end
+
+      And ('Que eu busque a credencial de número "1000".') do
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1000)
+        click_button 'Buscar'
+        sleep 0.3
+      end
+
+      Then ('Validar a informação que o resultado não foi encontrado.') do
+        expect(page).to have_content('Nenhum resultado foi encontrado')
+        sleep 0.3
+      end

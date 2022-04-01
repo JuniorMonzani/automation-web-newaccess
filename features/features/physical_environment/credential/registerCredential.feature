@@ -212,5 +212,4 @@ Feature: Register Credential
         And Selecionar uma data inicial de validade com valor 01.12.2025.
         And Selecionar uma data final de validade com valor 31.12.2025.
         When Clicar no botão "Salvar" para incluir a Credencial_006
-        Then A credencial deve ser salva com sucesso_003. 
-   
+        Then A credencial deve ser salva com sucesso_003.
