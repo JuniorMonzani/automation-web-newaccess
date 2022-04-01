@@ -205,13 +205,12 @@ Feature: Register Credential
         And Selecionar a empresa "Estrutura teste 2"._001
         And Selecionar a tecnologia "SmartCard"_001
         And Selecionar o Tipo "Credencial".
-        And Selecionar um data inicial de validade com valor "01/12/2025".
-        And Selecionar um data final de validade com valor "31/12/2025".
         And Selecinar o perfil de acesso "Perfil de Credencial".
         And Selecionar o valor "Sim, no perfil" no dropbox Master.
-        And Marcar o campo "Permitir reentrada".
         And Marcar o campo "Dispensa senha".
         And Informar um horário no campo "Horário para recolhimento no cofre na data final".
+        And Selecionar uma data inicial de validade com valor 01.12.2025.
+        And Selecionar uma data final de validade com valor 31.12.2025.
         When Clicar no botão "Salvar" para incluir a Credencial_006
         Then A credencial deve ser salva com sucesso_003. 
    

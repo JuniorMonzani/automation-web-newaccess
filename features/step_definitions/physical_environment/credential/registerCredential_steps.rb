@@ -446,30 +446,17 @@ require 'common/constants'
         findElements.select_option('#MainContentMainMaster_MainContent_ddlType', 'Credencial')
       end
 
-      And('Selecionar um data inicial de validade com valor "01/12/2025".') do
-        findElements.input_textbox('MainContentMainMaster_MainContent_txtDateFrom', $REGISTER_CREDENTIAL_DATE_FROM)
-      end
-
-      And('Selecionar um data final de validade com valor "31/12/2025".') do
-        findElements.input_textbox('MainContentMainMaster_MainContent_txtDateTo', $REGISTER_CREDENTIAL_DATE_TO)
-      end
-
       And('Selecinar o perfil de acesso "Perfil de Credencial".') do
-        find(:css, '#MainContentMainMaster_MainContent_accessProfileControlCredentialEdt_AccessProfileLookUp').click
-        sleep 0,5
+        find('#MainContentMainMaster_MainContent_accessProfileControlCredentialEdt_upAccessProfileLookUp').click
+        sleep 1
         check('MainContentMainMaster_MainContent_accessProfileControlCredentialEdt_AccessProfilePopup_gv_AvailableAccessProfiles_chk_Selected_0')
-        sleep 0,5
+        sleep 2
         click_button 'Ok'
         sleep 1
-        # credential.fills_In_Credential_By_Credential_Type('Perfil de Credencial', true, true)
       end
 
       And('Selecionar o valor "Sim, no perfil" no dropbox Master.') do
         findElements.select_option('#MainContentMainMaster_MainContent_ddlMaster', 'Sim')
-      end
-
-      And('Marcar o campo "Permitir reentrada".') do
-        check('chkReentry')
       end
 
       And('Marcar o campo "Dispensa senha".') do
@@ -478,6 +465,14 @@ require 'common/constants'
 
       And('Informar um horário no campo "Horário para recolhimento no cofre na data final".') do
         findElements.input_textbox('MainContentMainMaster_MainContent_txtTimeCollectSafe', '17:00')
+      end
+
+      And('Selecionar uma data inicial de validade com valor 01.12.2025.') do
+        findElements.input_textbox('MainContentMainMaster_MainContent_txtDateFrom', $REGISTER_CREDENTIAL_DATE_FROM)
+      end
+
+      And('Selecionar uma data final de validade com valor 31.12.2025.') do
+        findElements.input_textbox('MainContentMainMaster_MainContent_txtDateTo', $REGISTER_CREDENTIAL_DATE_TO)
       end
 
       When('Clicar no botão "Salvar" para incluir a Credencial_006') do
