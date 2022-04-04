@@ -124,9 +124,9 @@ Feature: edit Credential
     #     When Clique no botão para realizar a alteração da credencial_014.
     #     Then Validar no cadastro da credencial o campo Tipo deve conter o valor "Credencial".
 
-    # @verifyValidityFieldCredential
-    # Scenario: verifyValidityFieldCredential
-    #     Given Que eu busque e encontre a credencial de número "1002" cadastrada pela automação_004.
-    #     When Clique no botão para realizar a alteração da credencial_015.
-    #     Then 
+    @verifyValidityFieldCredential
+    Scenario: verifyValidityFieldCredential
+        Given Que eu busque e encontre a credencial de número "1002" cadastrada pela automação_004.
+        When Clique no botão para realizar a alteração da credencial_015.
+        Then Validar no cadastro da credencial o campo Validade e Até deverão conter os valores esperados.
 
