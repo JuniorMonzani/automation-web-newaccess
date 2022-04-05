@@ -66,7 +66,7 @@ require 'common/constants'
         expect(page).to have_content('Liberada')
       end
 
-    @verifyDeleteCredencial
+    @verifyDeleteCredencial1000
       Given ('Que eu busque e encontre a credencial de número "1000" cadastrada_003.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1000)
@@ -90,7 +90,94 @@ require 'common/constants'
         sleep 0.3
       end
 
-      Then ('Validar a informação que o resultado não foi encontrado.') do
+      Then ('Validar a informação que o resultado não foi encontrado_001.') do
+        expect(page).to have_content('Nenhum resultado foi encontrado')
+        sleep 0.3
+      end
+
+    @verifyDeleteCredencial1001
+      Given ('Que eu busque e encontre a credencial de número "1001" cadastrada.') do
+        uncheck('MainContentMainMaster_chkLastTenModified')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1001)
+        click_button 'Buscar'
+        sleep 0.3
+      end
+
+      When ('Clicar no ícone "Excluir" para tentar exlcuir a credencial do sistema_003.') do
+        page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gridView_IMG_BUTTON_DELETE_0"]').click
+        sleep 0.3
+      end
+
+      And ('Na mensagem apresentada, clicam em "Sim"_003.') do
+        click_button 'Sim'
+        sleep 0.3
+      end
+
+      And ('Que eu busque a credencial de número "1001".') do
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1001)
+        click_button 'Buscar'
+        sleep 0.3
+      end
+
+      Then ('Validar a informação que o resultado não foi encontrado_002.') do
+        expect(page).to have_content('Nenhum resultado foi encontrado')
+        sleep 0.3
+      end
+
+    @verifyDeleteCredencial1002
+      Given ('Que eu busque e encontre a credencial de número "1002" cadastrada.') do
+        uncheck('MainContentMainMaster_chkLastTenModified')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1002)
+        click_button 'Buscar'
+        sleep 0.3
+      end
+
+      When ('Clicar no ícone "Excluir" para tentar exlcuir a credencial do sistema_004.') do
+        page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gridView_IMG_BUTTON_DELETE_0"]').click
+        sleep 0.3
+      end
+
+      And ('Na mensagem apresentada, clicam em "Sim"_004.') do
+        click_button 'Sim'
+        sleep 0.3
+      end
+
+      And ('Que eu busque a credencial de número "1002".') do
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1002)
+        click_button 'Buscar'
+        sleep 0.3
+      end
+
+      Then ('Validar a informação que o resultado não foi encontrado_003.') do
+        expect(page).to have_content('Nenhum resultado foi encontrado')
+        sleep 0.3
+      end
+
+    @verifyDeleteCredencial1003
+      Given ('Que eu busque e encontre a credencial de número "1003" cadastrada.') do
+        uncheck('MainContentMainMaster_chkLastTenModified')
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_NUMBER_FROM)
+        click_button 'Buscar'
+        sleep 0.3
+      end
+
+      When ('Clicar no ícone "Excluir" para tentar exlcuir a credencial do sistema_005.') do
+        page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gridView_IMG_BUTTON_DELETE_0"]').click
+        sleep 0.3
+      end
+
+      And ('Na mensagem apresentada, clicam em "Sim"_005.') do
+        click_button 'Sim'
+        sleep 0.3
+      end
+
+      And ('Que eu busque a credencial de número "1003".') do
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_NUMBER_FROM)
+        click_button 'Buscar'
+        sleep 0.3
+      end
+
+      Then ('Validar a informação que o resultado não foi encontrado_004.') do
         expect(page).to have_content('Nenhum resultado foi encontrado')
         sleep 0.3
       end

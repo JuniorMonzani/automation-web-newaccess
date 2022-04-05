@@ -277,7 +277,7 @@ require 'common/constants'
     @verifyCompany2Credential
       Given ('Que eu busque e encontre a credencial de número "1003" cadastrada pela automação_001.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_DATE_FROM)
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_NUMBER_FROM)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -294,7 +294,7 @@ require 'common/constants'
     @verifyTechnologySmartCardCredential
       Given ('Que eu busque e encontre a credencial de número "1003" cadastrada pela automação_002.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_DATE_FROM)
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_NUMBER_FROM)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -311,7 +311,7 @@ require 'common/constants'
     @verifyTypeCredentialCredential
       Given ('Que eu busque e encontre a credencial de número "1003" cadastrada pela automação_003.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_DATE_FROM)
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_NUMBER_FROM)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -328,7 +328,7 @@ require 'common/constants'
     @verifyValidityFieldCredential
       Given ('Que eu busque e encontre a credencial de número "1003" cadastrada pela automação_004.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_DATE_FROM)
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_NUMBER_FROM)
         click_button 'Buscar'
         sleep 0.3
       end
