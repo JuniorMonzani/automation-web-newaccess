@@ -84,11 +84,11 @@ require 'common/constants'
         expect(page).to have_content('Nenhum resultado foi encontrado')
       end
 
-    # #Validação dos valores salvos na credencial 1000
+    # #Validação dos valores salvos na credencial 1001
     @verifyTechnologyProximityCredential
-      Given ('Que eu busque e encontre a credencial de número "1000" cadastrada pela automação_001.') do
+      Given ('Que eu busque e encontre a credencial de número "1001" cadastrada pela automação_001.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1000)
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1001)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -103,9 +103,9 @@ require 'common/constants'
       end
 
     @verifyTypeVisitorCredential
-      Given ('Que eu busque e encontre a credencial de número "1000" cadastrada pela automação_002.') do
+      Given ('Que eu busque e encontre a credencial de número "1001" cadastrada pela automação_002.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1000)
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1001)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -120,9 +120,9 @@ require 'common/constants'
       end
 
     @verifyPublicCredential
-      Given ('Que eu busque e encontre a credencial de número "1000" cadastrada pela automação_003.') do
+      Given ('Que eu busque e encontre a credencial de número "1001" cadastrada pela automação_003.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1000)
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1001)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -137,9 +137,9 @@ require 'common/constants'
       end
 
     @verifyDisableFieldSupervisor
-      Given ('Que eu busque e encontre a credencial de número "1000" cadastrada pela automação_004.') do
+      Given ('Que eu busque e encontre a credencial de número "1001" cadastrada pela automação_004.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1000)
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1001)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -154,9 +154,9 @@ require 'common/constants'
       end
 
     @verifyDisableFieldProvisional
-      Given ('Que eu busque e encontre a credencial de número "1000" cadastrada pela automação_005.') do
+      Given ('Que eu busque e encontre a credencial de número "1001" cadastrada pela automação_005.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1000)
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1001)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -170,11 +170,11 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_checkBoxProvisionalCred').disabled?).to be(true)
       end
 
-    #Validação dos valores salvos na credencial 1001
+    #Validação dos valores salvos na credencial 1002
     @verifyCompanyCredential
-      Given ('Que eu busque e encontre a credencial de número "1001" cadastrada pela automação_001.') do
+      Given ('Que eu busque e encontre a credencial de número "1002" cadastrada pela automação_001.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1001)
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1002)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -189,9 +189,9 @@ require 'common/constants'
       end
 
     @verifyNotPublicCredential
-      Given ('Que eu busque e encontre a credencial de número "1001" cadastrada pela automação_002.') do
+      Given ('Que eu busque e encontre a credencial de número "1002" cadastrada pela automação_002.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1001)
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1002)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -206,9 +206,9 @@ require 'common/constants'
       end
 
     @verifyTechnologyBarCodeCredential
-      Given ('Que eu busque e encontre a credencial de número "1001" cadastrada pela automação_003.') do
+      Given ('Que eu busque e encontre a credencial de número "1002" cadastrada pela automação_003.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1001)
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1002)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -223,9 +223,9 @@ require 'common/constants'
       end
 
     @verifyProvisionalCredential
-      Given ('Que eu busque e encontre a credencial de número "1001" cadastrada pela automação_004.') do
+      Given ('Que eu busque e encontre a credencial de número "1002" cadastrada pela automação_004.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1001)
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1002)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -240,9 +240,9 @@ require 'common/constants'
       end
 
     @verifySituationBlockedCredential
-      Given ('Que eu busque e encontre a credencial de número "1001" cadastrada pela automação_005.') do
+      Given ('Que eu busque e encontre a credencial de número "1002" cadastrada pela automação_005.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1001)
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1002)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -257,9 +257,9 @@ require 'common/constants'
       end
 
     @verifyReasonBlockedCredential
-      Given ('Que eu busque e encontre a credencial de número "1001" cadastrada pela automação_006.') do
+      Given ('Que eu busque e encontre a credencial de número "1002" cadastrada pela automação_006.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1001)
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1002)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -273,11 +273,11 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_txtBlockingReason').value).to eql('Teste')
       end
 
-    #Validação dos valores salvos na credencial 1002
+    #Validação dos valores salvos na credencial 1003
     @verifyCompany2Credential
-      Given ('Que eu busque e encontre a credencial de número "1002" cadastrada pela automação_001.') do
+      Given ('Que eu busque e encontre a credencial de número "1003" cadastrada pela automação_001.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1002)
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_DATE_FROM)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -292,9 +292,9 @@ require 'common/constants'
       end
 
     @verifyTechnologySmartCardCredential
-      Given ('Que eu busque e encontre a credencial de número "1002" cadastrada pela automação_002.') do
+      Given ('Que eu busque e encontre a credencial de número "1003" cadastrada pela automação_002.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1002)
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_DATE_FROM)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -309,9 +309,9 @@ require 'common/constants'
       end
 
     @verifyTypeCredentialCredential
-      Given ('Que eu busque e encontre a credencial de número "1002" cadastrada pela automação_003.') do
+      Given ('Que eu busque e encontre a credencial de número "1003" cadastrada pela automação_003.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1002)
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_DATE_FROM)
         click_button 'Buscar'
         sleep 0.3
       end
@@ -326,9 +326,9 @@ require 'common/constants'
       end
 
     @verifyValidityFieldCredential
-      Given ('Que eu busque e encontre a credencial de número "1002" cadastrada pela automação_004.') do
+      Given ('Que eu busque e encontre a credencial de número "1003" cadastrada pela automação_004.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
-        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_1002)
+        findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearchNumber', $REGISTER_CREDENTIAL_DATE_FROM)
         click_button 'Buscar'
         sleep 0.3
       end
