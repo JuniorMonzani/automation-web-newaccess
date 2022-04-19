@@ -1,4 +1,4 @@
-@deleteAreas
+@deleteTimeSlot
 Feature: delete Time Slot
     Como um usuário do sistema que tenha permissão para Exclur Faixa horária.
 
@@ -16,7 +16,7 @@ Feature: delete Time Slot
     Scenario: searchByNumberTimeSlotExsist
         Given Desmarco a flag 10 últimas atualizações_02 objetivando exclusão de Faixa horária.
         When Eu preencho o textbox com um número de grupo que existe_02 objetivando exclusão de Faixa horária.
-        And Clico em Buscar_02 objetivando exclusão de Área.
+        And Clico em Buscar_02 objetivando exclusão de Faixa horária.
         Then Validar se foi encontrada a Faixa horária esperada_01 objetivando exclusão de Faixa horária.
 
     @verifyMessageDeteleTimeSlotInUse
