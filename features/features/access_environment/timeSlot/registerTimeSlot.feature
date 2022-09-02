@@ -39,6 +39,20 @@ Feature: Register Time Slot
         When Clicar no botão Salvar para validar os campos "Hora inicial" e "Hora final" da tela Faixa Horária com valores iguais.
         Then Deve existir uma validação nos campos "Hora inicial" e "Hora final" da tela Faixa Horária pois ambos não podem conter o mesmo valor.
 
+    @timeSlotAlreadyExsists
+    Scenario: timeSlotAlreadyExsists
+        Given Preencher o campo Número com o valor "1".
+        And Preencher os campos "Hora inicial" e "Hora final" corretamente para efetuar o cadastro.
+        When Clicar no botão Salvar para salvar a faixa horária.
+        Then Deve existir uma validação no campo "Número" informando que a faixa já existe.
+        
+    @verifyMessagetimeSlotAlreadyExsists
+    Scenario: verifyMessagetimeSlotAlreadyExsists
+        Given Preencher o campo Número com o valor "1".
+        And Preencher os campos "Hora inicial" e "Hora final" corretamente para efetuar o cadastro.
+        When Clicar no botão Salvar para salvar a faixa horária.
+        Then Validar a mensagem apresentada ao usuário informando que a faixa já existe.
+
     @registerTimeSlotSuccess
     Scenario: registerTimeSlotSuccess
         Given Preencher o campo Número com o valor "999999".
