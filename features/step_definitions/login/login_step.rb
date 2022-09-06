@@ -21,21 +21,3 @@ end
     expect(find('#divIdBodyBusinessError')).to have_content '- Senha ou login não conferem. Por favor, tente novamente.'    
   end
 
-#invalidPassword
-  Given('Que no campo "Login" eu informe um usuário que existe cadastrado informando a senha errada.') do
-    login.receive_login('Admin', 'teste123') 
-  end
-
-  Then('Uma mensagem deve ser apresentada informando a senha ou login não conferem.') do
-    expect(find('#divIdBodyBusinessError')).to have_content '- Senha ou login não conferem. Por favor, tente novamente.'    
-  end
-
-
-#correctLogin
-Given('Que no campo "Login" eu informe um usuário que existe cadastrado com a senha válida.') do
-    login.receive_login('Admin', $passwordAdmin) 
-  end
-
-  Then('O login deve ser realizado com sucesso sendo direcionado para a página inicial.') do
-    expect(page.title).to eql 'DMP Access II - Sistema de Controle de Acesso'
-  end
