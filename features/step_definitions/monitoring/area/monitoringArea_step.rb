@@ -12,7 +12,7 @@ login = Login.new
 #background
   Given('Que o usuário esteja na página de monitoração da área.') do
     monitoringArea.visit_Monitoring_Area
-    login.make_Login('admin', $password)
+    login.make_Login
     sleep 0.3
     click_button 'Monitorar'
   end

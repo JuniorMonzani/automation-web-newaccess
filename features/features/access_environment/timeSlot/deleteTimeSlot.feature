@@ -9,6 +9,10 @@ Feature: delete Time Slot
     Scenario: searchByNumberTimeSlotNotExsist
         Given Desmarco a flag 10 últimas atualizações_01 objetivando exclusão de Faixa horária.
         When Eu preencho o textbox com um número de faixa horária que não existe objetivando exclusão de Faixa horária.
+        #alguns lugares está escrito 'feixa' horária
+        #em muitos lugares está com a palavra 'objetivando', alguns lugares não faz muito sentido, ajustar retirando a palavra e/ou ajustando a frase
+        #ex:
+        # Clicar em Buscar_01 a faixa horária.
         And Clico em Buscar_01 objetivando exclusão de Feixa horária.
         Then Validar o label apresentado que informa que nenhum resultado foi encontrado_01 objetivando exclusão de Feixa horária.
 

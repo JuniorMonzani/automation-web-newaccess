@@ -1,3 +1,10 @@
+require "capybara"
+require "capybara/cucumber"
+require "cucumber"
+require "report_builder"
+require "capybara/rspec"
+require "gherkin"
+
 class Login
   #inclui a biblioteca Capybara para conseguir usar seus elementos dentros das classes e métodos
   include Capybara::DSL
@@ -6,12 +13,10 @@ class Login
     visit 'https://autoteste.dimep-ams.com.br/'
   end
 
-  # def receive_Correct_Pass
-  #   puts 'Digite a senha do usuário "admin": '
-  #   correctPass = $stdin.gets.strip
-   
-  #   return correctPass.to_s
-  # end
+  def receive_login (user, password)
+    fill_in      'txtUsrLogin',      with: user
+    fill_in      'txtUserPassLogin', with: password
+  end
 
   def make_Login
     fill_in      'txtUsrLogin',      with: 'admin'
