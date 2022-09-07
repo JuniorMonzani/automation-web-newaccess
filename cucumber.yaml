@@ -1,6 +1,26 @@
+## YAML Templatesss
+#---
+#Environment variable: CUCUMBER_PUBLISH_ENABLED = true
+#default: -p html --publish-quiet
+
+#pretty: --format pretty
+#ci:  --format progress
+
+#html:  --format html --out=reportNewAccessAutomaticTests.html
+#json:  --format json --out=reportNewAccessAutomaticTests.json
+
+#hmg:  ENVIRONMENT_TYPE=hmg
+#dev:  ENVIRONMENT_TYPE=dev
+
+#headless:  HEADLESS=headless
+#no_headless:  HEADLESS=no_headless
+
 ---
 default: -p html -p bdd --publish-quiet
 html: --format html --out=features.html
 dot: --format progress -o "progress.dot"
 bdd: --format pretty
 json: --format json -o "report.json"
+html:  --format html --out=C:\inetpub\wwwroot\ReportNewAccessAutomaticTests\reports.html
+Environment variable: CUCUMBER_PUBLISH_ENABLED = true
+default: -p html --publish-quiet
