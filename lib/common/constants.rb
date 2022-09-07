@@ -30,7 +30,7 @@ class Constants
     $REGISTER_TECHNOLOGYTYPE = ['Código de Barras', 'Cartão Magnético', 'Proximidade', 'SmartCard', 'RFID']
 
     #constante com os valores contidos no dropbox 'Tipo' - Cadastro de credecial
-    $REGISTER_TYPE = ['Pessoa', 'Visitante', 'Credencial', 'TESTE_TAMANHO_PESSOA_WWWWWWWWWWWWWWWWWWWWWWWWWWWWW', 'TESTE_TAMANHO_VISITANTE_WWWWWWWWWWWWWWWWWWWWWWWWWW', 'TESTE_TAMANHO_CREDENCIAL_WWWWWWWWWWWWWWWWWWWWWWWWW']
+    $REGISTER_TYPE = ['Pessoa', 'Visitante', 'Credencial']
 
     #constante com os valores contidos no dropbox 'Empresa' - Cadastro de credecial
     $REGISTER_COMPANY = ['Selecione', 'Estrutura Teste 1', 'Estrutura Teste 2', 'Estrutura Teste 3', 'Estrutura Teste 4', 'Estrutura Teste 5', 'Estrutura Teste 6']

@@ -55,7 +55,7 @@ require 'common/constants'
     
       When('Clicar no botão Salvar para validar o campo "Descrição".') do
         click_button 'Salvar'
-        sleep 0.3
+        sleep 1
       end
       
       Then('Deve existgir uma validação no campo "Descrição" pois o mesmo é obrigatório e não foi informado.') do
