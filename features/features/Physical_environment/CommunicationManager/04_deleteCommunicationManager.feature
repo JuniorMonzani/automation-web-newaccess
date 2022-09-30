@@ -25,9 +25,9 @@ Feature: Delete Communication Manager
         And Clicar no botão Sim da primeira mensagem apresentada.
         Then A mensagem apresentada deve ser validada conforme o esperado. "<mensagem_output>"
 
-        Exemples:
-        |descricao_input     | mensagem_output                                                               |
-        |Minha Maquina Client| - O Gerenciador de Comunicação está em uso no sistema e não pode ser excluído |
+        #Exemples:
+        #|descricao_input     | mensagem_output                                                               |
+        #|Minha Maquina Client| - O Gerenciador de Comunicação está em uso no sistema e não pode ser excluído |
 
     @deleteCommunicationManager
     Scenario: deleteCommunicationManager
