@@ -225,11 +225,6 @@ Feature: Register Communication Manager
             When Clicar em "Salvar" para salvar um Gerenciador de Comunicação do tipo Client.
             Then Validar se o Gerenciador de Comunicação client foi salvo com sucesso.
 
-        @verifyValuesRegisterCommunicationManagerClient
-        Scenario: verifyValuesRegisterCommunicationManagerClient
-            Given Acessar o cadastro do Gerenciador Client realizado pela automação.
-            Then Validar todos os valores esperados que foram cadastrados (inclusive checkbox que foram marcados) nos campos do Gerenciador client. 
-
         @registerCommunicationManagerServerSuccess
         Scenario: registerCommunicationManagerServerSuccess
             Given Preencher os campos "Descrição", "Nome da máquina" e "Porta".
@@ -240,19 +235,9 @@ Feature: Register Communication Manager
             When Clicar em "Salvar" para salvar um Gerenciador de Comunicação do tipo Server.
             Then Validar se o Gerenciador de Comunicação server foi salvo com sucesso.
 
-        @verifyValuesRegisterCommunicationManagerServer
-        Scenario: verifyValuesRegisterCommunicationManagerServer
-            Given Acessar o cadastro do Gerenciador Server realizado pela automação.
-            Then Validar todos os valores esperados que foram cadastrados (inclusive checkbox que foram marcados) nos campos do Gerenciador server. 
-
         @registerCommunicationManagerExpImpSuccess
         Scenario: registerCommunicationManagerExpImpSuccess
             Given Preencher os campos "Descrição", "Nome da máquina" e "Porta".
             And Selecionar o tipo de gerenciador para "Exportação / Importação".
             When Clicar em "Salvar" para salvar um Gerenciador de Comunicação do tipo Exportação/Importação.
             Then Validar se o Gerenciador de Comunicação Exportação/Importaçã foi salvo com sucesso.
-
-        @verifyValuesRegisterCommunicationManagerExpImp
-        Scenario: verifyValuesRegisterCommunicationManagerExpImp
-            Given Acessar o cadastro do Gerenciador Exp/Imp realizado pela automação.
-            Then Validar todos os valores esperados que foram cadastrados (inclusive checkbox que foram marcados) nos campos do Gerenciador Exp/Imp. 

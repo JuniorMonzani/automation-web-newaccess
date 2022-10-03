@@ -41,6 +41,21 @@ Feature: Edit Communication Manager
             When Clico no botão Buscar.
             Then Um gerenciador de comunicação deve ser encontrado com o serviço de comunicação informado.
 
+        @verifyValuesRegisterCommunicationManagerClient
+        Scenario: verifyValuesRegisterCommunicationManagerClient
+            Given Acessar o cadastro do Gerenciador Client realizado pela automação.
+            Then Validar todos os valores esperados que foram cadastrados (inclusive checkbox que foram marcados) nos campos do Gerenciador client. 
+
+        @verifyValuesRegisterCommunicationManagerServer
+        Scenario: verifyValuesRegisterCommunicationManagerServer
+            Given Acessar o cadastro do Gerenciador Server realizado pela automação.
+            Then Validar todos os valores esperados que foram cadastrados (inclusive checkbox que foram marcados) nos campos do Gerenciador server. 
+
+        @verifyValuesRegisterCommunicationManagerExpImp
+        Scenario: verifyValuesRegisterCommunicationManagerExpImp
+            Given Acessar o cadastro do Gerenciador Exp/Imp realizado pela automação.
+            Then Validar todos os valores esperados que foram cadastrados (inclusive checkbox que foram marcados) nos campos do Gerenciador Exp/Imp. 
+
         @AlterCommunicationServiceDescriptionRequired
         Scenario: AlterCommunicationServiceDescriptionRequired
             Given Que eu desmarque o checkbox "10 últimas atualizações".
