@@ -19,15 +19,15 @@ Feature: Delete Communication Manager
         Then Pesquisar e encontrar o gerenciador cadastrado pela automaçao confirmando que não foi excluído.
 
     @verifySecondMessageDeleteCommunicationManager
-    Scenario: verifySecondMessageDeleteCommunicationManager
+    Scenario Outline: verifySecondMessageDeleteCommunicationManager
         Given Que pesquise e encontre o gerenciador de comunicação "<descricao_input>".
         When Ao clicar no botão de exclusão.
         And Clicar no botão Sim da primeira mensagem apresentada.
-        Then A mensagem apresentada deve ser validada conforme o esperado. "<mensagem_output>"
+        Then A mensagem apresentada deve ser validada conforme o esperado: "<mensagem_output>"
 
-        #Exemples:
-        #|descricao_input     | mensagem_output                                                               |
-        #|Minha Maquina Client| - O Gerenciador de Comunicação está em uso no sistema e não pode ser excluído |
+            Examples:
+            |descricao_input     | mensagem_output                                                               |
+            |Minha Maquina Client| - O Gerenciador de Comunicação está em uso no sistema e não pode ser excluído |
 
     @deleteCommunicationManager
     Scenario: deleteCommunicationManager
