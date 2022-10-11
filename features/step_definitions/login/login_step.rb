@@ -25,7 +25,6 @@ end
       expect(find('#divIdBodyBusinessError')).to have_content string
     end
 
-
   #correctLogin
     Given('Que no campo "Login" eu informe um usuário que existe cadastrado com a senha válida.') do
         login.receive_login('Admin', $passwordAdmin) 

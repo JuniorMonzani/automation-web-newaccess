@@ -7,13 +7,13 @@ require 'common/constants'
   findElements = FindElements.new
   login = Login.new
 
-  @background
+  #background
     Given('Que o usuário esteja na página de cadastro de Credenciais.') do
         credential.visit_Register_Credential
         login.make_Login
     end
     
-    @verifyLabelsCredential
+    #verifyLabelsCredential
       Given('Que eu verifico e comparo todos os resources dos campos apresentados na tela de cadastro de credencial.') do
         expect(page).to have_content('Incluir')
         expect(page).to have_content('Credencial individual')
@@ -33,7 +33,7 @@ require 'common/constants'
         expect(page).to have_content('Motivo')
       end
 
-    @fieldNumberRequiredCredential
+    #fieldNumberRequiredCredential
       Given('Informar caractere alfanumérico no campo "Número" preenchendo corretamente todas os outros campos necessários para efetuar o cadastro de Credencial.') do
         credential.fills_In_Credential_Unique_Or_Multiple(true, true, 'Teste', '','','', false, false, false)
         sleep 5
@@ -41,14 +41,14 @@ require 'common/constants'
 
       When('Clicar no botão Salvar para validar o campo "Número" no cadastro de credencial.') do
         click_button 'Salvar'
-        sleep 0.3
+        sleep 1
       end
 
       Then('Deve existir uma validação no campo "Número" pois o mesmo é obrigatório e só aceita caractere numérico visto que a opção "Credencial individual" esta marcada.') do
         expect(page).to have_selector("input[oldtitle='Informe o Número']")
       end
 
-    @fieldCredentialIntervalEnableCredential
+    #fieldCredentialIntervalEnableCredential
       Given('Marcar a opção de inclusão "Intervalo de credencial".') do
         credential.fills_In_Credential_Unique_Or_Multiple(false, true, '', '1', '2','', false, false, false)
       end
@@ -59,14 +59,14 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_txtMultipleNumberInputTo').disabled?).to be(false)
       end
       
-    @fieldNumbersOfRequiredCredential
+    #fieldNumbersOfRequiredCredential
       Given('Não preencher o campo "Números de" e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
         credential.fills_In_Credential_Unique_Or_Multiple(false, true, $REGISTER_CREDENTIAL_1000, '', '','', false, false, false)
       end
 
       When('Clicar no botão Salvar para validar o campo "Números de".') do
         click_button 'Salvar'
-        sleep 0.3
+        sleep 1
       end
 
       Then('Deve existir uma validação no campo "Números de" pois o mesmo é obrigatório visto que a opção "Intervalo de credencial" esta marcada.') do
@@ -77,7 +77,7 @@ require 'common/constants'
         expect(page).to have_selector("input[oldtitle='O campo Números até deve conter um valor numérico válido']")
       end
     
-    @verifyReasonMandatory
+    #verifyReasonMandatory
       Given('Informar o valor "1000" no campo "Número"_001') do
         credential.fills_In_Credential_Unique_Or_Multiple(true, true, $REGISTER_CREDENTIAL_1000, '','','', false, false, false)
         sleep 1
@@ -100,7 +100,7 @@ require 'common/constants'
         expect(page).to have_selector("textarea[oldtitle='Informe o motivo do bloqueio']")
       end
 
-    @verifyValuesTechnologyCredential
+    #verifyValuesTechnologyCredential
       Given('Obter todos os valores do dropbox "Tecnologia" e comparar com os valores esperados.') do
         $valueTechnologyType = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlTechnologyType', $REGISTER_TECHNOLOGYTYPE)
       end
@@ -109,7 +109,7 @@ require 'common/constants'
         expect($valueTechnologyType).to be_truthy
       end
 
-    @verifyValuesTypeCredential
+    #verifyValuesTypeCredential
       Given('Obter todos os valores do dropbox "Tipo" e comparar com os valores esperados.') do
         $valueType = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlType', $REGISTER_TYPE)
       end
@@ -118,7 +118,7 @@ require 'common/constants'
         expect($valueType).to be_truthy
       end
 
-    @verifyValuesCompanyCredential
+    #verifyValuesCompanyCredential
       Given('Obter todos os valores do dropbox "Empresa" e comparar com os valores esperados.') do
         $valueCompany = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlCompany', $REGISTER_COMPANY)
       end
@@ -127,7 +127,7 @@ require 'common/constants'
         expect($valueCompany).to be_truthy
       end
     
-    @registerCredentialSuccess
+    #registerCredentialSuccess
       Given('Que eu preencha todos os campos obrigatórios corretamente para cadastro de credencial.') do
         credential.fills_In_Credential_Unique_Or_Multiple(true, true, $REGISTER_CREDENTIAL_1000, '','','', false, false, false)
       end
@@ -150,7 +150,7 @@ require 'common/constants'
 
       When('Clicar no botão "Salvar" para incluir a Credencial.') do
         click_button 'Salvar'
-        sleep 0.3
+        sleep 1
       end
 
       Then('A credencial deve ser salva com sucesso.') do
@@ -158,7 +158,7 @@ require 'common/constants'
       end
 
     # condições para habilitar desabilitar campo
-    @verifyValuesPublicCredentialCredential
+    #verifyValuesPublicCredentialCredential
       Given('Marcar o checkbox "Credencial pública".') do
         credential.fills_In_Credential_Unique_Or_Multiple(true, true, $REGISTER_CREDENTIAL_1000, '', '','', false, false, true)
         # check('cbxPublicCredential')
@@ -169,7 +169,7 @@ require 'common/constants'
       end
 
 
-    @verifyEnableDropBoxCompany
+    #verifyEnableDropBoxCompany
       Given('Desmarcar o checkbox "Credencial pública".') do
         uncheck('cbxPublicCredential')
       end
@@ -178,7 +178,7 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_ddlCompany').disabled?).to be(false)
       end
 
-    @fieldReasonDisabledCredential
+    #fieldReasonDisabledCredential
       Given('Com a opção de situação "Liberada" marcada.') do
         credential.fills_In_Credential_Unique_Or_Multiple(true, true, $REGISTER_CREDENTIAL_1000, '', '','', false, false, false)
         # find(:css, '#MainContentMainMaster_MainContent_optRegular').click
@@ -188,7 +188,7 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_txtBlockingReason').disabled?).to be(true)
       end
 
-    @fieldReasonEnabledCredential
+    #fieldReasonEnabledCredential
       Given('Marcar a opção de situação "Bloqueada".') do
         credential.fills_In_Credential_Unique_Or_Multiple(true, false, $REGISTER_CREDENTIAL_1000, '', '','', false, false, false)
         # find(:css, '#MainContentMainMaster_MainContent_optBlocked').click
@@ -198,7 +198,7 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_txtBlockingReason').disabled?).to be(false)
       end
 
-    @verifyValuesProvisoryCredentialCredential
+    #verifyValuesProvisoryCredentialCredential
       Given('Marcar o checkbox "Credencial provisória".') do
         credential.fills_In_Credential_Unique_Or_Multiple(true, true, $REGISTER_CREDENTIAL_1000, '', '','', false, true, false)
         # check('MainContentMainMaster_MainContent_checkBoxProvisionalCred')
@@ -208,7 +208,7 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_chkEquipmentSupervisor').disabled?).to be(true)
       end
  
-    @verifyEnabledEquipmentSupervisor
+    #verifyEnabledEquipmentSupervisor
       Given('Desmarcar o checkbox "Credencial provisória".') do
         uncheck('MainContentMainMaster_MainContent_checkBoxProvisionalCred')
       end
@@ -218,7 +218,7 @@ require 'common/constants'
       end
 
     # validação de mansagens
-    @verifyMessageCredentialCreation
+    #verifyMessageCredentialCreation
       Given('Que eu marque o campo "Intervalo de credenciais"') do
         find(:css, '#MainContentMainMaster_MainContent_optMultipleInput').click
       end
@@ -240,7 +240,7 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_confirmPopupSave')).to have_content 'Você selecionou a opção Inclusão do Intervalo de Credenciais. O processo demorará alguns minutos. Tem certeza que deseja incluir as credenciais?'
       end
 
-    @verifyMessageCompanyMandatory
+    #verifyMessageCompanyMandatory
       Given('Informe o valor "1000" no campo "Número"_002') do
         findElements.input_textbox('MainContentMainMaster_MainContent_txtUniqueNumberInput', $REGISTER_CREDENTIAL_1000)
       end
@@ -255,7 +255,7 @@ require 'common/constants'
         sleep 1
       end
 
-    @verifyMessageCredentialAlreadyExsists
+    #verifyMessageCredentialAlreadyExsists
       Given('Informe o valor "1" no campo "Número"_003 marcando também como credencial pública') do
         credential.fills_In_Credential_Unique_Or_Multiple(true, true, '1', '', '', '', false, false, true)
       end
@@ -271,7 +271,7 @@ require 'common/constants'
       end
 
     #Validação de credencial que autentica em credencial
-    @verifyMandatoryFieldsCredencialType
+    #verifyMandatoryFieldsCredencialType
       Given('Informar o valor "1100" no campo "Número"_004') do
         findElements.input_textbox('MainContentMainMaster_MainContent_txtUniqueNumberInput', $REGISTER_CREDENTIAL_NUMBER_TO)
       end
@@ -317,7 +317,7 @@ require 'common/constants'
         expect(page).to have_selector("input[oldtitle='Preencha o campo Porcentagem de sorteio']")
       end
 
-    @verifyValuesMaster
+    #verifyValuesMaster
       Given('Selecionar o tipo "Credencial"_006') do
         findElements.select_option('#MainContentMainMaster_MainContent_ddlType', 'Credencial')
       end
@@ -331,7 +331,7 @@ require 'common/constants'
       end
 
     #Salvando credenciais
-    @saveCredentialCombinationFields_1
+    #saveCredentialCombinationFields_1
       Given('Informe o valor "1001" no campo "Número".') do
         findElements.input_textbox('MainContentMainMaster_MainContent_txtUniqueNumberInput', $REGISTER_CREDENTIAL_1001)
       end
@@ -358,7 +358,7 @@ require 'common/constants'
         sleep 5
       end
 
-    @saveCredentialCombinationFields_2
+    #saveCredentialCombinationFields_2
       Given('Informe o valor "1002" no campo "Número".') do
         findElements.input_textbox('MainContentMainMaster_MainContent_txtUniqueNumberInput', $REGISTER_CREDENTIAL_1002)
       end
@@ -396,7 +396,7 @@ require 'common/constants'
         expect(page).to have_content('Credencial salva com sucesso')
       end
 
-    @saveCredentialCombinationFields_3
+    #saveCredentialCombinationFields_3
       Given('Informe o valor "1003" no campo "Número".') do
         findElements.input_textbox('MainContentMainMaster_MainContent_txtUniqueNumberInput', $REGISTER_CREDENTIAL_NUMBER_FROM)
       end

@@ -7,13 +7,13 @@ require 'common/constants'
   findElements = FindElements.new
   login = Login.new
 
-  @background
+  #background
     Given('Que o usuário esteja na página que lista as Áreas objetivando alteração.') do
       areas.visit_List_Areas
       login.make_Login
     end
 
-    @verifyResourcesListArea
+    #verifyResourcesListArea
       Given('Que eu verifico e comparo todos os resources dos campos apresentados na página de edição de áreas.') do
         #uncheck('MainContentMainMaster_chkLastTenModified')
         expect(page).to have_content('Número')
@@ -21,7 +21,7 @@ require 'common/constants'
         expect(page).to have_content('Descrição')
       end
 
-    @verifyEditAreas
+    #verifyEditAreas
       Given('Que eu faça a busca e encontre a Área cadastrada pela automação_01 objetivando alteração.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)
@@ -38,7 +38,7 @@ require 'common/constants'
         expect(page).to have_content('Alterar Área')
       end
 
-    @verifyFieldNumberOfAreaDisabled
+    #verifyFieldNumberOfAreaDisabled
       Given('Que eu faça a busca e encontre a Área cadastrada pela automação_02 objetivando alteração.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)
@@ -89,7 +89,7 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_txtAreaCapacity').value).to eql($REGISTER_AREAS_CAPACITY)
       end
       
-    @verifyNumberArea
+    #verifyNumberArea
       Given('Que eu faça a busca e encontre a Área cadastrada pela automação_05 objetivando alteração.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)
@@ -106,7 +106,7 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_txtAreaNumber').value).to eql($REGISTER_AREAS_NUMBER)
       end
 
-    @verifyCheckboxCheckedAreas
+    #verifyCheckboxCheckedAreas
       Given('Que eu faça a busca e encontre a Área cadastrada pela automação_06 objetivando alteração.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)
@@ -133,7 +133,7 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_cbxRetainCredAuthVisitor').checked?).to be(true)
       end
 
-    @editAreasSuccess
+    #editAreasSuccess
       Given('Que eu faça a busca e encontre a Área cadastrada pela automação_07 objetivando alteração.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)
@@ -173,7 +173,7 @@ require 'common/constants'
         expect(page).to have_content('Área alterada com sucesso')
       end
 
-    @verifyAreaAfterChange
+    #verifyAreaAfterChange
       Given('Que eu faça a busca pela nova descrição e encontre a Área alterada pela automação_08 objetivando alteração.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)
