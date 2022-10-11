@@ -41,6 +41,6 @@ Feature: Delete Communication Manager
         Given Que pesquise e encontre os gerenciadores de comunicação cadastrados pela automação.
         When Ao clicar no botão de exclusão.
         And Clicar no botão Sim para excluir o gerenciador.
-        Then Pesquisar e encontrar o gerenciador cadastrado pela automaçao confirmando que foi excluído.
+        Then Pesquisar e encontrar o gerenciador cadastrado pela automaçao confirmando que foi excluído_____.
 
     
