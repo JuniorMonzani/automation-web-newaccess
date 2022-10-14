@@ -13,7 +13,7 @@ end
       fill_in 'txtUsrLogin', with: string
     end
     
-    Given('Informe a senha no campo {string}') do |string|
+    And('Informe a senha no campo {string}') do |string|
       fill_in 'txtUserPassLogin', with: string
     end
     
