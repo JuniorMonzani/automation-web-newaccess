@@ -19,12 +19,12 @@ require 'common/constants'
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtGroupSearch', 123)
         click_button 'Buscar'
-        sleep 0.3
+        sleep 1
       end
 
       When('Eu clico no ícone de alteração do grupo de equipamento_01.') do
         page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gv_Group_IMG_BUTTON_EDIT_0"]').click
-        sleep 0.3
+        sleep 1
       end
     
       Then('Deve direcionar para a página de alteração de grupo de equipamento.') do
@@ -36,12 +36,12 @@ require 'common/constants'
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtGroupSearch', 123)
         click_button 'Buscar'
-        sleep 0.3
+        sleep 1
       end
 
       When('Eu clico no ícone de alteração do grupo de equipamento_02.') do
         page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gv_Group_IMG_BUTTON_EDIT_0"]').click
-        sleep 0.3
+        sleep 1
       end
         
       Then('Na tela de alteração eu verifico o campo Número e o mesmo deve estar desabilitado.') do
@@ -53,12 +53,12 @@ require 'common/constants'
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtGroupSearch', 123)
         click_button 'Buscar'
-        sleep 0.3
+        sleep 1
       end
 
       When('Eu clico no ícone de alteração do grupo de equipamento_03.') do
         page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gv_Group_IMG_BUTTON_EDIT_0"]').click
-        sleep 0.3
+        sleep 1
       end
         
       Then('Na tela de alteração eu verifico o campo Área origem e o mesmo deve estar desabilitado.') do
@@ -70,12 +70,12 @@ require 'common/constants'
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtGroupSearch', 123)
         click_button 'Buscar'
-        sleep 0.3
+        sleep 1
       end
 
       When('Eu clico no ícone de alteração do grupo de equipamento_04.') do
         page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gv_Group_IMG_BUTTON_EDIT_0"]').click
-        sleep 0.3
+        sleep 1
       end
         
       Then('Na tela de alteração eu verifico o campo Área destino e o mesmo deve estar desabilitado.') do
@@ -87,12 +87,12 @@ require 'common/constants'
           uncheck('MainContentMainMaster_chkLastTenModified')
           findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtGroupSearch', 123)
           click_button 'Buscar'
-          sleep 0.3 
+          sleep 1 
         end
   
         When('Eu clico no ícone de alteração do grupo de equipamento_05.') do
           page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gv_Group_IMG_BUTTON_EDIT_0"]').click
-          sleep 0.3
+          sleep 1
         end
           
         Then('Na tela de alteração eu verifico o campo Grupo tem área destino e o mesmo deve estar desabilitado.') do
@@ -104,27 +104,27 @@ require 'common/constants'
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtGroupSearch', 123)
         click_button 'Buscar'
-        sleep 0.3
+        sleep 1
       end
 
       When('Eu clico no ícone de alteração do grupo de equipamento_06.') do
         page.find(:xpath, '//*[@id="MainContentMainMaster_MainContent_gv_Group_IMG_BUTTON_EDIT_0"]').click
-        sleep 0.3
+        sleep 1
       end
       
       When('Na tela de alteração eu altero a Descrição do grupo de equipamentos.') do
         findElements.input_textbox('MainContentMainMaster_MainContent_txtDescription','Grupo alterado - Teste automação')
-        sleep 0.3
+        sleep 1
       end
     
       When('Desassocio o equipamento 6 - Concentradora.') do
         equipmentGroup.desassociated_Equipment('2 - PIII/Smart')
-        sleep 0.3
+        sleep 1
       end
 
       When('Associo o equipamento 101 - Câmera.') do
         equipmentGroup.associates_Equipment('99 - BioPointII - Teste Automacao')
-        sleep 0.3
+        sleep 1
       end
 
       When('Clico em Salvar.') do

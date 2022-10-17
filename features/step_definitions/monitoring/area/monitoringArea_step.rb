@@ -13,7 +13,7 @@ login = Login.new
   Given('Que o usuário esteja na página de monitoração da área.') do
     monitoringArea.visit_Monitoring_Area
     login.make_Login
-    sleep 0.3
+    sleep 1
     click_button 'Monitorar'
   end
 
@@ -53,9 +53,8 @@ login = Login.new
     Given('Que ao acessar a tela de monitoração de área eu obtenha a data e hora que a "monitoração foi iniciada" e a "última atualização da tela".') do
       $dateTimeInitMonitoring = (find('#MainContentMainMaster_MainContent_lblHeader').text).sub(/Monitoração da área Dentro iniciada em /, "")
       $lastUpdateScreen = find('#MainContentMainMaster_MainContent_lblDatetime').text
-
-      puts $dateTimeInitMonitoring
-      puts $lastUpdateScreen
+      #puts $dateTimeInitMonitoring
+      #puts $lastUpdateScreen
     end
   
     Then('A data e hora que a "monitoração foi iniciada" deve ser exatamente igual a "última atualização da tela".') do
@@ -66,7 +65,7 @@ login = Login.new
   #verifyBackButtonMonitoringArea
   Given('Que eu clique no botão "Voltar" da página de monitoração de área.') do
     click_button 'Voltar'
-    sleep 0.3
+    sleep 1
   end
 
   Then('O usuário deve ser direcionado para a tela de seleção da área a ser monitorada.') do
@@ -78,7 +77,7 @@ login = Login.new
     $dateTimeInitMonitoring = (find('#MainContentMainMaster_MainContent_lblHeader').text).sub(/Monitoração da área Dentro iniciada em /, "")
     sleep 1
     click_button 'Atualizar'
-    sleep 0.3
+    sleep 1
   end
 
   Then('O horário de última atualização da tela de monitoração de área deve ser alterado.') do
