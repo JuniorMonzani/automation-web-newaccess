@@ -22,5 +22,5 @@ dot: --format progress -o "progress.dot"
 bdd: --format pretty
 json: --format json -o "report.json"
 html:  --format html --out=C:\inetpub\wwwroot\ReportNewAccessAutomaticTests\reports.html
-Environment variable: CUCUMBER_PUBLISH_ENABLED = true
-default: -p html --publish-quiet
+#Environment variable: CUCUMBER_PUBLISH_ENABLED = true
+#default: -p html --publish-quiet

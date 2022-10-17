@@ -40,4 +40,13 @@ class Constants
 
     #constante com os valores contidos no dropbox 'Situação' - Cadastro de credecial
     $REGISTER_SITUATION = ['Liberada', 'Bloqueada']
+
+    #constante com os valores contidos no dropbox 'Tipo de Gerenciador' - Cadastro Gerenciador de Comunicação
+    $MANAGER_TYPE = ['Client', 'Server', 'Exportação / Importação']
+
+    #constante com o valor default contido no dropbox 'Tipo de Gerenciador' - Cadastro Gerenciador de Comunicação
+    $DEFAULT_MANAGER_TYPE = ['Client']
+
+    #constante com o valor default contido no dropbox 'Mesma Velocidade' - Cadastro Gerenciador de Comunicação
+    $SAME_SPEED = ['1200', '2400', '4800', '9600', '19200']
 end

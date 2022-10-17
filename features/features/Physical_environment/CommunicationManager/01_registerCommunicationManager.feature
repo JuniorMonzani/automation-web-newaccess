@@ -15,19 +15,19 @@ Feature: Register Communication Manager
         @fieldDescriptionRequiredCommManager
         Scenario: fieldDescriptionRequiredCommManager
             Given Preencher todos os campos obrigatórios para efetuar o cadastro do Gerenciador de Comunicação exceto o campo Descrição.
-            When Clicar no botão Salvar para validar o campo "Descrição".
+            When Clicar no botão Salvar para validar o campo "Descrição" em Gerenciador de Comunicação.
             Then Deve existgir uma validação no campo Descrição pois o mesmo é obrigatório.
 
         @fieldMachineNameRequiredCommManager
         Scenario: fieldMachineNameRequiredCommManager
             Given Preencher todos os campos obrigatórios para efetuar o cadastro do Gerenciador de Comunicação exceto o campo Nome da Máquina.
-            When Clicar no botão Salvar para validar o campo "Nome da Máquina".
+            When Clicar no botão Salvar para validar o campo "Nome da Máquina" em Gerenciador de Comunicação.
             Then Deve existgir uma validação no campo Nome da máquina pois o mesmo é obrigatório.
 
         @fieldPortRequiredCommManager
         Scenario: fieldPortRequiredCommManager
             Given Preencher todos os campos obrigatórios para efetuar o cadastro do Gerenciador de Comunicação exceto o campo Porta.
-            When Clicar no botão Salvar para validar o campo Porta.
+            When Clicar no botão Salvar para validar o campo Porta em Gerenciador de Comunicação.
             Then Deve existgir uma validação no campo Porta pois o mesmo é obrigatório.
 
         @verifyTypeFieldPortCommManager
@@ -39,14 +39,14 @@ Feature: Register Communication Manager
         @verifyFieldPortZeroCommManager
         Scenario: verifyFieldPortZeroCommManager
             Given Preencher todos os campos obrigatórios para efetuar o cadastro do Gerenciador de Comunicação e no campo "Porta" informar o valor "0".
-            When Clicar no botão Salvar para validar o tipo do campo "Porta".
+            When Clicar no botão Salvar para validar o tipo do campo "Porta" como 0.
             Then Deve existgir uma validação onde o campo Porta é inválido pois é 0.
 
         @verifyFieldPortInvalidCommManager
         Scenario: verifyFieldPortInvalidCommManager
             Given Preencher todos os campos obrigatórios para efetuar o cadastro do Gerenciador de Comunicação e no campo "Porta" informar o valor "99999".
-            When Clicar no botão Salvar para validar o tipo do campo "Porta".
-            Then Deve existgir uma validação onde o campo POrta é inválido pois é 99999.
+            When Clicar no botão Salvar para validar o tipo do campo "Porta" como 99999.
+            Then Deve existgir uma validação onde o campo Porta é inválido pois é 99999.
 
         @verifyValuesFieldTypeManagerCommManager
         Scenario: verifyValuesFieldTypeManagerCommManager
@@ -93,25 +93,25 @@ Feature: Register Communication Manager
         Scenario: FieldPortServerRequiredCommManager
             Given Preencher os campos para inclusão do Gerenciador de Comunicação_12.
             And Alterar o combobox Tipo de Gerenciador para "Server"_12.
-            And Limpar o campo "Porta" do servidor.
-            When Clicar em salvar para validar o campo Porta (do servidor).
-            Then Deve existir uma validação no campo Porta (do servidor) pois o mesmo é obrigatório quando o gerenciador é Server.
+            And Limpar o campo "Porta" do servidor_01.
+            When Clicar em salvar para validar o campo Porta do servidor_16.
+            Then Deve existir uma validação no campo Porta do servidor pois o mesmo é obrigatório quando o gerenciador é Server.
 
         @fieldPortServerZeroCommManager
         Scenario: fieldPortServerZeroCommManager
             Given Preencher os campos para inclusão do Gerenciador de Comunicação_17.
             And Alterar o combobox Tipo de Gerenciador para "Server"_17.
             And Preencher o campo "Porta" do servidor com valor "0".
-            When Clicar em salvar para validar o campo Porta (do servidor)_17.
-            Then Deve existir uma validação no campo Porta (do servidor) é inválido por ser 0.
+            When Clicar em salvar para validar o campo Porta do servidor_17.
+            Then Deve existir uma validação no campo Porta do servidor é inválido por ser 0.
 
         @fieldPortServerMaxSizeCommManager
         Scenario: fieldPortServerMaxSizeCommManager
             Given Preencher os campos para inclusão do Gerenciador de Comunicação_18.
             And Alterar o combobox Tipo de Gerenciador para "Server"_18.
             And Preencher o campo "Porta" do servidor com valor "99999".
-            When Clicar em salvar para validar o campo Porta (do servidor)_18.
-            Then Deve existir uma validação no campo Porta (do servidor) é inválido por ser 99999.
+            When Clicar em salvar para validar o campo Porta do servidor_18.
+            Then Deve existir uma validação no campo Porta do servidor é inválido por ser 99999.
 
         @fieldEncryptionKeyRequiredCommManager
         Scenario: FieldEncryptionKeyRequiredCommManager
@@ -125,10 +125,10 @@ Feature: Register Communication Manager
         Scenario: verifyTypePortServerCommManager
             Given Preencher os campos para inclusão do Gerenciador de Comunicação_14.
             And Alterar o combobox Tipo de Gerenciador para "Server"_14.
-            And Limpar o campo "Porta" do servidor.
-            And Tentar preencher o campo Porta (do servidor) com caracteres alfanuméricos.
-            When Clicar em salvar para validar o campo Porta (do servidor).
-            Then Deve existir uma validação de obrigatoriedade no campo Porta (do servidor) pois o mesmo não aceita alfanuméricos e ficará vazio.
+            And Limpar o campo "Porta" do servidor_02.
+            And Tentar preencher o campo Porta do servidor com caracteres alfanuméricos.
+            When Clicar em salvar para validar o campo Porta do servidor_19.
+            Then Deve existir uma validação de obrigatoriedade no campo Porta do servidor pois o mesmo não aceita alfanuméricos e ficará vazio.
 
         @verifyTypeEncryptionKeyCommManager
         Scenario: verifyTypeEncryptionKeyCommManager
@@ -141,7 +141,7 @@ Feature: Register Communication Manager
 
         @verifyDisableTabSerialPortsForServerType
         Scenario: verifyDisableTabeSeralPortsForServerType
-            Given Alterar o combobox Tipo de Gerenciador para "Server"_16.
+            Given Alterar o combobox Tipo de Gerenciador para "Server"_19.
             Then Verificar se a aba "Portas Seriais" fica desabilitada.
 
         @verifyDisableTabsAlertsAndSerialPortsForExpImpType
@@ -151,7 +151,7 @@ Feature: Register Communication Manager
 
         @verifySaveCommManagerAlreadyExsists
         Scenario: verifySaveCommManagerAlreadyExsists
-            Given Preencher os campos "Descrição" com a descrição "Minha Maquina Client" (já existe cadastrada).
+            Given Preencher os campos "Descrição" com a descrição "Minha Maquina Client" já existente.
             And Preencher o campo "Nome da máquina"_19.
             And Preencher o campo "Porta"_19.
             When Clicar em "Salvar" para tentar salvar um Gerenciador de Comunicação com a mesma descrição.
@@ -174,36 +174,36 @@ Feature: Register Communication Manager
         @markCheckBoxFieldsTabAlertsCommManager
         Scenario: markCheckBoxFieldsTabAlertsCommManager
             Given Acessar a aba "Alertas"_03.
-            Then Marcar todas as opções (checkBox) da aba de Alertas com sucesso.
+            Then Marcar todas as opções checkBox da aba de Alertas com sucesso.
 
     #TESTES NA ABA: PORTAS SERIAIS
         @verifyResourcesTabSerialPortsCommManager
         Scenario: verifyResourcesTabSerialPortsCommManager
-            Given Que eu selecione a aba "Portas Seriais".
-            Then A aba "Alertas" deve conter os resources esperados.
+            Given Que eu selecione a aba "Portas Seriais"_01.
+            Then A aba "Portas Seriais" deve conter os resources esperados.
 
         @verifyValuesFieldSameSpeedTabSerialPorts
         Scenario: verifyValuesFieldSameSpeedTabSerialPorts
-            Given Que eu selecione a aba "Portas Seriais".
+            Given Que eu selecione a aba "Portas Seriais"_02.
             When Obter todos os valores do dropbox "Mesma Velocidade".
             Then Deve conter todos os valores esperados no campo "Mesma Velocidade".
 
-        @verifyCapacityFieldSamePollTimeTabSeralPorts
+        @verifyCapacityFieldSamePollTimeTabSerialPorts
         Scenario: verifyCapacityFieldSamePollTimeTabSeralPorts
-            Given Que eu selecione a aba "Portas Seriais".
+            Given Que eu selecione a aba "Portas Seriais"_03.
             And Preencher o campo "Mesmo tempo de Poll" com valor "999"
             When Clicar em qualquer checkbox da aba.
             Then Validar o valor contido no campo "Mesmo tempo de Poll" que deve ser "99".
 
         @markCheckBoxFieldsTabSerialPortsCommManager
         Scenario: markCheckBoxFieldsTabSerialPortsCommManager
-            Given Acessar a aba "Portas Seriais".
-            Then Marcar todas as opções (checkBox) da aba de Portas Seriais com sucesso.
+            Given Acessar a aba "Portas Seriais"_04.
+            Then Marcar todas as opções checkBox da aba de Portas Seriais com sucesso_01.
 
         @alterValuesPortsTabSerialPorts
         Scenario: alterValuesPortsTabSerialPorts
-            Given Acessar a aba "Portas Seriais".
-            And Marcar todas as opções (checkBox) da aba de Portas Seriais com sucesso.
+            Given Acessar a aba "Portas Seriais"_05.
+            And Marcar todas as opções checkBox da aba de Portas Seriais com sucesso_02.
             And Selecionar o valor "19200" no dropbox "Mesma Velocidade".
             And Preencher o campo "Mesmo tempo de Poll" com valor "99".
             When Clicar em "Aplicar".
@@ -215,8 +215,8 @@ Feature: Register Communication Manager
             Given Preencher os campos "Descrição" com o limite máximo de caracteres permitido.
             And Preencher o campo "Nome da máquina" com o limite máximo de caracteres permitido.
             And Preencher o campo "Porta".
-            And Acessar a aba "Alertas"_01.
-            And Marcar todas as opções (checkBox) da aba de Portas Seriais.
+            And Acessar a aba "Alertas"_04.
+            And Marcar todas as opções checkBox da aba de Alertas.
             And Inserir o email "teste@teste.com" no campo "E-mails para notificação".
             And Acessar a aba "Portas Seriais"_01.
             And Selecionar o valor "19200" no dropbox "Mesma Velocidade"_01.
@@ -225,34 +225,21 @@ Feature: Register Communication Manager
             When Clicar em "Salvar" para salvar um Gerenciador de Comunicação do tipo Client.
             Then Validar se o Gerenciador de Comunicação client foi salvo com sucesso.
 
-        @verifyValuesRegisterCommunicationManagerClient
-        Scenario: verifyValuesRegisterCommunicationManagerClient
-            Given Acessar o cadastro do Gerenciador Client realizado pela automação.
-            Then Validar todos os valores esperados que foram cadastrados (inclusive checkbox que foram marcados) nos campos do Gerenciador client. 
-
         @registerCommunicationManagerServerSuccess
         Scenario: registerCommunicationManagerServerSuccess
-            Given Preencher os campos "Descrição", "Nome da máquina" e "Porta".
+            Given Preencher os campos "Descrição", "Nome da máquina" e "Porta"_01.
             And Selecionar o tipo de gerenciador para "Server".
-            And Acessar a aba "Alertas"_02.
-            And Marcar todas as opções (checkBox) da aba de Portas Seriais_02.
+            And Acessar a aba "Alertas"_05.
+            And Marcar todas as opções checkBox da aba de "Alertas"_02.
             And Inserir o email "teste@teste.com" no campo "E-mails para notificação"_2.
             When Clicar em "Salvar" para salvar um Gerenciador de Comunicação do tipo Server.
-            Then Validar se o Gerenciador de Comunicação server foi salvo com sucesso.
-
-        @verifyValuesRegisterCommunicationManagerServer
-        Scenario: verifyValuesRegisterCommunicationManagerServer
-            Given Acessar o cadastro do Gerenciador Server realizado pela automação.
-            Then Validar todos os valores esperados que foram cadastrados (inclusive checkbox que foram marcados) nos campos do Gerenciador server. 
+            Then Validar se o Gerenciador de Comunicação server foi salvo com sucesso. 
 
         @registerCommunicationManagerExpImpSuccess
         Scenario: registerCommunicationManagerExpImpSuccess
-            Given Preencher os campos "Descrição", "Nome da máquina" e "Porta".
+            Given Preencher os campos "Descrição", "Nome da máquina" e "Porta"_02.
             And Selecionar o tipo de gerenciador para "Exportação / Importação".
-            When Clicar em "Salvar" para salvar um Gerenciador de Comunicação do tipo Exportação/Importação.
-            Then Validar se o Gerenciador de Comunicação Exportação/Importaçã foi salvo com sucesso.
+            When Clicar em "Salvar" para salvar um Gerenciador de Comunicação do tipo "Exportação / Importação".
+            Then Validar se o Gerenciador de Comunicação "Exportação / Importação" foi salvo com sucesso.
 
-        @verifyValuesRegisterCommunicationManagerExpImp
-        Scenario: verifyValuesRegisterCommunicationManagerExpImp
-            Given Acessar o cadastro do Gerenciador Exp/Imp realizado pela automação.
-            Then Validar todos os valores esperados que foram cadastrados (inclusive checkbox que foram marcados) nos campos do Gerenciador Exp/Imp. 
+         
