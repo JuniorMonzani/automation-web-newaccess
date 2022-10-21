@@ -1,5 +1,5 @@
 @about
-Feature: Sobre o Sistema
+Feature: About System
     Realiza validações na página Sobre o Sistema.
 
     Background:
