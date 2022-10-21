@@ -356,7 +356,7 @@ require 'common/constants'
       end
 
     @verifyDisableTabsAlertsAndSerialPortsForExpImpType
-      Given('Alterar o combobox Tipo de Gerenciador para "Exportação / Importação".') do
+      Given('Alterar o combobox Tipo de Gerenciador para "Exportação e Importação".') do 
         findElements.select_option('#MainContentMainMaster_MainContent_ddlTypeManager', 'Exportação / Importação')
         sleep 1
       end
@@ -686,15 +686,15 @@ require 'common/constants'
         communicationManager.fills_In_Communication_Manager_Client('Automação Exp./Imp.', 'DESKTOP-JFU00CN', '5002')
       end
 
-      And('Selecionar o tipo de gerenciador para "Exportação / Importação".') do
+      And('Selecionar o tipo de gerenciador para "Exportação e Importação".') do
         findElements.select_option('#MainContentMainMaster_MainContent_ddlTypeManager', 'Exportação / Importação')
       end
 
-      When('Clicar em "Salvar" para salvar um Gerenciador de Comunicação do tipo "Exportação / Importação".') do
+      When('Clicar em "Salvar" para salvar um Gerenciador de Comunicação do tipo "Exportação e Importação".') do
         click_button 'Salvar'
         sleep 0.3
       end
       
-      Then('Validar se o Gerenciador de Comunicação "Exportação / Importação" foi salvo com sucesso.') do
+      Then('Validar se o Gerenciador de Comunicação "Exportação e Importação" foi salvo com sucesso.') do
         expect(page).to have_content('Gerenciador de Comunicação salvo com sucesso!')
       end

@@ -146,7 +146,7 @@ Feature: Register Communication Manager
 
         @verifyDisableTabsAlertsAndSerialPortsForExpImpType
         Scenario: verifyDisableTabsAlertsAndSerialPortsForExpImpType
-            Given Alterar o combobox Tipo de Gerenciador para "Exportação / Importação".
+            Given Alterar o combobox Tipo de Gerenciador para "Exportação e Importação".
             Then Verificar se as abas "Alertas" e "Portas Seriais" ficam desabilitadas.
 
         @verifySaveCommManagerAlreadyExsists
@@ -233,22 +233,13 @@ Feature: Register Communication Manager
             And Marcar todas as opções checkBox da aba de "Alertas"_02.
             And Inserir o email "teste@teste.com" no campo "E-mails para notificação"_2.
             When Clicar em "Salvar" para salvar um Gerenciador de Comunicação do tipo Server.
-<<<<<<< HEAD
             Then Validar se o Gerenciador de Comunicação server foi salvo com sucesso. 
-=======
-            Then Validar se o Gerenciador de Comunicação server foi salvo com sucesso.
->>>>>>> 046924c43d98a7c1b9141d524a82cd9fa5b7244d
 
         @registerCommunicationManagerExpImpSuccess
         Scenario: registerCommunicationManagerExpImpSuccess
             Given Preencher os campos "Descrição", "Nome da máquina" e "Porta"_02.
-            And Selecionar o tipo de gerenciador para "Exportação / Importação".
-<<<<<<< HEAD
-            When Clicar em "Salvar" para salvar um Gerenciador de Comunicação do tipo "Exportação / Importação".
-            Then Validar se o Gerenciador de Comunicação "Exportação / Importação" foi salvo com sucesso.
+            And Selecionar o tipo de gerenciador para "Exportação e Importação".
+            When Clicar em "Salvar" para salvar um Gerenciador de Comunicação do tipo "Exportação e Importação".
+            Then Validar se o Gerenciador de Comunicação "Exportação e Importação" foi salvo com sucesso.
 
          
-=======
-            When Clicar em "Salvar" para salvar um Gerenciador de Comunicação do tipo Exportação/Importação.
-            Then Validar se o Gerenciador de Comunicação Exportação/Importaçã foi salvo com sucesso.
->>>>>>> 046924c43d98a7c1b9141d524a82cd9fa5b7244d

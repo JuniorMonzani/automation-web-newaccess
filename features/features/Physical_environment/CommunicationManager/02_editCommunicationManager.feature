@@ -53,8 +53,8 @@ Feature: Edit Communication Manager
 
         @verifyValuesRegisterCommunicationManagerExpImp
         Scenario: verifyValuesRegisterCommunicationManagerExpImp
-            Given Acessar o cadastro do Gerenciador Exp/Imp realizado pela automação.
-            Then Validar todos os valores esperados que foram cadastrados (inclusive checkbox que foram marcados) nos campos do Gerenciador Exp/Imp. 
+            Given Acessar o cadastro do Gerenciador Exp e Imp realizado pela automação.
+            Then Validar todos os valores esperados que foram cadastrados (inclusive checkbox que foram marcados) nos campos do Gerenciador Exp e Imp. 
 
         @AlterCommunicationServiceDescriptionRequired
         Scenario: AlterCommunicationServiceDescriptionRequired
