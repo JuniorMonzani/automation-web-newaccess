@@ -13,7 +13,7 @@ Feature: Register Shift
     @verifyRequiredFields
     Scenario Outline: verifyRequiredFields
         Given Que o usuário esteja na página de cadastro de Turno.
-        Given Preencher o campo Número com valor "<numero_input>"..
+        Given Preencher o campo Número com valor "<numero_input>".
         Given Preencher o campo Descrição com valor "<descricao_input>".
         Given Preebcher o campo Hora virada com valor "<horavirada_input>".
         When Clicar no botão Salvar.
