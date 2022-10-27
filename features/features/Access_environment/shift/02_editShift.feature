@@ -5,6 +5,10 @@ Feature: Edit Shift
     Background:
         Given Que o usuário esteja na página que lista os turnos cadastrados.
 
+    @verifyResourcesPageListShift
+    Scenario Outline: verifyResourcesPageListShift
+        Then Comparar os resources apresentados com os esperados na página de listagem de Turnos.
+
     @verifyValuesComboBoxSearch
     Scenario: verifyValuesComboBoxSearch
         Given Que desmarque o checkbox 10 últimas atualizações.

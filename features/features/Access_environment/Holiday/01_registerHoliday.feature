@@ -9,6 +9,11 @@ Feature: Register Holiday
     Scenario Outline: verifyResourcesHoliday
         Then Comparar os resources apresentados com os esperados na página de cadastro de Feriado.
 
+    @verifyLenghtFieldsHoliday
+    Scenario: verifyLenghtFieldsHoliday
+        Given Obter o tamanho do campo Descrição e do campo Data.
+        Then O tamanho obtido do campo Descrição deve ser 30 e do campo Data deve ser 5.
+
     @verifyRequiredFieldsHoliday
     Scenario Outline: verifyRequiredFieldsHoliday
         Given Preencher o campo Descrição com valor "<descricao_input>".
@@ -40,7 +45,7 @@ Feature: Register Holiday
 
     @saveHoliday
     Scenario: saveHoliday
-        Given Preencher o campo Descrição com valor 'Teste Automação iiiiiiiiiiiiiiiiiiiii'.
+        Given Preencher o campo Descrição com valor 'Teste Automação iiiiiiiiiiiiii'.
         Given Preencher o campo Data com valor 0709.
         Given Associar o grupo 1.
         When Clicar no botão Salvar.
