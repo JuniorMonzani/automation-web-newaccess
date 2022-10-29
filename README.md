@@ -1,3 +1,11 @@
+<div>
+  <img src="https://img.shields.io/github/last-commit/JuniorMonzani/automation-web-newaccess">
+  <img src="https://img.shields.io/github/repo-size/JuniorMonzani/automation-web-newaccess">
+  <img src="https://img.shields.io/github/contributors/JuniorMonzani/automation-web-newaccess">
+  <img src="https://img.shields.io/github/stars/JuniorMonzani/automation-web-newaccess?style=social">
+  
+</div>
+
 # Projeto Automação de Testes NewAccess
 
 Este projeto realiza testes no sistema web NewAccess passando por diversos tipos de validações e cenários, utilizando linguagem Ruby juntamente com o framework Capybara e Cucumber. Em conjunto com esse objetivo, todo o projeto tem como precedente a metodologia ágil e o clean code.
