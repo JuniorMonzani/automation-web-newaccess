@@ -74,13 +74,11 @@ Abaixo um diagrama de todas as telas do sistema e o andamento do projeto:
   Exemplo de execução, notificação e relatório:
 
 <div>
-  <p>
-  <img src="imgs\ExemploJenkins.png" width="300" height="270">
-  <img src="imgs\ExemploExecucao.png" width="300">
-  </p>
-  <p>
-  <img src="imgs\ExemploNotificacao.png" width="300">
-  <img src="imgs\ExemploRelatorio.png" width="300" height="300">
+  <p align="center">
+  <img src="imgs\ExemploJenkins.png">
+  <img src="imgs\ExemploExecucao.png">
+  <img src="imgs\ExemploNotificacao.png">
+  <img src="imgs\ExemploRelatorio.png">
   </p>
 </div>  
 
