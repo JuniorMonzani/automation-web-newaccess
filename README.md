@@ -75,12 +75,12 @@ Abaixo um diagrama de todas as telas do sistema e o andamento do projeto:
 
 <div>
   <p>
-  <img src="imgs\ExemploJenkins.png" width="300" height="220">
-  <img src="imgs\ExemploExecucao.png" width="300" height="220">
+  <img src="imgs\ExemploJenkins.png" width="500" height="270">
+  <img src="imgs\ExemploExecucao.png" width="500">
   </p>
   <p>
-  <img src="imgs\ExemploNotificacao.png" width="300" height="220">
-  <img src="imgs\ExemploRelatorio.png" width="300" height="220">
+  <img src="imgs\ExemploNotificacao.png" width="500">
+  <img src="imgs\ExemploRelatorio.png" width="500" height="300">
   </p>
 </div>  
 
@@ -88,6 +88,6 @@ Abaixo um diagrama de todas as telas do sistema e o andamento do projeto:
 
 <div align="center">
   <a href="https://github.com/JuniorMonzani">
-    <img height="160em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=JuniorMonzani&layout=compact&langs_count=7&theme=tokyonight" width="300"/>
-    <img height="160em" src="https://github-readme-stats.vercel.app/api?username=JuniorMonzani&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true" width="300"/>
+    <img height="160em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=JuniorMonzani&layout=compact&langs_count=7&theme=tokyonight"/>
+    <img height="160em" src="https://github-readme-stats.vercel.app/api?username=JuniorMonzani&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
   </div>
