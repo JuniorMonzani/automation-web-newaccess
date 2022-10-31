@@ -75,12 +75,12 @@ Abaixo um diagrama de todas as telas do sistema e o andamento do projeto:
 
 <div>
   <p>
-  <img src="imgs\ExemploJenkins.png" width="500" height="270">
-  <img src="imgs\ExemploExecucao.png" width="500">
+  <img src="imgs\ExemploJenkins.png" width="300" height="270">
+  <img src="imgs\ExemploExecucao.png" width="300">
   </p>
   <p>
-  <img src="imgs\ExemploNotificacao.png" width="500">
-  <img src="imgs\ExemploRelatorio.png" width="500" height="300">
+  <img src="imgs\ExemploNotificacao.png" width="300">
+  <img src="imgs\ExemploRelatorio.png" width="300" height="300">
   </p>
 </div>  
 
