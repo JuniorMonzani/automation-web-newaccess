@@ -7,13 +7,13 @@ require 'common/constants'
   findElements = FindElements.new
   login = Login.new
 
-  @background
+  #background
     Given('Que o usuário esteja na página de cadastro de Áreas.') do
       areas.visit_Register_Areas
       login.make_Login
     end
 
-    @verifyLabelsAreas
+    #verifyLabelsAreas
       Given('Que eu verifico e comparo todos os resources dos campos apresentados na página de cadastro de áreas.') do
         expect(page).to have_content('Número')
         expect(page).to have_content('Descrição')
@@ -30,7 +30,7 @@ require 'common/constants'
         expect(page).to have_content('Baixa credencial que autentica em visitante no cofre')
       end
 
-    @verifyFieldCapacityDisabled
+    #verifyFieldCapacityDisabled
       Given('Desmarcar o checkbox Capacity Control da tela Áreas.') do
         uncheck('MainContentMainMaster_MainContent_cbxCapacityControl')
       end
@@ -39,77 +39,77 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_txtAreaCapacity').disabled?).to be(true)
       end
 
-    @fieldNumberRequiredAreas
+    #fieldNumberRequiredAreas
       Given('Informar caractere alfanumérico no campo "Número" da tela Áreas e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
         areas.fills_In_Areas('teste', $REGISTER_AREAS_DEFAULT_DESCRIPTION, $REGISTER_AREAS_CAPACITY)
       end
 
       When('Clicar no botão Salvar para validar o campo "Número" da tela Áreas.') do
         click_button 'Salvar'
-        sleep 0.3
+        sleep 1
       end
       
       Then('Deve existir uma validação no campo "Número" da tela Áreas pois o mesmo é obrigatório e só aceita caractere numérico.') do
         expect(page).to have_selector("input[oldtitle='Informe o Número']")
       end
 
-    @fieldDescriptionRequiredAreas
+    #fieldDescriptionRequiredAreas
       Given('Não preencher o campo "Descrição" da tela Áreas e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
         areas.fills_In_Areas($REGISTER_AREAS_NUMBER, '', $REGISTER_AREAS_CAPACITY)
       end
     
       When('Clicar no botão Salvar para validar o campo "Descrição" da tela Áreas.') do
         click_button 'Salvar'
-        sleep 0.3
+        sleep 1
       end
       
       Then('Deve existir uma validação no campo "Descrição" da tela Áreas pois o mesmo é obrigatório e não foi informado.') do
         expect(page).to have_selector("input[oldtitle='Informe a Descrição']")
       end
 
-    @fieldCapacityRequiredAreas
+    #fieldCapacityRequiredAreas
       Given('Informar caractere alfanumérico no campo "Capacidade" da tela Áreas e preencher corretamente todas os outros campos necessários para efetuar o cadastro.') do
         areas.fills_In_Areas($REGISTER_AREAS_NUMBER, $REGISTER_AREAS_DEFAULT_DESCRIPTION, 'teste')
       end
     
       When('Clicar no botão Salvar para validar o campo "Capacidade" da tela Áreas com caracter alfanumérico.') do
         click_button 'Salvar'
-        sleep 0.3
+        sleep 1
       end
       
       Then('Deve existir uma validação no campo "Capacidade" da tela Áreas pois o mesmo é obrigatório e não foi informado.') do
         expect(page).to have_selector("input[oldtitle='Informe a Capacidade']")
       end
 
-    @fieldCapacityThanZero
+    #fieldCapacityThanZero
       Given('Informar valor zero no campo "Capacidade" da tela Áreas.') do
         areas.fills_In_Areas($REGISTER_AREAS_NUMBER, $REGISTER_AREAS_DEFAULT_DESCRIPTION, '0')
       end
     
       When('Clicar no botão Salvar para validar o campo "Capacidade" da tela Áreas com valor 0.') do
         click_button 'Salvar'
-        sleep 0.3
+        sleep 1
       end
       
       Then('Deve existir uma validação no campo "Capacidade" da tela Áreas pois no mesmo é obrigatório um valor acima de zero.') do
         expect(page).to have_selector("input[oldtitle='A Capacidade deve ser maior que zero']")
       end
 
-    @fieldNumberThanZero
+    #fieldNumberThanZero
       Given('Informar valor zero no campo "Número" da tela Áreas.') do
         areas.fills_In_Areas('0', $REGISTER_AREAS_DEFAULT_DESCRIPTION, $REGISTER_AREAS_CAPACITY)
       end
     
       When('Clicar no botão Salvar para validar o campo "Número" da tela Áreas com valor 0.') do
         click_button 'Salvar'
-        sleep 0.3
+        sleep 1
       end
       
       Then('Deve existir uma validação no campo "Número" da tela Áreas pois no mesmo é obrigatório um valor acima de zero.') do
         expect(page).to have_selector("input[oldtitle='O Número deve ser maior que zero']")
       end
 
-    @registerAreasSuccess
+    #registerAreasSuccess
       Given('Preencher o campo Número com "9999".') do
         findElements.input_textbox('MainContentMainMaster_MainContent_txtAreaNumber', $REGISTER_AREAS_NUMBER)
       end

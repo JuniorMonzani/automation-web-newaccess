@@ -7,13 +7,13 @@ require 'common/constants'
   findElements = FindElements.new
   login = Login.new
 
-  @background
+  #background
     Given('Que o usuário esteja na página que lista as Áreas objetivando cópia.') do
       areas.visit_List_Areas
       login.make_Login
     end
 
-    @verifyCopyAreas
+    #verifyCopyAreas
       Given('Que eu faça a busca e encontre a Área cadastrada pela automação_01 objetivando cópia.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)
@@ -30,7 +30,7 @@ require 'common/constants'
         expect(page).to have_content('Cadastrar Área')
       end
 
-    @verifyNumberCopyArea
+    #verifyNumberCopyArea
       Given('Que eu faça a busca e encontre a Área cadastrada pela automação_02 objetivando cópia.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)
@@ -47,7 +47,7 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_txtAreaNumber').value).to eql('')
       end
 
-    @verifyDescriptionCopyArea
+    #verifyDescriptionCopyArea
       Given('Que eu faça a busca e encontre a Área cadastrada pela automação_03 objetivando cópia.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)
@@ -64,7 +64,7 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_txtAreaDescription').value).to eql('')
       end
 
-    @verifyCapacityCopyArea
+    #verifyCapacityCopyArea
       Given('Que eu faça a busca e encontre a Área cadastrada pela automação_04 objetivando cópia.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)
@@ -81,7 +81,7 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_txtAreaCapacity').value).to eql('')
       end
 
-    @verifyDisableCheckboxCopyArea
+    #verifyDisableCheckboxCopyArea
       Given('Que eu faça a busca e encontre a Área cadastrada pela automação_05 objetivando cópia.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)
@@ -109,7 +109,7 @@ require 'common/constants'
         expect(find('#MainContentMainMaster_MainContent_cbxRetainCredAuthVisitor').checked?).to be(false)
       end
 
-    @verifyEnableCheckboxCopyArea
+    #verifyEnableCheckboxCopyArea
       Given('Que eu faça a busca e encontre a Área cadastrada pela automação_06 objetivando cópia.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
         findElements.input_textbox('MainContentMainMaster_TableFiltersHolder_txtSearch', $REGISTER_AREAS_NUMBER)

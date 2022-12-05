@@ -7,13 +7,13 @@ require 'common/constants'
   findElements = FindElements.new
   login = Login.new
 
-  @background
+  #background
     Given('Que o usuário esteja na página que lista as Áreas objetivando exclusão.') do
       areas.visit_List_Areas
       login.make_Login
     end
 
-    @verifyValuesFilterSearchArea
+    #verifyValuesFilterSearchArea
       Given('Desmarco a flag 10 últimas atualizações_01 objetivando exclusão de Área.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
       end
@@ -26,7 +26,7 @@ require 'common/constants'
         expect($valueAreas).to be_truthy
       end
 
-    @searchByNumberAreaNotExsist
+    #searchByNumberAreaNotExsist
       Given ('Desmarco a flag 10 últimas atualizações_02 objetivando exclusão de Área.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
       end
@@ -44,7 +44,7 @@ require 'common/constants'
         expect(page).to have_content('Nenhum resultado foi encontrado')
       end
 
-    @searchByNumberAreaExsist
+    #searchByNumberAreaExsist
       Given ('Desmarco a flag 10 últimas atualizações_03 objetivando exclusão de Área.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
       end
@@ -62,7 +62,7 @@ require 'common/constants'
         expect(page).to have_content('9999')
       end
 
-    @searchByDescriptionAreaNotExsist
+    #searchByDescriptionAreaNotExsist
       Given ('Desmarco a flag 10 últimas atualizações_04 objetivando exclusão de Área.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
       end
@@ -84,7 +84,7 @@ require 'common/constants'
         expect(page).to have_content('Nenhum resultado foi encontrado')
       end
 
-    @searchByDescriptionAreaExsist
+    #searchByDescriptionAreaExsist
       Given ('Desmarco a flag 10 últimas atualizações_05 objetivando exclusão de Área.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
       end
@@ -106,7 +106,7 @@ require 'common/constants'
         expect(page).to have_content('Automação Áreas Edição')
       end
 
-    @verifyMessageDeteleAreaInUse
+    #verifyMessageDeteleAreaInUse
       Given ('Desmarco a flag 10 últimas atualizações_06 objetivando exclusão de Área.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
       end
@@ -132,7 +132,7 @@ require 'common/constants'
         sleep 0.3
       end
 
-    @verifyMessageDeteleArea
+    #verifyMessageDeteleArea
       Given ('Desmarco a flag 10 últimas atualizações_07 objetivando exclusão de Área.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
       end
@@ -156,7 +156,7 @@ require 'common/constants'
         sleep 0.3
       end
 
-    @deteleSuccessArea
+    #deteleSuccessArea
       Given ('Desmarco a flag 10 últimas atualizações_08 objetivando exclusão de Área.') do
         uncheck('MainContentMainMaster_chkLastTenModified')
       end

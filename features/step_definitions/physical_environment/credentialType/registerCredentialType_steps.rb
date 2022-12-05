@@ -7,19 +7,19 @@ require 'common/constants'
   findElements = FindElements.new
   login = Login.new
 
-  @background
+  #background
     Given('Que o usuário esteja na página de cadastro de Tipo de Credencial.') do
       credentialType.visit_Register_Credential_Type
       login.make_Login
     end
 
-    @verifyLabelsCredentialType
+    #verifyLabelsCredentialType
       Given('Que eu verifico e comparo todos os resources dos campos apresentados na página de cadastro de tipo de credencial.') do
         expect(page).to have_content('Descrição')
         expect(page).to have_content('Autenticação')
       end
 
-    @fieldDescriptionRequiredCredentialType
+    #fieldDescriptionRequiredCredentialType
       Given('Não preencher o campo "Descrição" e preencher corretamente todos os outros campos necessários para efetuar o cadastro de tipo de credencial.') do
         findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', '')
       end
@@ -29,11 +29,10 @@ require 'common/constants'
       end
 
       Then('Deve existir uma validação no campo "Descrição" pois o mesmo é obrigatório e não foi informado.') do
-        sleep 0.5
         expect(page).to have_selector("input[oldtitle='Informe a Descrição']")
       end
     
-    @verifyValuesAuthenticationRegisterCredentialType
+    #verifyValuesAuthenticationRegisterCredentialType
       Given('Obter todos os valores do dropbox "Autenticação" na tela de cadastro de tipo de credencial e comparar com os valores esperados.') do
         $valueCredentialType = findElements.verify_Values_DropBox('#MainContentMainMaster_MainContent_ddlCredentialTypeAuthentication', $REGISTER_CREDENTIAL_TYPE_AUTHENTICATION)
       end
@@ -42,7 +41,7 @@ require 'common/constants'
         expect($valueCredentialType).to be_truthy
       end
       
-    @saveWithPersonAuthenticationCredentialType
+    #saveWithPersonAuthenticationCredentialType
       Given('Que eu preencha o campo obrigatório "Descrição" para cadastro de um novo Tipo de Credencial como "Pessoa".') do
         findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Automação Pessoa')
       end
@@ -60,7 +59,7 @@ require 'common/constants'
         expect(page).to have_content('Cadastro de Tipo de Credencial')
       end
     
-    @saveWithVisitorAuthenticationCredentialType  
+    #saveWithVisitorAuthenticationCredentialType  
       Given('Que eu preencha o campo obrigatório "Descrição" para cadastro de um novo Tipo de Credencial como "Visitante".') do
         findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Automação Visitante')
       end
@@ -78,7 +77,7 @@ require 'common/constants'
         expect(page).to have_content('Cadastro de Tipo de Credencial')
       end
     
-    @saveWithCredentialAuthenticationCredentialType
+    #saveWithCredentialAuthenticationCredentialType
       Given('Que eu preencha o campo obrigatório "Descrição" para cadastro de um novo Tipo de Credencial como "Credencial".') do
         findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', 'Automação Credencial')
       end
@@ -96,7 +95,7 @@ require 'common/constants'
         expect(page).to have_content('Cadastro de Tipo de Credencial')
       end
 
-    @fieldDescriptionMaxSizeCredentialType  
+    #fieldDescriptionMaxSizeCredentialType  
       Given('Que eu tente preencher o campo obrigatório "Descrição" na tela de cadastro de tipo de credencial informando 55 caracteres alfanuméricos.') do
         findElements.input_textbox('MainContentMainMaster_MainContent_txtCredentialTypeDescription', $REGISTER_CREDENTIAL_TYPE_MAX_DESCRIPTION)
       end
