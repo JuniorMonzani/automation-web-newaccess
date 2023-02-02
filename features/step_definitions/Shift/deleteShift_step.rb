@@ -28,7 +28,7 @@ When('Clicar para excluir o turno.') do
   
   #@verifyNotDeletionShift
   When('Na mensagem apresentada clicar no botão Não.') do
-    #sleep 3 / Havia um sleep pq o sistema estava apresentando lentidão
+    sleep 1
     click_button(value: 'Não')
   end
   
