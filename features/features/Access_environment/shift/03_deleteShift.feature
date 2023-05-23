@@ -8,7 +8,7 @@ Feature: Delete Shift
     @verifyFirstMessageForExclusion
     Scenario: verifyFirstMessageForExclusion
         Given Que desmarque o checkbox 10 últimas atualizações.
-        Given Procure e encontre o turno cadastrado pela automação.
+        Given Procure e encontre o turno alterado pela automação.
         When Clicar para excluir o turno.
         Then Uma mensagem deve ser apresentada ao usuário: 'Confirma a exclusão?'
 

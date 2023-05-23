@@ -114,14 +114,11 @@ end
       find("option[value='999999']").click
       click_button 'MainContentMainMaster_MainContent_lstSlots_btnTransferToRight'
       end
-    
-    Then('Deve ser apresentada uma mensagem ao usuário: {string} e {string}') do |mensagem, mensagem2|
-      msg = find(:xpath, '//*[@id="divIdBodyBusinessError"]/ul')
-      expect(msg).to have_content(mensagem)  
-
-      msg = find(:xpath, '//*[@id="divIdBodyBusinessError"]/ul')
-      expect(msg).to have_content(mensagem2)  
+                 
+      Then('Deve ser apresentada a mensagem ao usuário: -Interseção entre horários:{string}') do |mensagem|
+       expect(page).to have_content(mensagem) 
     end
+    
 
     Given('Associar a faixa horária {string}.') do |string|                      
       find("option[value='1']").click

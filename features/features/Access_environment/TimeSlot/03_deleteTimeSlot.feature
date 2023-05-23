@@ -1,49 +1,33 @@
-# @deleteTimeSlot
-# Feature: delete Time Slot
-#     Como um usuário do sistema que tenha permissão para Exclur Faixa horária.
+@deleteTimeSlot
+Feature: delete Time Slot
+    Como um usuário do sistema que tenha permissão para Exclur Faixa horária.
 
-#     Background:
-#         Given Que o usuário esteja na página que lista as Faixas horárias objetivando exclusão.
+    Background:
+        Given Que o usuário esteja na página que lista as Faixas horárias objetivando exclusão.
 
-#     @searchByNumberTimeSlotNotExsist
-#     Scenario: searchByNumberTimeSlotNotExsist
-#         Given Desmarco a flag 10 últimas atualizações_01 objetivando exclusão de Faixa horária.
-#         When Eu preencho o textbox com um número de faixa horária que não existe objetivando exclusão de Faixa horária.
-#         #alguns lugares está escrito 'feixa' horária
-#         #em muitos lugares está com a palavra 'objetivando', alguns lugares não faz muito sentido, ajustar retirando a palavra e/ou ajustando a frase
-#         #ex:
-#         # Clicar em Buscar_01 a faixa horária.
-#         And Clico em Buscar_01 objetivando exclusão de Feixa horária.
-#         Then Validar o label apresentado que informa: 'Nenhum resultado foi encontrado'
+    
+    @verifyMessageDeteleTimeSlotInUse
+    Scenario:verifyMessageDeteleTimeSlotInUse
+        Given Desmarco a flag '10 últimas atualizações' objetivando exclusão de Faixa horária.
+        And Eu preencho o textbox com um número da Faixa horária "1" em uso, objetivando exclusão de Faixa horária.
+        And Clico em 'Buscar' objetivando exclusão de Faixa horária.
+        When Eu clico no ícone de Excluir objetivando exclusão de Faixa horária.
+        And Confirmo a exclusão
+        Then Validar a mensagem apresentada: '- Esta Faixa Horária está em uso no sistema e não pode ser excluída'
 
-#     @searchByNumberTimeSlotExsist
-#     Scenario: searchByNumberTimeSlotExsist
-#         Given Desmarco a flag 10 últimas atualizações_02 objetivando exclusão de Faixa horária.
-#         When Eu preencho o textbox com um número de grupo que existe_02 objetivando exclusão de Faixa horária.
-#         And Clico em Buscar_02 objetivando exclusão de Faixa horária.
-#         Then Validar se foi encontrada a Faixa horária esperada_01 objetivando exclusão de Faixa horária.
+    @verifyMessageDeteleTimeSlot
+    Scenario: verifyMessageDeteleTimeSlot
+        Given Desmarco a flag '10 últimas atualizações' objetivando exclusão de Faixa horária.
+        And Que eu faça a busca pelo código "888888" objetivando exclusão de Faixa horária.
+        And Clico em 'Buscar' objetivando exclusão de Faixa horária.
+        When Eu clico no ícone de Excluir objetivando exclusão de Faixa horária.
+        Then Devo ver a seguinte mensagem: 'Confirma a exclusão?'.
 
-#     @verifyMessageDeteleTimeSlotInUse
-#     Scenario:verifyMessageDeteleTimeSlotInUse
-#         Given Desmarco a flag 10 últimas atualizações_03 objetivando exclusão de Faixa horária.
-#         And Eu preencho o textbox com um número da Faixa horária "1" em uso, objetivando exclusão de Faixa horária.
-#         And Clico em Buscar_03 objetivando exclusão de Faixa horária.
-#         When Eu clico no ícone de Excluir_01 objetivando exclusão de Faixa horária.
-#         Then Validar a mensagem apresentada ao usuário_01 objetivando exclusão de Faixa horária.
-
-#     @verifyMessageDeteleTimeSlot
-#     Scenario: verifyMessageDeteleTimeSlot
-#         Given Desmarco a flag 10 últimas atualizações_04 objetivando exclusão de Faixa horária.
-#         And Que eu faça a busca e encontre a Faixa horária cadastrada pela automação_01 objetivando exclusão de Faixa horária.
-#         And Clico em Buscar_04 objetivando exclusão de Faixa horária.
-#         When Eu clico no ícone de Excluir_02 objetivando exclusão de Faixa horária.
-#         Then Validar a mensagem apresentada ao usuário_02 objetivando exclusão de Feixa horária.
-
-#     @deteleSuccessTimeSlot
-#     Scenario: deteleSuccessTimeSlot
-#         Given Desmarco a flag 10 últimas atualizações_05 objetivando exclusão de Faixa horária.
-#         And Que eu faça a busca e encontre a Faixa horária cadastrada pela automação_02 objetivando exclusão de Faixa horária.
-#         And Clico em Buscar_05 objetivando exclusão de Faixa horária.
-#         When Eu clico no ícone de Excluir_03 objetivando exclusão de Faixa horária.
-#         And Ao ser exibida a mensagem clicar em "Sim" objetivando exclusão de Feixa horária.
-#         And Validar se a Feixa horária foi excluída.
+    @deteleSuccessTimeSlot
+    Scenario: deteleSuccessTimeSlot
+        Given Desmarco a flag '10 últimas atualizações' objetivando exclusão de Faixa horária.
+        And Que eu faça a busca pela faixa "888888" cadastrada pela automação objetivando exclusão de Faixa horária.
+        And Clico em 'Buscar' objetivando exclusão de Faixa horária.
+        When Eu clico no ícone de Excluir objetivando exclusão de Faixa horária.
+        And Ao ser exibida a mensagem clicar em "Sim" objetivando exclusão de Feixa horária.
+        Then A seguinte mensagem será exibida: 'Faixa Horária excluída com sucesso'

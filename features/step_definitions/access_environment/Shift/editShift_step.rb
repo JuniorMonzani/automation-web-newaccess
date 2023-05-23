@@ -81,6 +81,7 @@ Given('Que o usuário esteja na página que lista os turnos cadastrados.') do
   end
   
   When('Clicar em Salvar.') do
+    sleep 1
     click_button 'Salvar'
   end
   
@@ -138,14 +139,14 @@ end
   end
   
   #@editingShift
-  Given('Alterar o campo Descrição para {string}.') do |string|
-    find("input[id='MainContentMainMaster_MainContent_txtDescription']").set 'Turno alterado pela automação'
-    sleep 3
+  Given('Alterar o campo Descrição para {string}.') do |descrição|
+    find("input[id='MainContentMainMaster_MainContent_txtDescription']").set descrição
+    sleep 1
   end
   
-  Given('Alterar o campo Hora virada para {string}.') do |string|
-    find("input[id='MainContentMainMaster_MainContent_txtTime']").set '11:59'
-    sleep 3
+  Given('Alterar o campo Hora virada para {string}.') do |horaVirada|
+    find("input[id='MainContentMainMaster_MainContent_txtTime']").set horaVirada
+    sleep 1
   end
   
   Given('Desassociar a faixa {int}.') do |int|
@@ -154,6 +155,7 @@ end
   end
   
   Given('Associar a faixa {string}.') do |string|
+    sleep 3
     find("option[value='999999']").click
     click_button 'MainContentMainMaster_MainContent_lstSlots_btnTransferToRight'
   end

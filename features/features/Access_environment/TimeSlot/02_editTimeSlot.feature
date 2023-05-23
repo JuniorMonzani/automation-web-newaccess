@@ -1,38 +1,73 @@
-# @editTimeSlot
-# Feature: edit Time Slot
-#     Como um usuário do sistema que tenha permissão para Alterar Faixa Horária.
+@editTimeSlot
+Feature: edit Time Slot
+    Como um usuário do sistema que tenha permissão para Alterar Faixa Horária.
 
-#     Background:
-#         Given Que o usuário esteja na página que lista as Faixas Horárias objetivando alteração.
+    Background:
+        Given Que o usuário esteja na página de faixa horária
+        #Os demais Given abaixo, foram comentados pois já está implementado aqui no background
 
-#     @verifyEditTimeSlot
-#     Scenario: verifyEditTimeSlot
-#         Given Que eu faça a busca e encontre a Faixa Horária cadastrada pela automação_01 objetivando alteração.
-#         When Eu clico no ícone de alteração da Faixa Horária_01 objetivando alteração.
-#         Then Devo ver a mensagem: 'Alterar Faixa Horária'.
 
-#     @verifyFieldNumberOfTimeSlotDisabled
-#     Scenario: verifyFieldNumberOfTimeSlotDisabled
-#         Given Que eu faça a busca e encontre a Faixa Horária cadastrada pela automação_02 objetivando alteração.
-#         When Eu clico no ícone de alteração da Faixa Horária_02 objetivando alteração.
-#         Then Devo ver o campo número como: 'disabled'
+    @verifySearchField
+    Scenario: verifySearchField
+        # Given Que o usuário esteja na página de faixa horária
+        When Ao clicar checkbox 'As 10 últimas atualizações'
+        Then O campo busca deve ficar habilitado
 
-#     @verifyNumberTimeSlot
-#     Scenario: verifyNumberTimeSlot
-#         Given Que eu faça a busca e encontre a Faixa Horária cadastrada pela automação_03 objetivando alteração.
-#         When Eu clico no ícone de alteração da Faixa Horária_03 objetivando alteração.
-#         Then O número deve ser exatamente o número cadastrado para a Faixa Horária.
+    @verifySearchAlfanumeric
+    Scenario: verifySearchAlfanumeric
+        # Given Que o usuário esteja na página de faixa horária
+        When Ao clicar checkbox 'As 10 últimas atualizações'
+        And Faço a pesquisa inserindo as letras 'abc'
+        Then Devo retornar para a página de cadastro
 
-#     @verifyHoursTimeSlot
-#     Scenario: verifyHoursTimeSlot
-#         Given Que eu faça a busca e encontre a Faixa Horária cadastrada pela automação_04 objetivando alteração.
-#         When Eu clico no ícone de alteração da Faixa Horária_04 objetivando alteração.
-#         Then A "Hora inicial" e "Hora final" devem ser exatamente as mesmas cadastrado para a Faixa Horária.
+    @verifySearchInvalidNumber
+    Scenario: verifySearchNumeri
+        # Given Que o usuário esteja na página de faixa horária
+        When Ao clicar checkbox 'As 10 últimas atualizações'
+        And Faço a pesquisa por um número não cadastrado: '2'
+        Then Devo ver a mensagem: 'Nenhum resultado foi encontrado'
 
-#     @verifyHoursTimeSlot
-#     Scenario: verifyHoursTimeSlot
-#         Given Que eu faça a busca e encontre a Faixa Horária cadastrada pela automação_05 objetivando alteração.
-#         When Eu clico no ícone de alteração da Faixa Horária_05 objetivando alteração.
-#         And Alterar a "Hora inicial" e "Hora final".
-#         And Clicar no botão Salvar para salvar as alterações na Faixa horária.
-#         Then A Faixa horária deve ser salva com sucesso na edição.
+    @verifySearchNumber
+    Scenario: verifySearchNumber
+        # Given Que o usuário esteja na página de faixa horária
+        When Ao clicar checkbox 'As 10 últimas atualizações'
+        And Faço a pesquisa pelo número '888888'
+        Then Devo ver como resultado da pesquisa o cadastro do número: '888888'
+
+
+    @verifyEditTimeSlot
+    Scenario: verifyEditTimeSlot
+        # Given Que o usuário esteja na página de faixa horária 
+        And faça a busca
+        When Eu clico no ícone de alteração da Faixa Horária.
+        Then Devo ver a mensagem: 'Alterar Faixa Horária'.
+
+    @verifyFieldNumberOfTimeSlotDisabled
+    Scenario: verifyFieldNumberOfTimeSlotDisabled
+        #Given Que o usuário esteja na página de faixa horária 
+        And faça a busca
+        When Eu clico no ícone de alteração da Faixa Horária.
+        Then Devo ver o campo número como: 'disabled'
+
+    @verifyNumberTimeSlot
+    Scenario: verifyNumberTimeSlot
+        #Given Que o usuário esteja na página de faixa horária 
+        And faça a busca
+        When Eu clico no ícone de alteração da Faixa Horária.
+        Then O número deve ser exatamente o número cadastrado para a Faixa Horária: '888888'.
+
+    @verifyHoursTimeSlot
+    Scenario: verifyHoursTimeSlot
+        #Given Que o usuário esteja na página de faixa horária 
+        And faça a busca
+        When Eu clico no ícone de alteração da Faixa Horária.
+        Then A Hora inicial e Hora final devem ser exatamente as mesmas cadastrado para a Faixa Horária: '10:00', '11:00'
+
+    @verifyEditHoursTimeSlot
+    Scenario: verifyEditHoursTimeSlot
+        #Given Que o usuário esteja na página de faixa horária 
+        And faça a busca
+        When Eu clico no ícone de alteração da Faixa Horária.
+        And Alterar a Hora inicial e Hora final com "10:20" e "11:20"
+        And Clicar no botão Salvar para salvar as alterações na Faixa horária.
+        Then A seguinte mensagem será exibida: 'Faixa Horária alterada com sucesso!'.

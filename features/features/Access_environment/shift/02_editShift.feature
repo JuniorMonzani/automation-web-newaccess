@@ -1,111 +1,128 @@
-# @editShift
-# Feature: Edit Shift
-#     Como um usuário do sistema que tenha permissão para Editar Turno.
+@editShift
+Feature: Edit Shift
+    Como um usuário do sistema que tenha permissão para Editar Turno.
 
-#     Background:
-#         Given Que o usuário esteja na página que lista os turnos cadastrados.
+    Background:
+        Given Que o usuário esteja na página que lista os turnos cadastrados.
 
-#     @verifyResourcesPageListShift
-#     Scenario Outline: verifyResourcesPageListShift
-#         Then Comparar os resources apresentados com os esperados na página de listagem de Turnos.
+    @verifyResourcesPageListShift
+    Scenario: verifyResourcesPageListShift
+        Then Comparar os resources apresentados com os esperados na página de listagem de Turnos.
 
-#     @verifyValuesComboBoxSearch
-#     Scenario: verifyValuesComboBoxSearch
-#         Given Que desmarque o checkbox 10 últimas atualizações.
-#         When Obter os valores do combobox de pesquisa da tela de listagem de Turnos.
-#         Then Comparar com os valores esperados.
+    @verifyValuesComboBoxSearch
+    Scenario: verifyValuesComboBoxSearch
+        Given Que desmarque o checkbox 10 últimas atualizações.
+        When Obter os valores do combobox de pesquisa da tela de listagem de Turnos.
+        Then Comparar com os valores esperados: 'Número', 'Descrição' e 'Nº da faixa horária'
 
-#     @searchNoResultsShift
-#     Scenario Outline: searchNoResultsShift
-#         Given Que desmarque o checkbox 10 últimas atualizações.
-#         Given Selecionar o "<valorCombo_input>".
-#         Given Inserir no campo de busca o valor "<valorBusca_input>".
-#         When Clicar em Buscar.
-#         Then Validar a informação apresentada ao usuário: 'Nenhum resultado foi encontrado'.
+    @searchNoResultsShift
+    Scenario Outline: searchNoResultsShift
+        Given Que desmarque o checkbox 10 últimas atualizações.
+        Given Selecionar o "<valorCombo_input>" e "<valorBusca_input>".
+        When Clicar em Buscar.
+        Then Validar a informação apresentada ao usuário: "<mensagem_output>".
 
-#             Examples:
-#             |valorCombo_input   |valorBusca_input|
-#             |Número             |9876            |
-#             |Descrição          |9876            |
-#             |N° da faixa horária|9876            |
+              Examples:
+            |valorCombo_input   |valorBusca_input|mensagem_output                |
+            |Número             |9876            |Nenhum resultado foi encontrado|
+            |Descrição          |9876            |Nenhum resultado foi encontrado|
+            |Nº da faixa horária|9876            |Nenhum resultado foi encontrado|
 
-#     @searchCorrectShift
-#     Scenario Outline: searchCorrectShift
-#         Given Que desmarque o checkbox 10 últimas atualizações.
-#         Given Selecionar o "<valorCombo_input>".
-#         Given Inserir no campo de busca o valor "<valorBusca_input>".
-#         When Clicar em Buscar.
-#         Then Valida se o Turno foi encontrado.
+    @searchCorrectShift
+    Scenario Outline: searchCorrectShift
+        Given Que desmarque o checkbox 10 últimas atualizações.
+        Given Selecionar o "<valorCombo_input>" e "<valorBusca_input>".
+        When Clicar em Buscar.
+        Then Valida se o Turno foi encontrado.
 
-#             Examples:
-#             |valorCombo_input   |valorBusca_input              |
-#             |Número             |123456                        |
-#             |Descrição          |Teste Automação iiiiiiiiiiiiii|
-#             |N° da faixa horária|1                             |  
+            Examples:
+            |valorCombo_input   |valorBusca_input              |
+            |Número             |123456                        |
+            |Descrição          |Teste Automação iiiiiiiiiiiiii|
+            |Nº da faixa horária|1                             |  
 
-#     @disassociateTimeSlotVerifyRequire
-#     Scenario: disassociateTimeSlotVerifyRequire
-#         Given Que desmarque o checkbox 10 últimas atualizações.
-#         Given Procure e encontre o turno cadastrado pela automação.
-#         Given Clicar para editar o turno.
-#         When Desassociar a faixa horária 1.
-#         When Clicar em Salvar.
-#         Then Deve ser apresentada uma mensagem ao usuário: '- Ao menos uma Faixa Horária deve ser selecionada'
+    @disassociateTimeSlotVerifyRequire
+    Scenario: disassociateTimeSlotVerifyRequire
+        Given Que desmarque o checkbox 10 últimas atualizações.
+        Given Procure e encontre o turno cadastrado pela automação.
+        Given Clicar para editar o turno.
+        When Desassociar a faixa horária 1.
+        When Clicar em Salvar.
+        Then Deve ser apresentada uma mensagem ao usuário: '- Ao menos uma Faixa Horária deve ser selecionada'
 
-#     @clearFieldsVerifyRequired
-#     Scenario Outline: clearFieldsVerifyRequired
-#         Given Que desmarque o checkbox 10 últimas atualizações.
-#         Given Procure e encontre o turno cadastrado pela automação.
-#         Given Clicar para editar o turno.
-#         Given Preencher o campo Descrição com valor "<descricao_input>".
-#         Given Preebcher o campo Hora virada com valor "<horavirada_input>".
-#         When Clicar no botão Salvar.
-#         Then Deve existir validação de obrigatoriedade informando o motivo: "<mensagem_output>".
+    @clearFieldsVerifyRequiredDescription
+    Scenario: clearFieldsVerifyRequiredDescription
+        Given Que desmarque o checkbox 10 últimas atualizações.
+        Given Procure e encontre o turno cadastrado pela automação.
+        Given Clicar para editar o turno.
+        Given Preencher os campos Descrição '' e Hora virada '1200'.
+        When Clicar no botão Salvar.
+        Then Deve existir validação de obrigatoriedade do campo descrição: 'Informe a Descrição'
 
-#             Examples:
-#             |descricao_input               |horavirada_input|mensagem_output            |
-#             |                              |1200            |Informe a Descrição        |
-#             |Teste Automação iiiiiiiiiiiiii|                |Informe a Hora virada      |
-#             |Teste Automação iiiiiiiiiiiiii|2400            |A hora digitada é inválida!|
-#             |Teste Automação iiiiiiiiiiiiii|3333            |Informe a Hora virada      |
-#             |Teste Automação iiiiiiiiiiiiii|teste           |Informe a Hora virada      |
+    @clearFieldsVerifyRequiredNull
+    Scenario: clearFieldsVerifyRequiredNull
+        Given Que desmarque o checkbox 10 últimas atualizações.
+        Given Procure e encontre o turno cadastrado pela automação.
+        Given Clicar para editar o turno.
+        Given Preencher os campos Descrição 'Teste Automação iiiiiiiiiiiiii' e Hora virada ''.
+        When Clicar no botão Salvar.
+        Then Deve existir validação de obrigatoriedade do campo hora virada: 'Informe a Hora virada'
 
-#     @verifyValuesShift
-#     Scenario: verifyValuesShift
-#         Given Que desmarque o checkbox 10 últimas atualizações.
-#         Given Procure e encontre o turno cadastrado pela automação.
-#         Given Clicar para editar o turno.
-#         When Obter os valores dos campos Descrição, Hora virada e Faixa horária.
-#         Then Os valores dos campos devem ser "<value_output>"
+    @clearFieldsVerifyRequiredInvalid
+    Scenario: clearFieldsVerifyRequiredInvalid
+        Given Que desmarque o checkbox 10 últimas atualizações.
+        Given Procure e encontre o turno cadastrado pela automação.
+        Given Clicar para editar o turno.
+        Given Preencher os campos Descrição 'Teste Automação iiiiiiiiiiiiii' e Hora virada '2400'.
+        When Clicar no botão Salvar.
+        Then Deve existir validação do valor inserido no campo hora virada: 'A hora digitada é inválida!'
+    
+    @clearFieldsVerifyRequiredWrong
+    Scenario: clearFieldsVerifyRequiredWrong
+        Given Que desmarque o checkbox 10 últimas atualizações.
+        Given Procure e encontre o turno cadastrado pela automação.
+        Given Clicar para editar o turno.
+        Given Devo apagar o campo Hora virada
+        Given Preencher os campos Descrição 'Teste Automação iiiiiiiiiiiiii' e Hora virada '3333'.
+        When Clicar no botão Salvar.
+        Then Deve existir validação do valor do campo hora virada: 'Informe a Hora virada'
 
-#             Examples:
-#             |value_output                  |
-#             |Teste Automação iiiiiiiiiiiiii|
-#             |10:00                         |
-#             |Faixa 1 (08:00 - 17:30)       |
 
-#     @editShift
-#     Scenario: editShift
-#         Given Que desmarque o checkbox 10 últimas atualizações.
-#         Given Procure e encontre o turno cadastrado pela automação.
-#         Given Clicar para editar o turno.
-#         Given Alterar o campo Descrição para 'Turno alterado pela automação'.
-#         Given Alterar o campo Hora virada para '11:59'.
-#         Given Desassociar a faixa horária 1.
-#         Given Associar a faixa horária 999999.
-#         When Clicar no botão Salvar.
-#         Then O turno deve ser salvo com sucesso com as informações atualizadas.
+    @clearFieldsVerifyRequiredString
+    Scenario: clearFieldsVerifyRequiredString
+        Given Que desmarque o checkbox 10 últimas atualizações.
+        Given Procure e encontre o turno cadastrado pela automação.
+        Given Clicar para editar o turno.
+        Given Devo apagar o campo Hora virada
+        Given Preencher os campos Descrição 'Teste Automação iiiiiiiiiiiiii' e Hora virada 'teste'.
+        When Clicar no botão Salvar.
+        Then Deve validar se o campo hora virada não foi preenchido com string: 'Informe a Hora virada' 
 
-#     @verifyValuesShiftAfterEdit
-#     Scenario: verifyValuesShiftAfterEdit
-#         Given Que desmarque o checkbox 10 últimas atualizações.
-#         Given Procure e encontre o turno cadastrado pela automação.
-#         Given Clicar para editar o turno.
-#         When Obter os valores dos campos Descrição, Hora virada e Faixa horária.
-#         Then Os valores dos campos devem ser "<value_output>"
+            
+    @verifyValuesShift
+    Scenario: verifyValuesShift
+        Given Que desmarque o checkbox 10 últimas atualizações.
+        Given Procure e encontre o turno cadastrado pela automação.
+        Given Clicar para editar o turno.
+        When Obter os valores dos campos Descrição, Hora virada e Faixa horária.
+        Then Os valores dos campos devem ser:  'Teste Automação iiiiiiiiiiiiii' e '10:00' e 'Faixa 1 (08:00 - 17:30)'
 
-#             Examples:
-#             |value_output                 |
-#             |Turno alterado pela automação|
-#             |11:59                        |
-#             |Faixa 999999 (10:10 - 10:11) |
+    @editingShift
+    Scenario: editingShift
+        Given Que desmarque o checkbox 10 últimas atualizações.
+        Given Procure e encontre o turno cadastrado pela automação.
+        Given Clicar para editar o turno.
+        Given Alterar o campo Descrição para 'Turno alterado pela automação'.
+        Given Alterar o campo Hora virada para '11:59'.
+        Given Desassociar a faixa 1.
+        Given Associar a faixa '999999'.
+        When Clicar no botão Salvar.
+        Then O turno deve ser salvo com sucesso com as informações atualizadas.
+
+    @verifyValuesShiftAfterEdit
+    Scenario: verifyValuesShiftAfterEdit
+        Given Que desmarque o checkbox 10 últimas atualizações.
+        Given Procure e encontre o turno cadastrado pela automação.
+        Given Clicar para editar o turno.
+        When Obter os valores dos campos Descrição, Hora virada e Faixa horária.
+        Then Os valores dos campos devem ser: 'Turno alterado pela automação' e '11:59' e 'Faixa 999999 (10:20 - 10:22)'

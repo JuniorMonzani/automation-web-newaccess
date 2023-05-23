@@ -22,9 +22,9 @@ Given('Que o usuário esteja na página de faixa horária') do
   end
   
   #@verifySearchAlfanumeric
-  When('Faço a pesquisa inserindo letras') do
+  When('Faço a pesquisa inserindo as letras {string}') do |valor|
     # find("input[type='checkbox']").set false
-    fill_in 'MainContentMainMaster_TableFiltersHolder_txtSearch', with:'abc'
+    find('#MainContentMainMaster_TableFiltersHolder_txtSearch').set valor
     click_button 'Buscar'
   end
   
@@ -33,10 +33,9 @@ Given('Que o usuário esteja na página de faixa horária') do
   end
   
   #@verifySearchInvalidNumber
-  When('Faço a pesquisa por um número não cadastrado') do
-    fill_in 'MainContentMainMaster_TableFiltersHolder_txtSearch', with:'2'
+  When('Faço a pesquisa por um número não cadastrado: {string}') do |numero|
+    find('#MainContentMainMaster_TableFiltersHolder_txtSearch').set numero
     click_button 'Buscar'
-    sleep 3
   end
   
   Then('Devo ver a mensagem: {string}') do |mensagem|
@@ -45,8 +44,8 @@ Given('Que o usuário esteja na página de faixa horária') do
   end
   
   #@verifySearchNumber
-  When('Faço a pesquisa pelo número {string}') do |string|
-    fill_in 'MainContentMainMaster_TableFiltersHolder_txtSearch', with:'999999'
+  When('Faço a pesquisa pelo número {string}') do |valor|
+    find('#MainContentMainMaster_TableFiltersHolder_txtSearch').set valor
     click_button 'ctl00$ctl00$MainContentMainMaster$TableFiltersHolder$btnDoSearch'
     sleep 1
     end
@@ -59,8 +58,8 @@ Given('Que o usuário esteja na página de faixa horária') do
     #@verifyEditTimeSlot
     Given('faça a busca') do
     find("input[type='checkbox']").set false
-    fill_in 'MainContentMainMaster_TableFiltersHolder_txtSearch', with:'999999'
-    click_button 'ctl00$ctl00$MainContentMainMaster$TableFiltersHolder$btnDoSearch'
+    fill_in 'MainContentMainMaster_TableFiltersHolder_txtSearch', with:'888888'
+    click_button 'Buscar'
   end
   
   When('Eu clico no ícone de alteração da Faixa Horária.') do
@@ -95,16 +94,15 @@ Given('Que o usuário esteja na página de faixa horária') do
   end
  
   #@verifyEditHoursTimeSlot
-  When('Alterar a {string} e {string}.') do |string, string2|
-    fill_in 'MainContentMainMaster_MainContent_txtInitialTimeSlot', with: '10:20'
-    fill_in 'MainContentMainMaster_MainContent_txtFinalTimeSlot', with: '10:22'
+  When('Alterar a Hora inicial e Hora final com {string} e {string}') do |horaIni, horaFim|
+    find('#MainContentMainMaster_MainContent_txtInitialTimeSlot').set horaIni
+    find('#MainContentMainMaster_MainContent_txtFinalTimeSlot').set horaFim
   end
   
   When('Clicar no botão Salvar para salvar as alterações na Faixa horária.') do
-    click_button 'ctl00$ctl00$MainContentMainMaster$MainContent$Button1'
+    click_button 'Salvar'
   end
   
-
   Then('A seguinte mensagem será exibida: {string}.') do |string|
     expect(page).to have_content('Faixa Horária alterada com sucesso!')
   end

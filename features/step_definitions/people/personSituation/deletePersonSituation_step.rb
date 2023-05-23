@@ -22,10 +22,8 @@ When('Clicar para excluir a Situação Pessoa alterada pela automação: {string
   
   When('Clicar para excluir a Situação Pessoa: {string}.') do |string|
     sleep 1
-    find('#MainContentMainMaster_PagerControl_BtnNext').click
-    sleep 1
-    find('#MainContentMainMaster_MainContent_gridViewInstance_IMG_BUTTON_DELETE_2').click
-
+    find('#MainContentMainMaster_MainContent_gridViewInstance_IMG_BUTTON_DELETE_7').click
+    #caso apresente falha na automação, verificar se a linha acima está apontando para o botão correto na tela.
   end
   
   Then('A Situação Pessoa não deve ser excluída apresentando na tela a mensagem: {string}') do |mensagem|

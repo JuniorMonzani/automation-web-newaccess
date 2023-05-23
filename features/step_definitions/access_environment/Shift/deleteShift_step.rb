@@ -7,7 +7,13 @@ findElements = FindElements.new
 shiftElements = Shift.new
 
 #@verifyFirstMessageForExclusion
-When('Clicar para excluir o turno.') do
+  Given('Procure e encontre o turno alterado pela automação.') do
+    find(:xpath, '//*[@id="MainContentMainMaster_TableFiltersHolder_ddlTurnSearch"]').select 'Número'
+    find(:xpath, '//*[@id="MainContentMainMaster_TableFiltersHolder_txtTurnSearch"]').set 123456
+    click_button 'Buscar'
+  end
+
+  When('Clicar para excluir o turno.') do
     click_button 'MainContentMainMaster_MainContent_gv_Turn_IMG_BUTTON_DELETE_0'
   end
   
@@ -23,6 +29,7 @@ When('Clicar para excluir o turno.') do
   end
      
   When('Na mensagem apresentada clicar no botão Sim.') do
+    sleep 3
     click_button(value: 'Sim')
   end
   
