@@ -25,3 +25,12 @@ Feature: Copy Holiday
         Given Buscar e encontrar o feriado cadastrado pela automação com o mês 'Dezembro'.
         When Clicar no botão de cópia do feriado cadastrado pela automação.
         Then O feriado deve ter associado o grupo '2 - Laboratorio'.
+
+    @saveCopyHoliday
+    Scenario: saveCopyHoliday
+        Given Que desmarque o checkbox 10 últimas atualizações.
+        Given Buscar e encontrar o feriado cadastrado pela automação com o mês 'Dezembro'.
+        Given Clicar no botão de cópia do feriado cadastrado pela automação.
+        When Preencher os campos Descrição e Data com 'Feriado Copia Auto' e '20/12'
+        And Clicar em 'Salvar'
+        Then Deve ver a mensagem 'Feriado salvo com sucesso!'

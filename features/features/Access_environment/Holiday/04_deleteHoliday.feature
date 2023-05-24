@@ -27,3 +27,11 @@ Feature: Delete Holiday
         Given Clicar para excluir o feriado.
         When Na mensagem de confirmação apresentada clicar no botão Sim.
         Then O feriado deve ser excluído com sucesso apresentando na tela a mensagem: 'Feriado excluído com sucesso'
+    
+    @verifyDeleteCopyHoliday
+    Scenario: verifyDeleteCopyHoliday
+        Given Que desmarque o checkbox 10 últimas atualizações.
+        Given Buscar e encontrar o feriado copiado pela automação com Descrição 'Feriado Copia Auto'.
+        Given Clicar para excluir o feriado.
+        When Na mensagem de confirmação apresentada clicar no botão Sim.
+        Then O feriado deve ser excluído com sucesso apresentando na tela a mensagem: 'Feriado excluído com sucesso'

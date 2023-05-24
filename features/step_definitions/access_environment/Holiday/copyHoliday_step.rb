@@ -1,6 +1,6 @@
 require 'login/login'
 require 'common/findElements'
-require 'holiday/holidayElements'
+require 'access_environment/holiday/holidayElements'
 
 login = Login.new
 findElements = FindElements.new
@@ -30,3 +30,17 @@ Given('Buscar e encontrar o feriado cadastrado pela automação com o mês {stri
   Then('O feriado deve ter associado o grupo {string}.') do |grupo|
     expect(find('#MainContentMainMaster_MainContent_lstEquipmentGroup_lstRight')).to have_content grupo
   end
+
+  #@saveCopyHoliday
+  When('Preencher os campos Descrição e Data com {string} e {string}') do |descricao, data|
+    find('#MainContentMainMaster_MainContent_txtHolidayDescription').set descricao
+    find('#MainContentMainMaster_MainContent_txtHolidayDate').set data
+  end                                                                                      
+                                                                                           
+  When('Clicar em {string}') do |string|                                                   
+    click_button 'Salvar'
+  end                                                                                      
+                                                                                           
+  Then('Deve ver a mensagem {string}') do |mensagem|                                         
+    expect(page).to have_content(mensagem)    
+  end                                                                                      

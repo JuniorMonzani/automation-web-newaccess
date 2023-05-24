@@ -1,6 +1,6 @@
 require 'login/login'
 require 'common/findElements'
-require 'holiday/holidayElements'
+require 'access_environment/holiday/holidayElements'
 
 login = Login.new
 findElements = FindElements.new
@@ -30,4 +30,10 @@ holidayElements = Holiday.new
 
   Then('O feriado deve ser excluído com sucesso apresentando na tela a mensagem: {string}') do |mensagem|
    expect(page).to have_content(mensagem)
+  end
+
+  #@verifyDeleteCopyHoliday
+  Given('Buscar e encontrar o feriado copiado pela automação com Descrição {string}.') do |descricao|
+    find('#MainContentMainMaster_TableFiltersHolder_txtDescriptionSearch').set descricao
+    click_button 'Buscar'
   end

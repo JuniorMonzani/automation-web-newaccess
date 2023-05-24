@@ -1,6 +1,6 @@
 require 'login/login'
 require 'common/findElements'
-require 'holiday/holidayElements'
+require 'access_environment/holiday/holidayElements'
 
 login = Login.new
 findElements = FindElements.new
@@ -96,8 +96,8 @@ holidayElements = Holiday.new
   end
 
   #@verifyLenghtFieldSearchHoliday
-  Given('Buscar e encontrar o feriado alterado pela automação com Descrição {string}.') do |string| 
-    find('input[id$=txtDescriptionSearch]').set 'Teste alteração Automação iiiiiiiiiiiiiiiii'
+  Given('Buscar e encontrar o feriado alterado pela automação com Descrição {string}.') do |descricao| 
+    find('input[id$=txtDescriptionSearch]').set descricao
     click_button 'Buscar'
   end                                                                                               
                                                                                                     

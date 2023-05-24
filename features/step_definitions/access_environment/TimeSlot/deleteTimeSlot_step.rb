@@ -1,5 +1,5 @@
 require 'login/login'
-require 'TimeSlot/timeSlot'
+require 'access_environment/TimeSlot/timeSlot'
 require 'common/findElements'
 
 timeSlot = TimeSlot.new

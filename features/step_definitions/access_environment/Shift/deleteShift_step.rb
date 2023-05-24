@@ -1,6 +1,6 @@
 require 'login/login'
 require 'common/findElements'
-require 'shift/shiftElements'
+require 'access_environment/shift/shiftElements'
 
 login = Login.new
 findElements = FindElements.new
