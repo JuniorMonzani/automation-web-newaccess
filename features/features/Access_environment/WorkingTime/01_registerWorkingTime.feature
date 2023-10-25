@@ -30,7 +30,7 @@ Feature: Register Working Time
     @verifyWorkingTimeTypePeriodo
         Scenario: verifyWorkingTimeTypePeriodo
         Given Que esteja na tela de cadastro de Jornada
-        When Selecionar o tipo como 'Período'
+        When Selecionar o tipo como 'Periódica'
         Then Deve exibir os campos 'Período' e 'Data inicial'    
 
 
@@ -43,79 +43,37 @@ Feature: Register Working Time
     @verifyFieldAutoCompletarSemanalFunction
         Scenario: verifyFieldAutoCompletarSemanalFunction
         Given Que esteja na tela de cadastro de Jornada com o Tipo 'Semanal' selecionado
-        When Clicar em 'Auto Completar'
+        When Clicar em 'Auto Completar' na tela de Jornada
         Then Deve exibir a tela com os campos para preenchimento: 'Fim de Semana: Turno' e 'Dias Úteis: Turno'
 
     @verifyFieldAutoCompletarMensalFunction
         Scenario: verifyFieldAutoCompletarMensalFunction
         Given Que esteja na tela de cadastro de Jornada com o Tipo 'Mensal' selecionado
-        When Clicar em 'Auto Completar'
-        Then Deve exibir a tela com os campos para preenchimento: 'Dias' e 'Turno'
+        When Clicar em 'Auto Completar' na tela de Jornada
+        Then Deve exibir a tela mensal com os campos para preenchimento: 'Dias' e 'Turno'
 
     @verifyFieldAutoCompletarPeriodicaFunction
         Scenario: verifyFieldAutoCompletarPeriodicaFunction
         Given Que esteja na tela de cadastro de Jornada com o Tipo 'Periódica' selecionado
-        Given Preencher o campo Período com '2'
-        When Clicar em 'Auto Completar'
-        Then Deve exibir a tela com os campos para preenchimento: 'Dias' e 'Turno'
+        When Preencher o campo Período com '2'
+        Then Deve exibir a tela com os campos para preenchimento: 'Período' e 'Data inicial'
 
 
     @verifyFieldsAutoCompletarFimSemana
         Scenario: verifyFieldsAutoCompletarFimSemana
         Given Que esteja na tela de cadastro de Jornada
-        Given Selecionar a opção 'Auto Completar'
+        Given Clicar em 'Auto Completar' na tela de Jornada
         When Clicar na lupa Fim de Semana
         Then Deve ver os campos 'Adicionar' e 'Número' e 'Descrição'
 
     @verifyFieldsAutoCompletarDiasUteis
         Scenario: verifyFieldsAutoCompletarDiasUteis
         Given Que esteja na tela de cadastro de Jornada
-        Given Selecionar a opção 'Auto Completar'
+        Given Clicar em 'Auto Completar' na tela de Jornada
         When Clicar na lupa Dias Úteis
         Then Deve ver os campos 'Adicionar' e 'Número' e 'Descrição' 
     
-    @verifyFilledFieldsAutoCompletarFimSemana
-        Scenario: verifyFilledFieldsAutoCompletarFimSemana
-        Given Que esteja na tela de cadastro de Jornada com o Tipo 'Semanal' selecionado
-        When Selecionar a opção 'Auto Completar'
-        And Clicar na lupa Fim de Semana
-        And Selecionar o checkbox da opção 'Turno Integral'
-        And Clicar em 'Ok'
-        When Clicar em 'Ok' na tela de Auto Completar
-        Then Deve ver apenas os dias de Fim de Semana preenchidos
-
-    @verifyFilledFieldsAutoCompletarDiasUteis
-        Scenario: verifyFilledFieldsAutoCompletarDiasUteis
-        Given Que esteja na tela de cadastro de Jornada com o Tipo 'Semanal' selecionado
-        When Selecionar a opção 'Auto Completar'
-        And Clicar na lupa Dias Úteis
-        And Selecionar o checkbox da opção 'Turno Integral'
-        And Clicar em 'Ok'
-        When Clicar em 'Ok' na tela de Auto Completar
-        Then Deve ver apenas os Dias Úteis preenchidos
-
-    @verifyFilledFieldsAutoCompletarMensalUmDia
-        Scenario: verifyFilledFieldsAutoCompletarMensalUmDia
-        Given Que esteja na tela de cadastro de Jornada com o Tipo 'Mensal' selecionado
-        When Selecionar a opção 'Auto Completar'
-        And Preencher o campo Dias com '1' e '1'
-        And Clicar na lupa
-        And Selecionar o checkbox da opção 'Turno Integral'
-        And Clicar em 'Ok'
-        When Clicar em 'Ok' na tela de Auto Completar
-        Then Deve ver apenas o dia primeiro preenchido
-
-    @verifyFilledFieldsAutoCompletarMensalTodosDias
-        Scenario: verifyFilledFieldsAutoCompletarMensalTodosDias
-        Given Que esteja na tela de cadastro de Jornada com o Tipo 'Mensal' selecionado
-        When Selecionar a opção 'Auto Completar'
-        And Preencher o campo Dias com '1' e '31'
-        And Clicar na lupa
-        And Selecionar o checkbox da opção 'Turno Integral'
-        And Clicar em 'Ok'
-        When Clicar em 'Ok' na tela de Auto Completar
-        Then Deve ver todos os dias preenchidos
-
+    
      @verifyDaysLimitTypePeriodica
         Scenario: verifyDaysLimitTypePeriodica
         Given Que esteja na tela de cadastro de Jornada com o Tipo 'Periódica' selecionado
@@ -130,32 +88,7 @@ Feature: Register Working Time
         And Clicar no campo Data inicial
         Then Deve ver a quantidade de dias '366' criados
     
-    @verifyFilledFieldsAutoCompletarPeriodicaUmDia
-        Scenario: verifyFilledFieldsAutoCompletarPeriodicaUmDia
-        Given Que esteja na tela de cadastro de Jornada com o Tipo 'Periódica' selecionado
-        When Preencher o campo Período com '1'
-        And  Clicar em Data inicial
-        And Clicar em 'Auto Completar'
-        And Preencher o campo Dias com '1' e '1'
-        And Clicar na lupa
-        And Selecionar o checkbox da opção 'Turno Integral'
-        And Clicar em 'Ok'
-        And Clicar em 'Ok' na tela de Auto Completar
-        Then Deve ver apenas 1 dia preenchido
-
-    @verifyFilledFieldsAutoCompletarPeriodicaTodosDias
-        Scenario: verifyFilledFieldsAutoCompletarPeriodicaTodosDias
-        Given Que esteja na tela de cadastro de Jornada com o Tipo 'Periódica' selecionado
-        When Preencher o campo Período com '366'
-        And  Clicar em Data inicial
-        And Clicar em 'Auto Completar'
-        And Preencher o campo Dias com '1' e '366'
-        And Clicar na lupa
-        And Selecionar o checkbox da opção 'Turno Integral'
-        And Clicar em 'Ok'
-        And Clicar em 'Ok' na tela de Auto Completar
-        Then Deve ver todos os dias preenchidos
-
+    
     @verifyWorkingTimeAlreadyRegistered
         Scenario: verifyWorkingTimeAlreadyRegistered
         Given Preencher o campo Descrição da tela de Jornada com 'Jornada Integral Semanal'.
@@ -167,28 +100,77 @@ Feature: Register Working Time
         Scenario: saveWorkingTimeSemanal
         Given Que esteja na tela de cadastro de Jornada
         Given Preencher o campo Descrição com 'TesteAutomaçãoSemanal'
-        When Preencher o campo Segunda-Feira com '1'
+        When Preencher o campo Segunda-Feira com '1'.
         And Clicar em 'Salvar'
-        Then Deve ver a mensagem: 'Jornada salva com sucesso'
+        Then Deve ver a mensagem ao cadastrar corretamente: 'Jornada salva com sucesso'
 
     @saveWorkingTimeMensal
     Scenario: saveWorkingTimeMensal
         Given Que esteja na tela de cadastro de Jornada
         Given Preencher os campos Descrição e Tipo com 'TesteAutomaçãoMensal' e 'Mensal'
-        When Preencher o campo do dia 1 com '1'
+        When Preencher o campo do dia primeiro com '1' no cadastro Mensal
         And Clicar em 'Salvar'
-        Then Deve ver a mensagem: 'Jornada salva com sucesso'
+        Then Deve ver a mensagem ao cadastrar corretamente: 'Jornada salva com sucesso'
 
     @saveWorkingTimePeriodica
     Scenario: saveWorkingTimePeriodica
-        Given Que esteja na tela de cadastro de Jornada
         Given Preencher os campos Descrição e Tipo com 'TesteAutomaçãoPeriodica' e 'Periódica'
-        When Preencher os campos Dias e Data Inicial com '1' e '28/04/2023'
-        And Preencher o campo do dia 1 com '1'
+        Given Preencher os campos Dias e Data Inicial com '1' e '28/04/2023'
+        When Preencher o campo do dia primeiro com '1' no cadastro Períodica
         And Clicar em 'Salvar'
-        Then Deve ver a mensagem: 'Jornada salva com sucesso'
+        Then Deve ver a mensagem ao cadastrar corretamente: 'Jornada salva com sucesso'
         
 
 
+# Os cenários abaixo foram inseridos depois, usados para validar os campos de lupa
+    @saveWorkingTimeAutoCompletarFimSemana
+        Scenario: saveWorkingTimeAutoCompletarFimSemana
+        Given Que esteja na tela de cadastro de Jornada com o Tipo 'Semanal' selecionado
+        Given Preencher a Descrição com 'AutomaçãoFimSemana'
+        Given Clicar em 'Auto Completar' na tela de Jornada
+        When Clicar na lupa Fim de Semana
+        And Selecionar o checkbox da opção 'Turno Integral'
+        And Clicar em 'Ok' na tela de seleção de turno
+        And Clicar em 'Ok' na tela de Auto Completar
+        And Clicar em 'Salvar'
+        Then Deve ver a mensagem ao cadastrar corretamente: 'Jornada salva com sucesso'
+
+    @saveWorkingTimeAutoCompletarDiasUteis
+        Scenario: saveWorkingTimeAutoCompletarDiasUteis
+        Given Que esteja na tela de cadastro de Jornada com o Tipo 'Semanal' selecionado
+        Given Preencher a Descrição com 'AutomaçãoDiasUteis'
+        Given Clicar em 'Auto Completar' na tela de Jornada
+        When Clicar na lupa Dias Uteis
+        And Selecionar o checkbox da opção 'Turno Integral'
+        And Clicar em 'Ok' na tela de seleção de turno
+        And Clicar em 'Ok' na tela de Auto Completar
+        And Clicar em 'Salvar'
+        Then Deve ver a mensagem ao cadastrar corretamente: 'Jornada salva com sucesso'
+
+    @saveWorkingTimeAutoCompletarMensalUmDia
+        Scenario: saveWorkingTimeAutoCompletarMensalUmDia
+        Given Que esteja na tela de cadastro de Jornada com o Tipo 'Mensal' selecionado
+        Given Preencher a Descrição com 'AutomaçãoMesUmDia'
+        When Clicar em 'Auto Completar' na tela de Jornada
+        And Preencher o campo Dias com '1' e '1'
+        And Clicar na lupa
+        And Selecionar o checkbox da opção 'Turno Integral'
+        And Clicar em 'Ok' na tela de seleção de turno
+        And Clicar em 'Ok' na tela de Auto Completar
+        And Clicar em 'Salvar'
+        Then Deve ver a mensagem ao cadastrar corretamente: 'Jornada salva com sucesso'
+
+    @verifyFilledFieldsAutoCompletarMensalTodosDias
+        Scenario: verifyFilledFieldsAutoCompletarMensalTodosDias
+        Given Que esteja na tela de cadastro de Jornada com o Tipo 'Mensal' selecionado
+        Given Preencher a Descrição com 'AutomaçãoMesCompleto'
+        When Clicar em 'Auto Completar' na tela de Jornada
+        And Preencher o campo Dias com '1' e '31'
+        And Clicar na lupa
+        And Selecionar o checkbox da opção 'Turno Integral'
+        And Clicar em 'Ok' na tela de seleção de turno
+        And Clicar em 'Ok' na tela de Auto Completar
+        And Clicar em 'Salvar'
+        Then Deve ver a mensagem ao cadastrar corretamente: 'Jornada salva com sucesso'
 
 

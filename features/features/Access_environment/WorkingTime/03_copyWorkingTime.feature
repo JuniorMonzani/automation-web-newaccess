@@ -8,18 +8,18 @@ Feature: Copy Working Time
     @verifyValueDescriptionCopyWorkingTime
     Scenario: verifyValueDescriltionCopyWorkingTime
         Given Que desmarque o checkbox 10 últimas atualizações.
-        Given Buscar e encontrar a jornada cadastrado pela automação com a descrição 'TesteAutomação'
+        Given Buscar e encontrar a jornada cadastrado pela automação com a descrição 'TesteAutomação iiiiiiiiiiiiiii'
         When Clicar no botão de cópia da jornada cadastrado pela automação.
-        Then O cadastro apresentado não deve ter valor no campo Descrição.
+        Then O cadastro da Jornada não deve ter valor no campo Descrição.
 
     @saveCloneWorkingTime
     Scenario: saveCloneWorkingTime
         Given Que desmarque o checkbox 10 últimas atualizações.
-        Given Buscar e encontrar a jornada cadastrado pela automação com a descrição 'TesteAutomação'
+        Given Buscar e encontrar a jornada cadastrado pela automação com a descrição 'TesteAutomação iiiiiiiiiiiiiii'
         When Clicar no botão de cópia da jornada cadastrado pela automação.
         And Preencher o campo Descrição com 'TesteAutomaçãoClone'
         And Clicar no botão 'Salvar'
-        Then Deve ver a mensagem: 'Jornada Cadastrar com sucesso'
+        Then Deve ver a mensagem ao clonar a Jornada: 'Jornada salva com sucesso!'
         
 
     
