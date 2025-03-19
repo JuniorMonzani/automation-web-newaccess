@@ -28,6 +28,7 @@ Given('Que o usuário esteja na página que lista as Jornadas cadastradas.') do
   
   When('Clicar no botão {string}') do |string|
     click_button 'Salvar'
+    sleep 3
   end
 
   Then('Deve ver a mensagem ao clonar a Jornada: {string}') do |mensagem|

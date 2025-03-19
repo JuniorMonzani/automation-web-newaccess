@@ -127,6 +127,7 @@ end
 
 When('Clicar no botão Salvar da tela de Informações') do
   find('#MainContentMainMaster_vehicleEdtControl_VehicleInfoPopup_btnSave').click
+  sleep 2
 end
 
 Then('Deve ver a mensagem no campo logradouro {string}') do |string|

@@ -29,8 +29,8 @@ Feature: Delete Communication Manager
             |descricao_input     | mensagem_output                                                               |
             |Minha Maquina Client| - O Gerenciador de Comunicação está em uso no sistema e não pode ser excluído |
 
-    @deleteCommunicationManager
-    Scenario: deleteCommunicationManager
+    @deleteOneCommunicationManager
+    Scenario: deleteOneCommunicationManager
         Given Que pesquise e encontre o gerenciador de comunicação cadastrado pela automação.
         When Ao clicar no botão de exclusão.
         And Clicar no botão Sim para excluir o gerenciador.

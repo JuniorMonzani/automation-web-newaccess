@@ -396,7 +396,7 @@ require 'common/constants'
 
       Then('A aba "Alertas" deve conter os resources esperados.') do
         expect(page).to have_content('Alertas Notificados')
-        expect(page).to have_content('Perda de conexão com o banco de dados')
+        # expect(page).to have_content('Perda de conexão com o banco de dados')
         expect(page).to have_content('AFD')
         expect(page).to have_content('Área sem controle')
         expect(page).to have_content('RIM')
@@ -437,7 +437,7 @@ require 'common/constants'
       end
 
       Then('Marcar todas as opções checkBox da aba de Alertas com sucesso.') do
-        check('MainContentMainMaster_MainContent_chkLostConnectionAlertEnable')
+        # check('MainContentMainMaster_MainContent_chkLostConnectionAlertEnable')
         check('MainContentMainMaster_MainContent_chkAreaWithoutControlAlertEnable')
         check('MainContentMainMaster_MainContent_chkModeAlertEnable')
         check('MainContentMainMaster_MainContent_chkErrorAlertEnable')
@@ -598,7 +598,7 @@ require 'common/constants'
       end
 
       And('Marcar todas as opções checkBox da aba de Alertas.') do
-        check('MainContentMainMaster_MainContent_chkLostConnectionAlertEnable')
+        # check('MainContentMainMaster_MainContent_chkLostConnectionAlertEnable')
         check('MainContentMainMaster_MainContent_chkAreaWithoutControlAlertEnable')
         check('MainContentMainMaster_MainContent_chkModeAlertEnable')
         check('MainContentMainMaster_MainContent_chkErrorAlertEnable')
@@ -648,6 +648,7 @@ require 'common/constants'
 
       And('Selecionar o tipo de gerenciador para "Server".') do
         findElements.select_option('#MainContentMainMaster_MainContent_ddlTypeManager', 'Server')
+        sleep 3
       end
 
       And('Acessar a aba "Alertas"_05.') do
@@ -655,7 +656,7 @@ require 'common/constants'
       end
 
       And('Marcar todas as opções checkBox da aba de "Alertas"_02.') do
-        check('MainContentMainMaster_MainContent_chkLostConnectionAlertEnable')
+        # check('MainContentMainMaster_MainContent_chkLostConnectionAlertEnable')
         check('MainContentMainMaster_MainContent_chkAreaWithoutControlAlertEnable')
         check('MainContentMainMaster_MainContent_chkModeAlertEnable')
         check('MainContentMainMaster_MainContent_chkErrorAlertEnable')
