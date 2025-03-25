@@ -29,6 +29,7 @@ class FindElements
         return eql
     end
 
+    #busca por path
     def search_Xpath(xpath)
         return find(:xpath, xpath).text
     end
