@@ -19,28 +19,31 @@ Feature: Delete Communication Manager
         Then Pesquisar e encontrar o gerenciador cadastrado pela automaçao confirmando que não foi excluído.
 
     @verifySecondMessageDeleteCommunicationManager
-    Scenario Outline: verifySecondMessageDeleteCommunicationManager
-        Given Que pesquise e encontre o gerenciador de comunicação "<descricao_input>".
+    Scenario: verifySecondMessageDeleteCommunicationManager
+        Given Que pesquise e encontre o gerenciador de comunicação "Minha Maquina Client".
         When Ao clicar no botão de exclusão.
         And Clicar no botão Sim da primeira mensagem apresentada.
-        Then A mensagem apresentada deve ser validada conforme o esperado: "<mensagem_output>"
+        Then A mensagem apresentada deve ser validada conforme o esperado: "- O Gerenciador de Comunicação está em uso no sistema e não pode ser excluído"
 
-            Examples:
-            |descricao_input     | mensagem_output                                                               |
-            |Minha Maquina Client| - O Gerenciador de Comunicação está em uso no sistema e não pode ser excluído |
-
-    @deleteOneCommunicationManager
-    Scenario: deleteOneCommunicationManager
-        Given Que pesquise e encontre o gerenciador de comunicação cadastrado pela automação.
+    @deleteFirstCommunicationManager
+    Scenario: deleteFirstCommunicationManager
+        Given Que pesquise e encontre o gerenciador de comunicação cadastrado pela automação "Automação Client".
         When Ao clicar no botão de exclusão.
         And Clicar no botão Sim para excluir o gerenciador.
-        Then Pesquisar e não encontrar o gerenciador cadastrado pela automaçao confirmando que foi excluído.
+        Then Deve ver a mensagem ao excluir o comunicador "Gerenciador de Comunicação excluído com sucesso"
 
-    @deleteAllCommunicationManager
-    Scenario: deleteAllCommunicationManager
-        Given Que pesquise e encontre os gerenciadores de comunicação cadastrados pela automação.
+    @deleteSecondCommunicationManager
+    Scenario: deleteSecondCommunicationManager
+        Given Que pesquise e encontre o gerenciador de comunicação cadastrado pela automação "Automação Server".
         When Ao clicar no botão de exclusão.
         And Clicar no botão Sim para excluir o gerenciador.
-        Then Pesquisar e encontrar o gerenciador cadastrado pela automaçao confirmando que foi excluído.
+        Then Deve ver a mensagem ao excluir o comunicador "Gerenciador de Comunicação excluído com sucesso"
+
+    @deleteThirdCommunicationManager
+    Scenario: deleteThirdCommunicationManager
+        Given Que pesquise e encontre o gerenciador de comunicação cadastrado pela automação "Automação Exp./Imp.".
+        When Ao clicar no botão de exclusão.
+        And Clicar no botão Sim para excluir o gerenciador.
+        Then Deve ver a mensagem ao excluir o comunicador "Gerenciador de Comunicação excluído com sucesso"
 
     
