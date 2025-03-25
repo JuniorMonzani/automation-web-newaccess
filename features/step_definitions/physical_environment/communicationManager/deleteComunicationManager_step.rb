@@ -50,7 +50,7 @@ When('Clicar no botão Sim da primeira mensagem apresentada.') do
   click_button 'Sim'
 end
 
-Then('A mensagem apresentada deve ser validada conforme o esperado: {string}') do |msg|
+Then('A mensagem apresentada deve ser a seguinte: {string}') do |msg|
   expect(page).to have_content msg
 end
 

@@ -23,7 +23,7 @@ Feature: Delete Communication Manager
         Given Que pesquise e encontre o gerenciador de comunicação "Minha Maquina Client".
         When Ao clicar no botão de exclusão.
         And Clicar no botão Sim da primeira mensagem apresentada.
-        Then A mensagem apresentada deve ser validada conforme o esperado: "- O Gerenciador de Comunicação está em uso no sistema e não pode ser excluído"
+        Then A mensagem apresentada deve ser a seguinte: "- O Gerenciador de Comunicação está em uso no sistema e não pode ser excluído"
 
     @deleteFirstCommunicationManager
     Scenario: deleteFirstCommunicationManager
